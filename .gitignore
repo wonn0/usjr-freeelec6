@@ -1,3 +1,4 @@
 
 .vs/ASI.Basecode/v17/.suo
-appsettings.json
+ASI.Basecode.WebApp/appsettings.json
+*.vsidx
