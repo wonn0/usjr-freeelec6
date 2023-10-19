@@ -15,11 +15,11 @@ namespace ASI.Basecode.Data.Repositories
 
         public IQueryable<Book> GetAllBooks()
         {
-            return this.GetDbSet<Book>();
+            return this.GetDbSet<Book>().Include(b => b.Author); ;
         }
         public Book GetBookById(int id)
         {
-            return this.GetDbSet<Book>().Find(id);
+            return this.GetDbSet<Book>().Include(b => b.Author).FirstOrDefault(b => b.Id == id);
         }
 
         public bool BookExists(int bookId)
