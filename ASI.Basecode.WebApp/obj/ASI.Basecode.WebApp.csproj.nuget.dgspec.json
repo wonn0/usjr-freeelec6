@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj": {}
+    "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj": {}
   },
   "projects": {
-    "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj": {
+    "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj",
+        "projectUniqueName": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj",
         "projectName": "ASI.Basecode.Data",
-        "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj",
-        "packagesPath": "C:\\Users\\rhermano\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\obj\\",
+        "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj",
+        "packagesPath": "C:\\Users\\ronno\\.nuget\\packages\\",
+        "outputPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\System\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rhermano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ronno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,45 +42,47 @@
           "dependencies": {
             "CsvHelper": {
               "target": "Package",
-              "version": "[27.2.1, )"
+              "version": "[30.0.1, )"
             },
             "EFCore.BulkExtensions": {
               "target": "Package",
-              "version": "[6.5.2, )"
+              "version": "[7.1.6, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.4, )"
             },
             "NUlid": {
               "target": "Package",
-              "version": "[1.7.0, )"
+              "version": "[1.7.1, )"
             },
             "System.Drawing.Common": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "ZXing.Net": {
               "target": "Package",
-              "version": "[0.16.8, )"
+              "version": "[0.16.9, )"
             }
           },
           "imports": [
@@ -103,25 +101,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
+    "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj",
+        "projectUniqueName": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj",
         "projectName": "ASI.Basecode.Resources",
-        "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj",
-        "packagesPath": "C:\\Users\\rhermano\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\obj\\",
+        "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj",
+        "packagesPath": "C:\\Users\\ronno\\.nuget\\packages\\",
+        "outputPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\System\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rhermano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ronno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -146,6 +140,18 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -162,25 +168,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj": {
+    "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj",
+        "projectUniqueName": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj",
         "projectName": "ASI.Basecode.Services",
-        "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj",
-        "packagesPath": "C:\\Users\\rhermano\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Services\\obj\\",
+        "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj",
+        "packagesPath": "C:\\Users\\ronno\\.nuget\\packages\\",
+        "outputPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\System\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rhermano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ronno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -194,11 +196,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj": {
-                "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj"
+              "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj": {
+                "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj"
               },
-              "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
-                "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj"
+              "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
+                "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj"
               }
             }
           }
@@ -215,7 +217,7 @@
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[11.0.1, )"
+              "version": "[12.0.1, )"
             },
             "BCrypt.Net-Next": {
               "target": "Package",
@@ -223,27 +225,37 @@
             },
             "EFCore.BulkExtensions": {
               "target": "Package",
-              "version": "[6.5.2, )"
+              "version": "[7.1.6, )"
             },
             "Hangfire.Core": {
               "target": "Package",
-              "version": "[1.7.30, )"
+              "version": "[1.8.6, )"
             },
             "LinqKit": {
               "target": "Package",
-              "version": "[1.2.2, )"
+              "version": "[1.2.4, )"
             },
             "Microsoft.AspNetCore.Localization": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.4, )"
             },
             "Microsoft.Extensions.Http": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -262,25 +274,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj": {
+    "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj",
+        "projectUniqueName": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj",
         "projectName": "ASI.Basecode.WebApp",
-        "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj",
-        "packagesPath": "C:\\Users\\rhermano\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.WebApp\\obj\\",
+        "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj",
+        "packagesPath": "C:\\Users\\ronno\\.nuget\\packages\\",
+        "outputPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.WebApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\System\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rhermano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ronno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -294,11 +302,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
-                "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj"
+              "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
+                "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj"
               },
-              "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj": {
-                "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj"
+              "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj": {
+                "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj"
               }
             }
           }
@@ -315,7 +323,7 @@
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[11.0.1, )"
+              "version": "[12.0.1, )"
             },
             "BCrypt.Net-Next": {
               "target": "Package",
@@ -323,45 +331,51 @@
             },
             "LinqKit": {
               "target": "Package",
-              "version": "[1.2.2, )"
+              "version": "[1.2.4, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.4, )"
             },
             "Microsoft.TypeScript.MSBuild": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[4.7.4, )"
+              "version": "[5.2.2, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[13.0.1, )"
+              "version": "[13.0.3, )"
             },
             "Seq.Extensions.Logging": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.1.0, )"
             },
             "Serilog": {
               "target": "Package",
-              "version": "[2.11.0, )"
+              "version": "[3.0.1, )"
             },
             "Serilog.Extensions.Logging": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[7.0.0, )"
             },
             "Serilog.Sinks.File": {
               "target": "Package",
@@ -369,7 +383,7 @@
             },
             "Serilog.Sinks.Seq": {
               "target": "Package",
-              "version": "[5.1.1, )"
+              "version": "[5.2.3, )"
             }
           },
           "imports": [
@@ -391,7 +405,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

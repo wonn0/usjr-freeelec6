@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj": {}
+    "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj": {}
   },
   "projects": {
-    "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj": {
+    "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj",
+        "projectUniqueName": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj",
         "projectName": "ASI.Basecode.Data",
-        "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj",
-        "packagesPath": "C:\\Users\\rhermano\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Data\\obj\\",
+        "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj",
+        "packagesPath": "C:\\Users\\ronno\\.nuget\\packages\\",
+        "outputPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\System\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rhermano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ronno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,45 +42,47 @@
           "dependencies": {
             "CsvHelper": {
               "target": "Package",
-              "version": "[27.2.1, )"
+              "version": "[30.0.1, )"
             },
             "EFCore.BulkExtensions": {
               "target": "Package",
-              "version": "[6.5.2, )"
+              "version": "[7.1.6, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.6, )"
+              "version": "[7.0.12, )"
             },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.4, )"
             },
             "NUlid": {
               "target": "Package",
-              "version": "[1.7.0, )"
+              "version": "[1.7.1, )"
             },
             "System.Drawing.Common": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "ZXing.Net": {
               "target": "Package",
-              "version": "[0.16.8, )"
+              "version": "[0.16.9, )"
             }
           },
           "imports": [
@@ -103,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

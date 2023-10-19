@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {}
+    "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {}
   },
   "projects": {
-    "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
+    "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj",
+        "projectUniqueName": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj",
         "projectName": "ASI.Basecode.Resources",
-        "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj",
-        "packagesPath": "C:\\Users\\rhermano\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\obj\\",
+        "projectPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj",
+        "packagesPath": "C:\\Users\\ronno\\.nuget\\packages\\",
+        "outputPath": "C:\\USJR\\FREEELEC2\\freeelec2\\usjr-freeelec6\\ASI.Basecode.Resources\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\System\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rhermano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ronno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,6 +39,18 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
