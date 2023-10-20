@@ -20,7 +20,8 @@
                 <td>@book.AuthorName</td>
                 <td>
                     <a href="@Url.Action("Details", "Book", new { id = book.Id })">Details</a> |
-                    <a href="@Url.Action("Edit", "Book", new { id = book.Id })">Edit</a> |
+                    @* <a href="@Url.Action("Edit", "Book", new { id = book.Id })">Edit</a> | *@
+                    <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id">Edit</a> |
                     <a href="@Url.Action("Delete", "Book", new { id = book.Id })">Delete</a>
                 </td>
             </tr>
@@ -28,4 +29,4 @@
     </tbody>
 </table>
 
-<a href="@Url.Action("Create", "Book")">Add New Bossok</a>
+<a href="@Url.Action("Create", "Book")">Add New Book</a>
