@@ -36,6 +36,7 @@ namespace ASI.Basecode.WebApp.Models
         public string ISBN { get; set; }
 
         /// <summary>Language of the Book</summary>
+
         [JsonPropertyName("language")]
         public string Language { get; set; }
 
@@ -54,5 +55,8 @@ namespace ASI.Basecode.WebApp.Models
         /// <summary>Date when the Book was Last Updated in the System</summary>
         [JsonPropertyName("updated")]
         public DateTime Updated { get; set; }
+
+        [JsonPropertyName("Image")]
+        public string Image { get; set; }
     }
 }

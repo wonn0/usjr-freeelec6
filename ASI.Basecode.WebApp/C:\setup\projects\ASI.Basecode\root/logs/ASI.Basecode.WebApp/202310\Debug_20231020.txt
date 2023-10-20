@@ -1,8 +1,3 @@
-2023-10-20 17:00:06.635 +08:00 [INF] Now listening on: https://localhost:51516
-2023-10-20 17:00:06.643 +08:00 [INF] Now listening on: http://localhost:51517
-2023-10-20 17:00:06.646 +08:00 [INF] Application started. Press Ctrl+C to shut down.
-2023-10-20 17:00:06.647 +08:00 [INF] Hosting environment: Development
-2023-10-20 17:00:06.647 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
 2023-10-20 17:00:06.963 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
 2023-10-20 17:00:14.192 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
 2023-10-20 17:00:14.239 +08:00 [DBG] Compiling query expression: 
@@ -133,11 +128,6 @@
 2023-10-20 17:00:25.933 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
 2023-10-20 17:00:25.934 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
 2023-10-20 17:00:25.935 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
-2023-10-20 17:01:22.145 +08:00 [INF] Now listening on: https://localhost:51516
-2023-10-20 17:01:22.158 +08:00 [INF] Now listening on: http://localhost:51517
-2023-10-20 17:01:22.162 +08:00 [INF] Application started. Press Ctrl+C to shut down.
-2023-10-20 17:01:22.164 +08:00 [INF] Hosting environment: Development
-2023-10-20 17:01:22.165 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
 2023-10-20 17:01:22.445 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
 2023-10-20 17:01:27.397 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
 2023-10-20 17:01:27.429 +08:00 [DBG] Compiling query expression: 
