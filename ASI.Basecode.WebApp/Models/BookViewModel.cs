@@ -57,7 +57,8 @@ namespace ASI.Basecode.WebApp.Models
         [JsonPropertyName("updated")]
         public DateTime Updated { get; set; }
 
-        public string Image { get; set; }
         [JsonPropertyName("image")]
+        public string Image { get; set; }
+        
     }
 }
