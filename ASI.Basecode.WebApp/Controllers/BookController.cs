@@ -3,6 +3,7 @@ using AutoMapper;
 using Data.Interfaces;
 using Data.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,13 @@ namespace ASI.Basecode.WebApp.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IBookRepository _bookRepository;
+        private readonly IAuthorRepository _authorRepository;
 
-        public BookController(IMapper mapper, IBookRepository bookRepository)
+        public BookController(IMapper mapper, IBookRepository bookRepository, IAuthorRepository authorRepository)
         {
             _mapper = mapper;
             _bookRepository = bookRepository;
+            _authorRepository = authorRepository;
         }
 
         public IActionResult Index()
@@ -54,6 +57,15 @@ namespace ASI.Basecode.WebApp.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            var authors = _authorRepository.GetAllAuthors()
+                                   .Select(a => new
+                                   {
+                                       Id = a.Id,
+                                       FullName = a.FirstName + " " + a.LastName
+                                   })
+                                   .ToList();
+            ViewBag.AuthorList = new SelectList(authors, "Id", "FullName");
+
             return View();
         }
 
@@ -66,7 +78,7 @@ namespace ASI.Basecode.WebApp.Controllers
                 book.Created = DateTime.Now;
                 book.Updated = DateTime.Now;
                 _bookRepository.AddBook(book);
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             return View(model);
         }
