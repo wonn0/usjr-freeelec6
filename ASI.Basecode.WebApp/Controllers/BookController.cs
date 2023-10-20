@@ -50,7 +50,7 @@ namespace ASI.Basecode.WebApp.Controllers
             return View(viewModel);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Create(BookViewModel model)
         {
             if (ModelState.IsValid)
