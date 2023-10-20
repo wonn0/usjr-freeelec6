@@ -1,4 +1,5 @@
-﻿using System;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -56,7 +57,7 @@ namespace ASI.Basecode.WebApp.Models
         [JsonPropertyName("updated")]
         public DateTime Updated { get; set; }
 
-        [JsonPropertyName("Image")]
         public string Image { get; set; }
+        [JsonPropertyName("image")]
     }
 }
