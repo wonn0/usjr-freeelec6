@@ -1,0 +1,59 @@
+@model ASI.Basecode.WebApp.Models.BookViewModel
+
+<style>
+    /* Add CSS styles here */
+    h1 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .details-container {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+
+    dl.dl-horizontal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    dt {
+        font-weight: bold;
+        width: 120px;
+    }
+
+    dd {
+        margin-left: 0;
+        margin-bottom: 10px;
+        flex-basis: calc(100% - 120px);
+    }
+
+    img.book-image {
+        max-width: 300px;
+        height: auto;
+        margin-top: 10px;
+    }
+</style>
+
+<h1>Book Details</h1>
+
+<div class="details-container">
+    <dl class="dl-horizontal">
+        <dt>ID</dt>
+        <dd>@Model.Id</dd>
+        <dt>Title</dt>
+        <dd>@Model.Name</dd>
+        <dt>Author</dt>
+        <dd>@Model.AuthorName</dd>
+        <dt>Image</dt>
+        <dd><img src="@Model.Image" alt="Book Cover" class="book-image" /></dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-secondary" })
+</p>

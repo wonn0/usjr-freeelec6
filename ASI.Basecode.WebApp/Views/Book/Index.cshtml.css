@@ -1,0 +1,137 @@
+.viewbook-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #E1E2E1;
+}
+
+.viewbook-logo21 {
+    height: auto;
+    margin-right: 20px; 
+}
+
+.viewbook-frame26 {
+    display: flex;
+    align-items: center;
+}
+
+.viewbook-search {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.viewbook-rectangle10 {
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: white;
+    padding-left: 40px;
+}
+
+.viewbook-vector33 {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.viewbook-text71 {
+    font-size: 14px;
+    color: #9E9E9E;
+}
+
+.viewbook-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px;
+    gap: 40px;
+}
+
+.book-item {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.book-cover-image {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.book-details {
+    padding: 20px;
+}
+
+    .book-details h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+.author {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #757575;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .rating img {
+        margin-right: 5px;
+    }
+
+.book-meta span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #757575;
+}
+
+.viewbook-footer {
+    background-color: #F9F9F9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* ... [existing styles] ... */
+
+.book-actions {
+    margin-top: 10px;
+}
+
+.book-actions a {
+    color: #007BFF;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.book-actions a:hover {
+    text-decoration: underline;
+}
+
+.add-book {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.add-book-link {
+    font-size: 20px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.add-book-link:hover {
+    text-decoration: underline;
+}
