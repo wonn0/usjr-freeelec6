@@ -62,7 +62,7 @@ namespace ASI.Basecode.WebApp.Controllers
             return View(model);
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult Edit(int id)
         {
             var book = _bookRepository.GetBookById(id);
