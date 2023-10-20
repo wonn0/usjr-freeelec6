@@ -3,6 +3,7 @@ using AutoMapper;
 using Data.Interfaces;
 using Data.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -50,14 +51,22 @@ namespace ASI.Basecode.WebApp.Controllers
             return View(viewModel);
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Create(BookViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var book = _mapper.Map<Book>(model);
+                book.Created = DateTime.Now;
+                book.Updated = DateTime.Now;
                 _bookRepository.AddBook(book);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
             return View(model);
         }

@@ -32,7 +32,8 @@ namespace ASI.Basecode.WebApp
                 //Auto-Mapper configuration for books (assigns author full name from db to book view model and vice versa)
                 CreateMap<Book, BookViewModel>()
                     .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName));
-                //CreateMap<BookViewModel, Book>();
+                CreateMap<BookViewModel, Book>();
+                //CreateMap<Book, BookViewModel>();
             }
         }
     }

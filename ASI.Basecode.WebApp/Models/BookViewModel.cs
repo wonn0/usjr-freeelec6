@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -54,5 +55,8 @@ namespace ASI.Basecode.WebApp.Models
         /// <summary>Date when the Book was Last Updated in the System</summary>
         [JsonPropertyName("updated")]
         public DateTime Updated { get; set; }
+
+        [JsonPropertyName("image")]
+        public IFormFile CoverImage { get; set; }
     }
 }
