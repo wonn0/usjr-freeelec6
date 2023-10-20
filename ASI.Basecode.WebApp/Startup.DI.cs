@@ -6,6 +6,7 @@ using ASI.Basecode.Services.ServiceModels;
 using ASI.Basecode.Services.Services;
 using ASI.Basecode.WebApp.Authentication;
 using ASI.Basecode.WebApp.Models;
+using Basecode.WebApp.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,8 @@ namespace ASI.Basecode.WebApp
             this._services.TryAddSingleton<TokenProviderOptionsFactory>();
             this._services.TryAddSingleton<TokenValidationParametersFactory>();
             this._services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            this._services.AddScoped<ClaimsProvider, ClaimsProvider>();
 
             // Services
             this._services.TryAddSingleton<TokenValidationParametersFactory>();

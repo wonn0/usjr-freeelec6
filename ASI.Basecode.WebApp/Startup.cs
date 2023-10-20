@@ -7,6 +7,7 @@ using ASI.Basecode.WebApp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -90,6 +91,22 @@ namespace ASI.Basecode.WebApp
                     sqlServerOptions => sqlServerOptions.CommandTimeout(120));
             });
 
+            services.AddDatabaseDeveloperPageExceptionFilter();
+            
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<AsiBasecodeDBContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
+            
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
+           
+
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
 
@@ -141,6 +158,7 @@ namespace ASI.Basecode.WebApp
             this._app.UseTokenProvider(_tokenProviderOptions);
 
             this._app.UseHttpsRedirection();
+            this._app.UseCors("CorsPolicy");
             this._app.UseStaticFiles();
 
             // Localization
@@ -152,6 +170,8 @@ namespace ASI.Basecode.WebApp
 
             this._app.UseAuthentication();
             this._app.UseAuthorization();
+            //this._app.UseMiddleware<TokenProviderMiddleware>();
+            this._app.UseMiddleware<AuthenticationMiddleware>();
         }
     }
 }

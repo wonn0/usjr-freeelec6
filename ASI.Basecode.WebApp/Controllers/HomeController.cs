@@ -1,9 +1,12 @@
-﻿using ASI.Basecode.WebApp.Mvc;
+﻿using ASI.Basecode.Data.Models;
+using ASI.Basecode.WebApp.Mvc;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -28,13 +31,30 @@ namespace ASI.Basecode.WebApp.Controllers
 
         }
 
+        
         /// <summary>
         /// Returns Home View.
         /// </summary>
         /// <returns> Home View </returns>
         public IActionResult Index()
         {
+
+            
             return View();
+        }
+
+        public IActionResult List()
+        {
+
+            Book b = new() {
+                Id = 1,
+                Title = "Book1",
+                Author = "Author1"
+            };
+            List<Book> booklist = new();
+
+            booklist.Add(b);    
+            return View(booklist);
         }
     }
 }

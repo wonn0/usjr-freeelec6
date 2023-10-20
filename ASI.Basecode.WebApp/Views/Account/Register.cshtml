@@ -27,6 +27,12 @@
                                 <span asp-validation-for="UserId" class="text-danger"></span>
                             </div>
                             <div class="form-outline mb-4">
+                                <label class="form-label" for="email">Email</label>
+                                <input type="text" id="email" class="form-control"
+                                       asp-for="Email" placeholder="Enter email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-outline mb-4">
                                 <label class="form-label" for="name">Name</label>
                                 <input type="text" id="name" class="form-control"
                                        asp-for="Name" placeholder="Enter name" />

@@ -4,9 +4,11 @@ using ASI.Basecode.Services.Interfaces;
 using ASI.Basecode.Services.Manager;
 using ASI.Basecode.Services.ServiceModels;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using static ASI.Basecode.Resources.Constants.Enums;
 
 namespace ASI.Basecode.Services.Services
@@ -50,6 +52,21 @@ namespace ASI.Basecode.Services.Services
             {
                 throw new InvalidDataException(Resources.Messages.Errors.UserExists);
             }
+        }
+
+        public Task<IdentityUser> FindUserAsync(string userName, string password)
+        {
+            return _repository.FindUserAsync(userName, password);
+        }
+
+        public IdentityUser FindUser(string userName)
+        {
+            return _repository.FindUser(userName);
+        }
+
+        public async Task<IdentityResult> CreateRole(string roleName)
+        {
+            return await _repository.CreateRole(roleName);
         }
     }
 }

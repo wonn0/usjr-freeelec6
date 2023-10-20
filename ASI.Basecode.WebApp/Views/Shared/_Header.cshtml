@@ -8,13 +8,16 @@
     </div>
     <div class="logosec">
         @HttpContextAccessor.HttpContext.Session.GetString("UserName")
-        <div class="mr-20 hover-pointer" style="position: relative">
+
+        <partial name="_LoginPartial" />
+        @*<div class="mr-20 hover-pointer" style="position: relative">
             <div class="dp">
                 <img src="~/img/profile-logo.png"
                      class="dpicn hover-pointer"
                      alt="dp">
             </div>
             <div class="dropdown">
+
                 <ul>
                     <li>
                         <i class="fa-solid fa-gear"></i>
@@ -26,6 +29,6 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div>*@
     </div>
 </header>
