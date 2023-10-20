@@ -1,0 +1,937 @@
+2023-10-20 17:00:06.635 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:00:06.643 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:00:06.646 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:00:06.647 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:00:06.647 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:00:06.963 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:00:14.192 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:00:14.239 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:00:14.347 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:00:14.370 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:00:14.385 +08:00 [DBG] Created DbConnection. (13ms).
+2023-10-20 17:00:14.400 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:14.555 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:14.613 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.634 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:14.638 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (3ms).
+2023-10-20 17:00:14.648 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:00:14.649 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:14.650 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:00:14.682 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:00:14.686 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:00:14.696 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:00:14.724 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:00:14.726 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:00:14.727 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:00:14.729 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:14.730 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:14.742 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.770 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.773 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.776 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.777 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.778 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.778 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.779 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.780 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.781 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.781 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.782 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.804 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.805 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.806 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.806 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:14.808 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:14.809 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:00:15.219 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:00:15.220 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:15.221 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:00:16.981 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:00:16.983 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)
+    .FirstOrDefault(b => b.Id == __id_0)'
+2023-10-20 17:00:16.984 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:00:16.990 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT TOP(1) b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id
+        WHERE b.Id == @__id_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:00:16.991 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:00:16.992 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:00:16.995 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:16.995 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:17.003 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:17.003 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:17.004 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:17.006 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:17.007 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:00:17.065 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:00:17.066 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:17.067 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:00:25.896 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:00:25.904 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:00:25.906 +08:00 [DBG] Created DbConnection. (1ms).
+2023-10-20 17:00:25.910 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:25.912 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:25.922 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:25.923 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:25.925 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:00:25.928 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:25.929 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (1ms).
+2023-10-20 17:00:25.933 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:00:25.934 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:00:25.935 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:01:22.145 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:01:22.158 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:01:22.162 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:01:22.164 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:01:22.165 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:01:22.445 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:01:27.397 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:01:27.429 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:01:27.533 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:01:27.555 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:01:27.569 +08:00 [DBG] Created DbConnection. (10ms).
+2023-10-20 17:01:27.582 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:27.713 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:27.765 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.787 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:27.792 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (4ms).
+2023-10-20 17:01:27.802 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:01:27.803 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:27.804 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:01:27.841 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:01:27.845 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:01:27.854 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:01:27.880 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:01:27.882 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:01:27.884 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:01:27.911 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:27.912 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:27.925 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.940 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.944 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.947 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.948 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.949 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.950 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.951 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.952 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.953 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.954 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.954 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.955 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.956 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.981 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.982 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:27.984 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:27.985 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:01:28.283 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:01:28.284 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:28.284 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:01:30.410 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:01:30.414 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)
+    .FirstOrDefault(b => b.Id == __id_0)'
+2023-10-20 17:01:30.415 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:01:30.421 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT TOP(1) b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id
+        WHERE b.Id == @__id_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:01:30.423 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:01:30.424 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:01:30.425 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:30.426 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:30.431 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:30.432 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:30.433 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:01:30.435 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:30.435 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:01:30.493 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:01:30.494 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:01:30.494 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:04:57.063 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:04:57.075 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:04:57.080 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:04:57.081 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:04:57.082 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:04:57.366 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:05:08.655 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:05:08.687 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:05:08.789 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:05:08.808 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:05:08.821 +08:00 [DBG] Created DbConnection. (10ms).
+2023-10-20 17:05:08.835 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:08.977 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:09.030 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.053 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:09.071 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (17ms).
+2023-10-20 17:05:09.081 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:05:09.082 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:09.084 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:05:09.117 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:05:09.120 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:05:09.128 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:05:09.153 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:05:09.155 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:05:09.156 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:05:09.158 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:09.160 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:09.171 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.186 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.189 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.192 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.193 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.194 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.195 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.195 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.196 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.197 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.197 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.198 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.199 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.199 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.200 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.201 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:09.203 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:09.204 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:05:09.514 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:05:09.515 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:09.516 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:05:20.187 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:05:20.198 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:05:20.200 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:05:20.201 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:05:20.201 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:05:20.448 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:05:26.628 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:05:26.660 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:05:26.763 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:05:26.783 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:05:26.796 +08:00 [DBG] Created DbConnection. (10ms).
+2023-10-20 17:05:26.810 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:26.948 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:26.999 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.020 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:27.025 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (3ms).
+2023-10-20 17:05:27.035 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:05:27.036 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:27.037 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:05:27.095 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:05:27.099 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:05:27.108 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:05:27.134 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:05:27.137 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:05:27.138 +08:00 [DBG] Created DbConnection. (1ms).
+2023-10-20 17:05:27.141 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:27.142 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:27.155 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.172 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.176 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.180 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.181 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.182 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.183 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.184 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.185 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.186 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.186 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.187 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.188 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.188 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.189 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.190 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:27.192 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:27.193 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:05:27.490 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:05:27.491 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:27.492 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:05:45.574 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:05:45.587 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:05:45.592 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:05:45.592 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:05:45.593 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:05:45.867 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:05:54.328 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:05:54.367 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:05:54.470 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:05:54.489 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:05:54.502 +08:00 [DBG] Created DbConnection. (10ms).
+2023-10-20 17:05:54.516 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:54.651 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:54.699 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.720 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:54.725 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (3ms).
+2023-10-20 17:05:54.734 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:05:54.736 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:54.737 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:05:54.769 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:05:54.773 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:05:54.781 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:05:54.810 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:05:54.813 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:05:54.813 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:05:54.815 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:54.816 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:54.828 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.844 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.848 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.851 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.852 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.878 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.878 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.879 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.880 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.880 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.881 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.882 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.882 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.883 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.884 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.884 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:05:54.886 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:54.887 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:05:55.228 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:05:55.230 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:05:55.230 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:06:00.925 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:06:00.937 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:06:00.941 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:06:00.942 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:06:00.942 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:06:01.225 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:06:06.415 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:06:06.453 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:06:06.553 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:06:06.572 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:06:06.584 +08:00 [DBG] Created DbConnection. (9ms).
+2023-10-20 17:06:06.596 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:06.746 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:06.795 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.816 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:06.820 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (3ms).
+2023-10-20 17:06:06.830 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:06:06.831 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:06.832 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:06:06.864 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:06:06.867 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:06:06.876 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:06:06.903 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:06:06.905 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:06:06.906 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:06:06.908 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:06.909 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:06.919 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.936 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.941 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.945 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.947 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.947 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.948 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.949 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.949 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.950 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.951 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.952 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.952 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.976 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.978 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.978 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:06.980 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:06.981 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:06:07.329 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:06:07.330 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:07.330 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:06:15.450 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:06:15.463 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:06:15.467 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:06:15.468 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:06:15.469 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:06:15.744 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:06:20.719 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:06:20.760 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:06:20.865 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:06:20.884 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:06:20.898 +08:00 [DBG] Created DbConnection. (10ms).
+2023-10-20 17:06:20.916 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:21.045 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:21.096 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.118 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:21.122 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (3ms).
+2023-10-20 17:06:21.132 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:06:21.134 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:21.135 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:06:21.173 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:06:21.177 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:06:21.186 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:06:21.212 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:06:21.214 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:06:21.215 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:06:21.218 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:21.219 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:21.231 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.247 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.251 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.255 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.256 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.256 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.257 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.258 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.259 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.259 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.260 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.261 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.261 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.262 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.263 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.264 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:06:21.266 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:21.266 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:06:21.599 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:06:21.600 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:06:21.601 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:07:08.665 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:07:08.677 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:07:08.680 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:07:08.681 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:07:08.681 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:07:08.944 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:07:13.726 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:07:13.765 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:07:13.869 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:07:13.889 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:07:13.902 +08:00 [DBG] Created DbConnection. (9ms).
+2023-10-20 17:07:13.916 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:07:14.036 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:07:14.086 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.107 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:07:14.113 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (4ms).
+2023-10-20 17:07:14.123 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:07:14.125 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:07:14.126 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:07:14.156 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:07:14.160 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:07:14.169 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:07:14.197 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:07:14.199 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:07:14.200 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:07:14.202 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:07:14.203 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:07:14.215 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.233 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.237 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.240 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.241 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.242 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.242 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.243 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.244 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.244 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.245 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.246 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.247 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.247 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.248 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.248 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:07:14.250 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:07:14.251 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:07:14.600 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:07:14.601 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:07:14.601 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:08:05.456 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:08:05.469 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:08:05.472 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:08:05.473 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:08:05.473 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:08:05.760 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:08:10.378 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:08:10.419 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:08:10.529 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:08:10.549 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:08:10.562 +08:00 [DBG] Created DbConnection. (10ms).
+2023-10-20 17:08:10.576 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:08:10.706 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:08:10.761 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.786 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:08:10.791 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (4ms).
+2023-10-20 17:08:10.802 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:08:10.803 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:08:10.804 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:08:10.840 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:08:10.844 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:08:10.852 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:08:10.881 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:08:10.883 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:08:10.884 +08:00 [DBG] Created DbConnection. (0ms).
+2023-10-20 17:08:10.886 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:08:10.888 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:08:10.900 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.916 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.920 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.923 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.924 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.950 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.950 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.951 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.952 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.952 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.953 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.954 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.955 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.955 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.956 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.957 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:08:10.959 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:08:10.960 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:08:11.332 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:08:11.333 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:08:11.334 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-10-20 17:09:23.838 +08:00 [INF] Now listening on: https://localhost:51516
+2023-10-20 17:09:23.850 +08:00 [INF] Now listening on: http://localhost:51517
+2023-10-20 17:09:23.853 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-20 17:09:23.854 +08:00 [INF] Hosting environment: Development
+2023-10-20 17:09:23.855 +08:00 [INF] Content root path: /Users/garfieldgreglim/Documents/Alliance/usjr-freeelec6/ASI.Basecode.WebApp
+2023-10-20 17:09:24.147 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-20 17:09:31.420 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:09:31.453 +08:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .Where(x => x.UserId == __userId_0 && x.Password == __passwordKey_1)
+    .FirstOrDefault()'
+2023-10-20 17:09:31.557 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<User>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.CreatedBy (string) Required MaxLength(50) Ansi, 1], [Property: User.CreatedTime (DateTime) Required, 2], [Property: User.Name (string) Required MaxLength(50) Ansi, 3], [Property: User.Password (string) Required MaxLength(50) Ansi, 4], [Property: User.UpdatedBy (string) Required MaxLength(50) Ansi, 5], [Property: User.UpdatedTime (DateTime) Required, 6], [Property: User.UserId (string) Required Index MaxLength(50) Ansi, 7] }
+        SELECT TOP(1) u.Id, u.CreatedBy, u.CreatedTime, u.Name, u.Password, u.UpdatedBy, u.UpdatedTime, u.UserId
+        FROM Users AS u
+        WHERE (u.UserId == @__userId_0) && (u.Password == @__passwordKey_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2023-10-20 17:09:31.580 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:09:31.593 +08:00 [DBG] Created DbConnection. (10ms).
+2023-10-20 17:09:31.607 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:09:31.754 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:09:31.807 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.829 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:09:31.834 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (3ms).
+2023-10-20 17:09:31.844 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:09:31.846 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:09:31.847 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-20 17:09:31.884 +08:00 [DBG] Entity Framework Core 7.0.12 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.12' with options: CommandTimeout=120 
+2023-10-20 17:09:31.887 +08:00 [DBG] Compiling query expression: 
+'DbSet<Book>()
+    .Include(b => b.Author)'
+2023-10-20 17:09:31.896 +08:00 [DBG] Including navigation: 'Book.Author'.
+2023-10-20 17:09:31.924 +08:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Book>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.AuthorId (int) Required FK Index, 1], [Property: Book.Created (DateTime) Required, 2], [Property: Book.Description (string), 3], [Property: Book.ISBN (string), 4], [Property: Book.Image (string), 5], [Property: Book.Language (string), 6], [Property: Book.Name (string), 7], [Property: Book.PageCount (int) Required, 8], [Property: Book.PublishedOn (DateTime) Required, 9], [Property: Book.Updated (DateTime) Required, 10] }
+            1 -> Dictionary<IProperty, int> { [Property: Author.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: Author.FirstName (string), 12], [Property: Author.LastName (string), 13] }
+        SELECT b.Id, b.AuthorId, b.Created, b.Description, b.ISBN, b.Image, b.Language, b.Name, b.PageCount, b.PublishedOn, b.Updated, a.Id, a.FirstName, a.LastName
+        FROM Books AS b
+        INNER JOIN Authors AS a ON b.AuthorId == a.Id), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+    ASI.Basecode.Data.AsiBasecodeDBContext, 
+    False, 
+    False, 
+    True
+)'
+2023-10-20 17:09:31.926 +08:00 [DBG] Creating DbConnection.
+2023-10-20 17:09:31.927 +08:00 [DBG] Created DbConnection. (1ms).
+2023-10-20 17:09:31.930 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:09:31.932 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:09:31.945 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.961 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.966 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.970 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.971 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.972 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.973 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.974 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.974 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.975 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.976 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.976 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.977 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.978 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.979 +08:00 [DBG] The navigation 'Book.Author' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.979 +08:00 [DBG] Context 'AsiBasecodeDBContext' started tracking 'Author' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2023-10-20 17:09:31.981 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:09:31.982 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-10-20 17:09:32.121 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-10-20 17:09:32.122 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-10-20 17:09:32.123 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
