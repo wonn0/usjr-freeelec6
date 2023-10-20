@@ -62,6 +62,20 @@ namespace ASI.Basecode.WebApp.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var book = _bookRepository.GetBookById(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            var bookViewModel = _mapper.Map<BookViewModel>(book);
+            return View(bookViewModel);
+        }
+
+
         [HttpPost]
         public IActionResult Edit(BookViewModel model)
         {
