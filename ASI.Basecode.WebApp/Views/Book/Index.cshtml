@@ -23,61 +23,13 @@
                 <td>@book.AuthorName</td>
                 <td>
                     <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-primary">Details</a>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                    <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-primary">Edit</a>
                     <button href="@Url.Action("Delete", "Book", new { id = book.Id })" type="button" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Book</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="update-form">
-                    <input type="hidden" name="bookId" />
-                    <div class="mb-3">
-                        <label class="form-label">Title</label>
-                        <input type="text" class="form-control" id="bookTitle" name="bookTitle">
-                    </div>
-                    <div class="row">
-                        <div class="mb-3 col-sm">
-                            <label class="form-label">Author</label>
-                            <input type="text" class="form-control" id="bookAuthor" name="bookAuthor">
-                        </div>
-                        <div class="mb-3 col-sm">
-                            <label class="form-label">ISBN</label>
-                            <input type="number" class="form-control" id="bookIsbn" name="bookIsbn">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="mb-3 col-sm">
-                            <label class="form-label">Language</label>
-                            <input type="text" class="form-control" id="bookLanguage" name="bookLanguage">
-                        </div>
-                        <div class="mb-3 col-sm">
-                            <label class="form-label">PageCount</label>
-                            <input type="number" class="form-control" id="bookPageCount" name="bookPageCount">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Published Date</label>
-                        <input type="date" class="form-control" id="bookPublishedDate" name="bookPublishedDate">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" value="Update">Update Book</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <a href="@Url.Action("Create", "Book")" class="btn btn-primary">Add New Book</a>
 

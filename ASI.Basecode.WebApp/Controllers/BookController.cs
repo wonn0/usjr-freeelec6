@@ -83,8 +83,8 @@ namespace ASI.Basecode.WebApp.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public IActionResult Edit(int id)
+        [HttpGet]
+        public IActionResult Edit(int id, BookViewModel model)
         {
             var book = _bookRepository.GetBookById(id);
             if (book == null)
@@ -92,7 +92,15 @@ namespace ASI.Basecode.WebApp.Controllers
                 return NotFound();
             }
 
+            var authors = _authorRepository.GetAllAuthors()
+                                   .Select(a => new
+                                   {
+                                       Id = a.Id,
+                                       FullName = a.FirstName + " " + a.LastName
+                                   })
+                                   .ToList();
             var bookViewModel = _mapper.Map<BookViewModel>(book);
+            ViewBag.AuthorList = new SelectList(authors, "Id", "FullName");
             return View(bookViewModel);
         }
 
@@ -102,12 +110,21 @@ namespace ASI.Basecode.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var book = _mapper.Map<Book>(model);
-                _bookRepository.UpdateBook(book);
+                var existingBook = _bookRepository.GetBookById(model.Id);
+
+                if (existingBook == null)
+                {
+                    return NotFound();
+                }
+
+                _mapper.Map(model, existingBook);
+                _bookRepository.UpdateBook(existingBook);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(model);
         }
+
 
         [HttpPost]
         public IActionResult Delete(int id)
