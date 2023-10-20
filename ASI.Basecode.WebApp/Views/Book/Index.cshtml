@@ -1,5 +1,87 @@
 ﻿@model IEnumerable<ASI.Basecode.WebApp.Models.BookViewModel>
 
+<style>
+    /* Add CSS styles here */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 36px;
+        color: #333;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    table.table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    table.table th,
+    table.table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table.table th {
+        background-color: #f5f5f5;
+    }
+
+    table.table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    table.table tbody tr:hover {
+        background-color: #ddd;
+    }
+
+    a.action-link {
+        text-decoration: none;
+        color: #007bff;
+        margin-right: 10px;
+        transition: color 0.3s ease;
+    }
+
+    a.action-link:hover {
+        text-decoration: underline;
+        color: #0056b3;
+    }
+
+    .add-button-container {
+        text-align: center;
+    }
+
+    .add-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+
 <h1>Books</h1>
 
 <table class="table">
@@ -19,13 +101,13 @@
                 <td>@book.Name</td>
                 <td>@book.AuthorName</td>
                 <td>
-                    <a href="@Url.Action("Details", "Book", new { id = book.Id })">Details</a> |
-                    <a href="@Url.Action("Edit", "Book", new { id = book.Id })">Edit</a> |
-                    <a href="@Url.Action("Delete", "Book", new { id = book.Id })">Delete</a>
+                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="action-link">Details</a>
+                    <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="action-link">Edit</a>
+                    <a href="@Url.Action("Delete", "Book", new { id = book.Id })" class="action-link">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<a href="@Url.Action("Create", "Book")">Add New Book</a>
+<a href="@Url.Action("Create", "Book")" class="btn btn-primary add-button">Add New Book</a>

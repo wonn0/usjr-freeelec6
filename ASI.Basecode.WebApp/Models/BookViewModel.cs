@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
@@ -37,6 +37,7 @@ namespace ASI.Basecode.WebApp.Models
         public string ISBN { get; set; }
 
         /// <summary>Language of the Book</summary>
+
         [JsonPropertyName("language")]
         public string Language { get; set; }
 
@@ -56,7 +57,7 @@ namespace ASI.Basecode.WebApp.Models
         [JsonPropertyName("updated")]
         public DateTime Updated { get; set; }
 
+        public string Image { get; set; }
         [JsonPropertyName("image")]
-        public IFormFile CoverImage { get; set; }
     }
 }
