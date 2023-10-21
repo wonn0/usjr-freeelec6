@@ -42,14 +42,24 @@
 
 <div class="details-container">
     <dl class="dl-horizontal">
+        <dt>Image</dt>
+        <dd><img src="@Model.Image" alt="Book Cover" class="book-image" /></dd>
         <dt>ID</dt>
         <dd>@Model.Id</dd>
+        <dt>ISBN</dt>
+        <dd>@Model.ISBN</dd>
         <dt>Title</dt>
         <dd>@Model.Name</dd>
         <dt>Author</dt>
-        <dd>@Model.AuthorName</dd>
-        <dt>Image</dt>
-        <dd><img src="@Model.Image" alt="Book Cover" class="book-image" /></dd>
+        <dd>@Model.AuthorName</dd> 
+        <dt>Description</dt>
+        <dd>@Model.Description</dd>
+        <dt>Language</dt>
+        <dd>@Model.Language</dd>
+        <dt>Published On</dt>
+        <dd>@Model.PublishedOn</dd>
+        <dt>Page Count</dt>
+        <dd>@Model.PageCount</dd>
     </dl>
 </div>
 
