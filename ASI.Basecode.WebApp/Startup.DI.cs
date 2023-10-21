@@ -6,6 +6,7 @@ using ASI.Basecode.Services.ServiceModels;
 using ASI.Basecode.Services.Services;
 using ASI.Basecode.WebApp.Authentication;
 using ASI.Basecode.WebApp.Models;
+using ASI.Basecode.WebApp.Services;
 using Data.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -36,7 +37,8 @@ namespace ASI.Basecode.WebApp
             // Services
             this._services.TryAddSingleton<TokenValidationParametersFactory>();
             this._services.AddScoped<IUserService, UserService>();
-          
+            this._services.AddScoped<IBookService, BookService>();
+            this._services.AddScoped<IAuthorService, AuthorService>();
 
             // Repositories
             this._services.AddScoped<IUserRepository, UserRepository>();

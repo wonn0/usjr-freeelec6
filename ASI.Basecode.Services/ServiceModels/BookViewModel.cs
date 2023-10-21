@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace ASI.Basecode.WebApp.Models
+namespace ASI.Basecode.Services.Models
 {
     /// <summary>
     /// Book View Model
@@ -59,6 +59,6 @@ namespace ASI.Basecode.WebApp.Models
 
         [JsonPropertyName("image")]
         public string Image { get; set; }
-        
+
     }
 }

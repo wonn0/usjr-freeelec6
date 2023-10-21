@@ -1,6 +1,6 @@
 ﻿using ASI.Basecode.Data.Models;
 using ASI.Basecode.Services.ServiceModels;
-using ASI.Basecode.WebApp.Models;
+using ASI.Basecode.Services.Models;
 using AutoMapper;
 using Data.Models;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,7 +33,10 @@ namespace ASI.Basecode.WebApp
                 CreateMap<Book, BookViewModel>()
                     .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName));
                 CreateMap<BookViewModel, Book>();
-                //CreateMap<Book, BookViewModel>();
+
+                //Auto-Mapper configuration for authors
+                CreateMap<Author, AuthorViewModel>();
+                CreateMap<AuthorViewModel, Author>();
             }
         }
     }
