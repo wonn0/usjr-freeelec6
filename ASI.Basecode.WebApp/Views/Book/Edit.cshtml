@@ -50,8 +50,9 @@
     </div>
 
     <div class="form-group">
-        <label for="CoverImage">Cover Image:</label>
-        <input type="file" name="CoverImage" id="CoverImage" class="form-control-file" />
+        <label for="Image">Image URL:</label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Update</button>
