@@ -49,10 +49,9 @@ namespace ASI.Basecode.Services.Services
 
         public void UpdateBook(BookViewModel model)
         {
-            var existingBook = _bookRepository.GetBookById(model.Id);
-
-            if (existingBook != null)
+            if (_bookRepository.BookExists(model.Id))
             {
+                var existingBook = _bookRepository.GetBookById(model.Id);
                 _mapper.Map(model, existingBook);
                 _bookRepository.UpdateBook(existingBook);
             }

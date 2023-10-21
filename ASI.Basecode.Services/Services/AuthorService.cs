@@ -48,10 +48,9 @@ namespace ASI.Basecode.Services.Services
 
         public void UpdateAuthor(AuthorViewModel model)
         {
-            var existingAuthor = _authorRepository.GetAuthorById(model.Id);
-
-            if (existingAuthor != null)
+            if (_authorRepository.AuthorExists(model.Id))
             {
+                var existingAuthor = _authorRepository.GetAuthorById(model.Id);
                 _mapper.Map(model, existingAuthor);
                 _authorRepository.UpdateAuthor(existingAuthor);
             }
