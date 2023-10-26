@@ -13790,6 +13790,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "ASI.Basecode.Data >= 1.0.0",
       "ASI.Basecode.Resources >= 1.0.0",
       "ASI.Basecode.Services >= 1.0.0",
       "AutoMapper >= 11.0.1",
@@ -13813,23 +13814,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rhermano\\.nuget\\packages\\": {},
-    "D:\\System\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Owner\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj",
+      "projectUniqueName": "D:\\_03_Alliance\\usjr\\usjr\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj",
       "projectName": "ASI.Basecode.WebApp",
-      "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj",
-      "packagesPath": "C:\\Users\\rhermano\\.nuget\\packages\\",
-      "outputPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.WebApp\\obj\\",
+      "projectPath": "D:\\_03_Alliance\\usjr\\usjr\\ASI.Basecode.WebApp\\ASI.Basecode.WebApp.csproj",
+      "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
+      "outputPath": "D:\\_03_Alliance\\usjr\\usjr\\ASI.Basecode.WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\System\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\rhermano\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -13844,11 +13845,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
-              "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj"
+            "D:\\_03_Alliance\\usjr\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj": {
+              "projectPath": "D:\\_03_Alliance\\usjr\\usjr\\ASI.Basecode.Data\\ASI.Basecode.Data.csproj"
             },
-            "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj": {
-              "projectPath": "D:\\Work\\Alliance\\usjr\\__\\usjr\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj"
+            "D:\\_03_Alliance\\usjr\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj": {
+              "projectPath": "D:\\_03_Alliance\\usjr\\usjr\\ASI.Basecode.Resources\\ASI.Basecode.Resources.csproj"
+            },
+            "D:\\_03_Alliance\\usjr\\usjr\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj": {
+              "projectPath": "D:\\_03_Alliance\\usjr\\usjr\\ASI.Basecode.Services\\ASI.Basecode.Services.csproj"
             }
           }
         }
@@ -13957,7 +13961,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

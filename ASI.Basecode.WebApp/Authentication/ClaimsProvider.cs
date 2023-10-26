@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 
 
-namespace Basecode.WebApp.Authentication
+namespace ASI.Basecode.WebApp.Authentication
 {
     public class ClaimsProvider
     {
