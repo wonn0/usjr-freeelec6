@@ -6,9 +6,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace ASI.Basecode.WebApp
 {
-    public partial class Startup1
+    public partial class Startup
     {
-        public Startup1(IConfiguration configuration)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -26,7 +26,7 @@ namespace ASI.Basecode.WebApp
             this.ConfigureMVC(services);                // Configuration for MVC                  
 
             // Add services to the container.
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 

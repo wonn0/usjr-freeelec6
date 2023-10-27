@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace ASI.Basecode.WebApp
 {
-    public partial class Startup1
+    public partial class Startup
     {
         private void ConfigureDependencies(IServiceCollection services)
         {

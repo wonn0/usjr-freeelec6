@@ -26,7 +26,7 @@ using static ASI.Basecode.Resources.Constants.Enums;
 namespace ASI.Basecode.WebApp.Controllers
 {
 
-    public class AccountController : ControllerBase<AccountController>
+    public class AccountController : Controller
     {
 
         /// <summary>
@@ -116,9 +116,9 @@ namespace ASI.Basecode.WebApp.Controllers
                             TokenValidationParametersFactory tokenValidationParametersFactory,
                             TokenProviderOptionsFactory tokenProviderOptionsFactory,
                             RoleManager<IdentityRole> roleManager,
-                            UserManager<IdentityUser> userManager) : base(httpContextAccessor, loggerFactory, configuration, mapper)
+                            UserManager<IdentityUser> userManager)
         {
-            this._sessionManager = new SessionManager(this._session);
+            //this._sessionManager = new SessionManager(this._session);
             this._signInManager = signInManager;
             this._tokenProviderOptionsFactory = tokenProviderOptionsFactory;
             this._tokenValidationParametersFactory = tokenValidationParametersFactory;
@@ -231,7 +231,7 @@ namespace ASI.Basecode.WebApp.Controllers
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    //_logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -240,7 +240,7 @@ namespace ASI.Basecode.WebApp.Controllers
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    //_logger.LogWarning("User account locked out.");
                     return RedirectToPage("./Lockout");
                 }
                 else

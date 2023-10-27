@@ -11,7 +11,7 @@ using System;
 
 namespace ASI.Basecode.WebApp
 {
-    public partial class Startup1
+    public partial class Startup
     {
         private void ConfigureAuth(IServiceCollection services)
         {
@@ -42,6 +42,11 @@ namespace ASI.Basecode.WebApp
             services.Configure<KestrelServerOptions>(options =>
             {
                 options.AllowSynchronousIO = true;
+            });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = "/Error/Forbidden";
             });
         }
 

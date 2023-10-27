@@ -18,7 +18,7 @@ namespace ASI.Basecode.WebApp
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .ConfigureAppConfiguration(SetUpConfiguration)
-                .UseStartup<Startup1>();
+                .UseStartup<Startup>();
 
         private static void SetUpConfiguration(WebHostBuilderContext builderCtx, IConfigurationBuilder config)
         {

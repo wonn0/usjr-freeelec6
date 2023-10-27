@@ -2,7 +2,7 @@
 
 namespace ASI.Basecode.WebApp
 {
-    public partial class Startup1
+    public partial class Startup
     {
         private void ConfigureRoutes(IApplicationBuilder app)
         {            
@@ -15,6 +15,10 @@ namespace ASI.Basecode.WebApp
                 endpoints.MapControllerRoute(
                     name: "token",
                     pattern: "api/{token}");
+
+                endpoints.MapControllerRoute(
+                    name: "404",
+                    pattern: "{controller=Error}/{action=Forbidden}");
 
                 endpoints.MapRazorPages();
             });

@@ -8,7 +8,7 @@ using System;
 
 namespace ASI.Basecode.WebApp
 {
-    public partial class Startup1
+    public partial class Startup
     {
         private void ConfigureDatabase(IServiceCollection services)
         {
