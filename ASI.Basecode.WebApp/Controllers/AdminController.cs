@@ -4,7 +4,7 @@ using static ASI.Basecode.Resources.Constants.Constants;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
-    [CustomAuthorize]
+    
     [Authorize( Roles = "User1")]
     
     public class AdminController : Controller
