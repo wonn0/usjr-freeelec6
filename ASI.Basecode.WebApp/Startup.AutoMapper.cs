@@ -37,6 +37,10 @@ namespace ASI.Basecode.WebApp
                 //Auto-Mapper configuration for authors
                 CreateMap<Author, AuthorViewModel>();
                 CreateMap<AuthorViewModel, Author>();
+
+                //Auto-Mapper configuration for genres
+                CreateMap<Genre, Genre>();
+                CreateMap<AuthorViewModel, Author>();
             }
         }
     }

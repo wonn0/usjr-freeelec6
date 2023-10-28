@@ -71,7 +71,7 @@ namespace ASI.Basecode.Data.Migrations
                     b.HasIndex(new[] { "UserId" }, "UQ__Users__1788CC4D5F4A160F")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Data.Models.Author", b =>
@@ -90,7 +90,7 @@ namespace ASI.Basecode.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("Data.Models.Book", b =>
@@ -109,9 +109,6 @@ namespace ASI.Basecode.Data.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GenreId")
-                        .HasColumnType("int");
 
                     b.Property<string>("ISBN")
                         .HasColumnType("nvarchar(max)");
@@ -138,25 +135,7 @@ namespace ASI.Basecode.Data.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("GenreId");
-
-                    b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("Data.Models.Genre", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genre");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("Data.Models.Book", b =>
@@ -167,23 +146,10 @@ namespace ASI.Basecode.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Data.Models.Genre", "Genre")
-                        .WithMany("Books")
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Author");
-
-                    b.Navigation("Genre");
                 });
 
             modelBuilder.Entity("Data.Models.Author", b =>
-                {
-                    b.Navigation("Books");
-                });
-
-            modelBuilder.Entity("Data.Models.Genre", b =>
                 {
                     b.Navigation("Books");
                 });

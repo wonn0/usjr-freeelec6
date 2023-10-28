@@ -32,6 +32,15 @@ namespace ASI.Basecode.Services.Models
         [JsonPropertyName("authorName")]
         public string AuthorName { get; set; }
 
+        /// <summary>Genre ID</summary>
+        [JsonPropertyName("genreId")]
+        [Required(ErrorMessage = "Genre is required.")]
+        public int GenreId { get; set; }
+
+        /// <summary>Genre's Name (For Display)</summary>
+        [JsonPropertyName("genreName")]
+        public string GenreName { get; set; }
+
         /// <summary>ISBN Number</summary>
         [JsonPropertyName("isbn")]
         public string ISBN { get; set; }
