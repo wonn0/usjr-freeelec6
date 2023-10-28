@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using ASI.Basecode.WebApp.Services;
 using ASI.Basecode.Data.Repositories;
 using System.IO;
+using System.Linq;
 
 namespace ASI.Basecode.Services.Services
 {
@@ -21,10 +22,10 @@ namespace ASI.Basecode.Services.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<GenreViewModel> GetAllGenres()
+        public List<GenreViewModel> GetAllGenres()
         {
             var genres = _genreRepository.GetAllGenres();
-            return _mapper.Map<IEnumerable<GenreViewModel>>(genres);
+            return _mapper.Map<IEnumerable<GenreViewModel>>(genres).ToList();
         }
 
         public GenreViewModel GetGenreById(int id)

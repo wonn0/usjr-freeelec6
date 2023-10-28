@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using ASI.Basecode.WebApp.Services;
 using ASI.Basecode.Data.Repositories;
 using System.IO;
+using System.Linq;
 
 namespace ASI.Basecode.Services.Services
 {
@@ -21,10 +22,10 @@ namespace ASI.Basecode.Services.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<AuthorViewModel> GetAllAuthors()
+        public List<AuthorViewModel> GetAllAuthors()
         {
             var authors = _authorRepository.GetAllAuthors();
-            return _mapper.Map<IEnumerable<AuthorViewModel>>(authors);
+            return _mapper.Map<IEnumerable<AuthorViewModel>>(authors).ToList();
         }
 
         public AuthorViewModel GetAuthorById(int id)

@@ -7,7 +7,7 @@ namespace Data.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        //Reference to Book (One Genre can have many Books)
-        public virtual ICollection<Book> Books { get; set; }
+        // Many-to-Many relationship with Book
+        public virtual ICollection<BookGenre> BookGenres { get; set; } = new List<BookGenre>();
     }
 }

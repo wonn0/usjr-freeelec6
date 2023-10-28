@@ -15,11 +15,18 @@ namespace ASI.Basecode.Data.Repositories
 
         public IQueryable<Book> GetAllBooks()
         {
-            return this.GetDbSet<Book>().Include(b => b.Author); ;
+            return this.GetDbSet<Book>().Include(b => b.AuthorBooks)
+                           .ThenInclude(ab => ab.Author)
+                       .Include(b => b.BookGenres)
+                           .ThenInclude(bg => bg.Genre);
         }
         public Book GetBookById(int id)
         {
-            return this.GetDbSet<Book>().Include(b => b.Author).FirstOrDefault(b => b.Id == id);
+            return this.GetDbSet<Book>().Include(b => b.AuthorBooks)
+                           .ThenInclude(ab => ab.Author)
+                       .Include(b => b.BookGenres)
+                           .ThenInclude(bg => bg.Genre)
+                       .FirstOrDefault(b => b.Id == id);
         }
 
         public bool BookExists(int bookId)
@@ -41,7 +48,7 @@ namespace ASI.Basecode.Data.Repositories
 
         public void DeleteBook(int id)
         {
-            var book = this.GetDbSet<Book>().Find(id);
+            var book = this.GetBookById(id);
             if (book != null)
             {
                 this.GetDbSet<Book>().Remove(book);

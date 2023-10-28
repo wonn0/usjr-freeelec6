@@ -8,7 +8,7 @@ namespace Data.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        //Reference to Book (One Author can have many Books)
-        public virtual ICollection<Book> Books { get; set; }
+        // Many-to-Many relationship with Book
+        public virtual ICollection<AuthorBook> AuthorBooks { get; set; } = new List<AuthorBook>();
     }
 }

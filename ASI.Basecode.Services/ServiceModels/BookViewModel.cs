@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -23,23 +24,21 @@ namespace ASI.Basecode.Services.Models
         [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        /// <summary>Author ID</summary>
-        [JsonPropertyName("authorId")]
-        [Required(ErrorMessage = "Author is required.")]
-        public int AuthorId { get; set; }
+        /// <summary>ISBN Number</summary>
+        [JsonPropertyName("authorIds")]
+        public List<int> AuthorIds { get; set; }
 
-        /// <summary>Author's Name (For Display)</summary>
+        /// <summary>ISBN Number</summary>
+        [JsonPropertyName("genreIds")]
+        public List<int> GenreIds { get; set; }
+
+        /// <summary>Author's Names (For Display)</summary>
         [JsonPropertyName("authorName")]
-        public string AuthorName { get; set; }
+        public List<string> AuthorNames { get; set; }
 
-        /// <summary>Genre ID</summary>
-        [JsonPropertyName("genreId")]
-        [Required(ErrorMessage = "Genre is required.")]
-        public int GenreId { get; set; }
-
-        /// <summary>Genre's Name (For Display)</summary>
+        /// <summary>Genre's Names (For Display)</summary>
         [JsonPropertyName("genreName")]
-        public string GenreName { get; set; }
+        public List<string> GenreNames { get; set; }
 
         /// <summary>ISBN Number</summary>
         [JsonPropertyName("isbn")]

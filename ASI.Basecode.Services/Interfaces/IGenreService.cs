@@ -5,7 +5,7 @@ namespace ASI.Basecode.WebApp.Services
 {
     public interface IGenreService
     {
-        IEnumerable<GenreViewModel> GetAllGenres();
+        List<GenreViewModel> GetAllGenres();
         GenreViewModel GetGenreById(int id);
         void AddGenre(GenreViewModel model);
         void UpdateGenre(GenreViewModel model);
