@@ -24,7 +24,10 @@
                     @book.Name
                 </td>
                 <td>
-                    @book.AuthorName
+                    @string.Join(", ", book.AuthorNames)
+                </td>
+                <td>
+                    @string.Join(", ", book.GenreNames)
                 </td>
                 <td>
                     <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-primary">Details</a>

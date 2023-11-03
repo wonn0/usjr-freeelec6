@@ -1,11 +1,9 @@
 ﻿using ASI.Basecode.Services.Models;
+using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Data.Interfaces;
 using Data.Models;
-using System;
 using System.Collections.Generic;
-using ASI.Basecode.WebApp.Services;
-using ASI.Basecode.Data.Repositories;
 using System.IO;
 using System.Linq;
 

@@ -1,13 +1,12 @@
 ﻿using ASI.Basecode.Services.Models;
+using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Data.Interfaces;
 using Data.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using ASI.Basecode.WebApp.Services;
 using System.IO;
-using ASI.Basecode.Data.Migrations;
+using System.Linq;
 
 namespace ASI.Basecode.Services.Services
 {
@@ -46,13 +45,13 @@ namespace ASI.Basecode.Services.Services
                 book.AuthorBooks = model.AuthorIds.Select(authorId => new AuthorBook
                 {
                     AuthorId = authorId,
-                    Book = book  
+                    Book = book
                 }).ToList();
 
                 book.BookGenres = model.GenreIds.Select(genreId => new BookGenre
                 {
                     GenreId = genreId,
-                    Book = book 
+                    Book = book
                 }).ToList();
 
                 _bookRepository.AddBook(book);

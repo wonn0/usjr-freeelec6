@@ -50,8 +50,20 @@
         <dd>@Model.ISBN</dd>
         <dt>Title</dt>
         <dd>@Model.Name</dd>
-        <dt>Author</dt>
-        <dd>@Model.AuthorName</dd> 
+        <dt>Authors</dt>
+        <dd>
+            @foreach (var authorName in Model.AuthorNames)
+            {
+                <div>@authorName</div>
+            }
+        </dd>
+        <dt>Genres</dt>
+        <dd>
+            @foreach (var genreName in Model.GenreNames)
+            {
+                <div>@genreName</div>
+            }
+        </dd>
         <dt>Description</dt>
         <dd>@Model.Description</dd>
         <dt>Language</dt>
