@@ -3,10 +3,10 @@
     "ASI.Basecode.WebApp": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:51516;http://localhost:51517",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:51516;http://localhost:51517"
     }
   }
 }
