@@ -92,6 +92,7 @@ namespace ASI.Basecode.WebApp.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        protected ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
@@ -126,6 +127,7 @@ namespace ASI.Basecode.WebApp.Controllers
             this._userService = userService;
             this._roleManager = roleManager;
             this._userManager = userManager;
+            this._logger = loggerFactory.CreateLogger<AccountController>();
         }
 
 
@@ -190,6 +192,7 @@ namespace ASI.Basecode.WebApp.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Login(string returnUrl = null)
         {
+            _logger.LogInformation("hello from account controller");
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
                 ModelState.AddModelError(string.Empty, ErrorMessage);
