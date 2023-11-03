@@ -25,7 +25,7 @@
 }
 
 body {
-    background-color: var(--background-color4);
+    background-color: white;
     max-width: 100%;
     overflow-x: hidden;
     margin-bottom: -60px;
@@ -370,8 +370,13 @@ header {
 
 /*GROUP 6 CHANGES*/
 
-.btn-outline-success:not(:disabled):not(.disabled):active {
-    background-color: var(--primary-color);
+.search-button:active {
+    border-color: var(--primary-color) !important;
+    background-color: var(--primary-color) !important;
+}
+
+.search-button:hover {
+    background-color: var(--primary-color) !important;
 }
 
 .form-control[b-zsa0up3u66] {
@@ -427,11 +432,7 @@ nav.navbar.bg-body-tertiary {
 }
 
 
-button.btn.btn-primary {
-    background-color: var(--primary-color);
-    border-radius: 50px;
-}
-
+ 
 .form-link {
     text-align: end;
 }
@@ -479,3 +480,22 @@ button.btn.btn-primary {
 .col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 {
     position: relative;
 }
+
+.login-btn {
+    border-radius: 50px;
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+
+    .login-btn:hover {
+        background-color: white !important;
+        color: var(--primary-color) !important;
+        border-color: var(--primary-color) !important;
+    }
+
+    .login-btn:active {
+        background-color: white !important;
+        color: var(--primary-color) !important;
+        border-color: var(--primary-color) !important;
+    }

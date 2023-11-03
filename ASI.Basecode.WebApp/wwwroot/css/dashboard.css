@@ -1,0 +1,109 @@
+﻿body { 
+}
+
+.skooby-dashboard{
+    margin: 100px 0px;
+}
+
+.container-wrapper {
+    display: flex !important;  
+}
+
+.content-wrapper {
+    width:70%; 
+    flex-wrap: wrap;
+}
+
+.book-wrapper {
+    display: flex;
+}
+
+.book-content {
+    text-align: center;
+    width: -webkit-fill-available;
+}
+
+.book-image{
+    border-radius:10px;
+    object-fit:cover;
+}
+
+.book-genre {
+    margin: 30px 30px;
+}
+.book-content {
+    display: flex;
+    position: relative; /* Add this to make positioning of the card relative to this container */
+}
+
+.book-info-card {
+    display: none;
+    width: 300px;
+    z-index:1;
+    background-color: black;
+    color: white;
+    border-radius: 10px; 
+    position: absolute;  
+    top: 0;  
+    right: -290px;  
+    height:194px;
+}
+
+.book-image-preview:hover + .book-info-card {
+    display: block;
+}
+
+.sidebar-content { 
+    height: 25vh;
+    background-color:black;
+    overflow: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10%;
+    color:white;
+} 
+.content {
+    width: 100%;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.sidebar-container {
+    width: 30%;
+    padding: 20px;
+    background-color: #e0e0e0;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .content, .sidebar {
+        flex: auto;
+    }
+}
+
+
+
+
+/*.tooltip {
+}
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;*/
+        /* Position the tooltip */
+        /*position: absolute;
+        z-index: 1;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }*/
