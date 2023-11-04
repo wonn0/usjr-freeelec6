@@ -22,5 +22,8 @@ namespace Data.Models
 
         // Many-to-Many relationship with Genre
         public virtual ICollection<BookGenre> BookGenres { get; set; } = new List<BookGenre>();
+
+        // One-to-Many relationship with BookReview (can have many reviews)
+        public virtual ICollection<BookReview> BookReviews { get; set; } = new List<BookReview>();
     }
 }
