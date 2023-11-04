@@ -1,6 +1,12 @@
 ﻿body { 
 }
 
+:root {
+    --primary-color: #FF7519;
+    --secondary-color: #B64110;
+    --dark-p-color: #331204;
+}
+
 .skooby-dashboard{
     margin: 100px 0px;
 }
@@ -37,30 +43,38 @@
 }
 
 .book-info-card {
-    display: none;
+    display: none; 
     width: 300px;
-    z-index:1;
-    background-color: black;
-    color: white;
-    border-radius: 10px; 
-    position: absolute;  
-    top: 0;  
-    right: -290px;  
-    height:194px;
+    z-index: 1;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    right: -290px;
+    height: 194px;
+    box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
 }
 
 .book-image-preview:hover + .book-info-card {
     display: block;
+ 
 }
 
-.sidebar-content { 
-    height: 25vh;
-    background-color:black;
+.sidebar-content {
+    height: 50vh;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
     overflow: auto;
     position: -webkit-sticky;
     position: sticky;
     top: 10%;
-    color:white;
+    box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
 } 
 .content {
     width: 100%;
@@ -68,12 +82,32 @@
     background-color: #f2f2f2;
 }
 
+.filter-searchbar{
+    padding: 10px 0px;
+}
+
 .sidebar-container {
     width: 30%;
     padding: 20px;
-    background-color: #e0e0e0;
 }
 
+.filter-category-container {
+    padding: 10px 20px 20px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.filter-category-titles{
+    color:var(--primary-color);
+}
+
+.filter-category-titles:hover {
+    color: var(--secondary-color);
+}
+
+.sidebar-title {
+    color: var(--dark-p-color);
+}
 /* Responsive styling */
 @media (max-width: 768px) {
     body {
@@ -86,24 +120,4 @@
 }
 
 
-
-
-/*.tooltip {
-}
-
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;*/
-        /* Position the tooltip */
-        /*position: absolute;
-        z-index: 1;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-    }*/
+ 

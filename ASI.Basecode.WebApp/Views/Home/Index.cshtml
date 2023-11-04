@@ -103,11 +103,36 @@
                     </div>
                 </div>
             </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
         <div class="sidebar-container">
             <div class="sidebar-content">
-                <h2>sidebar</h2>
-                <p>content</p>
+                <h2 class="sidebar-title">Filter</h2>
+                <form class="d-flex filter-searchbar" role="search">
+                    <input class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success search-button" type="submit">Search</button>
+                </form>
+                <div class="filter-category-container">
+                    <p class="filter-category-titles">art</p>
+                    <p class="filter-category-titles">biography</p>
+                    <p class="filter-category-titles">sci-fi</p>
+                    <p class="filter-category-titles">religion</p>
+                    <p class="filter-category-titles">kids</p>
+                    <p class="filter-category-titles">history</p>
+
+                </div>
             </div>
         </div>
     </div>
