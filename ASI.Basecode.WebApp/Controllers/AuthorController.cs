@@ -2,6 +2,7 @@
 using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging; // Add logging namespace
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -9,11 +10,13 @@ namespace ASI.Basecode.WebApp.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IAuthorService _authorService;
+        private readonly ILogger<AuthorController> _logger; // Logging field
 
-        public AuthorController(IMapper mapper, IAuthorService authorService)
+        public AuthorController(IMapper mapper, IAuthorService authorService, ILogger<AuthorController> logger) // Add logger parameter
         {
             _mapper = mapper;
             _authorService = authorService;
+            _logger = logger; // Set the logger
         }
 
         public IActionResult Index()
@@ -27,6 +30,7 @@ namespace ASI.Basecode.WebApp.Controllers
             var viewModel = _authorService.GetAuthorById(id);
             if (viewModel == null)
             {
+                _logger.LogWarning("Author with ID {AuthorId} not found.", id); // Log warning
                 return NotFound();
             }
             return View(viewModel);
@@ -44,8 +48,10 @@ namespace ASI.Basecode.WebApp.Controllers
             if (ModelState.IsValid)
             {
                 _authorService.AddAuthor(model);
+                _logger.LogInformation("Author created: {AuthorName} {LastName}", model.FirstName, model.LastName); // Log information
                 return RedirectToAction(nameof(Index));
             }
+            _logger.LogWarning("Invalid model state for creating author."); // Log warning
             return View(model);
         }
 
@@ -55,6 +61,7 @@ namespace ASI.Basecode.WebApp.Controllers
             var viewModel = _authorService.GetAuthorById(id);
             if (viewModel == null)
             {
+                _logger.LogWarning("Edit attempted for non-existent author with ID {AuthorId}.", id); // Log warning
                 return NotFound();
             }
             return View(viewModel);
@@ -66,8 +73,10 @@ namespace ASI.Basecode.WebApp.Controllers
             if (ModelState.IsValid)
             {
                 _authorService.UpdateAuthor(model);
+                _logger.LogInformation("Author updated: {AuthorId}", model.Id); // Log information
                 return RedirectToAction(nameof(Index));
             }
+            _logger.LogWarning("Invalid model state for editing author with ID {AuthorId}.", model.Id); // Log warning
             return View(model);
         }
 
@@ -75,6 +84,7 @@ namespace ASI.Basecode.WebApp.Controllers
         public IActionResult Delete(int id)
         {
             _authorService.DeleteAuthor(id);
+            _logger.LogInformation("Author deleted: {AuthorId}", id); // Log information
             return RedirectToAction(nameof(Index));
         }
     }
