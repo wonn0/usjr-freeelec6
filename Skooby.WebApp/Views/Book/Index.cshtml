@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ASI.Basecode.Services.Models.BookViewModel>
+
+@* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> *@
+
+<h1>Books</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>
+                    @book.Id
+                </td>
+                <td>
+                    @book.Name
+                </td>
+                <td>
+                    @string.Join(", ", book.AuthorNames)
+                </td>
+                <td>
+                    @string.Join(", ", book.GenreNames)
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-primary">Details</a>
+                    <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-primary">Edit</a>
+                    <button data-url="@Url.Action("Delete", "Book", new { id = book.Id })" type="button" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "Book")" class="btn btn-primary">Add New Book</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@* JQuery Script for deletion (calls delete method in controller as http) *@
+<script>
+    $(document).ready(function () {
+        $(".btn-danger").click(function () {
+            var url = $(this).data("url");
+            if (confirm("Are you sure you want to delete this book?")) {
+                $.post(url, function (data) {
+                    location.reload();
+                }).fail(function () {
+                    alert('Unable to delete.');
+                });
+            }
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

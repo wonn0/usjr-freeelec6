@@ -1,0 +1,69 @@
+﻿@model ASI.Basecode.Services.Models.BookViewModel
+
+<h1>Create New Book</h1>
+
+@using (Html.BeginForm("Edit", "Book", FormMethod.Post))
+{   <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label asp-for="Name">Title:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="AuthorIds">Authors:</label>
+        <select asp-for="AuthorIds" asp-items="ViewBag.AuthorList" class="form-control" multiple="multiple">
+            <option value="">-- Select Authors --</option>
+        </select>
+        <span asp-validation-for="AuthorIds" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="GenreIds">Genres:</label>
+        <select asp-for="GenreIds" asp-items="ViewBag.GenreList" class="form-control" multiple="multiple">
+            <option value="">-- Select Genres --</option>
+        </select>
+        <span asp-validation-for="GenreIds" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Description:</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ISBN">ISBN:</label>
+        <input asp-for="ISBN" class="form-control" />
+        <span asp-validation-for="ISBN" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Language">Language:</label>
+        <input asp-for="Language" class="form-control" />
+        <span asp-validation-for="Language" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PublishedOn">Published On:</label>
+        <input asp-for="PublishedOn" type="date" class="form-control" />
+        <span asp-validation-for="PublishedOn" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PageCount">Page Count:</label>
+        <input asp-for="PageCount" type="number" class="form-control" />
+        <span asp-validation-for="PageCount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Image">Image URL:</label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+}
+
+<a href="@Url.Action("Index", "Book")">Back to List</a>
