@@ -6,6 +6,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -14,12 +15,14 @@ namespace ASI.Basecode.WebApp.Controllers
         private readonly IMapper _mapper;
         private readonly IBookService _bookService;
         private readonly IAuthorService _authorService;
+        private readonly IGenreService _genreService;
 
-        public BookController(IMapper mapper, IBookService bookService, IAuthorService authorService)
+        public BookController(IMapper mapper, IBookService bookService, IAuthorService authorService, IGenreService genreService)
         {
             _mapper = mapper;
             _bookService = bookService;
             _authorService = authorService;
+            _genreService = genreService;
         }
 
         public IActionResult Index()
@@ -49,7 +52,17 @@ namespace ASI.Basecode.WebApp.Controllers
                                        FullName = a.FirstName + " " + a.LastName
                                    })
                                    .ToList();
+            var genres = _genreService.GetAllGenres()
+                                   .Select(g => new
+                                   {
+                                       Id = g.Id,
+                                       Name = g.Name
+                                   })
+                                   .ToList();
+
             ViewBag.AuthorList = new SelectList(authors, "Id", "FullName");
+            ViewBag.GenreList = new SelectList(genres, "Id", "Name");
+
             return View();
         }
 
@@ -76,11 +89,21 @@ namespace ASI.Basecode.WebApp.Controllers
                                        FullName = a.FirstName + " " + a.LastName
                                    })
                                    .ToList();
+            var genres = _genreService.GetAllGenres()
+                                   .Select(g => new
+                                   {
+                                       Id = g.Id,
+                                       Name = g.Name
+                                   })
+                                   .ToList();
+            
             if (viewModel == null)
             {
                 return NotFound();
             }
+
             ViewBag.AuthorList = new SelectList(authors, "Id", "FullName");
+            ViewBag.GenreList = new SelectList(genres, "Id", "Name");
 
             return View(viewModel);
         }
