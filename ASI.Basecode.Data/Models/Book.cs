@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Models
@@ -16,9 +17,10 @@ namespace Data.Models
         public DateTime Created { get; set; } = DateTime.Now;
         public DateTime Updated { get; set; }
 
-        //Foreign key reference to Author
-        [ForeignKey("Author")]
-        public int AuthorId { get; set; }
-        public virtual Author Author { get; set; }
+        // Many-to-Many relationship with Author
+        public virtual ICollection<AuthorBook> AuthorBooks { get; set; } = new List<AuthorBook>();
+
+        // Many-to-Many relationship with Genre
+        public virtual ICollection<BookGenre> BookGenres { get; set; } = new List<BookGenre>();
     }
 }

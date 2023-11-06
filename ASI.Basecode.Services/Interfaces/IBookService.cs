@@ -5,7 +5,7 @@ namespace ASI.Basecode.WebApp.Services
 {
     public interface IBookService
     {
-        IEnumerable<BookViewModel> GetAllBooks();
+        List<BookViewModel> GetAllBooks();
         BookViewModel GetBookById(int id);
         void AddBook(BookViewModel model);
         void UpdateBook(BookViewModel model);

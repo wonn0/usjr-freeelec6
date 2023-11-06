@@ -5,7 +5,7 @@ namespace ASI.Basecode.WebApp.Services
 {
     public interface IAuthorService
     {
-        IEnumerable<AuthorViewModel> GetAllAuthors();
+        List<AuthorViewModel> GetAllAuthors();
         AuthorViewModel GetAuthorById(int id);
         void AddAuthor(AuthorViewModel model);
         void UpdateAuthor(AuthorViewModel model);

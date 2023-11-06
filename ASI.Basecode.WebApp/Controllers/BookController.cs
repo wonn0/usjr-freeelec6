@@ -43,7 +43,6 @@ namespace ASI.Basecode.WebApp.Controllers
         public IActionResult Create()
         {
             var authors = _authorService.GetAllAuthors()
-                                   .ToList()
                                    .Select(a => new
                                    {
                                        Id = a.Id,

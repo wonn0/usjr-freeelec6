@@ -1,12 +1,11 @@
 ﻿using ASI.Basecode.Services.Models;
+using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Data.Interfaces;
 using Data.Models;
-using System;
 using System.Collections.Generic;
-using ASI.Basecode.WebApp.Services;
-using ASI.Basecode.Data.Repositories;
 using System.IO;
+using System.Linq;
 
 namespace ASI.Basecode.Services.Services
 {
@@ -21,10 +20,10 @@ namespace ASI.Basecode.Services.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<AuthorViewModel> GetAllAuthors()
+        public List<AuthorViewModel> GetAllAuthors()
         {
             var authors = _authorRepository.GetAllAuthors();
-            return _mapper.Map<IEnumerable<AuthorViewModel>>(authors);
+            return _mapper.Map<IEnumerable<AuthorViewModel>>(authors).ToList();
         }
 
         public AuthorViewModel GetAuthorById(int id)
@@ -48,10 +47,9 @@ namespace ASI.Basecode.Services.Services
 
         public void UpdateAuthor(AuthorViewModel model)
         {
-            var existingAuthor = _authorRepository.GetAuthorById(model.Id);
-
-            if (existingAuthor != null)
+            if (_authorRepository.AuthorExists(model.Id))
             {
+                var existingAuthor = _authorRepository.GetAuthorById(model.Id);
                 _mapper.Map(model, existingAuthor);
                 _authorRepository.UpdateAuthor(existingAuthor);
             }

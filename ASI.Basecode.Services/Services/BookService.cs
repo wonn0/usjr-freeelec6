@@ -1,11 +1,12 @@
 ﻿using ASI.Basecode.Services.Models;
+using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Data.Interfaces;
 using Data.Models;
 using System;
 using System.Collections.Generic;
-using ASI.Basecode.WebApp.Services;
 using System.IO;
+using System.Linq;
 
 namespace ASI.Basecode.Services.Services
 {
@@ -20,10 +21,10 @@ namespace ASI.Basecode.Services.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<BookViewModel> GetAllBooks()
+        public List<BookViewModel> GetAllBooks()
         {
             var books = _bookRepository.GetAllBooks();
-            return _mapper.Map<IEnumerable<BookViewModel>>(books);
+            return _mapper.Map<IEnumerable<BookViewModel>>(books).ToList();
         }
 
         public BookViewModel GetBookById(int id)
@@ -39,6 +40,20 @@ namespace ASI.Basecode.Services.Services
                 var book = _mapper.Map<Book>(model);
                 book.Created = DateTime.Now;
                 book.Updated = DateTime.Now;
+
+                // Handle adding of many authors and many genres
+                book.AuthorBooks = model.AuthorIds.Select(authorId => new AuthorBook
+                {
+                    AuthorId = authorId,
+                    Book = book
+                }).ToList();
+
+                book.BookGenres = model.GenreIds.Select(genreId => new BookGenre
+                {
+                    GenreId = genreId,
+                    Book = book
+                }).ToList();
+
                 _bookRepository.AddBook(book);
             }
             else
@@ -49,11 +64,23 @@ namespace ASI.Basecode.Services.Services
 
         public void UpdateBook(BookViewModel model)
         {
-            var existingBook = _bookRepository.GetBookById(model.Id);
-
-            if (existingBook != null)
+            if (_bookRepository.BookExists(model.Id))
             {
+                var existingBook = _bookRepository.GetBookById(model.Id);
                 _mapper.Map(model, existingBook);
+                existingBook.AuthorBooks.Clear();
+                existingBook.AuthorBooks = model.AuthorIds.Select(authorId => new AuthorBook
+                {
+                    AuthorId = authorId,
+                    Book = existingBook
+                }).ToList();
+
+                existingBook.BookGenres.Clear();
+                existingBook.BookGenres = model.GenreIds.Select(genreId => new BookGenre
+                {
+                    GenreId = genreId,
+                    Book = existingBook
+                }).ToList();
                 _bookRepository.UpdateBook(existingBook);
             }
         }

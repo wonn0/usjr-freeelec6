@@ -4,6 +4,7 @@ using ASI.Basecode.Services.Models;
 using AutoMapper;
 using Data.Models;
 using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
 
 namespace ASI.Basecode.WebApp
 {
@@ -29,13 +30,17 @@ namespace ASI.Basecode.WebApp
             {
                 CreateMap<UserViewModel, User>();
 
-                //Auto-Mapper configuration for books (assigns author full name from db to book view model and vice versa)
                 CreateMap<Book, BookViewModel>()
-                    .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName));
+                    .ForMember(dest => dest.AuthorNames, opt => opt.MapFrom(src => src.AuthorBooks.Select(ba => ba.Author.FirstName + " " + ba.Author.LastName)))
+                    .ForMember(dest => dest.GenreNames, opt => opt.MapFrom(src => src.BookGenres.Select(bg => bg.Genre.Name)));
                 CreateMap<BookViewModel, Book>();
 
                 //Auto-Mapper configuration for authors
                 CreateMap<Author, AuthorViewModel>();
+                CreateMap<AuthorViewModel, Author>();
+
+                //Auto-Mapper configuration for genres
+                CreateMap<Genre, Genre>();
                 CreateMap<AuthorViewModel, Author>();
             }
         }

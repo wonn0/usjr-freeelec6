@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace ASI.Basecode.Services.Models
 {
     /// <summary>
-    /// Book View Model
+    /// Author View Model
     /// </summary>
     public class AuthorViewModel
     {
