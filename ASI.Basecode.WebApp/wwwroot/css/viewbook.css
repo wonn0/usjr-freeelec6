@@ -1,0 +1,29 @@
+﻿body {
+}
+
+.container-wrapper{
+    margin:100px 0px;
+    display:flex;
+}
+
+.book-container {
+    background-color: dodgerblue;
+    height: 100px;
+    width: 100%;
+}
+
+.image-container {
+    background-color: orangered;
+    height: 100px;
+    width: 100%;
+}
+
+.image-content-wrapper {
+    width: 30%;
+    flex-wrap: wrap;
+}
+
+.book-content-wrapper {
+    width: 70%;
+    flex-wrap: wrap;
+}
