@@ -1,4 +1,5 @@
-﻿using ASI.Basecode.Services.Models;
+#nullable enable // This enables nullable reference types for this file
+using ASI.Basecode.Services.Models;
 using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Microsoft.Extensions.Logging;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -16,26 +18,29 @@ namespace ASI.Basecode.WebApp.Controllers
         private readonly IBookService _bookService;
         private readonly IAuthorService _authorService;
         private readonly IGenreService _genreService;
+        private readonly ILogger<BookController> _logger;
 
-        public BookController(IMapper mapper, IBookService bookService, IAuthorService authorService, IGenreService genreService)
+        public BookController(IMapper mapper, IBookService bookService, IAuthorService authorService, IGenreService genreService, ILogger<BookController> logger)
         {
-            _mapper = mapper;
-            _bookService = bookService;
-            _authorService = authorService;
-            _genreService = genreService;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _bookService = bookService ?? throw new ArgumentNullException(nameof(bookService));
+            _authorService = authorService ?? throw new ArgumentNullException(nameof(authorService));
+            _genreService = genreService ?? throw new ArgumentNullException(nameof(genreService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public IActionResult Index()
         {
-            var bookViewModels = _bookService.GetAllBooks();
+            var bookViewModels = _bookService.GetAllBooks()!;
             return View(bookViewModels);
         }
 
         public IActionResult Details(int id)
         {
             var viewModel = _bookService.GetBookById(id);
-            if (viewModel == null)
+            if (viewModel is null)
             {
+                _logger.LogWarning("Book with ID {BookId} not found.", id);
                 return NotFound();
             }
 
@@ -72,8 +77,10 @@ namespace ASI.Basecode.WebApp.Controllers
             if (ModelState.IsValid)
             {
                 _bookService.AddBook(model);
+                _logger.LogInformation("Book created: {BookTitle}", model.AuthorNames); // Log information
                 return RedirectToAction(nameof(Index));
             }
+            _logger.LogWarning("Invalid model state for creating book."); // Log warning
             return View(model);
         }
 
@@ -81,6 +88,12 @@ namespace ASI.Basecode.WebApp.Controllers
         public IActionResult Edit(int id)
         {
             var viewModel = _bookService.GetBookById(id);
+            if (viewModel is null)
+            {
+                _logger.LogWarning("Edit attempted for non-existent book with ID {BookId}.", id);
+                return NotFound();
+            }
+
             var authors = _authorService.GetAllAuthors()
                                    .ToList()
                                    .Select(a => new
@@ -96,11 +109,6 @@ namespace ASI.Basecode.WebApp.Controllers
                                        Name = g.Name
                                    })
                                    .ToList();
-            
-            if (viewModel == null)
-            {
-                return NotFound();
-            }
 
             ViewBag.AuthorList = new SelectList(authors, "Id", "FullName");
             ViewBag.GenreList = new SelectList(genres, "Id", "Name");
@@ -114,8 +122,10 @@ namespace ASI.Basecode.WebApp.Controllers
             if (ModelState.IsValid)
             {
                 _bookService.UpdateBook(model);
+                _logger.LogInformation("Book updated: {BookId}", model.Id); // Log information
                 return RedirectToAction(nameof(Index));
             }
+            _logger.LogWarning("Invalid model state for editing book with ID {BookId}.", model.Id); // Log warning
             return View(model);
         }
 
@@ -123,6 +133,7 @@ namespace ASI.Basecode.WebApp.Controllers
         public IActionResult Delete(int id)
         {
             _bookService.DeleteBook(id);
+            _logger.LogInformation("Book deleted: {BookId}", id); // Log information
             return RedirectToAction(nameof(Index));
         }
     }

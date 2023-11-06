@@ -87,16 +87,19 @@ namespace ASI.Basecode.WebApp.Controllers
             var loginResult = _userService.AuthenticateUser(model.UserId, model.Password, ref user);
             if (loginResult == LoginResult.Success)
             {
-                // 認証OK
+                // Authentication OK
                 await this._signInManager.SignInAsync(user);
+                _logger.LogInformation("User {Name} logged in.", user.UserId);
                 this._session.SetString("UserName", user.Name);
                 return RedirectToAction("Index", "Book");
             }
             else
             {
-                // 認証NG
+                // Authentication failed
+                // It's good practice to log failed login attempts as well
+                _logger.LogWarning("Failed login attempt for User ID: {UserId}.", model.UserId);
                 TempData["ErrorMessage"] = "Incorrect UserId or Password";
-                return View();
+                return View(model); // Pass back the model to preserve user input (except password)
             }
             return View();
         }
@@ -115,14 +118,17 @@ namespace ASI.Basecode.WebApp.Controllers
             try
             {
                 _userService.AddUser(model);
+                _logger.LogInformation("User {UserId} registered successfully.", model.UserId);
                 return RedirectToAction("Login", "Account");
             }
-            catch(InvalidDataException ex)
+            catch (InvalidDataException ex)
             {
+                _logger.LogError(ex, "Error registering user {UserId}.", model.UserId);
                 TempData["ErrorMessage"] = ex.Message;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                _logger.LogError(ex, "Unexpected error when registering user {UserId}.", model.UserId);
                 TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
             }
             return View();
@@ -140,9 +146,9 @@ namespace ASI.Basecode.WebApp.Controllers
         }
 
         [AllowAnonymous]
-        public  IActionResult ForgotPass()
+        public IActionResult ForgotPass()
         {
-            
+
             return View();
         }
     }

@@ -41,6 +41,10 @@ namespace ASI.Basecode.Services.Services
                 book.Created = DateTime.Now;
                 book.Updated = DateTime.Now;
 
+                // Initialize AuthorBooks and BookGenres with empty collections if they are null
+                if (model.AuthorIds == null) model.AuthorIds = new List<int>();
+                if (model.GenreIds == null) model.GenreIds = new List<int>();
+
                 // Handle adding of many authors and many genres
                 book.AuthorBooks = model.AuthorIds.Select(authorId => new AuthorBook
                 {
@@ -61,6 +65,7 @@ namespace ASI.Basecode.Services.Services
                 throw new InvalidDataException(Resources.Messages.Errors.UserExists);
             }
         }
+
 
         public void UpdateBook(BookViewModel model)
         {

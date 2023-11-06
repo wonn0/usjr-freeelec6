@@ -23,9 +23,10 @@ namespace ASI.Basecode.WebApp.Controllers
         public HomeController(IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
-                              IMapper mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
+                              IMapper mapper = null)
+            : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
-
+            // Assuming _logger is initialized in the base class.
         }
 
         /// <summary>
@@ -34,8 +35,12 @@ namespace ASI.Basecode.WebApp.Controllers
         /// <returns> Home View </returns>
         public IActionResult Index()
         {
+            // Use _logger to log the information
+            _logger.LogInformation("Home page visited at {Time}", System.DateTime.Now);
+
             return View();
         }
-         
+
+        // ... other actions
     }
 }
