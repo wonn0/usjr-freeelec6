@@ -5,6 +5,7 @@
     --primary-color: #FF7519;
     --secondary-color: #B64110;
     --dark-p-color: #331204;
+    --star-color: #FFA928;
 }
 
 .skooby-dashboard{
@@ -107,6 +108,55 @@
 
 .sidebar-title {
     color: var(--dark-p-color);
+}
+ 
+.book-info-card {
+    padding: 10px;
+    text-align: initial;
+}
+
+.book-title {
+    width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);
+}
+
+.author-name {
+    width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);
+}
+
+.book-description {
+     
+    height: 75px;
+    -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+    font-size: small;
+ 
+}
+
+.book-rating-value{
+    margin-bottom:0px;
+    align-content:center;
+}
+
+.book-reviews, .book-rating-value {
+    font-size: x-small;
+}
+
+.book-rating-value{
+    padding-left:10px;
+}
+
+.book-text {
+    margin-bottom: 5px !important;
+}
+
+.book-rating {
+    align-items: center;
+    display: flex;
+}
+.star-rating {
+    margin-bottom:10px;
+    color: var(--star-color);
 }
 /* Responsive styling */
 @media (max-width: 768px) {
