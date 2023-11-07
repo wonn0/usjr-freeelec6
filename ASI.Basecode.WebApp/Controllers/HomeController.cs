@@ -40,6 +40,13 @@ namespace ASI.Basecode.WebApp.Controllers
 
             return View();
         }
+        public IActionResult ViewBook()
+        {
+            // Use _logger to log the information
+            _logger.LogInformation("Home page visited at {Time}", System.DateTime.Now);
+
+            return View();
+        }
 
         // ... other actions
     }
