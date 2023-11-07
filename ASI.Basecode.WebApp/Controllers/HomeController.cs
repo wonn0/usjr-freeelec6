@@ -43,7 +43,7 @@ namespace ASI.Basecode.WebApp.Controllers
         public IActionResult ViewBook()
         {
             // Use _logger to log the information
-            _logger.LogInformation("Home page visited at {Time}", System.DateTime.Now);
+            _logger.LogInformation("ViewBook page visited at {Time}", System.DateTime.Now);
 
             return View();
         }
