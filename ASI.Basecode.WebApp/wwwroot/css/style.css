@@ -481,14 +481,14 @@ nav.navbar.bg-body-tertiary {
     position: relative;
 }
 
-.login-btn {
+.login-btn  {
     border-radius: 50px;
     background-color: var(--primary-color) !important;
     color: white !important;
     border-color: var(--primary-color) !important;
 }
 
-    .login-btn:hover {
+    .login-btn:hover  {
         background-color: white !important;
         color: var(--primary-color) !important;
         border-color: var(--primary-color) !important;
@@ -499,3 +499,4 @@ nav.navbar.bg-body-tertiary {
         color: var(--primary-color) !important;
         border-color: var(--primary-color) !important;
     }
+
