@@ -23,13 +23,24 @@
                 <button type="submit" class="image-content-spacing btn btn-primary download-btn" id="download-btn"><i class="fa-solid fa-download"></i> Download Sample</button>
                 <button type="submit" class="image-content-spacing btn btn-primary wishlist-btn" id="wishlist-btn"><i class="fa-solid fa-plus"></i> Add to Wishlist</button>
                 <div class="book-rating image-content-spacing">
-                    <div class="stars">
-                        <i class="fa-solid fa-star star-rating-image" id="star-rating-image"></i>
-                        <i class="fa-solid fa-star star-rating-image" id="star-rating-image"></i>
-                        <i class="fa-solid fa-star star-rating-image" id="star-rating-image"></i>
-                        <i class="fa-regular fa-star-half-stroke star-rating-image" id="star-rating-image"></i>
-                        <i class="fa-regular fa-star star-rating-image" id="star-rating-image"></i>
+                    <div class="stars book-rate-spacing">
+                        <button class="star-btn" onmouseover="hoverStars(1)" onmouseout="resetStars()" onclick="setRating(1)">
+                            <i class="fa-regular fa-star star-rating-image" id="star1"></i>
+                        </button>
+                        <button class="star-btn" onmouseover="hoverStars(2)" onmouseout="resetStars()" onclick="setRating(2)">
+                            <i class="fa-regular fa-star star-rating-image" id="star2"></i>
+                        </button>
+                        <button class="star-btn" onmouseover="hoverStars(3)" onmouseout="resetStars()" onclick="setRating(3)">
+                            <i class="fa-regular fa-star star-rating-image" id="star3"></i>
+                        </button>
+                        <button class="star-btn" onmouseover="hoverStars(4)" onmouseout="resetStars()" onclick="setRating(4)">
+                            <i class="fa-regular fa-star star-rating-image" id="star4"></i>
+                        </button>
+                        <button class="star-btn" onmouseover="hoverStars(5)" onmouseout="resetStars()" onclick="setRating(5)">
+                            <i class="fa-regular fa-star star-rating-image" id="star5"></i>
+                        </button>
                     </div>
+
                     <p class="book-rating-text">Rate this book</p>
                 </div>
             </div>
@@ -41,14 +52,14 @@
                         <h1 id="book-title">The Dress and the Girl</h1>
                         <p class="author-name" id="author-name">by Camille Andros</p>
                         <div class="rate-review-wrapper">
-                            <div class="stars rr-spacing">
-                                <i class="fa-solid fa-star star-rating-image star-rating-main" id="star-rating-main"></i>
-                                <i class="fa-solid fa-star star-rating-image star-rating-main" id="star-rating-main"></i>
-                                <i class="fa-solid fa-star star-rating-image star-rating-main" id="star-rating-main"></i>
-                                <i class="fa-regular fa-star-half-stroke star-rating-image star-rating-main" id="star-rating-main"></i>
-                                <i class="fa-regular fa-star star-rating-image star-rating-main" id="star-rating-main"></i>
+                            <div class="stars info-spacing info-rating-main">
+                                <i class="fa-regular fa-star star-rating-main" id="star-1"></i>
+                                <i class="fa-regular fa-star star-rating-main" id="star-2"></i>
+                                <i class="fa-regular fa-star star-rating-main" id="star-3"></i>
+                                <i class="fa-regular fa-star star-rating-main" id="star-4"></i>
+                                <i class="fa-regular fa-star star-rating-main" id="star-5"></i> 
                             </div>
-                            <h4 class="rate-value rr-spacing">4.7</h4>
+                            <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">4.7</h4>
                             <div class="reviews-wrapper">
                                 <p class="reviews-value rr-spacing">341</p>
                                 <p>reviews</p>
@@ -83,6 +94,56 @@
                         </div>
                     </div>
                 </div>
+
+
+                <h1 class="test">AUTHORS OTHER WORKS SECTION</h1>
+
+                <div class="book-rating-container">
+                    <div class="book-rating-wrapper">
+                        <h3>Book Ratings</h3>
+                        <div class="rate-review-wrapper element-book-rate">
+                            <div class="stars rating-spacing element-book-rate">
+                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-1"></i>
+                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-2"></i>
+                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-3"></i>
+                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-4"></i>
+                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-5"></i>
+                            </div>
+                            <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">4.7</h6>
+                            <p class="element-book-rate">
+                                out of 5</p>
+                            <div class="reviews-wrapper element-book-rate"> 
+                                <p class="ebr-styling rr-spacing element-book-rate">•</p>
+                                <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value" id="review-value">341</p>
+                                <p class=" ebr-styling element-book-rate">reviews</p> 
+                            </div>
+
+                            
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="review-item-container">
+                        <div class="review-item-wrapper">
+                            <div class="photo">
+                                <img class="user-photo" id="user-photo" src="~/img/profile-pic.png" />
+                            </div>
+                            <div class="review-item" id="review-item">
+                                <p class="username review-item-styling" id="username">Username</p>
+                                <div class="stars rating-spacing review-item-styling user-book-rate-wrapper">
+                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-1"></i>
+                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-2"></i>
+                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-3"></i>
+                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-4"></i>
+                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-5"></i>
+                                </div>
+                                <p class="reviewed-date review-item-styling" id="reviewed-date">2001-21-09 09:11</p>
+                                <p class="feedback review-item-styling" id="feedback">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere ex in nulla ultrices aliquet. Nam ac pretium neque, a euismod quam. Curabitur imperdiet rutrum sem id lacinia. Integer ac tincidunt eros. Curabitur urna mauris, commodo ac erat euismod, venenatis venenatis velit. Nulla ac mollis leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus ornare dapibus orci, et lacinia mi feugiat ac.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
                 
             </div>
@@ -101,6 +162,9 @@
                     </li>
                 </ul>
             </nav>
+
+            <h1 class="test">SUGGESTED FOR YOU SECTION</h1>
+
         </div>
         
     </div>
@@ -108,6 +172,7 @@
 
 
 <script>
+    // show description logic
     document.addEventListener("DOMContentLoaded", function () {
         const showMoreButton = document.getElementById('show-more-btn');
         const description = document.getElementById('book-description');
@@ -122,4 +187,28 @@
             }
         });
     });
+
+
+    // rate this book hover logic
+    document.addEventListener("DOMContentLoaded", function () {
+        const stars = document.querySelectorAll('.star-rating-image');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('mouseover', function () {
+                for (let i = 0; i <= index; i++) {
+                    stars[i].classList.remove('fa-regular');
+                    stars[i].classList.add('fa-solid');
+                }
+            });
+
+            star.addEventListener('mouseout', function () {
+                for (let i = 0; i < stars.length; i++) {
+                    stars[i].classList.remove('fa-solid');
+                    stars[i].classList.add('fa-regular');
+                }
+            });
+        });
+    });
+
+
 </script>

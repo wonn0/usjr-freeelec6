@@ -135,13 +135,19 @@
 .star-rating-image {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: var(--star-color);
+    color: var(--star-color); 
 }
 
 .star-rating-main {
     font-size: 2em;
+    color: var(--star-color);
 }
 
+
+.star-rating-secondary {
+    font-size: 1.5em;
+    color: var(--star-color);
+}
 
 .download-btn {
     width: 100%;
@@ -179,6 +185,28 @@
 .rate-review-wrapper {
     display: flex;
 }
+ 
+
+.star-btn {
+    padding: 10px 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.book-rate-spacing {
+    margin-left: auto;
+    display: flex !important;
+    padding: 0px 10px;
+    margin-right: auto;
+    width: min-content;
+}
 
 .rr-spacing, .info-spacing {
     padding: 0px 10px;
@@ -201,6 +229,44 @@
 
 .info-wrapper, .reviews-wrapper {
     display: flex;
+}
+
+.element-book-rate {
+    align-self: center;
+    margin-bottom: 0px;
+}
+
+.ebr-styling{
+    /*font-weight:bold;*/
+}
+
+.user-book-rate {
+    font-size: 1em;
+}
+
+.review-item-styling{
+    padding-bottom:10px;
+    margin-bottom: 0px;
+}
+
+.user-photo {
+    margin: 20px;
+    border-radius: 50px;
+    width: 50px;
+}
+ 
+
+.review-item-wrapper {
+    display: flex;
+}
+
+.review-item {
+    margin: 20px 0px;
+}
+
+.test{
+    color:red;
+    margin:2em 0px;
 }
 /* Responsive styling */
 @media (max-width: 768px) {
