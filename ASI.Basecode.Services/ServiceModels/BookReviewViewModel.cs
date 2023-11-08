@@ -1,12 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
-namespace ASI.Basecode.Services.ServiceModels
+namespace ASI.Basecode.Services.Models
 {
-    internal class BookReviewViewModel
+    /// <summary>
+    /// Book View Model
+    /// </summary>
+    public class BookReviewViewModel
     {
+        /// <summary>Book ID</summary>
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        /// <summary>Reviewed By</summary>
+        [JsonPropertyName("reviewedBy")]
+        [Required(ErrorMessage = "Reviewed By is required.")]
+        public string ReviewedBy { get; set; }
+
+        /// <summary>Description</summary>
+        [JsonPropertyName("description")]
+        [Required(ErrorMessage = "Description is required.")]
+        public string Description { get; set; }
+
+        /// <summary>Reviewed On</summary>
+        [JsonPropertyName("reviewedOn")]
+        public DateTime ReviewedOn { get; set; }
+
+        /// <summary>Rating</summary>
+        [JsonPropertyName("reviewedOn")]
+        [Required(ErrorMessage = "Rating is required.")]
+        public int Rating { get; set; }
+
+        /// <summary>Book ID</summary>
+        [JsonPropertyName("bookId")]
+        [Required(ErrorMessage = "Book ID is required.")]
+        public int BookId { get; set; }
+
+        /// <summary>Book (Model)</summary>
+        [JsonPropertyName("bookName")]
+        [Required(ErrorMessage = "Book is required.")]
+        public BookViewModel BookName { get; set; }
     }
 }

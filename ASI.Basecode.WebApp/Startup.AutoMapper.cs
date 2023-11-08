@@ -42,6 +42,10 @@ namespace ASI.Basecode.WebApp
                 //Auto-Mapper configuration for genres
                 CreateMap<Genre, GenreViewModel>();
                 CreateMap<GenreViewModel, Genre>();
+
+                CreateMap<BookReview, BookReviewViewModel>()
+                    .ForMember(dest => dest.BookName, opt => opt.MapFrom(src => src.Book.Name));
+                CreateMap<BookReviewViewModel, BookReview>();
             }
         }
     }
