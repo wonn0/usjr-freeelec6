@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section styles {
+    <link rel="stylesheet" href="~/css/viewbook.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+}
+
+ 
+
+<script>
+     
+</script>
+
+<section class="skooby-section skooby-viewbook">
+    <div class="container-wrapper">
+        <div class="image-container">
+            <div class="image-content">
+
+                <div class="book-image-preview">
+                    <img class="book-image image-content-spacing" id="book-image" src="~/img/book-preview.png" />
+                </div>
+                <button type="submit" class="image-content-spacing btn btn-primary download-btn" id="download-btn"><i class="fa-solid fa-download"></i> Download Sample</button>
+                <button type="submit" class="image-content-spacing btn btn-primary wishlist-btn" id="wishlist-btn"><i class="fa-solid fa-plus"></i> Add to Wishlist</button>
+                <div class="book-rating image-content-spacing">
+                    <div class="stars">
+                        <i class="fa-solid fa-star star-rating-image" id="star-rating-image"></i>
+                        <i class="fa-solid fa-star star-rating-image" id="star-rating-image"></i>
+                        <i class="fa-solid fa-star star-rating-image" id="star-rating-image"></i>
+                        <i class="fa-regular fa-star-half-stroke star-rating-image" id="star-rating-image"></i>
+                        <i class="fa-regular fa-star star-rating-image" id="star-rating-image"></i>
+                    </div>
+                    <p class="book-rating-text">Rate this book</p>
+                </div>
+            </div>
+        </div>
+        <div class="content-wrapper"> 
+            <div class="book-container">
+                <div class="book-content-wrapper">
+                    <div class="book-content">
+                        <h1 id="book-title">The Dress and the Girl</h1>
+                        <p class="author-name" id="author-name">by Camille Andros</p>
+                        <div class="rate-review-wrapper">
+                            <div class="stars rr-spacing">
+                                <i class="fa-solid fa-star star-rating-image star-rating-main" id="star-rating-main"></i>
+                                <i class="fa-solid fa-star star-rating-image star-rating-main" id="star-rating-main"></i>
+                                <i class="fa-solid fa-star star-rating-image star-rating-main" id="star-rating-main"></i>
+                                <i class="fa-regular fa-star-half-stroke star-rating-image star-rating-main" id="star-rating-main"></i>
+                                <i class="fa-regular fa-star star-rating-image star-rating-main" id="star-rating-main"></i>
+                            </div>
+                            <h4 class="rate-value rr-spacing">4.7</h4>
+                            <div class="reviews-wrapper">
+                                <p class="reviews-value rr-spacing">341</p>
+                                <p>reviews</p>
+                            </div>
+                        </div>
+
+                        <div class="book-description-content">
+                            <p class="book-description" id="book-description">
+                                Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed facilisis sapien. Nulla a neque quam. Morbi pretium ultricies velit in mollis. Sed a risus et mi molestie ultrices. Morbi blandit dui nec mi egestas, vel consequat velit convallis. Phasellus dignissim urna sit amet accumsan dictum. Quisque venenatis gravida eros, at pharetra nibh rutrum sed. Donec sollicitudin blandit tortor at ornare. Curabitur leo est, faucibus ut placerat in, auctor et justo. Aenean viverra aliquet augue, ut congue erat lacinia at. Pellentesque egestas laoreet sagittis. Pellentesque facilisis egestas justo, eget semper enim congue pulvinar. In placerat arcu nec semper tempor.dolor sit amet, consectetur adipiscing elit. Aenean sed facilisis sapien. Nulla a neque quam. Morbi pretium ultricies velit in mollis. Sed a risus et mi molestie ultrices. Morbi blandit dui nec mi egestas, vel consequat velit convallis. Phasellus dignissim urna sit amet accumsan dictum. Quisque venenatis gravida eros, at pharetra nibh rutrum sed. Donec sollicitudin blandit tortor at ornare. Curabitur leo est, faucibus ut placerat in, auctor et justo. Aenean viverra aliquet augue, ut congue erat lacinia at. Pellentesque egestas laoreet sagittis. Pellentesque facilisis egestas justo, eget semper enim congue pulvinar. In placerat arcu nec semper tempor.
+                            </p>
+                            <button type="submit" id="show-more-btn" class="show-more-content-spacing btn btn-primary show-more-btn">Show more <i class="fa-solid fa-chevron-down show-more"></i></button>
+                        </div>
+                        <div class="book-info">
+                            <div class="info-wrapper">
+                                <p class="info-spacing">ISBN: </p>
+                                <p id="isbn-value">234-1-512345-12-4</p>
+                            </div>
+
+                            <div class="info-wrapper">
+                                <p class="info-spacing">Language: </p>
+                                <p id="language-value">English</p>
+                            </div>
+
+                            <div class="info-wrapper">
+                                <p class="info-spacing" id="pages-value">234 </p>
+                                <p>English</p>
+                            </div>
+                            <div class="info-wrapper">
+                                <p class="info-spacing"  id="published-value">First published on </p>
+                                <p>February 21, 2019</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+             
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const showMoreButton = document.getElementById('show-more-btn');
+        const description = document.getElementById('book-description');
+
+        showMoreButton.addEventListener('click', function () {
+            description.classList.toggle('expanded-description');
+
+            if (description.classList.contains('expanded-description')) {
+                showMoreButton.textContent = 'Show less';
+            } else {
+                showMoreButton.textContent = 'Show more';
+            }
+        });
+    });
+</script>
