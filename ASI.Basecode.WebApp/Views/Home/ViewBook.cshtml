@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ASI.Basecode.Services.Models.BookViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 @section styles {
@@ -6,11 +7,7 @@
     <link rel="stylesheet" href="~/css/style.css" />
 }
 
- 
 
-<script>
-     
-</script>
 
 <section class="skooby-section skooby-viewbook">
     <div class="container-wrapper">
@@ -20,23 +17,30 @@
                 <div class="book-image-preview">
                     <img class="book-image image-content-spacing" id="book-image" src="~/img/book-preview.png" />
                 </div>
-                <button type="submit" class="image-content-spacing btn btn-primary download-btn" id="download-btn"><i class="fa-solid fa-download"></i> Download Sample</button>
-                <button type="submit" class="image-content-spacing btn btn-primary wishlist-btn" id="wishlist-btn"><i class="fa-solid fa-plus"></i> Add to Wishlist</button>
+                <button type="submit" class="image-content-spacing btn btn-primary download-btn" id="download-btn"><i
+                        class="fa-solid fa-download"></i> Download Sample</button>
+                <button type="submit" class="image-content-spacing btn btn-primary wishlist-btn" id="wishlist-btn"><i
+                        class="fa-solid fa-plus"></i> Add to Wishlist</button>
                 <div class="book-rating image-content-spacing">
                     <div class="stars book-rate-spacing">
-                        <button class="star-btn" onmouseover="hoverStars(1)" onmouseout="resetStars()" onclick="setRating(1)">
+                        <button class="star-btn" onmouseover="hoverStars(1)" onmouseout="resetStars()"
+                            onclick="setRating(1)">
                             <i class="fa-regular fa-star star-rating-image" id="star1"></i>
                         </button>
-                        <button class="star-btn" onmouseover="hoverStars(2)" onmouseout="resetStars()" onclick="setRating(2)">
+                        <button class="star-btn" onmouseover="hoverStars(2)" onmouseout="resetStars()"
+                            onclick="setRating(2)">
                             <i class="fa-regular fa-star star-rating-image" id="star2"></i>
                         </button>
-                        <button class="star-btn" onmouseover="hoverStars(3)" onmouseout="resetStars()" onclick="setRating(3)">
+                        <button class="star-btn" onmouseover="hoverStars(3)" onmouseout="resetStars()"
+                            onclick="setRating(3)">
                             <i class="fa-regular fa-star star-rating-image" id="star3"></i>
                         </button>
-                        <button class="star-btn" onmouseover="hoverStars(4)" onmouseout="resetStars()" onclick="setRating(4)">
+                        <button class="star-btn" onmouseover="hoverStars(4)" onmouseout="resetStars()"
+                            onclick="setRating(4)">
                             <i class="fa-regular fa-star star-rating-image" id="star4"></i>
                         </button>
-                        <button class="star-btn" onmouseover="hoverStars(5)" onmouseout="resetStars()" onclick="setRating(5)">
+                        <button class="star-btn" onmouseover="hoverStars(5)" onmouseout="resetStars()"
+                            onclick="setRating(5)">
                             <i class="fa-regular fa-star star-rating-image" id="star5"></i>
                         </button>
                     </div>
@@ -45,19 +49,22 @@
                 </div>
             </div>
         </div>
-        <div class="content-wrapper"> 
+        <div class="content-wrapper">
             <div class="book-container">
                 <div class="book-content-wrapper">
                     <div class="book-content">
-                        <h1 id="book-title">The Dress and the Girl</h1>
-                        <p class="author-name" id="author-name">by Camille Andros</p>
+                        <h1 id="book-title">@Model.Name</h1>
+                        <p class="author-name" id="author-name">by @foreach (var authorName in Model.AuthorNames)
+                            {
+                                @authorName
+                            }</p>
                         <div class="rate-review-wrapper">
                             <div class="stars info-spacing info-rating-main">
                                 <i class="fa-regular fa-star star-rating-main" id="star-1"></i>
                                 <i class="fa-regular fa-star star-rating-main" id="star-2"></i>
                                 <i class="fa-regular fa-star star-rating-main" id="star-3"></i>
                                 <i class="fa-regular fa-star star-rating-main" id="star-4"></i>
-                                <i class="fa-regular fa-star star-rating-main" id="star-5"></i> 
+                                <i class="fa-regular fa-star star-rating-main" id="star-5"></i>
                             </div>
                             <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">4.7</h4>
                             <div class="reviews-wrapper">
@@ -68,28 +75,36 @@
 
                         <div class="book-description-content">
                             <p class="book-description" id="book-description">
-                                Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed facilisis sapien. Nulla a neque quam. Morbi pretium ultricies velit in mollis. Sed a risus et mi molestie ultrices. Morbi blandit dui nec mi egestas, vel consequat velit convallis. Phasellus dignissim urna sit amet accumsan dictum. Quisque venenatis gravida eros, at pharetra nibh rutrum sed. Donec sollicitudin blandit tortor at ornare. Curabitur leo est, faucibus ut placerat in, auctor et justo. Aenean viverra aliquet augue, ut congue erat lacinia at. Pellentesque egestas laoreet sagittis. Pellentesque facilisis egestas justo, eget semper enim congue pulvinar. In placerat arcu nec semper tempor.dolor sit amet, consectetur adipiscing elit. Aenean sed facilisis sapien. Nulla a neque quam. Morbi pretium ultricies velit in mollis. Sed a risus et mi molestie ultrices. Morbi blandit dui nec mi egestas, vel consequat velit convallis. Phasellus dignissim urna sit amet accumsan dictum. Quisque venenatis gravida eros, at pharetra nibh rutrum sed. Donec sollicitudin blandit tortor at ornare. Curabitur leo est, faucibus ut placerat in, auctor et justo. Aenean viverra aliquet augue, ut congue erat lacinia at. Pellentesque egestas laoreet sagittis. Pellentesque facilisis egestas justo, eget semper enim congue pulvinar. In placerat arcu nec semper tempor.
+                                @Model.Description
                             </p>
-                            <button type="submit" id="show-more-btn" class="show-more-content-spacing btn btn-primary show-more-btn">Show more <i class="fa-solid fa-chevron-down show-more"></i></button>
+                            <button type="submit" id="show-more-btn"
+                                class="show-more-content-spacing btn btn-primary show-more-btn">Show more <i
+                                    class="fa-solid fa-chevron-down show-more"></i></button>
                         </div>
                         <div class="book-info">
                             <div class="info-wrapper">
                                 <p class="info-spacing">ISBN: </p>
-                                <p id="isbn-value">234-1-512345-12-4</p>
+                                <p id="isbn-value">@Model.ISBN</p>
                             </div>
 
                             <div class="info-wrapper">
                                 <p class="info-spacing">Language: </p>
-                                <p id="language-value">English</p>
+                                <p id="language-value">@Model.Language</p>
                             </div>
 
                             <div class="info-wrapper">
-                                <p class="info-spacing" id="pages-value">234 </p>
-                                <p>English</p>
+                                <p class="info-spacing" id="pages-value">Pages: @Model.PageCount</p>
                             </div>
                             <div class="info-wrapper">
-                                <p class="info-spacing"  id="published-value">First published on </p>
-                                <p>February 21, 2019</p>
+                                <p class="info-spacing" id="published-value">First published on: </p>
+                                <p>@Model.PublishedOn</p>
+                            </div>
+                            <div class="info-wrapper">
+                                <p class="info-spacing" id="published-value">Genre: </p>
+                                <p>@foreach (var genreName in Model.GenreNames)
+                                    {
+                                        @genreName
+                                    }</p>
                             </div>
                         </div>
                     </div>
@@ -112,13 +127,14 @@
                             <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">4.7</h6>
                             <p class="element-book-rate">
                                 out of 5</p>
-                            <div class="reviews-wrapper element-book-rate"> 
+                            <div class="reviews-wrapper element-book-rate">
                                 <p class="ebr-styling rr-spacing element-book-rate">•</p>
-                                <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value" id="review-value">341</p>
-                                <p class=" ebr-styling element-book-rate">reviews</p> 
+                                <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
+                                    id="review-value">341</p>
+                                <p class=" ebr-styling element-book-rate">reviews</p>
                             </div>
 
-                            
+
                         </div>
                         <hr />
                     </div>
@@ -138,16 +154,21 @@
                                 </div>
                                 <p class="reviewed-date review-item-styling" id="reviewed-date">2001-21-09 09:11</p>
                                 <p class="feedback review-item-styling" id="feedback">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere ex in nulla ultrices aliquet. Nam ac pretium neque, a euismod quam. Curabitur imperdiet rutrum sem id lacinia. Integer ac tincidunt eros. Curabitur urna mauris, commodo ac erat euismod, venenatis venenatis velit. Nulla ac mollis leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus ornare dapibus orci, et lacinia mi feugiat ac.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere ex in nulla
+                                    ultrices aliquet. Nam ac pretium neque, a euismod quam. Curabitur imperdiet rutrum
+                                    sem id lacinia. Integer ac tincidunt eros. Curabitur urna mauris, commodo ac erat
+                                    euismod, venenatis venenatis velit. Nulla ac mollis leo. Interdum et malesuada fames
+                                    ac ante ipsum primis in faucibus. Phasellus ornare dapibus orci, et lacinia mi
+                                    feugiat ac.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                
+
+
             </div>
-             
+
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
@@ -166,7 +187,7 @@
             <h1 class="test">SUGGESTED FOR YOU SECTION</h1>
 
         </div>
-        
+
     </div>
 </section>
 
