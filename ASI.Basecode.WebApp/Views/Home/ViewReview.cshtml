@@ -1,0 +1,37 @@
+@model IEnumerable<ASI.Basecode.Services.Models.BookReviewViewModel>
+
+
+@{
+    ViewData["Title"] = "Book Reviews";
+}
+
+<h1>Reviews for Book @Model.FirstOrDefault()?.BookName.Name</h1>
+
+@if (Model.Any())
+{
+    <table>
+    <thead>
+        <tr>
+            <th>Reviewed By</th>
+            <th>Rating</th>
+            <th>Review</th>
+            <th>Reviewed On</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var review in Model)
+            {
+                <tr>
+                    <td>@review.ReviewedBy</td>
+                    <td>@review.Rating</td>
+                    <td>@review.Description</td>
+                    <td>@review.ReviewedOn.ToString("dd MMM yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No reviews to display.</p>
+}

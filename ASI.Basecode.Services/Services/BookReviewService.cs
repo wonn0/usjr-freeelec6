@@ -32,6 +32,11 @@ namespace ASI.Basecode.Services.Services
             var review = _reviewRepository.GetBookReviewById(id);
             return _mapper.Map<BookReviewViewModel>(review);
         }
+        public List<BookReviewViewModel> GetReviewsByBookId(int bookId)
+        {
+            var reviews = _reviewRepository.GetAllBookReviews().Where(r => r.BookId == bookId);
+            return _mapper.Map<List<BookReviewViewModel>>(reviews);
+        }
 
         public void AddBookReview(BookReviewViewModel model)
         {

@@ -8,6 +8,7 @@ using ASI.Basecode.WebApp.Services;
 using Microsoft.Extensions.Logging;
 #nullable enable // This enables nullable reference types for this file
 using System;
+using System.Linq;
 
 
 
@@ -27,15 +28,19 @@ namespace ASI.Basecode.WebApp.Controllers
         /// <param name="localizer"></param>
         /// <param name="mapper"></param>
         private readonly IBookService _bookService;
+        private readonly IBookReviewService _bookReviewService; // This should be the correct interface type
+
         public HomeController(IHttpContextAccessor httpContextAccessor, IBookService bookService,
                               ILoggerFactory loggerFactory,
-                              IConfiguration configuration,
+                              IConfiguration configuration, IBookReviewService bookReviewService,
                               IMapper mapper = null)
             : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
             _bookService = bookService ?? throw new ArgumentNullException(nameof(bookService));
+            _bookReviewService = bookReviewService ?? throw new ArgumentNullException(nameof(bookReviewService));
             // Assuming _logger is initialized in the base class.
         }
+
 
         /// <summary>
         /// Returns Home View.
@@ -48,7 +53,7 @@ namespace ASI.Basecode.WebApp.Controllers
 
             return View();
         }
-        [HttpPost]
+        [HttpGet]
         public IActionResult ViewBook(int id)
         {
             var viewModel = _bookService.GetBookById(id);
@@ -60,6 +65,18 @@ namespace ASI.Basecode.WebApp.Controllers
 
             return View(viewModel);
         }
-        // ... other actions
+        [HttpGet]
+        public IActionResult ViewReview(int id)
+        {
+            var reviewsViewModel = _bookReviewService.GetReviewsByBookId(id);
+            if (reviewsViewModel == null || !reviewsViewModel.Any())
+            {
+                // Handle the case where there are no reviews
+                return View("NoReviews"); // You should create a view called NoReviews.cshtml
+            }
+            return View(reviewsViewModel);
+        }
+
+
     }
 }
