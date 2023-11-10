@@ -17,7 +17,7 @@
 }
 
 .content-wrapper {
-    width:70%; 
+    width:20%; 
     flex-wrap: wrap;
 }
 
@@ -30,10 +30,21 @@
     width: -webkit-fill-available;
 }
 
-.book-image{
-    border-radius:10px;
-    object-fit:cover;
+
+.book-image-preview {
+    /* Add a width or max-width property to constrain the image size */
+    max-width: 150px; /* This value can be any size you desire */
+    height: auto; /* This ensures the image maintains its aspect ratio */
+    margin: 0 auto; /* This centers the image in its container */
+    display: block;
 }
+
+.book-image {
+    width: 100%; /* This makes the image fill its container */
+    height: auto; /* This ensures the image maintains its aspect ratio */
+    display: block;
+}
+
 
 .book-genre {
     margin: 30px 30px;
