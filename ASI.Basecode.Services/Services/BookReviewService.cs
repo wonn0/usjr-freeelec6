@@ -44,12 +44,6 @@ namespace ASI.Basecode.Services.Services
             return _mapper.Map<IEnumerable<BookReviewViewModel>>(reviews).ToList();
         }
 
-        public List<BookReviewViewModel> GetBookReviewsByBook(Book book)
-        {
-            var reviews = _reviewRepository.GetBookReviewsByBook(book);
-            return _mapper.Map<IEnumerable<BookReviewViewModel>>(reviews).ToList();
-        }
-
         public void AddBookReview(BookReviewViewModel model)
         {
             if (!_reviewRepository.BookReviewExists(model.Id))

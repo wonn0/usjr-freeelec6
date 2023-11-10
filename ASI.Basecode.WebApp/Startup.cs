@@ -93,7 +93,6 @@ namespace ASI.Basecode.WebApp
                     Configuration.GetConnectionString("DefaultConnection"),
                     sqlServerOptions => sqlServerOptions.CommandTimeout(120));
             });
-            services.AddAutoMapper(typeof(AutoMapperProfile));
 
             services.AddScoped<IBookReviewRepository, BookReviewRepository>();
             services.AddScoped<IBookReviewService, BookReviewService>();
