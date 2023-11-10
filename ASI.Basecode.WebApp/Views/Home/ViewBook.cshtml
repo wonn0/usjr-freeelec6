@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="~/css/style.css" />
 }
 
+@{
+    var averageRating = Model.Reviews.Average(r => r.Rating);
+    var roundedAverage = Math.Ceiling(averageRating); // Round the average to the nearest whole number
+}
 
 
 <section class="skooby-section skooby-viewbook">
@@ -15,7 +19,9 @@
             <div class="image-content">
 
                 <div class="book-image-preview">
-                    <img class="book-image image-content-spacing" id="book-image" src="~/img/book-preview.png" />
+                    <img class="book-image image-content-spacing" id="book-image"
+                        src="@Url.Content(Model.Book.Image)" />
+
                 </div>
                 <button type="submit" class="image-content-spacing btn btn-primary download-btn" id="download-btn"><i
                         class="fa-solid fa-download"></i> Download Sample</button>
@@ -60,17 +66,23 @@
                                 @authorName
                             }</p>
                         <div class="rate-review-wrapper">
-                            <div class="stars info-spacing info-rating-main">
-                                <i class="fa-regular fa-star star-rating-main" id="star-1"></i>
-                                <i class="fa-regular fa-star star-rating-main" id="star-2"></i>
-                                <i class="fa-regular fa-star star-rating-main" id="star-3"></i>
-                                <i class="fa-regular fa-star star-rating-main" id="star-4"></i>
-                                <i class="fa-regular fa-star star-rating-main" id="star-5"></i>
+                            <div class="rate-review-wrapper">
+                                <div class="stars info-spacing info-rating-main">
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <i class="fa-@(i <= roundedAverage ? "solid" : "regular") fa-star star-rating-main"
+                                            id="star-@(i)"></i>
+                                    }
+                                </div>
+                                <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">
+                                    @averageRating.ToString("0.0")</h4>
                             </div>
-                            <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">4.7</h4>
+                            <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">@Model.Reviews.Average(r =>
+                                r.Rating)</h4>
                             <div class="reviews-wrapper">
-                                <p class="reviews-value rr-spacing">341</p>
-                                <p>reviews</p>
+                                <p class="reviews-value rr-spacing">@(Model.Reviews.Count)</p>
+                                <p>>Reviews</p>
+
                             </div>
                         </div>
 
@@ -111,7 +123,25 @@
 
 
 
-                        <h1 class="test">AUTHORS OTHER WORKS SECTION</h1>
+                        <h1 class="test">AUTHOR'S OTHER WORKS</h1>
+
+                        @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
+                        {
+                            <div class="related-books-container">
+                                @foreach (var relatedBook in Model.RelatedBooks)
+                                {
+                                    <div class="related-book">
+                                        <img src="@Url.Content(relatedBook.Image)" alt="@relatedBook.Name"
+                                            class="related-book-image" />
+                                        <p class="related-book-title">@relatedBook.Name</p>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p>No other works by this author found.</p>
+                        }5
 
                         <div class="book-rating-container">
                             <div class="book-rating-wrapper">
@@ -129,14 +159,16 @@
                                         <i class="fa-regular fa-star star-rating-secondary element-book-rate"
                                             id="star-5"></i>
                                     </div>
-                                    <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">4.7
+                                    <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">
+                                        @Model.Reviews.Average(r =>
+                                                 r.Rating)
                                     </h6>
                                     <p class="element-book-rate">
                                         out of 5</p>
                                     <div class="reviews-wrapper element-book-rate">
                                         <p class="ebr-styling rr-spacing element-book-rate">•</p>
                                         <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
-                                            id="review-value">341</p>
+                                            id="review-value">@(Model.Reviews.Count)</p>
                                         <p class=" ebr-styling element-book-rate">reviews</p>
                                     </div>
 

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 #nullable enable // This enables nullable reference types for this file
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -60,23 +61,67 @@ namespace ASI.Basecode.WebApp.Controllers
             return View(reviews);
 
         }
-        public IActionResult ViewBook(int bookId)
+
+        [HttpGet]
+        public IActionResult ViewBook(int id)
         {
-            // Fetch the book and reviews from the database or service layer
-            // For example:
-            BookViewModel book = _bookService.GetBookById(bookId);
-            List<BookReviewViewModel> reviews = _bookReviewService.GetBookReviewsByBookId(bookId);
+            // Fetch the book from the database or service layer
+            var bookViewModel = _bookService.GetBookById(id); // Assuming GetBookById returns a BookViewModel
+            if (bookViewModel == null)
+            {
+                // Log the error before redirecting or returning an error view
+                _logger.LogError("Book with ID {BookId} not found.", id);
+
+                // Redirect to a custom error page
+                return RedirectToAction("Error", new { message = "Book not found" });
+            }
+
+            // Fetch the related books by author. This assumes that the BookViewModel has AuthorIds.
+            List<BookViewModel> relatedBooks = new List<BookViewModel>();
+            if (bookViewModel.AuthorIds != null && bookViewModel.AuthorIds.Any())
+            {
+                int authorId = bookViewModel.AuthorIds.First(); // Take the first author's ID
+                relatedBooks = _bookService.GetBooksByAuthor(authorId); // Assuming GetBooksByAuthor returns List<BookViewModel>
+            }
+            else
+            {
+                // Log the error if there are no author IDs
+                _logger.LogError("No authors found for book ID {BookId}.", id);
+            }
+
+            // Log the book name
+            _logger.LogInformation("Book name: {BookName}", bookViewModel.Name);
+
+            // If book is not null, fetch the reviews
+            var reviews = _bookReviewService.GetBookReviewsByBookId(id);
+
+            // Check if there's at least one review to avoid index out of range exception
+            if (reviews.Count > 1)
+            {
+                // Log the second review's ReviewedBy
+                _logger.LogInformation("Second review's ReviewedBy: {ReviewedBy}", reviews[1].ReviewedBy);
+            }
+            else
+            {
+                // Log if there are less than two reviews
+                _logger.LogInformation("There are less than two reviews.");
+            }
 
             // Create and populate the BookDetailsViewModel
             BookDetailsViewModel model = new BookDetailsViewModel
             {
-                Book = book,
-                Reviews = reviews
+                Book = bookViewModel,
+                Reviews = reviews,
+                RelatedBooks = relatedBooks.ToArray() // Convert the list to an array
             };
 
             // Pass the BookDetailsViewModel to the view
             return View(model);
         }
+
+
+
+
         // ... other actions
     }
 }

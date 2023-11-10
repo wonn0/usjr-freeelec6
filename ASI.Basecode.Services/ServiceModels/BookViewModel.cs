@@ -67,5 +67,6 @@ namespace ASI.Basecode.Services.Models
         [JsonPropertyName("image")]
         public string Image { get; set; }
 
+
     }
 }

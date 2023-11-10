@@ -3,6 +3,7 @@ using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Data.Interfaces;
 using Data.Models;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,7 @@ namespace ASI.Basecode.Services.Services
     {
         private readonly IBookRepository _bookRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<BookService> _logger;
 
         public BookService(IBookRepository bookRepository, IMapper mapper)
         {
@@ -31,6 +33,33 @@ namespace ASI.Basecode.Services.Services
         {
             var book = _bookRepository.GetBookById(id);
             return _mapper.Map<BookViewModel>(book);
+        }
+
+        public List<BookViewModel> GetBooksByAuthor(int authorId)
+        {
+            // Query the repository for books by the author ID
+            var books = _bookRepository.GetBookByAuthorId(authorId);
+
+            // Select and project the data into the BookViewModel format
+            var bookViewModels = books.Select(book => new BookViewModel
+            {
+                Id = book.Id,
+                Name = book.Name,
+                Description = book.Description,
+                ISBN = book.ISBN,
+                Language = book.Language,
+                PublishedOn = book.PublishedOn,
+                PageCount = book.PageCount,
+                Created = book.Created,
+                Updated = book.Updated,
+                Image = book.Image,
+                AuthorIds = book.AuthorBooks.Select(ab => ab.AuthorId).ToList(),
+                GenreIds = book.BookGenres.Select(bg => bg.GenreId).ToList(),
+                AuthorNames = book.AuthorBooks.Select(ab => ab.Author.FirstName + " " + ab.Author.LastName).ToList(),
+                GenreNames = book.BookGenres.Select(bg => bg.Genre.Name).ToList()
+            }).ToList();
+
+            return bookViewModels;
         }
 
 

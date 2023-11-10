@@ -8,5 +8,7 @@ namespace ASI.Basecode.Services.Models
     {
         public BookViewModel Book { get; set; }
         public List<BookReviewViewModel> Reviews { get; set; }
+
+        public BookViewModel[] RelatedBooks { get; set; }
     }
 }
