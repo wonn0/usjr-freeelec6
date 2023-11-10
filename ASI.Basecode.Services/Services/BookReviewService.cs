@@ -27,16 +27,17 @@ namespace ASI.Basecode.Services.Services
             return _mapper.Map<IEnumerable<BookReviewViewModel>>(reviews).ToList();
         }
 
-        List<BookReviewViewModel> GetBookReviewsByBook(Book book)
-        {
-            var reviews = _reviewRepository.GetBookReviewsByBook(book);
-            return _mapper.Map<IEnumerable<BookReviewViewModel>>(reviews).ToList();
-        }
-
+    
         public BookReviewViewModel GetBookReviewById(int id)
         {
             var review = _reviewRepository.GetBookReviewById(id);
             return _mapper.Map<BookReviewViewModel>(review);
+        }
+
+        public List<BookReviewViewModel> GetBookReviewsByBook(Book book)
+        {
+            var reviews = _reviewRepository.GetBookReviewsByBook(book);
+            return _mapper.Map<IEnumerable<BookReviewViewModel>>(reviews).ToList();
         }
 
         public void AddBookReview(BookReviewViewModel model)
