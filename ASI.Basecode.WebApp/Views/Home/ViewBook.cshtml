@@ -1,4 +1,4 @@
-﻿@model ASI.Basecode.Services.Models.BookViewModel
+﻿@model ASI.Basecode.Services.Models.BookDetailsViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -53,8 +53,9 @@
             <div class="book-container">
                 <div class="book-content-wrapper">
                     <div class="book-content">
-                        <h1 id="book-title">@Model.Name</h1>
-                        <p class="author-name" id="author-name">by @foreach (var authorName in Model.AuthorNames)
+
+                        <h1 id="book-title">@Model.Book.Name</h1>
+                        <p class="author-name" id="author-name">by @foreach (var authorName in Model.Book.AuthorNames)
                             {
                                 @authorName
                             }</p>
@@ -75,7 +76,7 @@
 
                         <div class="book-description-content">
                             <p class="book-description" id="book-description">
-                                @Model.Description
+                                @Model.Book.Description
                             </p>
                             <button type="submit" id="show-more-btn"
                                 class="show-more-content-spacing btn btn-primary show-more-btn">Show more <i
@@ -84,111 +85,107 @@
                         <div class="book-info">
                             <div class="info-wrapper">
                                 <p class="info-spacing">ISBN: </p>
-                                <p id="isbn-value">@Model.ISBN</p>
+                                <p id="isbn-value">@Model.Book.ISBN</p>
                             </div>
 
                             <div class="info-wrapper">
                                 <p class="info-spacing">Language: </p>
-                                <p id="language-value">@Model.Language</p>
+                                <p id="language-value">@Model.Book.Language</p>
                             </div>
 
                             <div class="info-wrapper">
-                                <p class="info-spacing" id="pages-value">Pages: @Model.PageCount</p>
+                                <p class="info-spacing" id="pages-value">Pages: @Model.Book.PageCount</p>
                             </div>
                             <div class="info-wrapper">
                                 <p class="info-spacing" id="published-value">First published on: </p>
-                                <p>@Model.PublishedOn</p>
+                                <p>@Model.Book.PublishedOn</p>
                             </div>
                             <div class="info-wrapper">
                                 <p class="info-spacing" id="published-value">Genre: </p>
-                                <p>@foreach (var genreName in Model.GenreNames)
+                                <p>@foreach (var genreName in Model.Book.GenreNames)
                                     {
                                         @genreName
                                     }</p>
                             </div>
                         </div>
-                    </div>
-                </div>
 
 
-                <h1 class="test">AUTHORS OTHER WORKS SECTION</h1>
 
-                <div class="book-rating-container">
-                    <div class="book-rating-wrapper">
-                        <h3>Book Ratings</h3>
-                        <div class="rate-review-wrapper element-book-rate">
-                            <div class="stars rating-spacing element-book-rate">
-                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-1"></i>
-                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-2"></i>
-                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-3"></i>
-                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-4"></i>
-                                <i class="fa-regular fa-star star-rating-secondary element-book-rate" id="star-5"></i>
-                            </div>
-                            <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">4.7</h6>
-                            <p class="element-book-rate">
-                                out of 5</p>
-                            <div class="reviews-wrapper element-book-rate">
-                                <p class="ebr-styling rr-spacing element-book-rate">•</p>
-                                <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
-                                    id="review-value">341</p>
-                                <p class=" ebr-styling element-book-rate">reviews</p>
-                            </div>
+                        <h1 class="test">AUTHORS OTHER WORKS SECTION</h1>
+
+                        <div class="book-rating-container">
+                            <div class="book-rating-wrapper">
+                                <h3>Book Ratings</h3>
+                                <div class="rate-review-wrapper element-book-rate">
+                                    <div class="stars rating-spacing element-book-rate">
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-1"></i>
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-2"></i>
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-3"></i>
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-4"></i>
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-5"></i>
+                                    </div>
+                                    <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">4.7
+                                    </h6>
+                                    <p class="element-book-rate">
+                                        out of 5</p>
+                                    <div class="reviews-wrapper element-book-rate">
+                                        <p class="ebr-styling rr-spacing element-book-rate">•</p>
+                                        <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
+                                            id="review-value">341</p>
+                                        <p class=" ebr-styling element-book-rate">reviews</p>
+                                    </div>
 
 
-                        </div>
-                        <hr />
-                    </div>
-                    <div class="review-item-container">
-                        <div class="review-item-wrapper">
-                            <div class="photo">
-                                <img class="user-photo" id="user-photo" src="~/img/profile-pic.png" />
-                            </div>
-                            <div class="review-item" id="review-item">
-                                <p class="username review-item-styling" id="username">Username</p>
-                                <div class="stars rating-spacing review-item-styling user-book-rate-wrapper">
-                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-1"></i>
-                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-2"></i>
-                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-3"></i>
-                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-4"></i>
-                                    <i class="fa-regular fa-star star-rating-secondary user-book-rate" id="star-5"></i>
                                 </div>
-                                <p class="reviewed-date review-item-styling" id="reviewed-date">2001-21-09 09:11</p>
-                                <p class="feedback review-item-styling" id="feedback">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere ex in nulla
-                                    ultrices aliquet. Nam ac pretium neque, a euismod quam. Curabitur imperdiet rutrum
-                                    sem id lacinia. Integer ac tincidunt eros. Curabitur urna mauris, commodo ac erat
-                                    euismod, venenatis venenatis velit. Nulla ac mollis leo. Interdum et malesuada fames
-                                    ac ante ipsum primis in faucibus. Phasellus ornare dapibus orci, et lacinia mi
-                                    feugiat ac.
-                                </p>
+                                <hr />
                             </div>
+                            <div class="review-item-container">
+                                @if (Model.Reviews != null && Model.Reviews.Any())
+                                {
+                                    foreach (var review in Model.Reviews)
+                                    {
+                                        <div class="review-item">
+                                            <h3>@review.BookName</h3>
+                                            <p><strong>Reviewed by:</strong> @review.ReviewedBy</p>
+                                            <p><strong>Description:</strong> @review.Description</p>
+                                            <p><strong>Rating:</strong> @review.Rating</p>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <p>No reviews available for this book.</p>
+                                }
+                            </div>
+
+
                         </div>
+
+
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <h1 class="test">SUGGESTED FOR YOU SECTION</h1>
+
                     </div>
+
                 </div>
-
-
-            </div>
-
-
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <h1 class="test">SUGGESTED FOR YOU SECTION</h1>
-
-        </div>
-
-    </div>
 </section>
 
 

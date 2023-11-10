@@ -8,6 +8,7 @@ using ASI.Basecode.WebApp.Services;
 using Microsoft.Extensions.Logging;
 #nullable enable // This enables nullable reference types for this file
 using System;
+using System.Collections.Generic;
 
 
 
@@ -59,16 +60,22 @@ namespace ASI.Basecode.WebApp.Controllers
             return View(reviews);
 
         }
-        public IActionResult ViewBook(int id)
+        public IActionResult ViewBook(int bookId)
         {
-            var viewModel = _bookService.GetBookById(id);
-            if (viewModel is null)
-            {
-                _logger.LogWarning("Book with ID {BookId} not found.", id);
-                return NotFound();
-            }
+            // Fetch the book and reviews from the database or service layer
+            // For example:
+            BookViewModel book = _bookService.GetBookById(bookId);
+            List<BookReviewViewModel> reviews = _bookReviewService.GetBookReviewsByBookId(bookId);
 
-            return View(viewModel);
+            // Create and populate the BookDetailsViewModel
+            BookDetailsViewModel model = new BookDetailsViewModel
+            {
+                Book = book,
+                Reviews = reviews
+            };
+
+            // Pass the BookDetailsViewModel to the view
+            return View(model);
         }
         // ... other actions
     }
