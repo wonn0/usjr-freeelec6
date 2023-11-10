@@ -1,4 +1,4 @@
-﻿using ASI.Basecode.Services.Models;
+using ASI.Basecode.Services.Models;
 using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Data.Interfaces;
@@ -27,11 +27,21 @@ namespace ASI.Basecode.Services.Services
             return _mapper.Map<IEnumerable<BookReviewViewModel>>(reviews).ToList();
         }
 
-    
+        public List<BookReviewViewModel> GetBookReviewsByBook(Book book)
+        {
+            var reviews = _reviewRepository.GetBookReviewsByBook(book);
+            return _mapper.Map<IEnumerable<BookReviewViewModel>>(reviews).ToList();
+        }
+
         public BookReviewViewModel GetBookReviewById(int id)
         {
             var review = _reviewRepository.GetBookReviewById(id);
             return _mapper.Map<BookReviewViewModel>(review);
+        }
+        public List<BookReviewViewModel> GetBookReviewsByBookId(int bookId)
+        {
+            var reviews = _reviewRepository.GetBookReviewsByBookId(bookId); // Assumes this method exists
+            return _mapper.Map<IEnumerable<BookReviewViewModel>>(reviews).ToList();
         }
 
         public List<BookReviewViewModel> GetBookReviewsByBook(Book book)
@@ -70,5 +80,6 @@ namespace ASI.Basecode.Services.Services
         {
             _reviewRepository.DeleteBookReview(id);
         }
+
     }
 }

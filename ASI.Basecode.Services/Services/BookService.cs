@@ -33,6 +33,7 @@ namespace ASI.Basecode.Services.Services
             return _mapper.Map<BookViewModel>(book);
         }
 
+
         public void AddBook(BookViewModel model)
         {
             if (!_bookRepository.BookExists(model.Id))

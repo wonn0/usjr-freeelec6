@@ -27,13 +27,16 @@ namespace ASI.Basecode.WebApp.Controllers
         /// <param name="localizer"></param>
         /// <param name="mapper"></param>
         private readonly IBookService _bookService;
+        private readonly IBookReviewService _bookReviewService;
+
         public HomeController(IHttpContextAccessor httpContextAccessor, IBookService bookService,
                               ILoggerFactory loggerFactory,
-                              IConfiguration configuration,
+                              IConfiguration configuration, IBookReviewService bookReviewService,
                               IMapper mapper = null)
             : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
             _bookService = bookService ?? throw new ArgumentNullException(nameof(bookService));
+            _bookReviewService = bookReviewService;
             // Assuming _logger is initialized in the base class.
         }
 
@@ -48,7 +51,14 @@ namespace ASI.Basecode.WebApp.Controllers
 
             return View();
         }
-        [HttpPost]
+        [HttpGet]
+        public ActionResult BookReview(int id) // assuming id is the book's ID
+        {
+            var book = _bookService.GetBookById(id);// You would need to fetch the book by id here, possibly using another service
+            var reviews = _bookReviewService.GetBookReviewsByBookId(id);
+            return View(reviews);
+
+        }
         public IActionResult ViewBook(int id)
         {
             var viewModel = _bookService.GetBookById(id);
