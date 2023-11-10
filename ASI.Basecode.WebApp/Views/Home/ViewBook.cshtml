@@ -212,9 +212,25 @@
                                 </li>
                             </ul>
                         </nav>
+                        <h1 class="test">SUGGESTED FOR YOU</h1>
 
-                        <h1 class="test">SUGGESTED FOR YOU SECTION</h1>
-
+                        @if (Model.AllBooks != null && Model.AllBooks.Any())
+                        {
+                            <div class="suggested-books-container">
+                                @foreach (var book in Model.AllBooks)
+                                {
+                                    <div class="suggested-book">
+                                        <img src="@Url.Content(book.Image)" alt="@book.Name" class="suggested-book-image" />
+                                        <p class="suggested-book-title">@book.Name</p>
+                                        <!-- Add more details as needed -->
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p>No books available for suggestions.</p>
+                        }
                     </div>
 
                 </div>

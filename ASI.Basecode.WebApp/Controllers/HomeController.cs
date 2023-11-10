@@ -112,7 +112,8 @@ namespace ASI.Basecode.WebApp.Controllers
             {
                 Book = bookViewModel,
                 Reviews = reviews,
-                RelatedBooks = relatedBooks.ToArray() // Convert the list to an array
+                RelatedBooks = relatedBooks.ToArray(),
+                AllBooks = _bookService.GetAllBooks()// Convert the list to an array
             };
 
             // Pass the BookDetailsViewModel to the view
