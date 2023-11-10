@@ -4,6 +4,7 @@
 @section styles {
     <link rel="stylesheet" href="~/css/viewbook.css" />
     <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/author_otherbook.css" />
 }
 
  
@@ -96,7 +97,42 @@
                 </div>
 
 
-                <h1 class="test">AUTHORS OTHER WORKS SECTION</h1>
+               <div>
+                  <div >
+                        <h2 class="author-other-books"> CAMILLE'S OTHER WORKS SECTION</h2>
+                  </div>
+                  
+                    <hr />
+                    <div class="book-wrapper">
+                        <script>
+                            for (let i = 0; i < 5; i++) {
+                                document.write(`
+                                                                                            <div class="book-contents">
+                                                                                                <div class="book-image-preview">
+                                                                                                <img class="book-image" src="/img/book-preview.png" alt="Book Preview" />
+                                                                                                </div>
+                                                                                                <div class="book-info-card" id="per-book-info">
+                                                                                                    <h5 class="book-title book-text">The Dress And The Girl</h5>
+                                                                                                    <p class="authors-name book-text">by Camille Andros • 2019</p>
+                                                                                                    <p class="book-description book-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum posuere tortor, sit amet tempor enim elementum placerat. Quisque ornare tempus aliquet.</p>
+                                                                                                    <div class="book-rating">
+                                                                                                        <i class="fas fa-star star-rating"></i>
+                                                                                                        <i class="fas fa-star star-rating"></i>
+                                                                                                        <i class="fas fa-star star-rating"></i>
+                                                                                                        <i class="far fa-star-half star-rating"></i>
+                                                                                                        <i class="far fa-star star-rating"></i>
+                                                                                                        <p class="book-rating-value">128 avg rating</p>
+                                                                                                    </div>
+                                                                                                    <p class="book-reviews">420 reviews</p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        `);
+                            }
+                        </script>
+                        <button id="viewMoreButton" class="btn btn-primary">View More Books</button>
+                    </div>
+               </div>
+                
 
                 <div class="book-rating-container">
                     <div class="book-rating-wrapper">
@@ -163,7 +199,36 @@
                 </ul>
             </nav>
 
-            <h1 class="test">SUGGESTED FOR YOU SECTION</h1>
+            <h2 >SUGGESTED FOR YOU SECTION</h2>
+            <hr/>
+            <div class="book-wrapper">
+                <script>
+                    for (let i = 0; i < 5; i++) {
+                        document.write(`
+                                                                                    <div class="book-contents">
+                                                                                        <div class="book-image-preview">
+                                                                                        <img class="book-image" src="/img/book-preview.png" alt="Book Preview" />
+                                                                                        </div>
+                                                                                        <div class="book-info-card" id="per-book-info">
+                                                                                            <h5 class="book-title book-text">The Dress And The Girl</h5>
+                                                                                            <p class="authors-name book-text">by Camille Andros • 2019</p>
+                                                                                            <p class="book-description book-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum posuere tortor, sit amet tempor enim elementum placerat. Quisque ornare tempus aliquet.</p>
+                                                                                            <div class="book-rating">
+                                                                                                <i class="fas fa-star star-rating"></i>
+                                                                                                <i class="fas fa-star star-rating"></i>
+                                                                                                <i class="fas fa-star star-rating"></i>
+                                                                                                <i class="far fa-star-half star-rating"></i>
+                                                                                                <i class="far fa-star star-rating"></i>
+                                                                                                <p class="book-rating-value">128 avg rating</p>
+                                                                                            </div>
+                                                                                            <p class="book-reviews">420 reviews</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                `);
+                    }
+                </script>
+                <button id="viewMoreButton" class="btn btn-primary">View More Books</button>
+            </div>
 
         </div>
         
