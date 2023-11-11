@@ -10,5 +10,7 @@ namespace ASI.Basecode.Services.Models
         public List<BookReviewViewModel> Reviews { get; set; }
         public List<BookViewModel> AllBooks { get; set; } // Add this line
         public BookViewModel[] RelatedBooks { get; set; }
+
+
     }
 }

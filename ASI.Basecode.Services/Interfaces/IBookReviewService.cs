@@ -9,7 +9,7 @@ namespace ASI.Basecode.WebApp.Services
         List<BookReviewViewModel> GetAllBookReviews();
         BookReviewViewModel GetBookReviewById(int id);
         List<BookReviewViewModel> GetBookReviewsByBook(Book book);
-        // In IBookReviewService
+
         List<BookReviewViewModel> GetBookReviewsByBookId(int bookId);
 
         void AddBookReview(BookReviewViewModel model);

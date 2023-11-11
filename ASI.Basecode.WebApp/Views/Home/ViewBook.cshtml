@@ -8,8 +8,16 @@
 }
 
 @{
-    var averageRating = Model.Reviews.Average(r => r.Rating);
-    var roundedAverage = Math.Ceiling(averageRating); // Round the average to the nearest whole number
+    double averageRating = 0;
+    double roundedAverage = 0;
+
+    // Check if Model.Reviews is not null and contains elements
+    if (Model.Reviews != null && Model.Reviews.Any())
+    {
+        averageRating = Model.Reviews.Average(r => r.Rating);
+        roundedAverage = Math.Ceiling(averageRating);
+    }
+
 }
 
 
@@ -77,8 +85,9 @@
                                 <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">
                                     @averageRating.ToString("0.0")</h4>
                             </div>
-                            <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">@Model.Reviews.Average(r =>
-                                r.Rating)</h4>
+                            <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">5.0
+                            </h4>
+
                             <div class="reviews-wrapper">
                                 <p class="reviews-value rr-spacing">@(Model.Reviews.Count)</p>
                                 <p>>Reviews</p>
@@ -160,9 +169,9 @@
                                             id="star-5"></i>
                                     </div>
                                     <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">
-                                        @Model.Reviews.Average(r =>
-                                                 r.Rating)
+                                        @averageRating.ToString("0.0")
                                     </h6>
+
                                     <p class="element-book-rate">
                                         out of 5</p>
                                     <div class="reviews-wrapper element-book-rate">
