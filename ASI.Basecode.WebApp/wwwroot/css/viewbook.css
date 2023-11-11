@@ -264,9 +264,10 @@
     margin: 20px 0px;
 }
 
-.test{
-    color:red;
-    margin:2em 0px;
+.author-other-books {
+    color: red;
+    font-size: 20px;
+    text-decoration: underline;
 }
 /* Responsive styling */
 @media (max-width: 768px) {

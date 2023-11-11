@@ -1,10 +1,11 @@
-﻿@model ASI.Basecode.Services.Models.BookDetailsViewModel
+@model ASI.Basecode.Services.Models.BookDetailsViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
 @section styles {
     <link rel="stylesheet" href="~/css/viewbook.css" />
     <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/author_otherbook.css" />
 }
 
 @{
@@ -131,6 +132,42 @@
                         </div>
 
 
+               <div>
+                  <div >
+                        <h2 class="author-other-books"> CAMILLE'S OTHER WORKS SECTION</h2>
+                  </div>
+                  
+                    <hr />
+                    <div class="book-wrapper">
+                        <script>
+                            for (let i = 0; i < 5; i++) {
+                                document.write(`
+                                                                                            <div class="book-contents">
+                                                                                                <div class="book-image-preview">
+                                                                                                <img class="book-image" src="/img/book-preview.png" alt="Book Preview" />
+                                                                                                </div>
+                                                                                                <div class="book-info-card" id="per-book-info">
+                                                                                                    <h5 class="book-title book-text">The Dress And The Girl</h5>
+                                                                                                    <p class="authors-name book-text">by Camille Andros • 2019</p>
+                                                                                                    <p class="book-description book-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum posuere tortor, sit amet tempor enim elementum placerat. Quisque ornare tempus aliquet.</p>
+                                                                                                    <div class="book-rating">
+                                                                                                        <i class="fas fa-star star-rating"></i>
+                                                                                                        <i class="fas fa-star star-rating"></i>
+                                                                                                        <i class="fas fa-star star-rating"></i>
+                                                                                                        <i class="far fa-star-half star-rating"></i>
+                                                                                                        <i class="far fa-star star-rating"></i>
+                                                                                                        <p class="book-rating-value">128 avg rating</p>
+                                                                                                    </div>
+                                                                                                    <p class="book-reviews">420 reviews</p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        `);
+                            }
+                        </script>
+                        <button id="viewMoreButton" class="btn btn-primary">View More Books</button>
+                    </div>
+               </div>
+                
 
                         <h1 class="test">AUTHOR'S OTHER WORKS</h1>
 
@@ -208,20 +245,36 @@
                         </div>
 
 
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <h1 class="test">SUGGESTED FOR YOU</h1>
+            <h2 >SUGGESTED FOR YOU SECTION</h2>
+            <hr/>
+            <div class="book-wrapper">
+                <script>
+                    for (let i = 0; i < 5; i++) {
+                        document.write(`
+                                                                                    <div class="book-contents">
+                                                                                        <div class="book-image-preview">
+                                                                                        <img class="book-image" src="/img/book-preview.png" alt="Book Preview" />
+                                                                                        </div>
+                                                                                        <div class="book-info-card" id="per-book-info">
+                                                                                            <h5 class="book-title book-text">The Dress And The Girl</h5>
+                                                                                            <p class="authors-name book-text">by Camille Andros • 2019</p>
+                                                                                            <p class="book-description book-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum posuere tortor, sit amet tempor enim elementum placerat. Quisque ornare tempus aliquet.</p>
+                                                                                            <div class="book-rating">
+                                                                                                <i class="fas fa-star star-rating"></i>
+                                                                                                <i class="fas fa-star star-rating"></i>
+                                                                                                <i class="fas fa-star star-rating"></i>
+                                                                                                <i class="far fa-star-half star-rating"></i>
+                                                                                                <i class="far fa-star star-rating"></i>
+                                                                                                <p class="book-rating-value">128 avg rating</p>
+                                                                                            </div>
+                                                                                            <p class="book-reviews">420 reviews</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                `);
+                    }
+                </script>
+                <button id="viewMoreButton" class="btn btn-primary">View More Books</button>
+            </div>
 
                         @if (Model.AllBooks != null && Model.AllBooks.Any())
                         {
