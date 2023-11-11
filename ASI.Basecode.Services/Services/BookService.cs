@@ -40,6 +40,7 @@ namespace ASI.Basecode.Services.Services
             // Query the repository for books by the author ID
             var books = _bookRepository.GetBookByAuthorId(authorId);
 
+
             // Select and project the data into the BookViewModel format
             var bookViewModels = books.Select(book => new BookViewModel
             {
