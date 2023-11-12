@@ -1,97 +1,55 @@
-﻿body {
-}
-
-.book-wrapper {
+﻿.book-container {
     display: flex;
-    margin-bottom: 20px;
-    
+    gap: 10px;
 }
 
-.book-contents {
+.book {
     text-align: center;
-    width: -webkit-fill-available;
+    width: 200px;
+    height: 310px;
 }
 
-.book-image {
-    border-radius: 5px;
-    object-fit: cover;
-}
-
-.book-genre {
-    margin: 10px 10px;
-}
-
-.book-contents {
-    display: flex;
-    position: relative; /* Add this to make positioning of the card relative to this container */
-}
-
-.book-info-card {
-    display: none;
-    width: 300px;
-    z-index: 1;
-    background-color: white;
-    color: black;
+.book-images {
+    width: 200px;
+    height: 250px;
     border-radius: 10px;
-    position: absolute;
-    top: 0;
-    right: -290px;
-    height: 194px;
-    box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
-    -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
-    -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
-}
-
-.book-image-preview:hover + .book-info-card {
-    display: block;
-}
-
-.book-info-card {
-    padding: 10px;
-    text-align: initial;
 }
 
 .book-title {
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: bold;
     width: 100%;
-    -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    text-overflow: ellipsis;
 }
 
-.authors-name {
-    font-size: 15px;
-    width: 100%;
-    -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);
+.section-title {
+    color: #B64110;
+}
+hr {
+    border: 1px solid #FF7519; 
+    width: calc((5 * 200px) + (4 * 10px));
+    margin: 20px 0; 
 }
 
-.book-description {
-    height: 75px;
-    -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
-    font-size: small;
+
+.see-more-button {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: transparent;
+    color: #B64110;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: underline;
+    transition: color 0.3s;
+    float: right;
 }
 
-.book-rating-value {
-    margin-bottom: 0px;
-    align-content: center;
-}
-
-.book-reviews, .book-rating-value {
-    font-size: x-small;
-}
-
-.book-rating-value {
-    padding-left: 10px;
-}
-
-.book-text {
-    margin-bottom: 5px !important;
-}
-
-.book-rating {
-    align-items: center;
-    display: flex;
-}
-
-.star-rating {
-    margin-bottom: 10px;
-    color: var(--star-color);
-}
+    .see-more-button:hover {
+        color: #FF7519;
+    }
