@@ -1,4 +1,5 @@
-﻿using ASI.Basecode.WebApp.Mvc;
+using ASI.Basecode.Data.Models;
+using ASI.Basecode.WebApp.Mvc;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,7 @@ namespace ASI.Basecode.WebApp.Controllers
             // Assuming _logger is initialized in the base class.
         }
 
+        
         /// <summary>
         /// Returns Home View.
         /// </summary>

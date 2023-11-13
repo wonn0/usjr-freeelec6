@@ -1,4 +1,4 @@
-﻿@model LoginViewModel
+@model LoginViewModel
 @using static ASI.Basecode.Resources.Views.Screen
 @section styles {
     <link rel="stylesheet" href="/css/login.css" />
@@ -30,26 +30,33 @@
                                        placeholder="Enter userid">
                                 <span asp-validation-for="UserId" class="text-danger"></span>
                             </div>
-                            <div class="mb-3">
-                                <label for="Password" class="form-label">Password</label>
-                                <input type="password" id="Password" class="form-control" asp-for="Password"
-                                       placeholder="Enter password">
-                                <span asp-validation-for="Password" class="text-danger"></span>
-                            </div>
-                            <div class="mb-3 form-link">
-                                <a class="redirect-forgot-password text-link" style="color:dimgray;"
-                                   asp-controller="Account" asp-action="ForgotPass">Forgot your password?</a>
-                            </div>
-                            <div class="mb-3 form-link">
-                                <span style="color:dimgray;">
-                                    No account?
-                                    <a class="redirect-sign-up text-link" asp-controller="Account"
-                                       asp-action="Register">Sign up</a>
-                                </span>
-                            </div>
-                            <button type="submit" class="btn btn-primary login-btn">Sign In</button>
-                          
-                        </form>
+                            <form method="post" action="/Account/Login" id="loginForm">
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form2Example11">@UserId</label>
+                                    <input type="text" id="form2Example11" class="form-control"
+                                           asp-for="Email" placeholder="Enter email" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form2Example22">@Password</label>
+                                    <input type="password" id="form2Example22" class="form-control"
+                                           asp-for="Password" placeholder="Enter password" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="text-center pt-1 mb-5 pb-1 d-flex flex-column align-items-center">
+                                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">
+                                        @Login
+                                    </button>
+                                    <div>
+                                        <a class="text-muted" href="#!">@ForgotPass</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center pb-4">
+                                    <p class="mb-0 me-2 mr-1">@DontHaveAcc</p>
+                                    <a asp-controller="Account" asp-action="Register" class="btn btn-outline-danger">@CreateNew</a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Options;
 
 namespace ASI.Basecode.WebApp
 {
@@ -41,10 +43,17 @@ namespace ASI.Basecode.WebApp
                     SecurePolicy = CookieSecurePolicy.SameAsRequest,
                     Name = $"{this._environment.ApplicationName}_{token.CookieName}"
                 };
-                options.LoginPath = new PathString("/Account/Login");
+                options.LoginPath = new PathString("/Account/Logi2n");
                 options.AccessDeniedPath = new PathString("/html/Forbidden.html");
                 options.ReturnUrlParameter = "ReturnUrl";
                 options.TicketDataFormat = new CustomJwtDataFormat(SecurityAlgorithms.HmacSha256, _tokenValidationParameters, Configuration, tokenProviderOptionsFactory);
+            });
+
+            this._services.AddMvc();
+            
+            this._services.Configure<KestrelServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
             });
 
             this._services.AddAuthorization(options =>

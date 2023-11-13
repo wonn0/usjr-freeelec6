@@ -1,19 +1,30 @@
-﻿using ASI.Basecode.Data.Models;
+using ASI.Basecode.Data.Models;
 using Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASI.Basecode.Data
 {
-    public partial class AsiBasecodeDBContext : DbContext
+    public partial class AsiBasecodeDBContext : IdentityDbContext<IdentityUser>
     {
-        public AsiBasecodeDBContext()
-        {
-        }
 
         public AsiBasecodeDBContext(DbContextOptions<AsiBasecodeDBContext> options)
             : base(options)
         {
         }
+
+        public void InsertNew(RefreshToken token)
+        {
+            var tokenModel = RefreshToken.SingleOrDefault(i => i.Username == token.Username);
+            if (tokenModel != null)
+            {
+                RefreshToken.Remove(tokenModel);
+                SaveChanges();
+            }
+            RefreshToken.Add(token);
+            SaveChanges();
+        }
+
+        public virtual DbSet<RefreshToken> RefreshToken { get; set; }
 
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Book> Books { get; set; }
@@ -88,6 +99,6 @@ namespace ASI.Basecode.Data
             OnModelCreatingPartial(modelBuilder);
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);*/
     }
 }

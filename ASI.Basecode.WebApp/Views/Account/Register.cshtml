@@ -1,4 +1,4 @@
-﻿@using ASI.Basecode.Services.ServiceModels
+@using ASI.Basecode.Services.ServiceModels
 @model UserViewModel
 @section styles {
     <link rel="stylesheet" href="~/css/login.css" />
@@ -28,7 +28,13 @@
                                 <span asp-validation-for="UserId" class="text-danger"></span>
                             </div>
                             <div class="form-outline mb-4">
-                                <!--  <label class="form-label" for="name">Name</label> -->
+                                <label class="form-label" for="email">Email</label>
+                                <input type="text" id="email" class="form-control"
+                                       asp-for="Email" placeholder="Enter email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="name">Name</label>
                                 <input type="text" id="name" class="form-control"
                                        asp-for="Name" placeholder="Enter name"
                                        style="background-color: #E7E7E7; border-radius: 10px; " />

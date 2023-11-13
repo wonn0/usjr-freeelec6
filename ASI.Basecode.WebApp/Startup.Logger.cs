@@ -6,21 +6,23 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Filters;
 using ASI.Basecode.Data;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 
 namespace ASI.Basecode.WebApp
 {
     // Logger configuration
-    internal partial class StartupConfigurer
+    public partial class Startup
     {
         /// <summary>
         /// Configure the logger
         /// </summary>
-        private void ConfigureLogger()
+        private void ConfigureLogger(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            var loggerFactory = this._app.ApplicationServices.GetService<ILoggerFactory>();
+            var loggerFactory = app.ApplicationServices.GetService<ILoggerFactory>();
 
             var logDir = Path.Combine(
-                PathManager.DirectoryPath.ApplicationLogsDirectory(this._environment.ApplicationName),
+                PathManager.DirectoryPath.ApplicationLogsDirectory(env.ApplicationName),
                 System.DateTime.Today.ToString("yyyyMM"));
 
             var defaultLogLevel = Configuration.GetLoggingLogLevel();

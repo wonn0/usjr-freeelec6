@@ -1,8 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ASI.Basecode.Data;
+using ASI.Basecode.Resources.Constants;
+using Basecode.WebApp.Utilities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
+using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -15,136 +24,82 @@ namespace ASI.Basecode.WebApp.Authentication
     {
         private readonly RequestDelegate _next;
         private readonly TokenProviderOptions _options;
-        private readonly JsonSerializerSettings _serializerSettings;
-        private readonly TokenProvider _tokenProvider;
+        private ClaimsProvider _claimsProvider;
 
         /// <summary>
-        /// Initializes a new instance of the TokenProviderMiddleware class.
+        ///     Constructor for RequestDelegate and IOptions
         /// </summary>
-        /// <param name="next">Request</param>
-        /// <param name="options">Options</param>
+        /// <param name="next"></param>
+        /// <param name="options"></param>
         public TokenProviderMiddleware(RequestDelegate next, IOptions<TokenProviderOptions> options)
         {
             _next = next;
             _options = options.Value;
-            _tokenProvider = new TokenProvider(Options.Create(_options));
-
-            ThrowIfInvalidOptions(_options);
-            _serializerSettings = new JsonSerializerSettings
-            {
-                Formatting = Formatting.Indented
-            };
         }
 
         /// <summary>
-        /// Invokes the specified context.
+        ///     Catches context path for logging in
         /// </summary>
-        /// <param name="context">HttpContext</param>
-        /// <returns>Task</returns>
-        public Task Invoke(HttpContext context)
+        /// <param name="context"></param>
+        /// <param name="claimsProvider"></param>
+        /// <returns></returns>
+        public Task Invoke(HttpContext context, ClaimsProvider claimsProvider)
         {
-            // If the request path doesn't match, skip
-            if (!context.Request.Path.Equals(_options.Path, StringComparison.Ordinal))
+            // If the request path doesn't match, return request
+            if ((!context.Request.Path.Equals(_options.Path, StringComparison.Ordinal)))
             {
                 return _next(context);
             }
 
-            // Request must be POST with Content-Type: application/x-www-form-urlencoded
-            if (!context.Request.Method.Equals("POST"))
-            {
-                context.Response.StatusCode = 400;
-                return context.Response.WriteAsync("Bad request.");
-            }
+            _claimsProvider = claimsProvider;
 
-            return GenerateTokenUser(context);
+            return GenerateToken(context);
         }
 
         /// <summary>
-        /// Generates the user token
+        ///     Handles Access token generation
         /// </summary>
-        /// <param name="context">HttpContext</param>
-        private async Task GenerateTokenUser(HttpContext context)
+        /// <param name="context"></param>
+        /// <returns></returns>
+        private async Task GenerateToken(HttpContext context)
         {
-            string encodedJwt;
-            var now = DateTime.UtcNow;
-            var username = context.Request.Form["username"];
-            var password = context.Request.Form["password"];
-            var identity = await _options.IdentityResolver(username, password);
+            var stream = context.Request.Body;
+            string json = new StreamReader(stream).ReadToEnd();
+            var user = JObject.Parse(json);
 
+            var username = user[Constants.Token.Username].ToString();
+            var password = user[Constants.Token.Password].ToString();
+
+            var db = context.RequestServices.GetService<AsiBasecodeDBContext>();
+
+            var identity = await _claimsProvider.GetClaimsIdentityAsync(username, password, db);
             if (identity == null)
             {
-                context.Response.StatusCode = 400;
-                await context.Response.WriteAsync("Invalid username or password.");
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                await context.Response.WriteAsync(Constants.User.InvalidUserNamePassword);
                 return;
             }
 
-            var claims = new Claim[]
+            var userManager = context.RequestServices.GetService<UserManager<IdentityUser>>();
+
+            var id = identity.Claims.Where(c => c.Type == Constants.Token.UserID)
+                   .Select(c => c.Value).SingleOrDefault();
+
+            var userRole = db.UserRoles
+                .SingleOrDefault(i => i.UserId == id);
+
+            if (userRole == null)
             {
-                new Claim(JwtRegisteredClaimNames.Sub, username),
-                new Claim(JwtRegisteredClaimNames.Jti, await _options.NonceGenerator()),
-                new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(now).ToString(), ClaimValueTypes.Integer64)
-            };
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                await context.Response.WriteAsync("No user role");
+                return;
+            }
 
-            identity.AddClaims(claims);
-            encodedJwt = _tokenProvider.GetJwtSecurityToken(identity, _options);
+            var userDb = await userManager.FindByNameAsync(username);
 
-            var response = new
-            {
-                access_token = encodedJwt,
-                expires_in = (int)_options.Expiration.TotalSeconds
-            };
-
-            context.Response.ContentType = "application/json";
-            await context.Response.WriteAsync(JsonConvert.SerializeObject(response, _serializerSettings));
+            var response = GetAuthResponse.Execute(identity, db, userDb);
+            context.Response.ContentType = Constants.Common.JSONContentType;
+            await context.Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }
-
-        /// <summary>
-        /// Throws if invalid options.
-        /// </summary>
-        /// <param name="options">The options.</param>
-        private static void ThrowIfInvalidOptions(TokenProviderOptions options)
-        {
-            if (string.IsNullOrEmpty(options.Path))
-            {
-                throw new ArgumentNullException(nameof(TokenProviderOptions.Path));
-            }
-
-            if (string.IsNullOrEmpty(options.Issuer))
-            {
-                throw new ArgumentNullException(nameof(TokenProviderOptions.Issuer));
-            }
-
-            if (string.IsNullOrEmpty(options.Audience))
-            {
-                throw new ArgumentNullException(nameof(TokenProviderOptions.Audience));
-            }
-
-            if (options.Expiration == TimeSpan.Zero)
-            {
-                throw new ArgumentException("Must be a non-zero TimeSpan.", nameof(TokenProviderOptions.Expiration));
-            }
-
-            if (options.IdentityResolver == null)
-            {
-                throw new ArgumentNullException(nameof(TokenProviderOptions.IdentityResolver));
-            }
-
-            if (options.SigningCredentials == null)
-            {
-                throw new ArgumentNullException(nameof(TokenProviderOptions.SigningCredentials));
-            }
-
-            if (options.NonceGenerator == null)
-            {
-                throw new ArgumentNullException(nameof(TokenProviderOptions.NonceGenerator));
-            }
-        }
-
-        /// <summary>
-        /// Converts to unix epoch date.
-        /// </summary>
-        /// <param name="date">Date</param>
-        /// <returns>Parsed date</returns>
-        public static long ToUnixEpochDate(DateTime date) => new DateTimeOffset(date).ToUniversalTime().ToUnixTimeSeconds();
     }
 }

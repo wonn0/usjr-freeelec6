@@ -13,7 +13,12 @@ namespace ASI.Basecode.WebApp.Authentication
         /// <summary>
         /// Gets or sets the path for token generation.
         /// </summary>
-        public string Path { get; set; } = "api/token";
+        public string Path { get; set; } = "/api/token";
+        /// <summary>
+        /// The relative request path to listen on.
+        /// </summary>
+        /// <remarks>The default path is <c>/token</c>.</remarks>
+        public string RefreshTokenPath { get; set; } = "/api/refresh";
         /// <summary>
         /// Gets or sets the issuer.
         /// </summary>
