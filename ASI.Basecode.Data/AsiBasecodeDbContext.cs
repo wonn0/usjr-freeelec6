@@ -31,6 +31,7 @@ namespace ASI.Basecode.Data
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<BookReview> BookReviews { get; set; }
+        public virtual DbSet<BookReviewComment> BookReviewComments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -95,6 +96,11 @@ namespace ASI.Basecode.Data
                 .HasOne(br => br.Book)
                 .WithMany(b => b.BookReviews)
                 .HasForeignKey(br => br.BookId);
+
+            modelBuilder.Entity<BookReviewComment>()
+                .HasOne(br => br.Review)
+                .WithMany(b => b.BookReviewComments)
+                .HasForeignKey(bg => bg.ReviewId);
 
             OnModelCreatingPartial(modelBuilder);
         }
