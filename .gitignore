@@ -234,3 +234,16 @@ _Pvt_Extensions
 .fake/
 
 ASI.Basecode.WebApp/appsettings.json
+Skooby.WebApp/appsettings.json
+
+Admin/appsettings.json
+
+Admin/Properties/launchSettings.json
+
+ASI.Basecode.Data/ASI.Basecode.Data.csproj
+
+ASI.Basecode.WebApp/Views/_ViewImports.cshtml
+
+ASI.Basecode.WebApp/Views/Account/Login.cshtml
+
+ASI.Basecode.WebApp/Views/Home/List.cshtml

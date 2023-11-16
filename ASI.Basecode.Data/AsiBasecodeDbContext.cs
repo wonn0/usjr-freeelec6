@@ -1,6 +1,9 @@
 using ASI.Basecode.Data.Models;
 using Data.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace ASI.Basecode.Data
 {
@@ -105,6 +108,6 @@ namespace ASI.Basecode.Data
             OnModelCreatingPartial(modelBuilder);
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);*/
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
