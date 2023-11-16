@@ -1,4 +1,4 @@
-@model LoginViewModel
+@model Models.LoginViewModel
 @using static ASI.Basecode.Resources.Views.Screen
 @section styles {
     <link rel="stylesheet" href="/css/login.css" />
@@ -23,13 +23,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <h1 class="modal-title modal-title-auth fs-5" id="exampleModalLabel">Sign In</h1>
-                        <form method="post" action="/Account/Login" asp-antiforgery="true">
-                            <div class="mb-3">
-                                <label for="UserId" class="form-label">@UserId</label>
-                                <input type="text" id="UserId" class="form-control" asp-for="UserId"
-                                       placeholder="Enter userid">
-                                <span asp-validation-for="UserId" class="text-danger"></span>
-                            </div>
+                        <form method="post" action="/Account/Login" asp-antiforgery="true">                            
                             <form method="post" action="/Account/Login" id="loginForm">
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form2Example11">@UserId</label>
@@ -56,7 +50,7 @@
                                     <a asp-controller="Account" asp-action="Register" class="btn btn-outline-danger">@CreateNew</a>
                                 </div>
                             </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

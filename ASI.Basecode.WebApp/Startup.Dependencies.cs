@@ -7,6 +7,8 @@ using ASI.Basecode.Services.Services;
 using ASI.Basecode.WebApp.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using ASI.Basecode.WebApp.Services;
+using Data.Interfaces;
 
 namespace ASI.Basecode.WebApp
 {
@@ -29,10 +31,12 @@ namespace ASI.Basecode.WebApp
             // Services
             services.AddSingleton<TokenValidationParametersFactory>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IBookService, BookService>();
 
 
             // Repositories
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IBookRepository,  BookRepository>();
 
             // Manager Class
             services.AddScoped<SignInManager>();
