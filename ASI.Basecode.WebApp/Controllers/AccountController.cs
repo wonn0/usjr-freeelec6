@@ -292,7 +292,6 @@ namespace ASI.Basecode.WebApp.Controllers
                 var identityUser = new IdentityUser();
                 identityUser.Email = model.Email;
                 identityUser.UserName = model.UserId;
-                identityUser.UserName = model.UserId;
                 var result = await _userManager.CreateAsync(identityUser, model.Password);
 
                 if (result.Succeeded)
