@@ -34,6 +34,8 @@ namespace ASI.Basecode.WebApp
 
                 CreateMap<Book, BookViewModel>()
                     .ForMember(dest => dest.AuthorNames, opt => opt.MapFrom(src => src.AuthorBooks.Select(ba => ba.Author.FirstName + " " + ba.Author.LastName)))
+                    .ForMember(dest => dest.AuthorIds, opt => opt.MapFrom(src => src.AuthorBooks.Select(ba => ba.AuthorId)))
+                    .ForMember(dest => dest.GenreIds, opt => opt.MapFrom(src => src.BookGenres.Select(bg => bg.GenreId)))
                     .ForMember(dest => dest.GenreNames, opt => opt.MapFrom(src => src.BookGenres.Select(bg => bg.Genre.Name)));
                 CreateMap<BookViewModel, Book>();
 

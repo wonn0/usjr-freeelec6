@@ -1,46 +1,65 @@
 ﻿@model IEnumerable<ASI.Basecode.Services.Models.BookViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
 
-@* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> *@
+@section styles {
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+}
 
-<h1>Books</h1>
+<section class="skooby-section skooby-dashboard">
+    <div class="container-wrapper">
+        <div class="content-wrapper">
+            @foreach (var genreGroup in Model.GroupBy(book => book.GenreNames))
+            {
+                <div class="book-genre">
+                    <h4>@genreGroup.Key.FirstOrDefault()</h4>
+                    <hr />
+                    <div class="book-wrapper">
+                        @foreach (var book in genreGroup)
+{
+    <div class="book-content">
+        <a href="@Url.Action("Details", "Book", new { id = book.Id })">
+            <div class="book-image-preview">
+                <img class="book-image" src="@book.Image ?? "~/img/book-preview.png"" alt="Book Cover" />
+            </div>
+        </a>
+        <div class="book-info-card" id="per-book-info-@book.Id">
+            <h5 class="book-title book-text">@book.Name</h5>
+            <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
+            <p class="book-description book-text">@book.Description</p>
+            <!-- Additional info like rating and reviews could be added here -->
+        </div>
+    </div>
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var book in Model)
-        {
-            <tr>
-                <td>
-                    @book.Id
-                </td>
-                <td>
-                    @book.Name
-                </td>
-                <td>
-                    @string.Join(", ", book.AuthorNames)
-                </td>
-                <td>
-                    @string.Join(", ", book.GenreNames)
-                </td>
-                <td>
-                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-primary">Details</a>
-                    <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-primary">Edit</a>
-                    <button data-url="@Url.Action("Delete", "Book", new { id = book.Id })" type="button" class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-        }
+                    </div>
+                </div>
+            }
+            <!-- Pagination and other components can be added here -->
+        </div>
+        <div class="sidebar-container">
+            <!-- Sidebar content here -->
+        </div>
+    </div>
+    <div class="sidebar-content">
+        <h2 class="sidebar-title">Filter</h2>s
+        <form class="d-flex filter-searchbar" role="search">
+            <input class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success search-button" type="submit">Search</button>
+        </form>
+        <div class="filter-category-container">
+            <p class="filter-category-titles">art</p>
+            <p class="filter-category-titles">biography</p>
+            <p class="filter-category-titles">sci-fi</p>
+            <p class="filter-category-titles">religion</p>
+            <p class="filter-category-titles">kids</p>
+            <p class="filter-category-titles">history</p>
 
-    </tbody>
-</table>
+        </div>
+    </div>
+</section>
 
-<a href="@Url.Action("Create", "Book")" class="btn btn-primary">Add New Book</a>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -60,4 +79,6 @@
     });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>

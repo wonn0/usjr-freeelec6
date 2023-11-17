@@ -1,8 +1,16 @@
-﻿using System;
+using System;
 using System.Text;
 using ASI.Basecode.Data;
+using ASI.Basecode.Data.Repositories;
+using ASI.Basecode.Resources.Constants;
+using ASI.Basecode.Services.Manager;
+using ASI.Basecode.Services.Services;
+using ASI.Basecode.WebApp.Authentication;
 using ASI.Basecode.WebApp.Extensions.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using ASI.Basecode.WebApp.Models;
+using ASI.Basecode.WebApp.Services;
+using Data.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -37,9 +45,39 @@ namespace ASI.Basecode.WebApp
 
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddScoped<IBookReviewRepository, BookReviewRepository>();
+            services.AddScoped<IBookReviewService, BookReviewService>();
+            services.AddControllersWithViews();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
 
             services.AddLogging(x => x.AddConfiguration(Configuration.GetLoggingSection()).AddConsole().AddDebug());
             PathManager.Setup(this.Configuration.GetSetupRootDirectoryPath());
+            //Configuration
+            services.Configure<TokenAuthentication>(Configuration.GetSection("TokenAuthentication"));
+
+            // Session
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = Const.Issuer;
+            });
+
+            // DI Services AutoMapper(Add Profile)
+            this.ConfigureAutoMapper();
+
+            // DI Services
+            this.ConfigureOtherServices();
+
+            // Authorization (Add Policy)
+            this.ConfigureAuthorization();
+
+            services.Configure<FormOptions>(options =>
+            {
+                options.ValueLengthLimit = 1024 * 1024 * 100;
+            });
+
+            services.AddSingleton<IFileProvider>(
+                new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
         }
 
 
