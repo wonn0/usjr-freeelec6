@@ -163,63 +163,6 @@ namespace ASI.Basecode.Data.Migrations
                     b.ToTable("BookGenre");
                 });
 
-            modelBuilder.Entity("Data.Models.BookReview", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReviewedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReviewedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookId");
-
-                    b.ToTable("BookReviews");
-                });
-
-            modelBuilder.Entity("Data.Models.BookReviewComment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CommentedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Commenter")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ReviewId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ReviewId");
-
-                    b.ToTable("BookReviewComments");
-                });
-
             modelBuilder.Entity("Data.Models.Genre", b =>
                 {
                     b.Property<int>("Id")
@@ -274,28 +217,6 @@ namespace ASI.Basecode.Data.Migrations
                     b.Navigation("Genre");
                 });
 
-            modelBuilder.Entity("Data.Models.BookReview", b =>
-                {
-                    b.HasOne("Data.Models.Book", "Book")
-                        .WithMany("BookReviews")
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
-                });
-
-            modelBuilder.Entity("Data.Models.BookReviewComment", b =>
-                {
-                    b.HasOne("Data.Models.BookReview", "Review")
-                        .WithMany("BookReviewComments")
-                        .HasForeignKey("ReviewId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Review");
-                });
-
             modelBuilder.Entity("Data.Models.Author", b =>
                 {
                     b.Navigation("AuthorBooks");
@@ -306,13 +227,6 @@ namespace ASI.Basecode.Data.Migrations
                     b.Navigation("AuthorBooks");
 
                     b.Navigation("BookGenres");
-
-                    b.Navigation("BookReviews");
-                });
-
-            modelBuilder.Entity("Data.Models.BookReview", b =>
-                {
-                    b.Navigation("BookReviewComments");
                 });
 
             modelBuilder.Entity("Data.Models.Genre", b =>
