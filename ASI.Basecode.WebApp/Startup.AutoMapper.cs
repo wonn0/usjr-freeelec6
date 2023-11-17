@@ -46,10 +46,6 @@ namespace ASI.Basecode.WebApp
                 CreateMap<BookReview, BookReviewViewModel>()
                     .ForMember(dest => dest.BookName, opt => opt.MapFrom(src => src.Book.Name));
                 CreateMap<BookReviewViewModel, BookReview>();
-
-                CreateMap<BookReviewComment, BookReviewCommentViewModel>()
-                    .ForMember(dest => dest.ReviewedBy, opt => opt.MapFrom(src => src.Review.ReviewedBy));
-                CreateMap<BookReviewCommentViewModel, BookReviewComment>();
             }
         }
     }

@@ -40,14 +40,20 @@ namespace ASI.Basecode.WebApp
             this._services.AddScoped<IBookService, BookService>();
             this._services.AddScoped<IAuthorService, AuthorService>();
             this._services.AddScoped<IGenreService, GenreService>();
+<<<<<<< HEAD
             this._services.AddScoped<IBookReviewCommentService, BookReviewCommentService>();
+=======
+>>>>>>> parent of 89462e6 (fixed issues with webapp)
 
             // Repositories
             this._services.AddScoped<IUserRepository, UserRepository>();
             this._services.AddScoped<IBookRepository, BookRepository>();
             this._services.AddScoped<IAuthorRepository, AuthorRepository>();
             this._services.AddScoped<IGenreRepository, GenreRepository>();
+<<<<<<< HEAD
             this._services.AddScoped<IBookReviewCommentRepository, BookReviewCommentRepository>();
+=======
+>>>>>>> parent of 89462e6 (fixed issues with webapp)
 
             // Manager Class
             this._services.AddScoped<SignInManager>();

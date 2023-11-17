@@ -13,6 +13,5 @@ namespace Data.Models
         public int Rating { get; set; }
         public int BookId { get; set; }
         public virtual Book Book { get; set; }
-        public virtual ICollection<BookReviewComment> BookReviewComments { get; set; } = new List<BookReviewComment>();
     }
 }
