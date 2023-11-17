@@ -1,6 +1,6 @@
 ﻿using ASI.Basecode.Data.Models;
-using ASI.Basecode.Services.ServiceModels;
 using ASI.Basecode.Services.Models;
+using ASI.Basecode.Services.ServiceModels;
 using AutoMapper;
 using Data.Models;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,20 +8,22 @@ using System.Linq;
 
 namespace ASI.Basecode.WebApp
 {
-    // AutoMapper configuration
-    internal partial class StartupConfigurer
+    public partial class Startup
     {
-        /// <summary>
-        /// Configure auto mapper
-        /// </summary>
-        private void ConfigureAutoMapper()
+        private void ConfigureMapper(IServiceCollection services)
         {
             var mapperConfiguration = new MapperConfiguration(config =>
             {
                 config.AddProfile(new AutoMapperProfileConfiguration());
             });
 
-            this._services.AddSingleton<IMapper>(sp => mapperConfiguration.CreateMapper());
+            services.AddSingleton<IMapper>(sp => mapperConfiguration.CreateMapper());
+            /*var Config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<JobOpening, JobOpeningViewModel>();
+            });
+
+            services.AddSingleton(Config.CreateMapper());*/
         }
 
         private class AutoMapperProfileConfiguration : Profile
@@ -29,11 +31,10 @@ namespace ASI.Basecode.WebApp
             public AutoMapperProfileConfiguration()
             {
                 CreateMap<UserViewModel, User>();
+                CreateMap<UserViewModel, User>();
 
                 CreateMap<Book, BookViewModel>()
                     .ForMember(dest => dest.AuthorNames, opt => opt.MapFrom(src => src.AuthorBooks.Select(ba => ba.Author.FirstName + " " + ba.Author.LastName)))
-                    .ForMember(dest => dest.AuthorIds, opt => opt.MapFrom(src => src.AuthorBooks.Select(ba => ba.AuthorId)))
-                    .ForMember(dest => dest.GenreIds, opt => opt.MapFrom(src => src.BookGenres.Select(bg => bg.GenreId)))
                     .ForMember(dest => dest.GenreNames, opt => opt.MapFrom(src => src.BookGenres.Select(bg => bg.Genre.Name)));
                 CreateMap<BookViewModel, Book>();
 
@@ -52,3 +53,4 @@ namespace ASI.Basecode.WebApp
         }
     }
 }
+

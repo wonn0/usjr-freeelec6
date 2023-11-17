@@ -1,40 +1,36 @@
-﻿using System.IO;
-using ASI.Basecode.Data;
-using ASI.Basecode.WebApp;
-using ASI.Basecode.WebApp.Extensions.Configuration;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+using System.IO;
 
-var appBuilder = WebApplication.CreateBuilder(new WebApplicationOptions
+namespace ASI.Basecode.WebApp
 {
-    ContentRootPath = Directory.GetCurrentDirectory(),
-});
+    public class Program
+    {
 
-appBuilder.Configuration.AddJsonFile("appsettings.json",
-    optional: true,
-    reloadOnChange: true);
+        public static void Main(string[] args)
+        {
+            CreateWebHostBuilder(args).Build().Run();
+        }
 
-appBuilder.WebHost.UseIISIntegration();
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .ConfigureAppConfiguration(SetUpConfiguration)
+                .UseStartup<Startup>();
 
-appBuilder.Logging
-    .AddConfiguration(appBuilder.Configuration.GetLoggingSection())
-    .AddConsole()
-    .AddDebug();
+        private static void SetUpConfiguration(WebHostBuilderContext builderCtx, IConfigurationBuilder config)
+        {
+            config.Sources.Clear();     // Clears the default configuration options
 
-var configurer = new StartupConfigurer(appBuilder.Configuration);
-configurer.ConfigureServices(appBuilder.Services);
+            IWebHostEnvironment env = builderCtx.HostingEnvironment;
 
-var app = appBuilder.Build();
-
-configurer.ConfigureApp(app, app.Environment);
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Account}/{action=Login}");
-app.MapControllers();
-app.MapRazorPages();
-
-// Run application
-app.Run();
+            // Include settings file back to the configuration
+            config.SetBasePath(env.ContentRootPath)
+                   .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                   .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                   .AddEnvironmentVariables();
+        }
+    }
+}

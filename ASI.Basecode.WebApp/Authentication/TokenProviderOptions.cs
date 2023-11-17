@@ -17,6 +17,12 @@ namespace ASI.Basecode.WebApp.Authentication
         /// <summary>
         /// Gets or sets the issuer.
         /// </summary>
+        
+        /// The relative request path to listen on.
+        /// </summary>
+        /// <remarks>The default path is <c>/token</c>.</remarks>
+        public string RefreshTokenPath { get; set; } = "/api/refresh";
+        /// <summary>
         public string Issuer { get; set; }
         /// <summary>
         /// Gets or sets the audience.

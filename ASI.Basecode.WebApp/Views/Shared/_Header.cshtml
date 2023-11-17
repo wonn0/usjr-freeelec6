@@ -1,34 +1,70 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 <header class="@((ViewBag.LoginView == true) ? "hide-navbar" : "")">
     <div class="logosec hover-pointer">
         <img src="~/img/asi-logo-invert.svg"
              style="width: 185px;" alt="logo"
              onclick="window.location.href = '@Url.Action("Index", "Home")';">
     </div>
-    <div class="logosec">
-        @HttpContextAccessor.HttpContext.Session.GetString("UserName")
 
-        <partial name="_LoginPartial" />
-        @*<div class="mr-20 hover-pointer" style="position: relative">
-        <div class="dp">
-        <img src="~/img/profile-logo.png"
-        class="dpicn hover-pointer"
-        alt="dp">
-        </div>
-        <div class="dropdown">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="logosec">
 
-        <ul>
-        <li>
-        <i class="fa-solid fa-gear"></i>
-        <a href="#">Settings</a>
-        </li>
-        <li>
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <a asp-action="SignOutUser" asp-controller="Account">Logout</a>
-        </li>
-        </ul>
+
+            @*<partial name="_LoginPartial" />*@
+            <div class="mr-20 hover-pointer" style="position: relative">
+                <div class="dp">
+                    <img src="~/img/profile-logo.png"
+                         class="dpicn hover-pointer"
+                         alt="dp">
+                </div>
+                <div class="dropdown">
+
+
+
+
+                    @*@HttpContextAccessor.HttpContext.Session.GetString("UserName")*@
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                        </li>
+                        <li class="nav-item">
+                            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+
+
+                    @*<ul>
+                <li>
+                <i class="fa-solid fa-gear"></i>
+                <a href="#">Settings</a>
+                </li>
+                <li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <a asp-action="SignOutUser" asp-controller="Account">Logout</a>
+                </li>
+                </ul>*@
+                </div>
+            </div>
         </div>
-        </div>*@
-    </div>
+    }
+    else
+    {
+        <a class="nav-link text-dark" id="register" asp-action="Register" asp-controller="Account">Register</a>
+        <a class="nav-link text-dark" id="login" asp-action="Login" asp-controller="Account">Login</a>
+        @*<li class="nav-item">
+    <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>*@
+    }
 </header>

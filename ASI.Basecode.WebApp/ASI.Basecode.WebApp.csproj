@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="bk\**" />
+    <Content Remove="bk\**" />
+    <EmbeddedResource Remove="bk\**" />
+    <None Remove="bk\**" />
+    <TypeScriptCompile Remove="bk\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appsettings.json.rej" />
   </ItemGroup>
 
