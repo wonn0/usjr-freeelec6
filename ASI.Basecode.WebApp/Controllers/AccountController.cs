@@ -26,7 +26,7 @@ using static ASI.Basecode.Resources.Constants.Enums;
 namespace ASI.Basecode.WebApp.Controllers
 {
 
-    public class AccountController : ControllerBase<AccountController>
+    public class AccountController : Controller
     {
 
         /// <summary>
@@ -92,6 +92,7 @@ namespace ASI.Basecode.WebApp.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        protected ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
@@ -116,9 +117,9 @@ namespace ASI.Basecode.WebApp.Controllers
                             TokenValidationParametersFactory tokenValidationParametersFactory,
                             TokenProviderOptionsFactory tokenProviderOptionsFactory,
                             RoleManager<IdentityRole> roleManager,
-                            UserManager<IdentityUser> userManager) : base(httpContextAccessor, loggerFactory, configuration, mapper)
+                            UserManager<IdentityUser> userManager)
         {
-            this._sessionManager = new SessionManager(this._session);
+            //this._sessionManager = new SessionManager(this._session);
             this._signInManager = signInManager;
             this._tokenProviderOptionsFactory = tokenProviderOptionsFactory;
             this._tokenValidationParametersFactory = tokenValidationParametersFactory;
@@ -126,6 +127,7 @@ namespace ASI.Basecode.WebApp.Controllers
             this._userService = userService;
             this._roleManager = roleManager;
             this._userManager = userManager;
+            this._logger = loggerFactory.CreateLogger<AccountController>();
         }
 
 
@@ -190,6 +192,7 @@ namespace ASI.Basecode.WebApp.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Login(string returnUrl = null)
         {
+            _logger.LogInformation("hello from account controller");
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
                 ModelState.AddModelError(string.Empty, ErrorMessage);
@@ -231,7 +234,7 @@ namespace ASI.Basecode.WebApp.Controllers
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    //_logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -240,7 +243,7 @@ namespace ASI.Basecode.WebApp.Controllers
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    //_logger.LogWarning("User account locked out.");
                     return RedirectToPage("./Lockout");
                 }
                 else
