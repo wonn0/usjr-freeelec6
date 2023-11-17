@@ -7,6 +7,7 @@ namespace Data.Models
     public partial class BookReview
     {
         public int Id { get; set; }
+        public string Email { get; set; }
         public string ReviewedBy { get; set; }
         public string Description { get; set; }
         public DateTime ReviewedOn { get; set; } = DateTime.Now;

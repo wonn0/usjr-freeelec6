@@ -27,9 +27,15 @@ namespace ASI.Basecode.Data.Repositories
         {
             return this.GetDbSet<BookReview>().Where(x => x.BookId == book.Id);
         }
+
         public IQueryable<BookReview> GetBookReviewsByBookId(int id)
         {
             return this.GetDbSet<BookReview>().Where(x => x.BookId == id);
+        }
+
+        public IQueryable<BookReview> GetBookReviewsByEmail(string email)
+        {
+            return this.GetDbSet<BookReview>().Where(x => x.Email == email);
         }
 
         public void AddBookReview(BookReview review)

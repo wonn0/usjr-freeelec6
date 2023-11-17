@@ -20,6 +20,11 @@ namespace ASI.Basecode.Services.Models
         public string ReviewedBy { get; set; }
 
         /// <summary>Description</summary>
+        [JsonPropertyName("email")]
+        [Required(ErrorMessage = "Email is required.")]
+        public string Email { get; set; }
+
+        /// <summary>Description</summary>
         [JsonPropertyName("description")]
         [Required(ErrorMessage = "Description is required.")]
         public string Description { get; set; }

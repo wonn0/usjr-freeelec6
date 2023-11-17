@@ -8,6 +8,7 @@ namespace Data.Interfaces
         IQueryable<BookReview> GetAllBookReviews();
         BookReview GetBookReviewById(int id);
         IQueryable<BookReview> GetBookReviewsByBook(Book book);
+        IQueryable<BookReview> GetBookReviewsByEmail(string email);
         void AddBookReview(BookReview review);
         void UpdateBookReview(BookReview review);
         void DeleteBookReview(int id);
