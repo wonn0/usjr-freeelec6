@@ -41,6 +41,8 @@ namespace ASI.Basecode.Services.Models
         /// <summary>Book (Model)</summary>
         [JsonPropertyName("bookName")]
         [Required(ErrorMessage = "Book is required.")]
-        public BookViewModel BookName { get; set; }
+        public String BookName { get; set; }
+
     }
 }
+

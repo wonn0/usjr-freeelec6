@@ -1,0 +1,25 @@
+@model List<ASI.Basecode.Services.Models.BookReviewViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Set the layout page if you have one
+    ViewBag.Title = "Book Reviews";
+}
+
+<h2>Book Reviews</h2>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var review in Model)
+    {
+        <div class="review">
+    <h3>@review.BookName</h3> <!-- Assuming BookViewModel has a Title property -->
+    <p><strong>Reviewed by:</strong> @review.ReviewedBy</p>
+    <p><strong>Description:</strong> @review.Description</p>
+    <p><strong>Rating:</strong> @review.Rating</p>
+</div>
+    }
+}
+else
+{
+    <p>No reviews available for this book.</p>
+}

@@ -11,6 +11,7 @@ namespace Data.Interfaces
         void AddBookReview(BookReview review);
         void UpdateBookReview(BookReview review);
         void DeleteBookReview(int id);
+        IQueryable<BookReview> GetBookReviewsByBookId(int id);
         bool BookReviewExists(int id);
     }
 }
