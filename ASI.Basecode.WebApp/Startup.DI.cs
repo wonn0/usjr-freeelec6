@@ -4,6 +4,7 @@ using ASI.Basecode.Data.Repositories;
 using ASI.Basecode.Services.Interfaces;
 using ASI.Basecode.Services.ServiceModels;
 using ASI.Basecode.Services.Services;
+using Basecode.WebApp.Authentication;
 using ASI.Basecode.WebApp.Authentication;
 using ASI.Basecode.WebApp.Models;
 using ASI.Basecode.WebApp.Services;
@@ -33,6 +34,8 @@ namespace ASI.Basecode.WebApp
             this._services.TryAddSingleton<TokenProviderOptionsFactory>();
             this._services.TryAddSingleton<TokenValidationParametersFactory>();
             this._services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            this._services.AddScoped<ClaimsProvider, ClaimsProvider>();
 
             // Services
             this._services.TryAddSingleton<TokenValidationParametersFactory>();

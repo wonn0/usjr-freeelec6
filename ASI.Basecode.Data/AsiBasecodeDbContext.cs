@@ -1,19 +1,34 @@
 ﻿using ASI.Basecode.Data.Models;
 using Data.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using System.Linq;
 
 namespace ASI.Basecode.Data
 {
-    public partial class AsiBasecodeDBContext : DbContext
+    public partial class AsiBasecodeDBContext : IdentityDbContext<IdentityUser>
     {
-        public AsiBasecodeDBContext()
-        {
-        }
 
         public AsiBasecodeDBContext(DbContextOptions<AsiBasecodeDBContext> options)
             : base(options)
         {
         }
+
+        public void InsertNew(RefreshToken token)
+        {
+            var tokenModel = RefreshToken.SingleOrDefault(i => i.Username == token.Username);
+            if (tokenModel != null)
+            {
+                RefreshToken.Remove(tokenModel);
+                SaveChanges();
+            }
+            RefreshToken.Add(token);
+            SaveChanges();
+        }
+
+        public virtual DbSet<RefreshToken> RefreshToken { get; set; }
 
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Book> Books { get; set; }

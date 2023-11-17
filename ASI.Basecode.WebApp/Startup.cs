@@ -1,16 +1,13 @@
 ﻿using ASI.Basecode.Data;
-using ASI.Basecode.Data.Repositories;
 using ASI.Basecode.Resources.Constants;
 using ASI.Basecode.Services.Manager;
-using ASI.Basecode.Services.Services;
 using ASI.Basecode.WebApp.Authentication;
 using ASI.Basecode.WebApp.Extensions.Configuration;
 using ASI.Basecode.WebApp.Models;
-using ASI.Basecode.WebApp.Services;
-using Data.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -94,8 +91,22 @@ namespace ASI.Basecode.WebApp
                     sqlServerOptions => sqlServerOptions.CommandTimeout(120));
             });
 
-            services.AddScoped<IBookReviewRepository, BookReviewRepository>();
-            services.AddScoped<IBookReviewService, BookReviewService>();
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<AsiBasecodeDBContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
+
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
+
+
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
 
@@ -147,6 +158,7 @@ namespace ASI.Basecode.WebApp
             this._app.UseTokenProvider(_tokenProviderOptions);
 
             this._app.UseHttpsRedirection();
+            this._app.UseCors("CorsPolicy");
             this._app.UseStaticFiles();
 
             // Localization
@@ -158,6 +170,8 @@ namespace ASI.Basecode.WebApp
 
             this._app.UseAuthentication();
             this._app.UseAuthorization();
+            //this._app.UseMiddleware<TokenProviderMiddleware>();
+            this._app.UseMiddleware<AuthenticationMiddleware>();
         }
     }
 }

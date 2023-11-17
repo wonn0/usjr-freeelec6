@@ -26,9 +26,9 @@
                         <form method="post" action="/Account/Login" asp-antiforgery="true">
                             <div class="mb-3">
                                 <label for="UserId" class="form-label">@UserId</label>
-                                <input type="text" id="UserId" class="form-control" asp-for="UserId"
-                                       placeholder="Enter userid">
-                                <span asp-validation-for="UserId" class="text-danger"></span>
+                                <input type="text" id="UserId" class="form-control" asp-for="Email"
+                                       placeholder="Enter email address">
+                                <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="Password" class="form-label">Password</label>
