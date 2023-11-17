@@ -51,6 +51,7 @@ namespace ASI.Basecode.WebApp
             }
 
             this.ConfigureLogger(app, env);
+
             app.UseStaticFiles();           // Enables the use of static files
             app.UseHttpsRedirection();      // Enables redirection of HTTP to HTTPS requests.
             app.UseCors("CorsPolicy");      // Enables CORS                              

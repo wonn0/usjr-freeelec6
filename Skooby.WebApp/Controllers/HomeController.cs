@@ -1,53 +1,32 @@
-﻿using ASI.Basecode.WebApp.Mvc;
-using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
+using Skooby.WebApp.Models;
+using System.Diagnostics;
 
-namespace ASI.Basecode.WebApp.Controllers
+namespace Skooby.WebApp.Controllers
 {
-    /// <summary>
-    /// Home Controller
-    /// </summary>
-    public class HomeController : ControllerBase<HomeController>
+    public class HomeController : Controller
     {
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="httpContextAccessor"></param>
-        /// <param name="loggerFactory"></param>
-        /// <param name="configuration"></param>
-        /// <param name="localizer"></param>
-        /// <param name="mapper"></param>
-        public HomeController(IHttpContextAccessor httpContextAccessor,
-                              ILoggerFactory loggerFactory,
-                              IConfiguration configuration,
-                              IMapper mapper = null)
-            : base(httpContextAccessor, loggerFactory, configuration, mapper)
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
         {
-            // Assuming _logger is initialized in the base class.
+            _logger = logger;
         }
 
-        /// <summary>
-        /// Returns Home View.
-        /// </summary>
-        /// <returns> Home View </returns>
         public IActionResult Index()
         {
-            // Use _logger to log the information
-            _logger.LogInformation("Home page visited at {Time}", System.DateTime.Now);
-
             return View();
         }
-        public IActionResult ViewBook()
+
+        public IActionResult Privacy()
         {
-            // Use _logger to log the information
-            _logger.LogInformation("ViewBook page visited at {Time}", System.DateTime.Now);
-
             return View();
         }
 
-        // ... other actions
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

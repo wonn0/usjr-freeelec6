@@ -1,120 +1,49 @@
-﻿@using static ASI.Basecode.Resources.Views.Screen
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
+    <title>@ViewData["Title"] - Skooby.WebApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/main.css" />
-    <link rel="stylesheet" href="~/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    @RenderSection("Styles", required: false)
+    <link rel="stylesheet" href="~/Skooby.WebApp.styles.css" asp-append-version="true" />
 </head>
 <body>
-    @Html.Partial("_Header")
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Skooby.WebApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="container">
-        <main role="main">
+        <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-@*     <footer class="border-top footer text-muted">
+
+    <footer class="border-top footer text-muted">
         <div class="container">
-            @Copyright
-        </div>
-    </footer> *@
-
-    <footer class="skooby-footer-content text-center text-lg-start text-white">
-
-        <div class="container p-4 pb-0">
-            <section class="footer-content">
-                <div class="row">
-                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-
-                        <img class="skooby-logo" src="/img/logo1.png"
-                             onclick="window.location.href = '@Url.Action("Index", "Home")';"
-                        />
-                        <img class="logo-back1" src="/img/logo-back1.png" />
-                    </div>
-
-                    <hr class="w-100 clearfix d-md-none" />
-
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                    </div>
-
-                    <hr class="w-100 clearfix d-md-none" />
-
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">
-                            Useful links
-                        </h6>
-                        <p>
-                            <a class="text-white">Your Account</a>
-                        </p>
-                        <p>
-                            <a class="text-white">Become an Affiliate</a>
-                        </p>
-
-                        <p>
-                            <a class="text-white">Help</a>
-                        </p>
-                    </div>
-
-                    <hr class="w-100 clearfix d-md-none" />
-                    @* <img class="footer-bg-design" src="/images/bg-image-footer.png" /> *@
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                        <p><i class="fas fa-home mr-3"></i> CICCT USJ-R, Basak-Pardo, Cebu City, Cebu, PH</p>
-                        <p><i class="fas fa-envelope mr-3"></i> g6_alliance@gmail.com</p>
-                        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-
-
-                    </div>
-
-                </div>
-
-            </section>
-            <hr class="my-3">
-
-            <div class="container">
-                @Copyright
-            </div>
-
-@*             <section class="p-3 pt-0">
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-7 col-lg-8 text-center text-md-start">
-                        @* <div class="p-3">
-                            Copyright © 2023. Alliance Group 6.  All Rights Reserved.
-
-                        </div> 
-                        
-                    </div>
-
-                </div>
-            </section> *@
+            &copy; 2023 - Skooby.WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.js"></script>
-    <script src="https://kit.fontawesome.com/7a7c645416.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script>
-        // Configure Toastr options
-        toastr.options = {
-            positionClass: "toast-top-center", // Set the notification position to center
-            timeOut: 3000,
-            closeButton: true,
-            progressBar: true
-        };
-    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

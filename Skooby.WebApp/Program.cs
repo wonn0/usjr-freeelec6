@@ -1,40 +1,27 @@
-﻿using System.IO;
-using ASI.Basecode.Data;
-using ASI.Basecode.WebApp;
-using ASI.Basecode.WebApp.Extensions.Configuration;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+var builder = WebApplication.CreateBuilder(args);
 
-var appBuilder = WebApplication.CreateBuilder(new WebApplicationOptions
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
 {
-    ContentRootPath = Directory.GetCurrentDirectory(),
-});
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
 
-appBuilder.Configuration.AddJsonFile("appsettings.json",
-    optional: true,
-    reloadOnChange: true);
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 
-appBuilder.WebHost.UseIISIntegration();
+app.UseRouting();
 
-appBuilder.Logging
-    .AddConfiguration(appBuilder.Configuration.GetLoggingSection())
-    .AddConsole()
-    .AddDebug();
-
-var configurer = new StartupConfigurer(appBuilder.Configuration);
-configurer.ConfigureServices(appBuilder.Services);
-
-var app = appBuilder.Build();
-
-configurer.ConfigureApp(app, app.Environment);
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}");
-app.MapControllers();
-app.MapRazorPages();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Run application
 app.Run();

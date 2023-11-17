@@ -1,10 +1,8 @@
-using System;
-
-namespace ASI.Basecode.WebApp.Models
+namespace Skooby.WebApp.Models
 {
     public class ErrorViewModel
     {
-        public string RequestId { get; set; }
+        public string? RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
