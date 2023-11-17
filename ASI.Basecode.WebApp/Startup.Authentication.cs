@@ -16,26 +16,28 @@ namespace ASI.Basecode.WebApp
         private void ConfigureAuth(IServiceCollection services)
         {
             var authSecretKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration[Constants.Token.SecretKey]));
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ClockSkew = TimeSpan.Zero,              // Clock skew compensates for server time drift.We recommend 5 minutes or less
-                    IssuerSigningKey = authSecretKey,       // Specify the key used to sign the token
-                    
-                    RequireSignedTokens = true,             // Requires that valid tokens should be signed
-                    RequireExpirationTime = true,           // Requires that tokens should have expiry date and time
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(options =>
+{
+    var secretKey = Configuration["TokenAuthentication:SecretKey"];
+    var audience = Configuration["TokenAuthentication:Audience"];
+    var issuer = Configuration["TokenAuthentication:Issuer"]; // Optional: Add this line if Issuer is added in appsettings.json
 
-                    ValidIssuer = Configuration[Constants.Token.Issuer],           // Validate the JWT Issuer (iss) claim
-                    ValidAudience = Configuration[Constants.Token.Audience],       // Validate the JWT Audience (aud) claim
-                    
-                    ValidateIssuer = true,              // Validate if the token was issued by a trusted authorization server (default true)
-                    ValidateIssuerSigningKey = true,    // Validate the token signing key
-                    ValidateAudience = true,            // Validate if the token audience matches our audience value (default true)
-                    ValidateLifetime = true,            // Validate the token expiry 
-                };
-            });
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ClockSkew = TimeSpan.Zero,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey)),
+        ValidIssuer = issuer, // Use the `issuer` variable
+        ValidAudience = audience, // Use the `audience` variable
+        RequireSignedTokens = true,
+        RequireExpirationTime = true,
+        ValidateIssuer = true,
+        ValidateIssuerSigningKey = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+    };
+});
 
             services.AddMvc();
 
