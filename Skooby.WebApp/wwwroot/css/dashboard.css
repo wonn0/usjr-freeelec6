@@ -1,0 +1,190 @@
+﻿body { 
+}
+
+:root {
+    --primary-color: #FF7519;
+    --secondary-color: #B64110;
+    --dark-p-color: #331204;
+    --star-color: #FFA928;
+}
+
+.skooby-dashboard{
+    margin: 100px 0px;
+}
+
+.container-wrapper {
+    display: flex !important;  
+}
+
+.content-wrapper {
+    width:20%; 
+    flex-wrap: wrap;
+}
+
+.book-wrapper {
+    display: flex;
+}
+
+.book-content {
+    text-align: center;
+    width: -webkit-fill-available;
+}
+
+
+.book-image-preview {
+    /* Add a width or max-width property to constrain the image size */
+    max-width: 150px; /* This value can be any size you desire */
+    height: auto; /* This ensures the image maintains its aspect ratio */
+    margin: 0 auto; /* This centers the image in its container */
+    display: block;
+}
+.suggest-book-image{
+    /* Add a width or max-width property to constrain the image size */
+    max-width: 150px; /* This value can be any size you desire */
+    height: auto; /* This ensures the image maintains its aspect ratio */
+    margin: 0 auto; /* This centers the image in its container */
+    display: block;
+}
+.book-image {
+    width: 100%; /* This makes the image fill its container */
+    height: auto; /* This ensures the image maintains its aspect ratio */
+    display: block;
+}
+
+
+.book-genre {
+    margin: 30px 30px;
+}
+.book-content {
+    display: flex;
+    position: relative; /* Add this to make positioning of the card relative to this container */
+}
+
+.book-info-card {
+    display: none; 
+    width: 300px;
+    z-index: 1;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    right: -290px;
+    height: 194px;
+    box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+}
+
+.book-image-preview:hover + .book-info-card {
+    display: block;
+ 
+}
+
+.sidebar-content {
+    height: 50vh;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10%;
+    box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+} 
+.content {
+    width: 100%;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.filter-searchbar{
+    padding: 10px 0px;
+}
+
+.sidebar-container {
+    width: 30%;
+    padding: 20px;
+}
+
+.filter-category-container {
+    padding: 10px 20px 20px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.filter-category-titles{
+    color:var(--primary-color);
+}
+
+.filter-category-titles:hover {
+    color: var(--secondary-color);
+}
+
+.sidebar-title {
+    color: var(--dark-p-color);
+}
+ 
+.book-info-card {
+    padding: 10px;
+    text-align: initial;
+}
+
+.book-title {
+    width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);
+}
+
+.author-name {
+    width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);
+}
+
+.book-description {
+     
+    height: 75px;
+    -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+    font-size: small;
+ 
+}
+
+.book-rating-value{
+    margin-bottom:0px;
+    align-content:center;
+}
+
+.book-reviews, .book-rating-value {
+    font-size: x-small;
+}
+
+.book-rating-value{
+    padding-left:10px;
+}
+
+.book-text {
+    margin-bottom: 5px !important;
+}
+
+.book-rating {
+    align-items: center;
+    display: flex;
+}
+.star-rating {
+    margin-bottom:10px;
+    color: var(--star-color);
+}
+/* Responsive styling */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .content, .sidebar {
+        flex: auto;
+    }
+}
+
+
+ 

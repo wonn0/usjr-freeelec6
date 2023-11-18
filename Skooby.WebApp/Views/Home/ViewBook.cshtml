@@ -1,0 +1,293 @@
+@model ASI.Basecode.Services.Models.BookDetailsViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+@section styles {
+    <link rel="stylesheet" href="~/css/viewbook.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/author_otherbook.css" />
+}
+
+@{
+    double averageRating = 0;
+    double roundedAverage = 0;
+
+    // Check if Model.Reviews is not null and contains elements
+    if (Model.Reviews != null && Model.Reviews.Any())
+    {
+        averageRating = Model.Reviews.Average(r => r.Rating);
+        roundedAverage = Math.Ceiling(averageRating);
+    }
+
+}
+
+
+<section class="skooby-section skooby-viewbook">
+    <div class="container-wrapper">
+        <div class="image-container">
+            <div class="image-content">
+
+                <div class="book-image-preview">
+                    <img class="book-image image-content-spacing" id="book-image"
+                        src="@Url.Content(Model.Book.Image)" />
+
+                </div>
+                <button type="submit" class="image-content-spacing btn btn-primary download-btn" id="download-btn"><i
+                        class="fa-solid fa-download"></i> Download Sample</button>
+                <button type="submit" class="image-content-spacing btn btn-primary wishlist-btn" id="wishlist-btn"><i
+                        class="fa-solid fa-plus"></i> Add to Wishlist</button>
+                <div class="book-rating image-content-spacing">
+                    <div class="stars book-rate-spacing">
+                        <button class="star-btn" onmouseover="hoverStars(1)" onmouseout="resetStars()"
+                            onclick="setRating(1)">
+                            <i class="fa-regular fa-star star-rating-image" id="star1"></i>
+                        </button>
+                        <button class="star-btn" onmouseover="hoverStars(2)" onmouseout="resetStars()"
+                            onclick="setRating(2)">
+                            <i class="fa-regular fa-star star-rating-image" id="star2"></i>
+                        </button>
+                        <button class="star-btn" onmouseover="hoverStars(3)" onmouseout="resetStars()"
+                            onclick="setRating(3)">
+                            <i class="fa-regular fa-star star-rating-image" id="star3"></i>
+                        </button>
+                        <button class="star-btn" onmouseover="hoverStars(4)" onmouseout="resetStars()"
+                            onclick="setRating(4)">
+                            <i class="fa-regular fa-star star-rating-image" id="star4"></i>
+                        </button>
+                        <button class="star-btn" onmouseover="hoverStars(5)" onmouseout="resetStars()"
+                            onclick="setRating(5)">
+                            <i class="fa-regular fa-star star-rating-image" id="star5"></i>
+                        </button>
+                    </div>
+
+                    <p class="book-rating-text">Rate this book</p>
+                </div>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <div class="book-container">
+                <div class="book-content-wrapper">
+                    <div class="book-content">
+
+                        <h1 id="book-title">@Model.Book.Name</h1>
+                        <p class="author-name" id="author-name">by @foreach (var authorName in Model.Book.AuthorNames)
+                            {
+                                @authorName
+                            }</p>
+                        <div class="rate-review-wrapper">
+                            <div class="rate-review-wrapper">
+                                <div class="stars info-spacing info-rating-main">
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <i class="fa-@(i <= roundedAverage ? "solid" : "regular") fa-star star-rating-main"
+                                            id="star-@(i)"></i>
+                                    }
+                                </div>
+                                <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">
+                                    @averageRating.ToString("0.0")</h4>
+                            </div>
+                            <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">5.0
+                            </h4>
+
+                            <div class="reviews-wrapper">
+                                <p class="reviews-value rr-spacing">@(Model.Reviews.Count)</p>
+                                <p>>Reviews</p>
+
+                            </div>
+                        </div>
+
+                        <div class="book-description-content">
+                            <p class="book-description" id="book-description">
+                                @Model.Book.Description
+                            </p>
+                            <button type="submit" id="show-more-btn"
+                                class="show-more-content-spacing btn btn-primary show-more-btn">Show more <i
+                                    class="fa-solid fa-chevron-down show-more"></i></button>
+                        </div>
+                        <div class="book-info">
+                            <div class="info-wrapper">
+                                <p class="info-spacing">ISBN: </p>
+                                <p id="isbn-value">@Model.Book.ISBN</p>
+                            </div>
+
+                            <div class="info-wrapper">
+                                <p class="info-spacing">Language: </p>
+                                <p id="language-value">@Model.Book.Language</p>
+                            </div>
+
+                            <div class="info-wrapper">
+                                <p class="info-spacing" id="pages-value">Pages: @Model.Book.PageCount</p>
+                            </div>
+                            <div class="info-wrapper">
+                                <p class="info-spacing" id="published-value">First published on: </p>
+                                <p>@Model.Book.PublishedOn</p>
+                            </div>
+                            <div class="info-wrapper">
+                                <p class="info-spacing" id="published-value">Genre: </p>
+                                <p>@foreach (var genreName in Model.Book.GenreNames)
+                                    {
+                                        @genreName
+                                    }</p>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <h2 class="section-title">
+                            @foreach (var authorName in Model.Book.AuthorNames)
+                            {
+                                @authorName.ToUpperInvariant()
+                            }'S OTHER WORKS
+                        </h2>
+                        <hr />
+
+                      @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
+{
+    <div class="book-container">
+        @foreach (var relatedBook in Model.RelatedBooks.Take(4)) 
+        {
+            <div class="book">
+                <img src="@Url.Content(relatedBook.Image)" alt="@relatedBook.Name" class="book-images" />
+                <p class="book-title">@relatedBook.Name</p>
+            </div>
+        }
+      
+    </div>
+                            <div class="see-more-container">   <button id="seeMoreButton" class="see-more-button">See More</button></div>
+}
+else
+{
+    <p>No other works by this author found.</p>
+}
+
+
+                        <div class="book-rating-container">
+                            <div class="book-rating-wrapper">
+                                <h3>Book Ratings</h3>
+                                <div class="rate-review-wrapper element-book-rate">
+                                    <div class="stars rating-spacing element-book-rate">
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-1"></i>
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-2"></i>
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-3"></i>
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-4"></i>
+                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
+                                            id="star-5"></i>
+                                    </div>
+                                    <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">
+                                        @averageRating.ToString("0.0")
+                                    </h6>
+
+                                    <p class="element-book-rate">
+                                        out of 5</p>
+                                    <div class="reviews-wrapper element-book-rate">
+                                        <p class="ebr-styling rr-spacing element-book-rate">•</p>
+                                        <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
+                                            id="review-value">@(Model.Reviews.Count)</p>
+                                        <p class=" ebr-styling element-book-rate">reviews</p>
+                                    </div>
+
+
+                                </div>
+                                <hr />
+                            </div>
+                            <div class="review-item-container">
+                                @if (Model.Reviews != null && Model.Reviews.Any())
+                                {
+                                    foreach (var review in Model.Reviews)
+                                    {
+                                        <div class="review-item">
+                                            <h3>@review.BookName</h3>
+                                            <p><strong>Reviewed by:</strong> @review.ReviewedBy</p>
+                                            <p><strong>Description:</strong> @review.Description</p>
+                                            <p><strong>Rating:</strong> @review.Rating</p>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <p>No reviews available for this book.</p>
+                                }
+                            </div>
+
+
+                        </div>
+
+
+                        <h2 class="section-title">SUGGESTED FOR YOU SECTION</h2>
+                        <hr />
+
+                       @if (Model.AllBooks != null && Model.AllBooks.Any())
+{
+    <div class="book-container">
+        @foreach (var book in Model.AllBooks.Take(4)) 
+        {
+            <div class="book">
+                <img src="@Url.Content(book.Image)" alt="@book.Name" class="book-images" />
+                <p class="book-title">@book.Name</p>
+                
+            </div>
+        }
+                              
+    </div>
+
+                            <div class="see-more-container">   <button id="seeMoreButton" class="see-more-button">See More</button></div>
+}
+else
+{
+    <p>No books available for suggestions.</p>
+}
+
+
+                    </div>
+
+                </div>
+</section>
+
+
+<script>
+    // show description logic
+    document.addEventListener("DOMContentLoaded", function () {
+        const showMoreButton = document.getElementById('show-more-btn');
+        const description = document.getElementById('book-description');
+
+        showMoreButton.addEventListener('click', function () {
+            description.classList.toggle('expanded-description');
+
+            if (description.classList.contains('expanded-description')) {
+                showMoreButton.textContent = 'Show less';
+            } else {
+                showMoreButton.textContent = 'Show more';
+            }
+        });
+    });
+
+
+    // rate this book hover logic
+    document.addEventListener("DOMContentLoaded", function () {
+        const stars = document.querySelectorAll('.star-rating-image');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('mouseover', function () {
+                for (let i = 0; i <= index; i++) {
+                    stars[i].classList.remove('fa-regular');
+                    stars[i].classList.add('fa-solid');
+                }
+            });
+
+            star.addEventListener('mouseout', function () {
+                for (let i = 0; i < stars.length; i++) {
+                    stars[i].classList.remove('fa-solid');
+                    stars[i].classList.add('fa-regular');
+                }
+            });
+        });
+    });
+
+
+</script>

@@ -1,0 +1,152 @@
+2023-11-18 00:48:19.344 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-11-18 00:48:26.525 +08:00 [DBG] The index {'AuthorId'} was not created on entity type 'AuthorBook' as the properties are already covered by the index {'AuthorId', 'BookId'}.
+2023-11-18 00:48:26.526 +08:00 [DBG] The index {'BookId'} was not created on entity type 'BookGenre' as the properties are already covered by the index {'BookId', 'GenreId'}.
+2023-11-18 00:48:26.526 +08:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2023-11-18 00:48:26.527 +08:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2023-11-18 00:48:26.620 +08:00 [DBG] Entity Framework Core 7.0.13 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: CommandTimeout=120 
+2023-11-18 00:48:26.661 +08:00 [DBG] Compiling query expression: 
+'DbSet<IdentityUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+2023-11-18 00:48:26.727 +08:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUser.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityUser.AccessFailedCount (int) Required, 1], [Property: IdentityUser.ConcurrencyStamp (string) Concurrency, 2], [Property: IdentityUser.Email (string) MaxLength(256), 3], [Property: IdentityUser.EmailConfirmed (bool) Required, 4], [Property: IdentityUser.LockoutEnabled (bool) Required, 5], [Property: IdentityUser.LockoutEnd (DateTimeOffset?), 6], [Property: IdentityUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: IdentityUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: IdentityUser.PasswordHash (string), 9], [Property: IdentityUser.PhoneNumber (string), 10], [Property: IdentityUser.PhoneNumberConfirmed (bool) Required, 11], [Property: IdentityUser.SecurityStamp (string), 12], [Property: IdentityUser.TwoFactorEnabled (bool) Required, 13], [Property: IdentityUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUser>, 
+        ASI.Basecode.Data.AsiBasecodeDBContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2023-11-18 00:48:26.744 +08:00 [DBG] Creating DbConnection.
+2023-11-18 00:48:26.755 +08:00 [DBG] Created DbConnection. (8ms).
+2023-11-18 00:48:26.767 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:26.871 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:26.917 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:26.922 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (2ms).
+2023-11-18 00:48:27.044 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.045 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.058 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.059 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-11-18 00:48:27.063 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.064 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.109 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.109 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-11-18 00:48:27.131 +08:00 [DBG] The index {'AuthorId'} was not created on entity type 'AuthorBook' as the properties are already covered by the index {'AuthorId', 'BookId'}.
+2023-11-18 00:48:27.131 +08:00 [DBG] The index {'BookId'} was not created on entity type 'BookGenre' as the properties are already covered by the index {'BookId', 'GenreId'}.
+2023-11-18 00:48:27.132 +08:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2023-11-18 00:48:27.132 +08:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2023-11-18 00:48:27.156 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.157 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.190 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.190 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-11-18 00:48:27.194 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.194 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.200 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.201 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-11-18 00:48:27.205 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.206 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.222 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.222 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-11-18 00:48:27.228 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-11-18 00:48:27.229 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:48:27.230 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-11-18 00:48:51.296 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-11-18 00:49:52.122 +08:00 [DBG] The index {'AuthorId'} was not created on entity type 'AuthorBook' as the properties are already covered by the index {'AuthorId', 'BookId'}.
+2023-11-18 00:49:52.124 +08:00 [DBG] The index {'BookId'} was not created on entity type 'BookGenre' as the properties are already covered by the index {'BookId', 'GenreId'}.
+2023-11-18 00:49:52.124 +08:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2023-11-18 00:49:52.125 +08:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2023-11-18 00:49:52.219 +08:00 [DBG] Entity Framework Core 7.0.13 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: CommandTimeout=120 
+2023-11-18 00:49:52.255 +08:00 [DBG] Compiling query expression: 
+'DbSet<IdentityUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+2023-11-18 00:49:52.319 +08:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUser.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityUser.AccessFailedCount (int) Required, 1], [Property: IdentityUser.ConcurrencyStamp (string) Concurrency, 2], [Property: IdentityUser.Email (string) MaxLength(256), 3], [Property: IdentityUser.EmailConfirmed (bool) Required, 4], [Property: IdentityUser.LockoutEnabled (bool) Required, 5], [Property: IdentityUser.LockoutEnd (DateTimeOffset?), 6], [Property: IdentityUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: IdentityUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: IdentityUser.PasswordHash (string), 9], [Property: IdentityUser.PhoneNumber (string), 10], [Property: IdentityUser.PhoneNumberConfirmed (bool) Required, 11], [Property: IdentityUser.SecurityStamp (string), 12], [Property: IdentityUser.TwoFactorEnabled (bool) Required, 13], [Property: IdentityUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUser>, 
+        ASI.Basecode.Data.AsiBasecodeDBContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2023-11-18 00:49:52.337 +08:00 [DBG] Creating DbConnection.
+2023-11-18 00:49:52.346 +08:00 [DBG] Created DbConnection. (6ms).
+2023-11-18 00:49:52.357 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:49:52.467 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:49:52.528 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:49:52.532 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (3ms).
+2023-11-18 00:49:52.536 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-11-18 00:49:52.538 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:49:52.539 +08:00 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-11-18 00:50:01.065 +08:00 [DBG] Entity Framework Core 7.0.13 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: CommandTimeout=120 
+2023-11-18 00:50:01.071 +08:00 [DBG] Creating DbConnection.
+2023-11-18 00:50:01.072 +08:00 [DBG] Created DbConnection. (1ms).
+2023-11-18 00:50:01.074 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:50:01.076 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:50:01.084 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:50:01.085 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (0ms).
+2023-11-18 00:50:01.086 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-11-18 00:50:01.087 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:50:01.088 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-11-18 00:50:47.248 +08:00 [DBG] Entity Framework Core 7.0.13 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: CommandTimeout=120 
+2023-11-18 00:50:47.254 +08:00 [DBG] Creating DbConnection.
+2023-11-18 00:50:47.255 +08:00 [DBG] Created DbConnection. (1ms).
+2023-11-18 00:50:47.260 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:50:47.262 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:50:47.271 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:50:47.273 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (1ms).
+2023-11-18 00:50:47.274 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-11-18 00:50:47.275 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:50:47.275 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
+2023-11-18 00:51:03.524 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-11-18 00:51:12.168 +08:00 [DBG] The index {'AuthorId'} was not created on entity type 'AuthorBook' as the properties are already covered by the index {'AuthorId', 'BookId'}.
+2023-11-18 00:51:12.169 +08:00 [DBG] The index {'BookId'} was not created on entity type 'BookGenre' as the properties are already covered by the index {'BookId', 'GenreId'}.
+2023-11-18 00:51:12.170 +08:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2023-11-18 00:51:12.171 +08:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2023-11-18 00:51:12.264 +08:00 [DBG] Entity Framework Core 7.0.13 initialized 'AsiBasecodeDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: CommandTimeout=120 
+2023-11-18 00:51:12.304 +08:00 [DBG] Compiling query expression: 
+'DbSet<IdentityUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+2023-11-18 00:51:12.368 +08:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUser.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityUser.AccessFailedCount (int) Required, 1], [Property: IdentityUser.ConcurrencyStamp (string) Concurrency, 2], [Property: IdentityUser.Email (string) MaxLength(256), 3], [Property: IdentityUser.EmailConfirmed (bool) Required, 4], [Property: IdentityUser.LockoutEnabled (bool) Required, 5], [Property: IdentityUser.LockoutEnd (DateTimeOffset?), 6], [Property: IdentityUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: IdentityUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: IdentityUser.PasswordHash (string), 9], [Property: IdentityUser.PhoneNumber (string), 10], [Property: IdentityUser.PhoneNumberConfirmed (bool) Required, 11], [Property: IdentityUser.SecurityStamp (string), 12], [Property: IdentityUser.TwoFactorEnabled (bool) Required, 13], [Property: IdentityUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUser>, 
+        ASI.Basecode.Data.AsiBasecodeDBContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2023-11-18 00:51:12.387 +08:00 [DBG] Creating DbConnection.
+2023-11-18 00:51:12.398 +08:00 [DBG] Created DbConnection. (9ms).
+2023-11-18 00:51:12.410 +08:00 [DBG] Opening connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:51:12.539 +08:00 [DBG] Opened connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:51:12.581 +08:00 [DBG] Closing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:51:12.585 +08:00 [DBG] Closed connection to database 'Alliance' on server 'localhost,1433' (2ms).
+2023-11-18 00:51:12.589 +08:00 [DBG] 'AsiBasecodeDBContext' disposed.
+2023-11-18 00:51:12.590 +08:00 [DBG] Disposing connection to database 'Alliance' on server 'localhost,1433'.
+2023-11-18 00:51:12.591 +08:00 [DBG] Disposed connection to database '' on server '' (0ms).
