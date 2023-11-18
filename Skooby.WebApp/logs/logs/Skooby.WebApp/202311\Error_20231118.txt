@@ -66,3 +66,8 @@ Skooby.WebApp.Controllers.HomeController.BookReview (Skooby.WebApp)
    at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
 2023-11-18 10:11:44.515 +08:00 [ERR] No authors found for book ID 15.
+2023-11-18 10:19:48.684 +08:00 [ERR] No authors found for book ID 12.
+2023-11-18 10:47:08.296 +08:00 [ERR] No authors found for book ID 12.
+2023-11-18 10:53:23.445 +08:00 [ERR] No authors found for book ID 12.
+2023-11-18 11:43:51.542 +08:00 [ERR] No authors found for book ID 13.
+2023-11-18 11:44:03.033 +08:00 [ERR] No authors found for book ID 14.

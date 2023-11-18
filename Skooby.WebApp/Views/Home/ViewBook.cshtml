@@ -91,7 +91,7 @@
 
                             <div class="reviews-wrapper">
                                 <p class="reviews-value rr-spacing">@(Model.Reviews.Count)</p>
-                                <p>>Reviews</p>
+                                <p>Barks</p>
 
                             </div>
                         </div>
@@ -189,7 +189,7 @@ else
                                         <p class="ebr-styling rr-spacing element-book-rate">•</p>
                                         <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
                                             id="review-value">@(Model.Reviews.Count)</p>
-                                        <p class=" ebr-styling element-book-rate">reviews</p>
+                                        <p class=" ebr-styling element-book-rate">barks</p>
                                     </div>
 
 
@@ -203,7 +203,7 @@ else
                                     {
                                         <div class="review-item">
                                             <h3>@review.BookName</h3>
-                                            <p><strong>Reviewed by:</strong> @review.ReviewedBy</p>
+                                            <p><strong>Barked by:</strong> @review.ReviewedBy</p>
                                             <p><strong>Description:</strong> @review.Description</p>
                                             <p><strong>Rating:</strong> @review.Rating</p>
                                         </div>
@@ -211,7 +211,7 @@ else
                                 }
                                 else
                                 {
-                                    <p>No reviews available for this book.</p>
+                                    <p>No barks available for this book.</p>
                                 }
                             </div>
 

@@ -17,24 +17,21 @@
                     <hr />
                     <div class="book-wrapper">
                         @foreach (var book in genreGroup)
-                        {
-                            <div class="book-content">
-                                <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-
-                                    <div class="book-image-preview">
-                                        <img class="book-image" src="@book.Image ?? " ~/img/book-preview.png""
-                                            alt="Book Cover" />
-                                    </div>
-                                </a>
-                                <div class="book-info-card" id="per-book-info-@book.Id">
-                                    <h5 class="book-title book-text">@book.Name</h5>
-                                    <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) •
-                                        @book.PublishedOn.Year</p>
-                                    <p class="book-description book-text">@book.Description</p>
-                                    <!-- Additional info like rating and reviews could be added here -->
-                                </div>
-                            </div>
-                        }
+{
+    <div class="book-content">
+        <a href="@Url.Action("Details", "Book", new { id = book.Id })">
+            <div class="book-image-preview">
+                <img class="book-image" src="@book.Image ?? "~/img/book-preview.png"" alt="Book Cover" />
+            </div>
+        </a>
+        <div class="book-info-card" id="per-book-info-@book.Id">
+            <h5 class="book-title book-text">@book.Name</h5>
+            <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
+            <p class="book-description book-text">@book.Description</p>
+            <!-- Additional info like rating and reviews could be added here -->
+        </div>
+    </div>
+}
 
                     </div>
                 </div>
