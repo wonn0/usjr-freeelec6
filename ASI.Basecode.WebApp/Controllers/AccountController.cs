@@ -1,11 +1,9 @@
-﻿using ASI.Basecode.Data.Models;
-using ASI.Basecode.Data.ViewModels;
+﻿using ASI.Basecode.Data.ViewModels;
 using ASI.Basecode.Services.Interfaces;
 using ASI.Basecode.Services.Manager;
 using ASI.Basecode.Services.ServiceModels;
 using ASI.Basecode.WebApp.Authentication;
 using ASI.Basecode.WebApp.Models;
-using ASI.Basecode.WebApp.Mvc;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -20,9 +18,6 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using static ASI.Basecode.Resources.Constants.Enums;
-using static ASI.Basecode.Resources.Constants.Constants;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -347,15 +342,17 @@ namespace ASI.Basecode.WebApp.Controllers
 
                 if (result.Succeeded)
                 {
-                    _userService.AddUser(model);
+                    //_userService.AddUser(model);
                     Console.WriteLine("I logined reached this part of the function");
 
-                    var userRole = _roleManager.FindByNameAsync("User").Result;
-
-                    if (userRole != null)
+                    var userRole = _roleManager.FindByNameAsync("Admin").Result;
+                    if (userRole == null)
                     {
-                        await _userManager.AddToRoleAsync(identityUser, userRole.Name);
+                        await _roleManager.CreateAsync(new IdentityRole("Admin"));
+                        await _roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
                     }
+                    await _userManager.AddToRoleAsync(identityUser, "Admin"); 
+
                 }
                 else if (!result.Succeeded)
                 {
@@ -368,10 +365,6 @@ namespace ASI.Basecode.WebApp.Controllers
             catch (InvalidDataException ex)
             {
                 TempData["ErrorMessage"] = ex.Message;
-            }
-            catch (System.Exception ex)
-            {
-                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
             }
             return View();
         }
