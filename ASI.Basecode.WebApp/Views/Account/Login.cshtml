@@ -25,9 +25,9 @@
                         <h1 class="modal-title modal-title-auth fs-5" id="exampleModalLabel">Sign In</h1>
                         <form method="post" action="/Account/Login" asp-antiforgery="true">
                             <div class="mb-3">
-                                <label for="Email" class="form-label">Email Address</label>
+                                <label for="Email" class="form-label">Username</label>
                                 <input type="text" id="UserId" class="form-control" asp-for="Email"
-                                       placeholder="Enter email address">
+                                       placeholder="Enter username">
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                             <div class="mb-3">

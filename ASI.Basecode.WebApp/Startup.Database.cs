@@ -1,5 +1,4 @@
 ﻿using ASI.Basecode.Data;
-using Basecode.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,7 +21,10 @@ namespace ASI.Basecode.WebApp
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+                    {
+                        options.SignIn.RequireConfirmedEmail = false;
+                    })
                     .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<AsiBasecodeDBContext>()
                     .AddDefaultUI()

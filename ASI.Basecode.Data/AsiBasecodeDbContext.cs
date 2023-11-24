@@ -30,7 +30,7 @@ namespace ASI.Basecode.Data
 
         public virtual DbSet<RefreshToken> RefreshToken { get; set; }
 
-        public virtual DbSet<User> Users { get; set; }
+        //public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
@@ -40,40 +40,40 @@ namespace ASI.Basecode.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.HasIndex(e => e.UserId, "UQ__Users__1788CC4D5F4A160F")
-                    .IsUnique();
+            //modelBuilder.Entity<User>(entity =>
+            //{
+            //    entity.HasIndex(e => e.UserId, "UQ__Users__1788CC4D5F4A160F")
+            //        .IsUnique();
 
-                entity.Property(e => e.CreatedBy)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+            //    entity.Property(e => e.CreatedBy)
+            //        .IsRequired()
+            //        .HasMaxLength(50)
+            //        .IsUnicode(false);
 
-                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+            //    entity.Property(e => e.CreatedTime).HasColumnType("datetime");
 
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+            //    entity.Property(e => e.Name)
+            //        .IsRequired()
+            //        .HasMaxLength(50)
+            //        .IsUnicode(false);
 
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+            //    entity.Property(e => e.Password)
+            //        .IsRequired()
+            //        .HasMaxLength(50)
+            //        .IsUnicode(false);
 
-                entity.Property(e => e.UpdatedBy)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+            //    entity.Property(e => e.UpdatedBy)
+            //        .IsRequired()
+            //        .HasMaxLength(50)
+            //        .IsUnicode(false);
 
-                entity.Property(e => e.UpdatedTime).HasColumnType("datetime");
+            //    entity.Property(e => e.UpdatedTime).HasColumnType("datetime");
 
-                entity.Property(e => e.UserId)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
+            //    entity.Property(e => e.UserId)
+            //        .IsRequired()
+            //        .HasMaxLength(50)
+            //        .IsUnicode(false);
+            //});
 
             modelBuilder.Entity<AuthorBook>()
             .HasKey(ab => new { ab.AuthorId, ab.BookId });

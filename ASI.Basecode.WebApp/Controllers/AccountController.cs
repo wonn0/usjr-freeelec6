@@ -22,6 +22,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using static ASI.Basecode.Resources.Constants.Enums;
+using static ASI.Basecode.Resources.Constants.Constants;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -229,25 +230,73 @@ namespace ASI.Basecode.WebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                // Fetch the user by email (or username, if that's what you use for login)
+                var user = await _userManager.FindByNameAsync(model.Email);
+                if (user == null)
+                {
+                    _logger.LogWarning("Login failed: User does not exist.");
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return View(model);
+                }
+
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    _logger.LogInformation(Input.Email);
+
+                    //Console.WriteLine("Login success");f
                     //_logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+
+                    //_logger.LogInformation($"User logged in: {user.UserName}");
+
+                    var roles = await _userManager.GetRolesAsync(user);
+                    _logger.LogInformation($"User Roles: {string.Join(", ", roles)}");
+
+                    if (roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "Book"); // pls change this 
+                    }
+                    else if (roles.Contains("SuperAdmin"))
+                    {
+                        return RedirectToAction("Index", "Home"); // pls change this
+                    }
                 }
                 if (result.RequiresTwoFactor)
                 {
+                    _logger.LogInformation("User logged in.2");
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
                 }
                 if (result.IsLockedOut)
                 {
+                    _logger.LogInformation("User logged in.3");
                     //_logger.LogWarning("User account locked out.");
                     return RedirectToPage("./Lockout");
                 }
+                else if (result.IsNotAllowed)
+                {
+                    _logger.LogInformation("User logged in.4");
+                    Console.WriteLine("Login failed: User is not allowed to login.");
+                }
                 else
                 {
+                    _logger.LogWarning($"Login failed. Succeeded: {result.Succeeded}, " +
+                       $"IsLockedOut: {result.IsLockedOut}, " +
+                       $"RequiresTwoFactor: {result.RequiresTwoFactor}, " +
+                       $"IsNotAllowed: {result.IsNotAllowed}");
+                    //var user = await _userManager.FindByEmailAsync(model.Email);
+                    //if (user == null)
+                    //{
+                    //    _logger.LogInformation("Login failed: User does not exist.");
+                    //    // Handle non-existent user scenario
+                    //}
+                    //if (!await _userManager.IsEmailConfirmedAsync(user))
+                    //{
+                    //    _logger.LogWarning("Login failed: Email not confirmed.");
+                    //    // Handle unconfirmed email scenario
+                    //}
+                    _logger.LogInformation("User logged in.5");
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return RedirectToPage(returnUrl);
                 }
@@ -287,16 +336,19 @@ namespace ASI.Basecode.WebApp.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Register(UserViewModel model)
         {
+            Console.WriteLine("Register function");
             try
             {
                 var identityUser = new IdentityUser();
                 identityUser.Email = model.Email;
                 identityUser.UserName = model.UserId;
                 var result = await _userManager.CreateAsync(identityUser, model.Password);
+                Console.WriteLine("I reached this part of the function");
 
                 if (result.Succeeded)
                 {
                     _userService.AddUser(model);
+                    Console.WriteLine("I logined reached this part of the function");
 
                     var userRole = _roleManager.FindByNameAsync("User").Result;
 
@@ -304,6 +356,10 @@ namespace ASI.Basecode.WebApp.Controllers
                     {
                         await _userManager.AddToRoleAsync(identityUser, userRole.Name);
                     }
+                }
+                else if (!result.Succeeded)
+                {
+                    Console.WriteLine($"Failed to add user to role: {string.Join(", ", result.Errors.Select(e => e.Description))}");
                 }
 
 
@@ -313,7 +369,7 @@ namespace ASI.Basecode.WebApp.Controllers
             {
                 TempData["ErrorMessage"] = ex.Message;
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
             }

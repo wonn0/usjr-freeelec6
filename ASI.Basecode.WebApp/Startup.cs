@@ -32,7 +32,6 @@ namespace ASI.Basecode.WebApp
             // Add services to the container.
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddMvc(options => options.EnableEndpointRouting = false);
-
             services.AddLogging(x => x.AddConfiguration(Configuration.GetLoggingSection()).AddConsole().AddDebug());
             PathManager.Setup(this.Configuration.GetSetupRootDirectoryPath());
         }
