@@ -10,22 +10,34 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/main.css" />
     <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/sidebar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     @RenderSection("Styles", required: false)
 </head>
 <body>
-    @Html.Partial("_Header")
-    <div class="container">
-        <main role="main">
+    @Html.Partial("_Header")  
+    <div class="container">  
+        <main role="main"> 
+             <div class="sidenav">
+                <div class="masterlist-padding masterlist-users">
+                    <div class="masterlist">
+                        <div class="masterlist-title">
+                            <h5>User List</h5>
+                        </div>
+                        <a  href="#about">Users</a>
+                    </div>
+                </div>
+                @* <a class="masterlist masterlist-padding" href="#services">Services</a>
+                <a href="#clients">Clients</a>
+                <a href="#contact">Contact</a> *@
+            </div>  
             @RenderBody()
+            @* <div class="content-container">
+                @RenderBody()
+            </div> *@
         </main>
-    </div>
-@*     <footer class="border-top footer text-muted">
-        <div class="container">
-            @Copyright
-        </div>
-    </footer> *@
-
+    </div> 
+ 
     <footer class="skooby-footer-content text-center text-lg-start text-white">
 
         <div class="container p-4 pb-0">
@@ -63,7 +75,7 @@
                     </div>
 
                     <hr class="w-100 clearfix d-md-none" />
-                    @* <img class="footer-bg-design" src="/images/bg-image-footer.png" /> *@
+                    
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
                         <p><i class="fas fa-home mr-3"></i> CICCT USJ-R, Basak-Pardo, Cebu City, Cebu, PH</p>
@@ -82,21 +94,9 @@
             <div class="container">
                 @Copyright
             </div>
-
-@*             <section class="p-3 pt-0">
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-7 col-lg-8 text-center text-md-start">
-                        @* <div class="p-3">
-                            Copyright © 2023. Alliance Group 6.  All Rights Reserved.
-
-                        </div> 
-                        
-                    </div>
-
-                </div>
-            </section> *@
+             
         </div>
-    </footer>
+    </footer>  
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

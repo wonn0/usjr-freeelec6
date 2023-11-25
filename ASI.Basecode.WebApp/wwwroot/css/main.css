@@ -14,3 +14,8 @@
     font-size: 0.9em;
     text-align: center;
 }
+
+.content-container {
+    padding-top: 50px;
+    margin: 0px 100px;
+}
