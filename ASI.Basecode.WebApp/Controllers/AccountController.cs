@@ -255,7 +255,7 @@ namespace ASI.Basecode.WebApp.Controllers
                     }
                     else if (roles.Contains("SuperAdmin"))
                     {
-                        return RedirectToAction("Index", "Home"); // pls change this
+                        return RedirectToAction("Index", "Admin"); // pls change this
                     }
                 }
                 if (result.RequiresTwoFactor)
