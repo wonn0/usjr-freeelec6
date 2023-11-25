@@ -1,0 +1,29 @@
+﻿
+:root {
+    --primary-color: #FF7519;
+    --secondary-color: #B64110;
+    --dark-p-color: #331204;
+    --star-color: #FFA928;
+}
+
+.module-title{
+    padding-bottom: 20px
+}
+
+.module-container a {
+    padding: 6px 8px 6px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+}
+
+    .module-container a:hover {
+        color: var(--dark-p-color);
+    }
+
+
+
+.module-item-title-odd{
+
+}

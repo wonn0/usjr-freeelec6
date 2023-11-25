@@ -1,81 +1,92 @@
 @model ASI.Basecode.Services.Models.BookViewModel
 
-<style>
-    /* Add CSS styles here */
-    h1 {
-        font-size: 24px;
-        color: #333;
-    }
+@{
+    ViewBag.ShowSideBar = true; 
+    ViewData["Title"] = "Book Details";
+}
 
-    .details-container {
-        border: 1px solid #ccc;
-        padding: 20px;
-        margin: 20px;
-        background-color: #f9f9f9;
-        border-radius: 5px;
-    }
-
-    dl.dl-horizontal {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    dt {
-        font-weight: bold;
-        width: 120px;
-    }
-
-    dd {
-        margin-left: 0;
-        margin-bottom: 10px;
-        flex-basis: calc(100% - 120px);
-    }
+<style> 
 
     img.book-image {
         max-width: 300px;
         height: auto;
         margin-top: 10px;
     }
+
+    .center-content {
+        text-align: center;
+    }
+     
 </style>
 
-<h1>Book Details</h1>
 
-<div class="details-container">
-    <dl class="dl-horizontal">
-        <dt>Image</dt>
-        <dd><img src="@Model.Image" alt="Book Cover" class="book-image" /></dd>
-        <dt>ID</dt>
-        <dd>@Model.Id</dd>
-        <dt>ISBN</dt>
-        <dd>@Model.ISBN</dd>
-        <dt>Title</dt>
-        <dd>@Model.Name</dd>
-        <dt>Authors</dt>
-        <dd>
-            @foreach (var authorName in Model.AuthorNames)
-            {
-                <div>@authorName</div>
-            }
-        </dd>
-        <dt>Genres</dt>
-        <dd>
-            @foreach (var genreName in Model.GenreNames)
-            {
-                <div>@genreName</div>
-            }
-        </dd>
-        <dt>Description</dt>
-        <dd>@Model.Description</dd>
-        <dt>Language</dt>
-        <dd>@Model.Language</dd>
-        <dt>Published On</dt>
-        <dd>@Model.PublishedOn</dd>
-        <dt>Page Count</dt>
-        <dd>@Model.PageCount</dd>
-    </dl>
+
+<div class="form-container container">
+    <h1 class="form-title">Book Details</h1>
+    <div class="row">
+        <div class="col center-content"><img src="@Model.Image" alt="Book Cover" class="book-image" /><p>Book Image</p></div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <tr>
+                            <th>ID</th>
+                            <td>@Model.Id</td>
+                        </tr>
+                        <tr>
+                            <th>ISBN</th>
+                            <td>@Model.ISBN</td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>@Model.Name</td>
+                        </tr>
+                        <tr>
+                            <th>Authors</th>
+                            <td>
+                                @foreach (var authorName in Model.AuthorNames)
+                                {
+                                    <div>@authorName</div>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Genres</th>
+                            <td>
+                                @foreach (var genreName in Model.GenreNames)
+                                {
+                                    <div>@genreName</div>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>@Model.Description</td>
+                        </tr>
+                        <tr>
+                            <th>Language</th>
+                            <td>@Model.Language</td>
+                        </tr>
+                        <tr>
+                            <th>Published On</th>
+                            <td>@Model.PublishedOn</td>
+                        </tr>
+                        <tr>
+                            <th>Page Count</th>
+                            <td>@Model.PageCount</td>
+                        </tr>
+                    </table> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="col-right col-center">
+                @Html.ActionLink("Back to List", "Index", new { @class = "btn-back btn-padd" })
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn-padd btn btn-success" })
+            </div>
+        </div>
+    </div> 
 </div>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
-    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-secondary" })
-</p>

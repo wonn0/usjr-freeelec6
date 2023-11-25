@@ -35,26 +35,7 @@
     --secondary-color: #B64110;
     --dark-p-color: #331204;
 }
-
-/*.hide-navbar{
-    display:flex;
-}*/
-/*
-#hero-section-img-login {
-        margin: 0px -50%;
-    left: 0 !important;
-    position: relative;
-    object-fit: cover;
-    height: 30em !important;
-    width: -webkit-fill-available;
-}*/
-
-/*.modal-container {
-    position: absolute;
-    top: 14em !important;
-    right: 100px;
-    width: 25%;
-}*/
+ 
 
 .modal-container {
     display: flex;
@@ -102,57 +83,4 @@ h1#exampleModalLabel {
     font-size: 30px !important;
     font-weight: 400;
 }
-/*
-#hero-section-title {
-    position: absolute;
-    font-size: 6em;
-    padding-top: 100px;
-    color: white;
-    z-index: 99;
-    width:6em;
-}
-
-    #hero-section-title[b-zsa0up3u66] {
-        width: 7em;
-        position: absolute;
-        font-weight: 700;
-        font-size: 6em;
-        letter-spacing: -4px;
-        padding: 200px 0px 0px 100px;
-        color: white;
-        z-index: 99;
-    }
-
-
-.about-us-section {
-    margin: 100px 0px;
-}
-
-.about-us-content {
-    padding: 50px 100px;
-}
-
-.about-title {
-    color: var(--primary-color);
-    font-size: 3.5em;
-    width: 400px;
-    font-weight: 800;
-    text-align: left;
-    padding-bottom: 50px;
-}
-
-.about-description {
-    text-align: left;
-    padding-right: 50px;
-}
-
-.about-btn {
-    margin-top: 25px;
-    width: 50%;
-    font-size: 25px;
-}
-
-.about-col-left {
-    text-align: left;
-}
-*/
+ 

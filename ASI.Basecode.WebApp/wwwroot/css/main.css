@@ -16,6 +16,7 @@
 }
 
 .content-container {
+    width: 90%;
     padding-top: 50px;
-    margin: 0px 100px;
+    margin-left: auto !important;
 }
