@@ -12,6 +12,11 @@
 
 }
 
+@{
+    ViewBag.ShowSideBar = true; 
+    ViewData["Title"] = "Create Book";
+}
+
 @using (Html.BeginForm("Create", "Book", FormMethod.Post))
 {
     <div class="form-container container">

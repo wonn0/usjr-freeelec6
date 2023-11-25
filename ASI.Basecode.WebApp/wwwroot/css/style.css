@@ -16,9 +16,7 @@
     --background-color4: #cad7fda4;
     --primary-color: #FF7519;
     --secondary-color: #B64110;
-    --dark-p-color: #331204;
-/*    --primary-color: #4b49ac;
-    --secondary-color: #0c007d;*/
+    --dark-p-color: #331204; 
     --Border-color: #3f0097;
     --one-use-color: #3f0097;
     --two-use-color: #5500cb;
@@ -36,7 +34,7 @@ header {
     width: 100vw;
     padding: 0 30px;
     background-color: var(--background-color1);
-    z-index: 100;
+    z-index: 900;
     box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
     display: flex;
     justify-content: space-between;
@@ -64,14 +62,28 @@ header {
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.525);
 }
 
-.form-container {
+.masterlist-module-title{
+    background-color:#f3f3f3;
+    color:var(--primary-color);
+}
+
+.masterlist-module-title-odd {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+
+.module-item-title {
+    padding: 5px 8px 5px 16px;
+}
+
+.form-container, .module-container {
     padding: 40px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.525);
 }
 
 .table {
@@ -107,6 +119,12 @@ header {
 
 .btn-back {
     color: grey;
+}
+ 
+
+.book-image {
+    max-width: 100%; /* Optional: Ensure the image doesn't exceed the container width */
+    max-height: 100%; /* Optional: Ensure the image doesn't exceed the container height */
 }
 
 .searchbar,

@@ -1,6 +1,9 @@
 ﻿@model ASI.Basecode.Services.Models.BookViewModel
 
-
+@{
+    ViewBag.ShowSideBar = true; 
+    ViewData["Title"] = "Edit Book";
+}
 
 @using (Html.BeginForm("Edit", "Book", FormMethod.Post))
 {   <input type="hidden" name="Id" value="@Model.Id" />

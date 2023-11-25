@@ -16,7 +16,7 @@
 </head>
 <body>
     @Html.Partial("_Header")
-    <div class="container">  
+    <div class="container test">  
         <main role="main"> 
              @if (ViewBag.ShowSidebar == true)
             {
@@ -26,7 +26,8 @@
                             <div class="masterlist-title">
                                 <h5>Home</h5>
                             </div>
-                            <a asp-controller="Home" asp-action="Index">Dashboard</a>
+
+                            <a asp-controller="Home" asp-action="Index"><i class="sidenav-icon fa-solid fa-gauge"></i>Dashboard</a>
                         </div>
                         
                         @if (ViewBag.ShowUserList == true)
@@ -35,7 +36,7 @@
                                 <div class="masterlist-title">
                                     <h5>User List</h5>
                                 </div>
-                                <a href="#about">Users</a>
+                                <a class="module-item-title" asp-controller="Admin" asp-action="Index"><i class="sidenav-icon fa-solid fa-user-group"></i>Users</a>
                             </div>
 
                         } 
@@ -43,10 +44,10 @@
                                 <div class="masterlist-title">
                                     <h5>Book List</h5>
                                 </div>
-                            <a asp-controller="Book" asp-action="Index">Genres</a>
-                            <a asp-controller="Book" asp-action="Index">Books</a>
-                            <a asp-controller="Book" asp-action="Index">Authors</a>
-                            <a asp-controller="Book" asp-action="Index">Reviews</a>
+                            <a asp-controller="Book" asp-action="Index"><i class="sidenav-icon fa-solid fa-masks-theater"></i>Genres</a>
+                            <a asp-controller="Book" asp-action="Index"><i class="sidenav-icon fa-solid fa-book"></i> Books</a>
+                            <a asp-controller="Book" asp-action="Index"><i class="sidenav-icon fa-solid fa-feather"></i> Authors</a>
+                            <a asp-controller="Book" asp-action="Index"><i class="sidenav-icon fa-solid fa-comment-dots"></i>Reviews</a>
                             </div>
                          
                     </div> 
