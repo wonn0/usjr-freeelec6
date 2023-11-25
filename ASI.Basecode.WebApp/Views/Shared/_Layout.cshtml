@@ -15,22 +15,25 @@
     @RenderSection("Styles", required: false)
 </head>
 <body>
-    @* @Html.Partial("_Header")   *@
+    @Html.Partial("_Header")
     <div class="container">  
         <main role="main"> 
-             <div class="sidenav">
-                <div class="masterlist-padding masterlist-users">
-                    <div class="masterlist">
-                        <div class="masterlist-title">
-                            <h5>User List</h5>
+             @if (ViewBag.ShowSidebar == true)
+            {
+                <div class="sidenav">
+                    <div class="masterlist-padding masterlist-users">
+                        <div class="masterlist">
+                            <div class="masterlist-title">
+                                <h5>User List</h5>
+                            </div>
+                            <a href="#about">Users</a>
                         </div>
-                        <a  href="#about">Users</a>
                     </div>
-                </div>
-                @* <a class="masterlist masterlist-padding" href="#services">Services</a>
+                    @* <a class="masterlist masterlist-padding" href="#services">Services</a>
                 <a href="#clients">Clients</a>
                 <a href="#contact">Contact</a> *@
-            </div>  
+                </div>
+            }
             @RenderBody()
             @* <div class="content-container">
                 @RenderBody()
