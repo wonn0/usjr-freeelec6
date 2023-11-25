@@ -22,12 +22,15 @@
             {
                 <div class="sidenav">
                     <div class="masterlist-padding masterlist-users">
-                        <div class="masterlist">
-                            <div class="masterlist-title">
-                                <h5>User List</h5>
+                        @if (ViewBag.ShowUserList == true)
+                        {
+                            <div class="masterlist">
+                                <div class="masterlist-title">
+                                    <h5>User List</h5>
+                                </div>
+                                <a href="#about">Users</a>
                             </div>
-                            <a href="#about">Users</a>
-                        </div>
+                        }
                     </div>
                     @* <a class="masterlist masterlist-padding" href="#services">Services</a>
                 <a href="#clients">Clients</a>

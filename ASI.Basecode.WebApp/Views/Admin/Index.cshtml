@@ -1,5 +1,11 @@
 ﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
 
+@{
+    ViewBag.ShowSideBar = true;
+    ViewBag.ShowUserList = true;
+    ViewData["Title"] = "Login Page";
+}
+
 <table>
     <thead>
         <tr>
