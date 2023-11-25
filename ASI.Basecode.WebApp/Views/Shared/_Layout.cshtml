@@ -49,13 +49,9 @@
                             <a asp-controller="Book" asp-action="Index">Reviews</a>
                             </div>
                          
-                    </div>
-                    @* <a class="masterlist masterlist-padding" href="#services">Services</a>
-                <a href="#clients">Clients</a>
-                <a href="#contact">Contact</a> *@
+                    </div> 
                 </div>
-            }
-            @* @RenderBody() *@
+            } 
             <div class="content-container">
                 @RenderBody()
             </div>
@@ -138,7 +134,7 @@
             closeButton: true,
             progressBar: true
         };
-    </script>
+    </script> 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

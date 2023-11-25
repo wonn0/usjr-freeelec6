@@ -40,7 +40,7 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
                 </div>
             </div>
             <div class="col col-right">
-                <a href="@Url.Action("Create", "Book")" class="btn btn-primary">Add New Book</a>
+                <a href="@Url.Action("Create", "Book")" class="btn btn-skooby btn-primary">Add New Book</a>
             </div>
         </div>
     </div>
@@ -74,8 +74,8 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
                             @string.Join(", ", book.GenreNames)
                         </td>
                         <td>
-                            <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-primary">Details</a>
-                            <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-primary">Edit</a>
+                            <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-info btn-primary">Details</a>
+                        <a href="@Url.Action("Edit", "Book", new { id = book.Id })" class="btn btn-success btn-primary">Edit</a>
                             <button data-url="@Url.Action("Delete", "Book", new { id = book.Id })" type="button"
                                     class="btn btn-danger">
                                 Delete

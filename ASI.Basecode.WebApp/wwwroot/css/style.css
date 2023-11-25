@@ -43,16 +43,7 @@ header {
     align-items: center;
 }
 
-.table-container {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.25);
-}
 
-.table{
-    border: 1px solid #f3f3f3;
-}
 
 .logo {
     font-size: 27px;
@@ -64,8 +55,37 @@ header {
     cursor: pointer;
 }
 
-.table-title{
-    padding-bottom:20px;
+.table-title, .form-title {
+    color: var(--dark-p-color);
+    padding-bottom: 20px;
+}
+
+.table-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.form-container {
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.table {
+    border: 1px solid #f3f3f3;
+}
+
+.btn-skooby {
+    /*border-radius: 50px;*/
+    color:#fff;
+    background-color: var(--primary-color);
+}
+
+.btn-success, .btn-danger, .btn-info {
+    /*border-radius: 50px;*/
 }
 
 
@@ -79,6 +99,14 @@ header {
 
 .col-right {
     text-align: end;
+}
+
+.btn-padd{
+    margin: 20px;
+}
+
+.btn-back {
+    color: grey;
 }
 
 .searchbar,
@@ -398,12 +426,19 @@ header {
 
 /*GROUP 6 CHANGES*/
 
-.search-button:active {
+ .btn-skooby:hover {
+    color:var(--primary-color);
+    border-color: var(--primary-color) !important;
+    background-color: #fff !important;
+} 
+
+.search-button:active, .btn-skooby:active {
+    color: var(--primary-color);
     border-color: var(--primary-color) !important;
     background-color: var(--primary-color) !important;
 }
 
-.search-button:hover {
+.search-button:hover{
     background-color: var(--primary-color) !important;
 }
 
