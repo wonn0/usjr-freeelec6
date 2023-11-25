@@ -4,7 +4,7 @@ using static ASI.Basecode.Resources.Constants.Constants;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
-    [Authorize(Roles = "User1")]
+    [Authorize(Roles = "SuperAdmin")]
     public class AdminController : Controller
     {
         public IActionResult Index()
