@@ -31,12 +31,13 @@
                 <a href="#clients">Clients</a>
                 <a href="#contact">Contact</a> *@
             </div>  
-            <div class="content-container">
+            @RenderBody()
+            @* <div class="content-container">
                 @RenderBody()
-            </div>
+            </div> *@
         </main>
     </div> 
-
+ 
     <footer class="skooby-footer-content text-center text-lg-start text-white">
 
         <div class="container p-4 pb-0">
@@ -74,7 +75,7 @@
                     </div>
 
                     <hr class="w-100 clearfix d-md-none" />
-                    @* <img class="footer-bg-design" src="/images/bg-image-footer.png" /> *@
+                    
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
                         <p><i class="fas fa-home mr-3"></i> CICCT USJ-R, Basak-Pardo, Cebu City, Cebu, PH</p>
@@ -93,21 +94,9 @@
             <div class="container">
                 @Copyright
             </div>
-
-@*             <section class="p-3 pt-0">
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-7 col-lg-8 text-center text-md-start">
-                        @* <div class="p-3">
-                            Copyright © 2023. Alliance Group 6.  All Rights Reserved.
-
-                        </div> 
-                        
-                    </div>
-
-                </div>
-            </section> *@
+             
         </div>
-    </footer>
+    </footer>  
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

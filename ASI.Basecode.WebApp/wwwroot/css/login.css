@@ -39,7 +39,7 @@
 .hide-navbar{
     display:flex;
 }
-
+/*
 #hero-section-img-login {
         margin: 0px -50%;
     left: 0 !important;
@@ -47,13 +47,20 @@
     object-fit: cover;
     height: 30em !important;
     width: -webkit-fill-available;
-}
+}*/
 
-.modal-container {
+/*.modal-container {
     position: absolute;
     top: 14em !important;
     right: 100px;
     width: 25%;
+}*/
+
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh; /* This ensures the container takes at least the full height of the viewport */
 }
 
 .modal-dialog {
@@ -95,7 +102,7 @@ h1#exampleModalLabel {
     font-size: 30px !important;
     font-weight: 400;
 }
-
+/*
 #hero-section-title {
     position: absolute;
     font-size: 6em;
@@ -148,3 +155,4 @@ h1#exampleModalLabel {
 .about-col-left {
     text-align: left;
 }
+*/
