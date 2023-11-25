@@ -10,21 +10,32 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/main.css" />
     <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/sidebar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     @RenderSection("Styles", required: false)
 </head>
 <body>
-    @Html.Partial("_Header")
-    <div class="container">
-        <main role="main">
-            @RenderBody()
+    @Html.Partial("_Header")  
+    <div class="container">  
+        <main role="main"> 
+             <div class="sidenav">
+                <div class="masterlist masterlist-users">
+                    <div class="catergory-title">
+                        <h5>
+                            test
+                        </h5>
+                    </div> 
+                    <a href="#about">About</a>
+                </div>
+                <a href="#services">Services</a>
+                <a href="#clients">Clients</a>
+                <a href="#contact">Contact</a>
+            </div>  
+            <div class="content-container">
+                @RenderBody()
+            </div>
         </main>
-    </div>
-@*     <footer class="border-top footer text-muted">
-        <div class="container">
-            @Copyright
-        </div>
-    </footer> *@
+    </div> 
 
     <footer class="skooby-footer-content text-center text-lg-start text-white">
 
