@@ -1,0 +1,85 @@
+2023-11-26 16:56:41.030 +08:00 [INF] hello from account controller
+2023-11-26 16:56:51.946 +08:00 [INF] garfieldisme
+2023-11-26 16:56:51.956 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 16:56:52.151 +08:00 [INF] Loaded all users
+2023-11-26 16:58:00.149 +08:00 [INF] hello from account controller
+2023-11-26 16:58:12.268 +08:00 [INF] Garfieldisme
+2023-11-26 16:58:12.277 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 16:58:14.853 +08:00 [INF] Loaded all users
+2023-11-26 16:58:19.204 +08:00 [INF] Loaded all users
+2023-11-26 17:14:05.722 +08:00 [INF] hello from account controller
+2023-11-26 17:14:26.809 +08:00 [INF] garfieldisme
+2023-11-26 17:14:26.819 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 17:14:33.340 +08:00 [INF] Loaded all users
+2023-11-26 17:14:42.497 +08:00 [INF] Loaded all users
+2023-11-26 17:15:53.403 +08:00 [INF] Loaded all users
+2023-11-26 17:15:57.247 +08:00 [INF] Loaded all users
+2023-11-26 17:16:01.296 +08:00 [INF] Loaded all users
+2023-11-26 17:16:21.078 +08:00 [INF] Loaded all users
+2023-11-26 17:16:22.959 +08:00 [INF] Loaded all users
+2023-11-26 17:16:29.460 +08:00 [INF] Loaded all users
+2023-11-26 17:16:33.670 +08:00 [INF] Loaded all users
+2023-11-26 17:17:49.317 +08:00 [INF] hello from account controller
+2023-11-26 17:18:01.695 +08:00 [INF] garfieldisme
+2023-11-26 17:18:01.728 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 17:18:03.673 +08:00 [INF] Loaded all users
+2023-11-26 17:18:06.398 +08:00 [ERR] The view 'Delete' was not found. Searched locations: ["/Views/Admin/Delete.cshtml","/Views/Shared/Delete.cshtml","/Pages/Shared/Delete.cshtml"]
+2023-11-26 17:18:06.410 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The view 'Delete' was not found. The following locations were searched:
+/Views/Admin/Delete.cshtml
+/Views/Shared/Delete.cshtml
+/Pages/Shared/Delete.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 17:19:27.431 +08:00 [INF] hello from account controller
+2023-11-26 17:20:11.768 +08:00 [INF] Garfieldisme
+2023-11-26 17:20:11.780 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 17:20:13.982 +08:00 [INF] Loaded all users
+2023-11-26 17:20:17.225 +08:00 [ERR] The view 'Delete' was not found. Searched locations: ["/Views/Admin/Delete.cshtml","/Views/Shared/Delete.cshtml","/Pages/Shared/Delete.cshtml"]
+2023-11-26 17:20:17.239 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The view 'Delete' was not found. The following locations were searched:
+/Views/Admin/Delete.cshtml
+/Views/Shared/Delete.cshtml
+/Pages/Shared/Delete.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 17:20:39.930 +08:00 [INF] hello from account controller
+2023-11-26 17:20:48.975 +08:00 [INF] garfieldisme
+2023-11-26 17:20:48.985 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 17:20:50.997 +08:00 [INF] Loaded all users
+2023-11-26 17:20:59.135 +08:00 [INF] Loaded all users
+2023-11-26 17:21:00.861 +08:00 [INF] Loaded all users

@@ -36,6 +36,96 @@ namespace ASI.Basecode.WebApp.Controllers
             return View(users);
         }
 
+        public async Task<IActionResult> Edit(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(string id, IdentityUser userToUpdate)
+        {
+            if (id != userToUpdate.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var user = await _userManager.FindByIdAsync(id);
+                    if (user == null)
+                    {
+                        return NotFound();
+                    }
+
+                    user.Email = userToUpdate.Email;
+                    user.UserName = userToUpdate.UserName;
+                    // Update other fields as needed
+
+                    await _userManager.UpdateAsync(user);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!await UserExists(userToUpdate.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(IndexAsync));
+            }
+            return View(userToUpdate);
+        }
+
+        private async Task<bool> UserExists(string id)
+        {
+            return await _userManager.FindByIdAsync(id) != null;
+        }
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        // POST: Admin/Delete/{id}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                await _userManager.DeleteAsync(user);
+            }
+            return RedirectToAction(nameof(IndexAsync));
+        }
 
     }
 }
