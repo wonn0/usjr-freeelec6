@@ -1,12 +1,45 @@
 @model IEnumerable<ASI.Basecode.Services.Models.BookReviewViewModel>
 
 @{
-    ViewData["Title"] = "Review Masterlist";
+    ViewBag.ShowSideBar = true;
+    ViewData["Title"] = "Reviews Management";
 }
 
-<h2 class="table-title">Review Masterlist</h2>
+<style>
+    .table tbody tr:nth-child(odd) {
+        background-color: #f3f3f3;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #fff;
+    }
+</style>
+
+<h2 class="table-title">Review Management</h2>
+
 <div class="table-container">
-    <a href="@Url.Action("Create", "Reviews")" class="btn btn-skooby btn-primary">Add New Review</a>
+
+
+    <div class="container table-tools">
+
+        <div class="row">
+
+            <div class="col col-left">
+                <div class="search-container">
+                    <form class="search-container d-flex" asp-action="Index" method="get">
+                        <input type="text" name="searchString" class=" me-2 search-input form-control" placeholder="Search Genres" />
+                        <button class="btn btn-outline-success search-button" type="submit">Search</button>
+
+                    </form>
+                </div>
+            </div>
+            <div class="col col-right">
+                <a href="@Url.Action("Create", "Reviews")" class="btn btn-skooby btn-primary">Add New Review</a>
+                 
+            </div>
+        </div>
+
+    </div>
 
     <table class="table">
         <thead>
