@@ -30,23 +30,23 @@
 
 <div class="table-container">
     <div class="container table-tools">
-            <div class="row">
+        <div class="row">
 
-        <div class="col col-left">
-            <div class="search-container">
-                <form class="search-container d-flex" role="search" method="get"
-                      action="@Url.Action("Index", "Author")">
-                    <input class="form-control me-2 search-input" type="search" placeholder="Search"
-                           aria-label="Search" name="searchQuery">
-                    <button class="btn btn-outline-success search-button" type="submit">Search</button>
-                </form>
+            <div class="col col-left">
+                <div class="search-container">
+                    <form class="search-container d-flex" role="search" method="get"
+                          action="@Url.Action("Index", "Author")">
+                        <input class="form-control me-2 search-input" type="search" placeholder="Search"
+                               aria-label="Search" name="searchQuery">
+                        <button class="btn btn-outline-success search-button" type="submit">Search</button>
+                    </form>
 
+                </div>
+            </div>
+            <div class="col col-right">
+                <a href="@Url.Action("Create", "Author")" class="btn btn-skooby btn-primary">Add New Author</a>
             </div>
         </div>
-        <div class="col col-right">
-            <a href="@Url.Action("Create", "Author")" class="btn btn-skooby btn-primary">Add New Author</a>
-        </div>
-    </div>
 
     </div>
 
