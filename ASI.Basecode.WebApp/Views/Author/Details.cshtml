@@ -1,12 +1,44 @@
 @model ASI.Basecode.Services.Models.AuthorViewModel
 @{
     ViewBag.ShowSideBar = true;
+    ViewData["Title"] = "Book Details";
 }
-<h2>Author Details</h2>
-<dl>
-    <dt>First Name</dt>
-    <dd>@Model.FirstName</dd>
-    <dt>Last Name</dt>
-    <dd>@Model.LastName</dd>
-    <!-- Other details -->
-</dl>
+
+<style>
+
+    img.book-image {
+        max-width: 300px;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .center-content {
+        text-align: center;
+    }
+</style>
+<h2 class="form-title">Author Details</h2>
+
+<div class="form-container container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <tr>
+                    <th>First Name</th>
+                    <td>@Model.LastName</td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>@Model.FirstName</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="col-right col-center">
+                @Html.ActionLink("Back to List", "Index", new { @class = "btn-back btn-padd" })
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn-padd btn btn-success" })
+            </div>
+        </div>
+    </div>
+</div> 
