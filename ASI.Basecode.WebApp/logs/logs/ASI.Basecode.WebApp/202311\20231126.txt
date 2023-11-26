@@ -60,3 +60,157 @@ System.InvalidOperationException: The view 'Index' was not found. The following 
    at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
    at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 13:45:07.132 +08:00 [INF] hello from account controller
+2023-11-26 13:45:35.095 +08:00 [INF] garfieldisme
+2023-11-26 13:45:35.107 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 13:45:35.154 +08:00 [INF] Loaded all users
+2023-11-26 13:46:13.490 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-26 13:46:31.652 +08:00 [INF] Home page visited at "2023-11-26T13:46:31.6465330+08:00"
+2023-11-26 13:46:31.659 +08:00 [ERR] The view 'Index' was not found. Searched locations: ["/Views/Home/Index.cshtml","/Views/Shared/Index.cshtml","/Pages/Shared/Index.cshtml"]
+2023-11-26 13:46:31.670 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+/Views/Home/Index.cshtml
+/Views/Shared/Index.cshtml
+/Pages/Shared/Index.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 13:47:14.129 +08:00 [INF] hello from account controller
+2023-11-26 13:49:39.489 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-26 13:49:45.736 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-26 13:50:31.105 +08:00 [INF] Home page visited at "2023-11-26T13:50:31.1020500+08:00"
+2023-11-26 13:50:33.774 +08:00 [INF] Home page visited at "2023-11-26T13:50:33.7717130+08:00"
+2023-11-26 13:50:35.335 +08:00 [INF] Home page visited at "2023-11-26T13:50:35.3337600+08:00"
+2023-11-26 13:50:36.920 +08:00 [INF] Home page visited at "2023-11-26T13:50:36.9182950+08:00"
+2023-11-26 13:50:39.101 +08:00 [INF] Home page visited at "2023-11-26T13:50:39.0987610+08:00"
+2023-11-26 13:50:44.769 +08:00 [INF] Home page visited at "2023-11-26T13:50:44.7679570+08:00"
+2023-11-26 13:50:46.086 +08:00 [INF] hello from account controller
+2023-11-26 13:50:56.050 +08:00 [INF] garfieldisme
+2023-11-26 13:50:56.061 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 13:50:56.093 +08:00 [INF] Loaded all users
+2023-11-26 13:51:16.772 +08:00 [INF] Home page visited at "2023-11-26T13:51:16.7704840+08:00"
+2023-11-26 13:51:34.049 +08:00 [INF] Loaded all users
+2023-11-26 13:51:35.498 +08:00 [INF] Loaded all users
+2023-11-26 13:55:28.539 +08:00 [INF] hello from account controller
+2023-11-26 13:55:31.968 +08:00 [INF] Loaded all genres
+2023-11-26 13:55:39.103 +08:00 [ERR] The view 'Edit' was not found. Searched locations: ["/Views/Genre/Edit.cshtml","/Views/Shared/Edit.cshtml","/Pages/Shared/Edit.cshtml"]
+2023-11-26 13:55:39.117 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The view 'Edit' was not found. The following locations were searched:
+/Views/Genre/Edit.cshtml
+/Views/Shared/Edit.cshtml
+/Pages/Shared/Edit.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 13:55:42.078 +08:00 [INF] Loaded all genres
+2023-11-26 13:56:48.308 +08:00 [INF] hello from account controller
+2023-11-26 13:57:09.743 +08:00 [INF] garfieldisme
+2023-11-26 13:57:09.752 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 13:57:09.818 +08:00 [INF] Loaded all users
+2023-11-26 13:57:16.810 +08:00 [INF] Loaded all genres
+2023-11-26 13:57:23.134 +08:00 [ERR] The view 'Create' was not found. Searched locations: ["/Views/Genre/Create.cshtml","/Views/Shared/Create.cshtml","/Pages/Shared/Create.cshtml"]
+2023-11-26 13:57:23.162 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The view 'Create' was not found. The following locations were searched:
+/Views/Genre/Create.cshtml
+/Views/Shared/Create.cshtml
+/Pages/Shared/Create.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 13:57:26.460 +08:00 [INF] Loaded all genres
+2023-11-26 14:00:51.101 +08:00 [INF] hello from account controller
+2023-11-26 14:02:22.596 +08:00 [INF] Loaded all genres
+2023-11-26 14:02:24.183 +08:00 [INF] Loaded genre details for ID 10
+2023-11-26 14:02:28.810 +08:00 [INF] Loaded all genres
+2023-11-26 14:03:05.140 +08:00 [INF] hello from account controller
+2023-11-26 14:03:14.953 +08:00 [INF] Loaded all genres
+2023-11-26 14:03:19.528 +08:00 [INF] Loaded all genres
+2023-11-26 14:03:28.076 +08:00 [INF] Loaded all genres
+2023-11-26 14:03:40.301 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-26 14:06:17.593 +08:00 [INF] hello from account controller
+2023-11-26 14:07:15.902 +08:00 [INF] hello from account controller
+2023-11-26 14:07:33.682 +08:00 [INF] Author updated: 10
+2023-11-26 14:07:36.843 +08:00 [INF] Author updated: 10
+2023-11-26 14:07:38.596 +08:00 [INF] Author deleted: 10
+2023-11-26 14:07:45.041 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-26 14:09:09.091 +08:00 [INF] Home page visited at "2023-11-26T14:09:09.0874940+08:00"
+2023-11-26 14:10:00.507 +08:00 [INF] hello from account controller
+2023-11-26 14:10:13.340 +08:00 [INF] Garfieldisme
+2023-11-26 14:10:13.352 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 14:10:13.419 +08:00 [INF] Loaded all users
+2023-11-26 14:10:15.526 +08:00 [INF] Loaded all genres
+2023-11-26 14:10:18.778 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-26 14:14:27.349 +08:00 [INF] hello from account controller
+2023-11-26 14:15:23.044 +08:00 [INF] hello from account controller
+2023-11-26 14:15:31.192 +08:00 [INF] garfieldisme
+2023-11-26 14:15:31.202 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 14:15:31.261 +08:00 [INF] Loaded all users
+2023-11-26 14:15:46.278 +08:00 [INF] Loaded all users
+2023-11-26 14:16:39.855 +08:00 [INF] hello from account controller
+2023-11-26 14:16:50.884 +08:00 [INF] garfieldisme
+2023-11-26 14:16:50.894 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 14:16:50.981 +08:00 [INF] Loaded all users
+2023-11-26 14:16:53.240 +08:00 [INF] Loaded all users
+2023-11-26 14:17:19.905 +08:00 [INF] hello from account controller
+2023-11-26 14:17:33.605 +08:00 [INF] garfieldisme
+2023-11-26 14:17:33.618 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 14:17:44.298 +08:00 [INF] Loaded all users
+2023-11-26 14:18:37.007 +08:00 [INF] hello from account controller
+2023-11-26 14:18:47.392 +08:00 [WRN] Login failed. Succeeded: False, IsLockedOut: False, RequiresTwoFactor: False, IsNotAllowed: False
+2023-11-26 14:18:47.398 +08:00 [INF] User logged in.5
+2023-11-26 14:18:47.423 +08:00 [INF] hello from account controller
+2023-11-26 14:18:53.958 +08:00 [INF] garfieldisme
+2023-11-26 14:18:53.975 +08:00 [INF] User Roles: SuperAdmin
+2023-11-26 14:18:54.049 +08:00 [INF] Loaded all users
+2023-11-26 14:19:08.530 +08:00 [INF] Loaded all users

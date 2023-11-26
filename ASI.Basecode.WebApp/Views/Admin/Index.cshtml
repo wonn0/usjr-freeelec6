@@ -1,80 +1,33 @@
-﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
- 
-
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
 @{
-    ViewBag.ShowSideBar = true;
-    ViewBag.ShowUserList = true;
-    ViewData["Title"] = "Home";
-}
-@section styles {
-    <link rel="stylesheet" href="~/css/dashboard.css" />
-    <link rel="stylesheet" href="~/css/landing.css" />
+    ViewData["Title"] = "User Management";
 }
 
-<h1 class="module-title">Home</h1>
-<div class="container">
-    <div class="row"> 
-            <div class="col">
-                <div class="module-container">
-                    <div class="row">
-                        <div class="col">
-                            <h3 class="module-title">User Masterlist</h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="masterlist-module-title">
-                                <a class="module-item-title" asp-controller="Admin" asp-action="Index"><i class="sidenav-icon fa-solid fa-user-group"></i>Users</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+<h2>User Management</h2>
 
-        <div class="col">
-            <div class="module-container">
-                <div class="row">
-                    <div class="col">
-                        <h3 class="module-title">Book Masterlist</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="masterlist-module-title">
-                            <a class="module-item-title" asp-controller="Book" asp-action="Index"><i class="sidenav-icon fa-solid fa-masks-theater"></i>Genres</a>
-                        </div>
-                        <div class="masterlist-module-title-odd">
-                            <a asp-controller="Book" asp-action="Index"><i class="sidenav-icon fa-solid fa-book"></i> Books</a>
-                        </div>
-                        <div class="masterlist-module-title">
-                            <a asp-controller="Book" asp-action="Index"><i class="sidenav-icon fa-solid fa-feather"></i> Authors</a>
-                        </div>
-                        <div class="masterlist-module-title-odd">
-                            <a asp-controller="Book" asp-action="Index"><i class="sidenav-icon fa-solid fa-comment-dots"></i>Reviews</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-@* <table>
+<table class="table">
     <thead>
         <tr>
-            <th>Username</th>
+            <th>User Id</th>
             <th>Email</th>
+            <th>Username</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var user in Model)
         {
-            <tr>
-                <td>@user.UserName</td>
-                <td>@user.Email</td>
-            </tr>
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Email</td>
+                    <td>@user.UserName</td>
+                    <td>
+                        <!-- Actions like Edit, Delete, etc. -->
+                        <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-primary">Edit</a>
+                        <a asp-action="Details" asp-route-id="@user.Id" class="btn btn-info">Details</a>
+                        <a asp-action="Delete" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
         }
     </tbody>
 </table>
- *@

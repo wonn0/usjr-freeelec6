@@ -25,12 +25,17 @@ namespace ASI.Basecode.WebApp.Controllers
             _logger = logger;
         }
 
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
         public async Task<IActionResult> IndexAsync()
         {
             var users = await _userManager.Users.ToListAsync();
             _logger.LogInformation("Loaded all users");
             return View(users);
         }
+
 
     }
 }
