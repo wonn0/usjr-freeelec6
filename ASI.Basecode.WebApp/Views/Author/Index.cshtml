@@ -1,27 +1,83 @@
 @model IEnumerable<ASI.Basecode.Services.Models.AuthorViewModel>
+
 @{
     ViewBag.ShowSideBar = true;
+    ViewData["Title"] = "Authors Masterlist";
 }
-<h2>Authors</h2>
-<table>
-    <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Actions</th>
-    </tr>
-    @foreach (var author in Model)
-    {
-        <tr>
-            <td>@author.FirstName</td>
-            <td>@author.LastName</td>
-            <td>
-                <a href="@Url.Action("Details", "Author", new { id = author.Id })">Details</a>
-                <a href="@Url.Action("Edit", "Author", new { id = author.Id })">Edit</a>
-                <form action="@Url.Action("Delete", "Author")" method="post" style="display: inline;">
-                    <input type="hidden" name="id" value="@author.Id" />
-                    <input type="submit" value="Delete" />
-                </form>
-            </td>
-        </tr>
+
+@section styles {
+    <link rel="stylesheet" href="~/css/style.css" />
+}
+
+
+<style>
+    .table tbody tr:nth-child(odd) {
+        background-color: #f3f3f3;
     }
-</table>
+
+    .table tbody tr:nth-child(even) {
+        background-color: #fff;
+    }
+</style>
+
+<h2 class="table-title">Authors Masterlist</h2>
+
+<div class="table-container">
+    <div class="container table-tools">
+
+        <div class="row">
+
+            <div class="col col-left">
+                <div class="search-container">
+                    <form class="search-container d-flex" role="search" method="get"
+                          action="@Url.Action("Index", "Author")">
+                        <input class="form-control me-2 search-input" type="search" placeholder="Search"
+                               aria-label="Search" name="searchQuery">
+                        <button class="btn btn-outline-success search-button" type="submit">Search</button>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col col-right">
+                <a href="@Url.Action("Create", "Author")" class="btn btn-skooby btn-primary">Add New Author</a>
+            </div>
+        </div>
+
+
+        
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var author in Model)
+                    {
+                        <tr>
+                            <td>@author.FirstName</td>
+                            <td>@author.LastName</td>
+                            <td>
+                                <a href="@Url.Action("Details", "Author", new { id = author.Id })" class="btn btn-info btn-primary">Details</a>
+                                <a href="@Url.Action("Edit", "Author", new { id = author.Id })" class="btn btn-success btn-primary">Edit</a>
+                                <form action="@Url.Action("Delete", "Author")" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="@author.Id" />
+                                    <input type="submit" value="Delete" class="btn btn-danger" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
