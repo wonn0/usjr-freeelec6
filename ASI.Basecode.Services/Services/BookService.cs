@@ -100,6 +100,7 @@ namespace ASI.Basecode.Services.Services
         }
 
 
+
         public void UpdateBook(BookViewModel model)
         {
             if (_bookRepository.BookExists(model.Id))
