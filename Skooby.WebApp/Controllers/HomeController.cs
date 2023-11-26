@@ -56,11 +56,30 @@ namespace Skooby.WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        // public IActionResult Index()
+        // {
+        //     var bookViewModels = _bookService.GetAllBooks()!;
+        //     return View(bookViewModels);
+        // }
+        [HttpGet]
+        public IActionResult Index(string searchTerm)
         {
-            var bookViewModels = _bookService.GetAllBooks()!;
-            return View(bookViewModels);
+            var allBooks = _bookService.GetAllBooks(); // Replace with your method to get all books
+            IEnumerable<BookViewModel> model;
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                model = allBooks.Where(book => book.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+            }
+            else
+            {
+                model = allBooks;
+            }
+
+            return View(model);
         }
+
+
 
         [HttpGet]
         public IActionResult ViewBook(int id)

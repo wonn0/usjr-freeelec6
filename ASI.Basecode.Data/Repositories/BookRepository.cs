@@ -20,6 +20,7 @@ namespace ASI.Basecode.Data.Repositories
                        .Include(b => b.BookGenres)
                            .ThenInclude(bg => bg.Genre);
         }
+
         public IQueryable<Book> GetBookByAuthorId(int authorId)
         {
             return this.GetDbSet<Book>().Include(b => b.AuthorBooks)

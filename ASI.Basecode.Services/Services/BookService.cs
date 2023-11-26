@@ -29,6 +29,8 @@ namespace ASI.Basecode.Services.Services
             return _mapper.Map<IEnumerable<BookViewModel>>(books).ToList();
         }
 
+
+
         public BookViewModel GetBookById(int id)
         {
             var book = _bookRepository.GetBookById(id);

@@ -10,17 +10,22 @@
 <section class="skooby-section skooby-dashboard">
     <div class="container-wrapper">
         <div class="content-wrapper">
-            @foreach (var genreGroup in Model.GroupBy(book => book.GenreNames))
+            @foreach (var genreGroup in Model.SelectMany(book => book.GenreNames)
+            .Distinct()
+            .Select(genre => new
+            {
+               Genre = genre,
+               Books = Model.Where(book => book.GenreNames.Contains(genre))
+            }))
             {
                 <div class="book-genre">
-                    <h4>@genreGroup.Key.FirstOrDefault()</h4>
+                    <h4>@genreGroup.Genre</h4>
                     <hr />
                     <div class="book-wrapper">
-                        @foreach (var book in genreGroup)
+                        @foreach (var book in genreGroup.Books)
                         {
                             <div class="book-content">
                                 <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-
                                     <div class="book-image-preview">
                                         <img class="book-image" src="@book.Image ?? " ~/img/book-preview.png""
                                             alt="Book Cover" />
@@ -46,20 +51,21 @@
         </div>
     </div>
     <div class="sidebar-content">
-        <h2 class="sidebar-title">Filter</h2>s
-        <form class="d-flex filter-searchbar" role="search">
-            <input class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search">
+        <h2 class="sidebar-title">Filter</h2>
+        <form class="d-flex filter-searchbar" role="search" method="get">
+            <input class="form-control me-2 search-input" name="searchTerm" type="search" placeholder="Search"
+                aria-label="Search">
             <button class="btn btn-outline-success search-button" type="submit">Search</button>
         </form>
-        <div class="filter-category-container">
-            <p class="filter-category-titles">art</p>
-            <p class="filter-category-titles">biography</p>
-            <p class="filter-category-titles">sci-fi</p>
-            <p class="filter-category-titles">religion</p>
-            <p class="filter-category-titles">kids</p>
-            <p class="filter-category-titles">history</p>
 
+        <div class="filter-category-container">
+            @foreach (var genre in Model.SelectMany(book => book.GenreNames).Distinct())
+            {
+                <p class="filter-category-titles">@genre</p>
+            }
         </div>
+
+
     </div>
 </section>
 
