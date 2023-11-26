@@ -10,6 +10,11 @@
 
 
 <style>
+
+    .user-id{
+        width:25%;
+        word-break: break-all;
+    }
      
     .table tbody tr:nth-child(odd) {
         background-color: #f3f3f3;
@@ -59,7 +64,7 @@
                         @foreach (var user in Model)
                         {
                             <tr>
-                                <td>@user.Id</td>
+                                <td class="user-id">@user.Id</td>
                                 <td>@user.Email</td>
                                 <td>@user.UserName</td>
                                 <td>
