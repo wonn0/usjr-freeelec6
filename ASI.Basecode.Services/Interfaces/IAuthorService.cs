@@ -10,5 +10,6 @@ namespace ASI.Basecode.WebApp.Services
         void AddAuthor(AuthorViewModel model);
         void UpdateAuthor(AuthorViewModel model);
         void DeleteAuthor(int id);
+        IEnumerable<AuthorViewModel> SearchAuthors(string query);
     }
 }

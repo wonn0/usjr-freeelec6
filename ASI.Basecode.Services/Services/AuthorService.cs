@@ -3,6 +3,7 @@ using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Data.Interfaces;
 using Data.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,19 @@ namespace ASI.Basecode.Services.Services
             _authorRepository = authorRepository;
             _mapper = mapper;
         }
+
+
+        public IEnumerable<AuthorViewModel> SearchAuthors(string query)
+        {
+            var lowerCaseQuery = query.ToLower();
+            var authors = _authorRepository.GetAllAuthors();
+            var filteredAuthors = authors
+                .Where(a => a.FirstName.ToLower().Contains(lowerCaseQuery)
+                         || a.LastName.ToLower().Contains(lowerCaseQuery));
+
+            return _mapper.Map<IEnumerable<AuthorViewModel>>(filteredAuthors).ToList();
+        }
+
 
         public List<AuthorViewModel> GetAllAuthors()
         {

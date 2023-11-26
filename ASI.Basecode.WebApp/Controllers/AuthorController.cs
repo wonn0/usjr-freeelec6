@@ -1,4 +1,5 @@
-﻿using ASI.Basecode.Services.Models;
+﻿using System.Collections.Generic;
+using ASI.Basecode.Services.Models;
 using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,23 @@ namespace ASI.Basecode.WebApp.Controllers
             _logger = logger; // Set the logger
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchQuery)
         {
-            var authorViewModels = _authorService.GetAllAuthors();
-            return View(authorViewModels);
+            IEnumerable<AuthorViewModel> authors;
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                // Assuming _authorService has a method to search authors by a query
+                authors = _authorService.SearchAuthors(searchQuery);
+            }
+            else
+            {
+                authors = _authorService.GetAllAuthors();
+            }
+
+            return View(authors);
         }
+
 
         public IActionResult Details(int id)
         {
