@@ -500,3 +500,7 @@ nav.navbar.bg-body-tertiary {
         border-color: var(--primary-color) !important;
     }
 
+
+    .hide-navbar{
+        display: none;
+    }
