@@ -29,11 +29,24 @@ namespace ASI.Basecode.WebApp.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public IActionResult Index()
+        // public IActionResult Index()
+        // {
+        //     var bookViewModels = _bookService.GetAllBooks()!;
+        //     return View(bookViewModels);
+        // }
+
+        public IActionResult Index(string searchQuery)
         {
-            var bookViewModels = _bookService.GetAllBooks()!;
+            var bookViewModels = _bookService.GetAllBooks();
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                bookViewModels = bookViewModels.Where(b => b.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
             return View(bookViewModels);
         }
+
 
         public IActionResult Details(int id)
         {
