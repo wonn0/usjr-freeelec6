@@ -1,33 +1,78 @@
 @model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
 @{
+    ViewBag.ShowSideBar = true;
     ViewData["Title"] = "User Management";
 }
+@section styles {
+    <link rel="stylesheet" href="~/css/style.css" />
+}
 
-<h2>User Management</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>User Id</th>
-            <th>Email</th>
-            <th>Username</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
-                <tr>
-                    <td>@user.Id</td>
-                    <td>@user.Email</td>
-                    <td>@user.UserName</td>
-                    <td>
-                        <!-- Actions like Edit, Delete, etc. -->
-                        <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-primary">Edit</a>
-                        <a asp-action="Details" asp-route-id="@user.Id" class="btn btn-info">Details</a>
-                        <a asp-action="Delete" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-        }
-    </tbody>
-</table>
+<style>
+     
+    .table tbody tr:nth-child(odd) {
+        background-color: #f3f3f3;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #fff;
+    }
+</style>
+
+<h2 class="table-title">User Management</h2>
+
+
+<div class="table-container">
+    <div class="container table-tools">
+
+        <div class="row">
+
+            <div class="col col-left">
+                <div class="search-container">
+                    <form class="search-container d-flex" role="search" method="get"
+                          action="@Url.Action("Index", "Author")">
+                        <input class="form-control me-2 search-input" type="search" placeholder="Search"
+                               aria-label="Search" name="searchQuery">
+                        <button class="btn btn-outline-success search-button" type="submit">Search</button>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col col-right">
+                <a href="@Url.Action("Create", "Author")" class="btn btn-skooby btn-primary">Add New Author</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>User Id</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.Id</td>
+                                <td>@user.Email</td>
+                                <td>@user.UserName</td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@user.Id" class="btn btn-info">Details</a>
+                                    <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-success btn-primary">Edit</a>
+
+                                    <a asp-action="Delete" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
