@@ -88,7 +88,7 @@ namespace ASI.Basecode.WebApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(IndexAsync));
+                return RedirectToAction("Index", "Admin");
             }
             return View(userToUpdate);
         }
@@ -98,33 +98,43 @@ namespace ASI.Basecode.WebApp.Controllers
             return await _userManager.FindByIdAsync(id) != null;
         }
 
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //[HttpGet]
+        //public async Task<IActionResult> Delete(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+        //    var user = await _userManager.FindByIdAsync(id);
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(user);
-        }
+        //    return View(user);
+        //}
 
         // POST: Admin/Delete/{id}
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> Delete(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
-            if (user != null)
-            {
-                await _userManager.DeleteAsync(user);
+            _logger.LogInformation($"{user.UserName}");
+            try
+            { 
+                if (user != null)
+                {
+                    await _userManager.DeleteAsync(user);
+                }
             }
-            return RedirectToAction(nameof(IndexAsync));
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while deleting the user with ID {UserId}", id);
+
+            }
+            return RedirectToAction("Index", "Admin");
         }
 
     }
