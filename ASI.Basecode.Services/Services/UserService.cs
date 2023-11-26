@@ -6,6 +6,7 @@ using ASI.Basecode.Services.ServiceModels;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,6 +23,13 @@ namespace ASI.Basecode.Services.Services
         {
             _mapper = mapper;
             _repository = repository;
+        }
+
+        public List<UserViewModel> GetAllUsers()
+        {
+            var users = _repository.GetUsers().ToList();
+            var userViewModels = _mapper.Map<List<UserViewModel>>(users);
+            return userViewModels;
         }
 
         public LoginResult AuthenticateUser(string userId, string password, ref User user)

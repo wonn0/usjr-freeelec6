@@ -1,0 +1,29 @@
+@model IEnumerable<ASI.Basecode.Services.ServiceModels.UserViewModel>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h2>Users</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Email</th>
+            <th>Name</th>
+            <!-- Add more headers if needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserId</td>
+                <td>@user.Email</td>
+                <td>@user.Name</td>
+                <!-- Add more data columns if needed -->
+            </tr>
+        }
+    </tbody>
+    </

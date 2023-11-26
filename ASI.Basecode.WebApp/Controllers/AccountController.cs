@@ -351,7 +351,7 @@ namespace ASI.Basecode.WebApp.Controllers
                         await _roleManager.CreateAsync(new IdentityRole("Admin"));
                         await _roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
                     }
-                    await _userManager.AddToRoleAsync(identityUser, "Admin"); 
+                    await _userManager.AddToRoleAsync(identityUser, "Admin");
 
                 }
                 else if (!result.Succeeded)
@@ -398,5 +398,11 @@ namespace ASI.Basecode.WebApp.Controllers
             await this._signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
+        public IActionResult Userslist()
+        {
+            var userViewModels = _userService.GetAllUsers();// Retrieve a list of UserViewModels
+            return View(userViewModels);
+        }
+
     }
 }
