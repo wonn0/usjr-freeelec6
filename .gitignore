@@ -234,3 +234,4 @@ _Pvt_Extensions
 .fake/
 
 ASI.Basecode.WebApp/appsettings.json
+Skooby.WebApp/logs/

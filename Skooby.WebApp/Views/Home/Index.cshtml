@@ -1,51 +1,73 @@
-﻿@model IEnumerable<ASI.Basecode.Services.Models.BookViewModel>
+@model IEnumerable<ASI.Basecode.Services.Models.BookViewModel>
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Home Page";
 }
 
 @section styles {
+    
     <link rel="stylesheet" href="~/css/dashboard.css" />
+
+
 }
 
+<div>
+    <link rel="stylesheet" href="~/css/image_strip.css" />
+    <div class="background-div">
+        <div class="center-text">
+            Sniffing out great reads with your favorite book review buddy, Skooby.
+        </div>
+    </div>
+</div>
 <section class="skooby-section skooby-dashboard">
+   
+
+    <h2 class="genre-title">Genres</h2>
     <div class="container-wrapper">
         <div class="content-wrapper">
-            @foreach (var genreGroup in Model.SelectMany(book => book.GenreNames)
-            .Distinct()
-            .Select(genre => new
-            {
-               Genre = genre,
-               Books = Model.Where(book => book.GenreNames.Contains(genre))
-            }))
-            {
-                <div class="book-genre">
-                    <h4>@genreGroup.Genre</h4>
-                    <hr />
-                    <div class="book-wrapper">
-                        @foreach (var book in genreGroup.Books)
-                        {
-                            <div class="book-content">
-                                <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-                                    <div class="book-image-preview">
-                                        <img class="book-image" src="@book.Image ?? " ~/img/book-preview.png""
-                                            alt="Book Cover" />
-                                    </div>
-                                </a>
-                                <div class="book-info-card" id="per-book-info-@book.Id">
-                                    <h5 class="book-title book-text">@book.Name</h5>
-                                    <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) •
-                                        @book.PublishedOn.Year</p>
-                                    <p class="book-description book-text">@book.Description</p>
-                                    <!-- Additional info like rating and reviews could be added here -->
-                                </div>
-                            </div>
-                        }
-
-                    </div>
-                </div>
+            @{
+                var uniqueGenres = Model.SelectMany(book => book.GenreNames).Distinct();
             }
+
+            @foreach (var genre in uniqueGenres)
+            {
+                var genreBooks = Model.Where(book => book.GenreNames.Contains(genre)).ToList();
+
+                if (genreBooks.Any())
+                {
+                    <div class="book-genre">
+                        <h4>@genre</h4>
+                        <hr />
+                        <div class="book-wrapper">
+                            @foreach (var book in genreBooks)
+                            {
+                                <div class="book-content">
+                                    <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
+                                        <div class="book-image-preview">
+                                            <img class="book-image" src="@book.Image ?? " /img/book-preview.png"" alt="Book Cover" />
+                                        </div>
+                                    </a>
+                                    <div class="book-info-card" id="per-book-info-@book.Id">
+                                        <h5 class="book-title book-text">@book.Name</h5>
+                                        <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
+                                        <p class="book-description book-text">@book.Description</p>
+                                        <!-- Additional info like rating and reviews could be added here -->
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <!-- "See More..." button -->
+                        <div>
+                            <button class="see-more-button">See More...</button>
+                        </div>
+                    </div>
+                }
+            }
+
             <!-- Pagination and other components can be added here -->
         </div>
+
         <div class="sidebar-container">
             <!-- Sidebar content here -->
         </div>
@@ -65,8 +87,9 @@
             }
         </div>
 
-
+        </div>
     </div>
+   
 </section>
 
 
