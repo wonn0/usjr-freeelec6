@@ -310,3 +310,67 @@ Error Number:10061,State:0,Class:20
 2023-11-27 02:17:09.489 +08:00 [ERR] No authors found for book ID 2003.
 2023-11-27 02:17:09.489 +08:00 [INF] Book name: 1984
 2023-11-27 02:17:09.491 +08:00 [INF] There are less than two reviews.
+2023-11-27 13:29:32.132 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-27 13:51:47.615 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-27 13:51:47.665 +08:00 [ERR] No authors found for book ID 2003.
+2023-11-27 13:51:47.670 +08:00 [INF] Book name: 1984
+2023-11-27 13:51:47.693 +08:00 [INF] There are less than two reviews.
+2023-11-27 13:51:49.749 +08:00 [ERR] No authors found for book ID 2002.
+2023-11-27 13:51:49.749 +08:00 [INF] Book name: Harry Potter and the Sorcerers Stone
+2023-11-27 13:51:49.750 +08:00 [INF] There are less than two reviews.
+2023-11-27 13:52:12.699 +08:00 [ERR] No authors found for book ID 2004.
+2023-11-27 13:52:12.699 +08:00 [INF] Book name: Pride and Prejudice
+2023-11-27 13:52:12.701 +08:00 [INF] There are less than two reviews.
+2023-11-27 13:52:14.980 +08:00 [ERR] No authors found for book ID 2005.
+2023-11-27 13:52:14.980 +08:00 [INF] Book name: The Adventures of Tom Sawyer
+2023-11-27 13:52:14.981 +08:00 [INF] There are less than two reviews.
+2023-11-27 13:52:17.198 +08:00 [ERR] No authors found for book ID 2003.
+2023-11-27 13:52:17.199 +08:00 [INF] Book name: 1984
+2023-11-27 13:52:17.201 +08:00 [INF] There are less than two reviews.
+2023-11-27 13:52:18.592 +08:00 [ERR] No authors found for book ID 2002.
+2023-11-27 13:52:18.592 +08:00 [INF] Book name: Harry Potter and the Sorcerers Stone
+2023-11-27 13:52:18.593 +08:00 [INF] There are less than two reviews.
+2023-11-27 13:59:33.863 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-27 14:03:47.823 +08:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2023-11-27 14:03:54.108 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-11-27 14:03:54.139 +08:00 [ERR] No authors found for book ID 2003.
+2023-11-27 14:03:54.143 +08:00 [INF] Book name: 1984
+2023-11-27 14:03:54.167 +08:00 [INF] There are less than two reviews.
+2023-11-27 14:04:50.689 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.CompilationFailedException: One or more compilation failures occurred:
+C:\Users\nulltest\Desktop\4th year 1st Sem\Alliance\alliance-6\newusjrfeelec\Skooby.WebApp\Views\Home\Index.cshtml(28,14): Error RZ1006: The foreach block is missing a closing "}" character.  Make sure you have a matching "}" character for all the "{" characters within this block, and that none of the "}" characters are being interpreted as markup.
+C:\Users\nulltest\Desktop\4th year 1st Sem\Alliance\alliance-6\newusjrfeelec\Skooby.WebApp\Views\Home\Index.cshtml(32,17): Error RZ1006: The if block is missing a closing "}" character.  Make sure you have a matching "}" character for all the "{" characters within this block, and that none of the "}" characters are being interpreted as markup.
+C:\Users\nulltest\Desktop\4th year 1st Sem\Alliance\alliance-6\newusjrfeelec\Skooby.WebApp\Views\Home\Index.cshtml(34,22): Error RZ1025: The "div" element was not closed.  All elements must be either self-closing or have a matching end tag.
+C:\Users\nulltest\Desktop\4th year 1st Sem\Alliance\alliance-6\newusjrfeelec\Skooby.WebApp\Views\Home\Index.cshtml(38,30): Error RZ1006: The foreach block is missing a closing "}" character.  Make sure you have a matching "}" character for all the "{" characters within this block, and that none of the "}" characters are being interpreted as markup.
+C:\Users\nulltest\Desktop\4th year 1st Sem\Alliance\alliance-6\newusjrfeelec\Skooby.WebApp\Views\Home\Index.cshtml(40,34): Error RZ1025: The "div" element was not closed.  All elements must be either self-closing or have a matching end tag.
+   at Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler.CompileAndEmit(String relativePath)
+   at Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler.OnCacheMiss(String normalizedPath)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultRazorPageFactoryProvider.CreateFactory(String relativePath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine.CreateCacheResult(HashSet`1 expirationTokens, String relativePath, Boolean isMainPage)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine.OnCacheMiss(ViewLocationExpanderContext expanderContext, ViewLocationCacheKey cacheKey)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine.LocatePageFromViewLocations(ActionContext actionContext, String pageName, Boolean isMainPage)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine.FindView(ActionContext context, String viewName, Boolean isMainPage)
+   at Microsoft.AspNetCore.Mvc.ViewEngines.CompositeViewEngine.FindView(ActionContext context, String viewName, Boolean isMainPage)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.FindView(ActionContext actionContext, ViewResult viewResult)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-27 14:04:56.913 +08:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2023-11-27 14:04:58.424 +08:00 [ERR] No authors found for book ID 2003.
+2023-11-27 14:04:58.425 +08:00 [INF] Book name: 1984
+2023-11-27 14:04:58.427 +08:00 [INF] There are less than two reviews.

@@ -53,6 +53,11 @@ header {
     cursor: pointer;
 }
 
+.searchbar-header {
+    padding-right: 50px;
+}
+
+
 .searchbar,
 .message,
 .logosec {
