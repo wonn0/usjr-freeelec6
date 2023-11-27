@@ -5,19 +5,16 @@
 }
 
 @section styles {
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+} 
 
-    <link rel="stylesheet" href="~/css/dashboard.css" /> 
-}
-
-<div>
-    <link rel="stylesheet" href="~/css/image_strip.css" />
-    <div class="background-div">
-        <div class="center-text">
-            Sniffing out great reads with your favorite book review buddy, Skooby.
-        </div>
+<div class="background-div">
+    <div class="center-text">
+        Sniffing out great reads with your favorite book review buddy, Skooby.
     </div>
 </div>
-<section class="skooby-section skooby-dashboard"> 
+<section class="skooby-section skooby-dashboard">
     <h2 class="genre-title">Genres</h2>
     <div class="container-wrapper">
         <div class="content-wrapper">
@@ -40,15 +37,18 @@
                                 <div class="book-content">
                                     <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
                                         <div class="book-image-preview">
-                                            <img class="book-image" src="@book.Image ?? "/img/about-us.png" alt="Book Cover" />
-                                            @* <img class="book-image" src="@book.Image ?? " /img/about-us.png" alt="Book Cover" /> *@
+                                             
+                                            <img class="book-image" src="@book.Image ?? /img/about-us.png" alt="@book.Name" />
+                                            
                                         </div>
                                     </a>
                                     <div class="book-info-card" id="per-book-info-@book.Id">
+
                                         <h5 class="book-title book-text">@book.Name</h5>
                                         <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
                                         <p class="book-description book-text">@book.Description</p>
                                     </div>
+                                    <h6 class="book-title book-text">@book.Name</h6>
                                 </div>
                             }
                         </div>
@@ -73,18 +73,26 @@
                     {
                         <p class="filter-category-titles">@genre</p>
                     }
-                </div> 
+                </div>
             </div>
         </div>
-    </div>
-
-
-
+    </div> 
 </section>
-
+ 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+ <script>
+    $(document).ready(function () { 
+        $(".book-content").hover(
+            function () {
+                $(this).find(".book-info-card").show();
+            },
+            function () {
+                $(this).find(".book-info-card").hide();
+            }
+        ); 
+    });
+</script>  
 @* JQuery Script for deletion (calls delete method in controller as http) *@
 <script>
     $(document).ready(function () {

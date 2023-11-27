@@ -58,6 +58,8 @@ header {
 }
 
 
+
+
 .searchbar,
 .message,
 .logosec {
@@ -509,3 +511,16 @@ nav.navbar.bg-body-tertiary {
     .hide-navbar{
         display: none;
     }
+
+.btn-skooby {
+    /*border-radius: 50px;*/
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+.spacing{
+    margin: 25px;
+}
+.spacing p{
+    font-size:1px;
+}

@@ -1,4 +1,4 @@
-﻿.book-container {
+﻿/*.book-container {
     display: flex;
     gap: 10px;
 }
@@ -20,18 +20,17 @@
     font-weight: bold;
     width: 100%;
     box-sizing: border-box;
-    overflow: hidden;
-    
+    overflow: hidden; 
     text-overflow: ellipsis;
 }
 
 .section-title {
     color: #B64110;
 }
-hr {
-    border: 1px solid #FF7519; 
-    width: calc((5 * 200px) + (4 * 10px));
-    margin: 20px 0; 
+hr {*/
+    /*border: 1px solid #FF7519;*/ 
+    /*width: calc((5 * 200px) + (4 * 10px));*/
+    /*margin: 20px 0; 
 }
 
 
@@ -52,4 +51,4 @@ hr {
 
     .see-more-button:hover {
         color: #FF7519;
-    }
+    }*/

@@ -1,11 +1,15 @@
 @model ASI.Basecode.Services.Models.BookDetailsViewModel
+<style>
+
+</style>
+
 @{
     ViewData["Title"] = "Home Page";
 }
 @section styles {
     <link rel="stylesheet" href="~/css/viewbook.css" />
     <link rel="stylesheet" href="~/css/style.css" />
-    <link rel="stylesheet" href="~/css/author_otherbook.css" />
+    @* <link rel="stylesheet" href="~/css/author_otherbook.css" /> *@
 }
 
 @{
@@ -17,8 +21,7 @@
     {
         averageRating = Model.Reviews.Average(r => r.Rating);
         roundedAverage = Math.Ceiling(averageRating);
-    }
-
+    } 
 }
 
 
@@ -29,39 +32,10 @@
 
                 <div class="book-image-preview">
                     <img class="book-image image-content-spacing" id="book-image"
-                        src="@Url.Content(Model.Book.Image)" />
+                         src="@Url.Content(Model.Book.Image)" />
 
                 </div>
-                <button type="submit" class="image-content-spacing btn btn-primary download-btn" id="download-btn"><i
-                        class="fa-solid fa-download"></i> Download Sample</button>
-                <button type="submit" class="image-content-spacing btn btn-primary wishlist-btn" id="wishlist-btn"><i
-                        class="fa-solid fa-plus"></i> Add to Wishlist</button>
-                <div class="book-rating image-content-spacing">
-                    <div class="stars book-rate-spacing">
-                        <button class="star-btn" onmouseover="hoverStars(1)" onmouseout="resetStars()"
-                            onclick="setRating(1)">
-                            <i class="fa-regular fa-star star-rating-image" id="star1"></i>
-                        </button>
-                        <button class="star-btn" onmouseover="hoverStars(2)" onmouseout="resetStars()"
-                            onclick="setRating(2)">
-                            <i class="fa-regular fa-star star-rating-image" id="star2"></i>
-                        </button>
-                        <button class="star-btn" onmouseover="hoverStars(3)" onmouseout="resetStars()"
-                            onclick="setRating(3)">
-                            <i class="fa-regular fa-star star-rating-image" id="star3"></i>
-                        </button>
-                        <button class="star-btn" onmouseover="hoverStars(4)" onmouseout="resetStars()"
-                            onclick="setRating(4)">
-                            <i class="fa-regular fa-star star-rating-image" id="star4"></i>
-                        </button>
-                        <button class="star-btn" onmouseover="hoverStars(5)" onmouseout="resetStars()"
-                            onclick="setRating(5)">
-                            <i class="fa-regular fa-star star-rating-image" id="star5"></i>
-                        </button>
-                    </div>
-
-                    <p class="book-rating-text">Rate this book</p>
-                </div>
+                 
             </div>
         </div>
         <div class="content-wrapper">
@@ -70,24 +44,25 @@
                     <div class="book-content">
 
                         <h1 id="book-title">@Model.Book.Name</h1>
-                        <p class="author-name" id="author-name">by @foreach (var authorName in Model.Book.AuthorNames)
+                        <p class="author-name" id="author-name">
+                            by @foreach (var authorName in Model.Book.AuthorNames)
                             {
                                 @authorName
-                            }</p>
+                            }
+                        </p>
                         <div class="rate-review-wrapper">
                             <div class="rate-review-wrapper">
                                 <div class="stars info-spacing info-rating-main">
                                     @for (int i = 1; i <= 5; i++)
                                     {
-                                        <i class="fa-@(i <= roundedAverage ? "solid" : "regular") fa-star star-rating-main"
-                                            id="star-@(i)"></i>
+                                        <i class="fa-@(i <= roundedAverage ? "solid" : "regular") fa-bone star-rating-main"
+                                           id="star-@(i)"></i>
                                     }
                                 </div>
                                 <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">
-                                    @averageRating.ToString("0.0")</h4>
+                                    @averageRating.ToString("0.0")
+                                </h4>
                             </div>
-                            <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">5.0
-                            </h4>
 
                             <div class="reviews-wrapper">
                                 <p class="reviews-value rr-spacing">@(Model.Reviews.Count)</p>
@@ -100,67 +75,120 @@
                             <p class="book-description" id="book-description">
                                 @Model.Book.Description
                             </p>
-                            <button type="submit" id="show-more-btn"
-                                class="show-more-content-spacing btn btn-primary show-more-btn">Show more <i
-                                    class="fa-solid fa-chevron-down show-more"></i></button>
+                            @* <button type="submit" id="show-more-btn"
+                                    class="show-more-content-spacing btn btn-primary show-more-btn">
+                                Show more <i class="fa-solid fa-chevron-down show-more"></i>
+                            </button> *@
                         </div>
                         <div class="book-info">
                             <div class="info-wrapper">
-                                <p class="info-spacing">ISBN: </p>
+                                <p class="info-spacing info-title">ISBN: </p>
                                 <p id="isbn-value">@Model.Book.ISBN</p>
                             </div>
 
                             <div class="info-wrapper">
-                                <p class="info-spacing">Language: </p>
+                                <p class="info-spacing info-title">Language: </p>
                                 <p id="language-value">@Model.Book.Language</p>
                             </div>
 
                             <div class="info-wrapper">
-                                <p class="info-spacing" id="pages-value">Pages: @Model.Book.PageCount</p>
+                                <p class="info-spacing info-title" id="pages-value">Pages: @Model.Book.PageCount</p>
                             </div>
                             <div class="info-wrapper">
-                                <p class="info-spacing" id="published-value">First published on: </p>
+                                <p class="info-spacing info-title" id="published-value">First published on: </p>
                                 <p>@Model.Book.PublishedOn</p>
                             </div>
                             <div class="info-wrapper">
-                                <p class="info-spacing" id="published-value">Genre: </p>
-                                <p>@foreach (var genreName in Model.Book.GenreNames)
+                                <p class="info-spacing info-title" id="published-value">Genre: </p>
+                                <p>
+                                    @foreach (var genreName in Model.Book.GenreNames)
                                     {
                                         @genreName
-                                    }</p>
+                                    }
+                                </p>
                             </div>
                         </div>
 
 
-
+                        <div class="spacing">
+                            <p>s</p>
+                        </div>
 
 
                         <h2 class="section-title">
                             @foreach (var authorName in Model.Book.AuthorNames)
                             {
                                 @authorName.ToUpperInvariant()
-                            }'S OTHER WORKS
+                            }'S Other Works
                         </h2>
                         <hr />
 
-                      @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
-{
-    <div class="book-container">
-        @foreach (var relatedBook in Model.RelatedBooks.Take(4)) 
-        {
-            <div class="book">
-                <img src="@Url.Content(relatedBook.Image)" alt="@relatedBook.Name" class="book-images" />
-                <p class="book-title">@relatedBook.Name</p>
-            </div>
-        }
-      
-    </div>
+                        
+
+                        @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
+                        {
+                            <div class="book-container">
+                                @foreach (var relatedBook in Model.RelatedBooks.Take(4))
+                                {
+                                    <div class="book">
+                                        <img src="@Url.Content(relatedBook.Image)" alt="@relatedBook.Name" class="book-images" />
+                                        <p class="book-title">@relatedBook.Name</p>
+                                    </div>
+                                }
+
+                            </div>
                             <div class="see-more-container">   <button id="seeMoreButton" class="see-more-button">See More</button></div>
-}
-else
-{
-    <p>No other works by this author found.</p>
-}
+                        }
+                        else
+                        {
+                            <p>No other works by this author found.</p>
+                        }
+
+                        <hr />
+
+
+
+                        <div class="spacing">
+                            <p>s</p>
+                        </div>
+
+                        
+                        <div class="textarea-container">
+                            <div class="textarea-wrapper ">
+                                <h4 class=" ">Your Rating</h4>
+                                <div class="stars book-rate-spacing review-padding">
+                                    <button class="star-btn" onmouseover="hoverStars(1)" onmouseout="resetStars()"
+                                            onclick="setRating(1)">
+                                        <i class="fa-regular fa-bone star-rating-image" id="star1"></i>
+                                    </button>
+                                    <button class="star-btn" onmouseover="hoverStars(2)" onmouseout="resetStars()"
+                                            onclick="setRating(2)">
+                                        <i class="fa-regular fa-bone star-rating-image" id="star2"></i>
+                                    </button>
+                                    <button class="star-btn" onmouseover="hoverStars(3)" onmouseout="resetStars()"
+                                            onclick="setRating(3)">
+                                        <i class="fa-regular fa-bone star-rating-image" id="star3"></i>
+                                    </button>
+                                    <button class="star-btn" onmouseover="hoverStars(4)" onmouseout="resetStars()"
+                                            onclick="setRating(4)">
+                                        <i class="fa-regular fa-bone star-rating-image" id="star4"></i>
+                                    </button>
+                                    <button class="star-btn" onmouseover="hoverStars(5)" onmouseout="resetStars()"
+                                            onclick="setRating(5)">
+                                        <i class="fa-regular fa-bone star-rating-image" id="star5"></i>
+                                    </button>
+                                </div>
+                                <textarea class="review-textarea review-padding" rows="4" cols="50" name="comment" form="usrform" placeholder="What are your thoughts?">
+</textarea>
+                            </div>
+                            <div class="textarea-btn-container"><button type="submit" class="btn-padd btn btn-skooby review-padding">Create</button></div>
+                        </div>
+
+
+
+                        <div class="spacing">
+                            <p>s</p>
+                        </div>
 
 
                         <div class="book-rating-container">
@@ -168,27 +196,28 @@ else
                                 <h3>Book Ratings</h3>
                                 <div class="rate-review-wrapper element-book-rate">
                                     <div class="stars rating-spacing element-book-rate">
-                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
-                                            id="star-1"></i>
-                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
-                                            id="star-2"></i>
-                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
-                                            id="star-3"></i>
-                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
-                                            id="star-4"></i>
-                                        <i class="fa-regular fa-star star-rating-secondary element-book-rate"
-                                            id="star-5"></i>
+                                        <i class="fa-regular fa-bone star-rating-secondary element-book-rate"
+                                           id="star-1"></i>
+                                        <i class="fa-regular fa-bone star-rating-secondary element-book-rate"
+                                           id="star-2"></i>
+                                        <i class="fa-regular fa-bone star-rating-secondary element-book-rate"
+                                           id="star-3"></i>
+                                        <i class="fa-regular fa-bone star-rating-secondary element-book-rate"
+                                           id="star-4"></i>
+                                        <i class="fa-regular fa-bone star-rating-secondary element-book-rate"
+                                           id="star-5"></i>
                                     </div>
                                     <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">
                                         @averageRating.ToString("0.0")
                                     </h6>
 
                                     <p class="element-book-rate">
-                                        out of 5</p>
+                                        out of 5
+                                    </p>
                                     <div class="reviews-wrapper element-book-rate">
                                         <p class="ebr-styling rr-spacing element-book-rate">•</p>
                                         <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
-                                            id="review-value">@(Model.Reviews.Count)</p>
+                                           id="review-value">@(Model.Reviews.Count)</p>
                                         <p class=" ebr-styling element-book-rate">barks</p>
                                     </div>
 
@@ -202,10 +231,13 @@ else
                                     foreach (var review in Model.Reviews)
                                     {
                                         <div class="review-item">
-                                            <h3>@review.BookName</h3>
-                                            <p><strong>Barked by:</strong> @review.ReviewedBy</p>
-                                            <p><strong>Description:</strong> @review.Description</p>
-                                            <p><strong>Rating:</strong> @review.Rating</p>
+                                            <div class="name-rating-container">
+                                                <h6 class="review-name"><strong>Barked by:</strong> @review.ReviewedBy</h6>
+                                                <p class="review-rate"><strong></strong> @review.Rating</p>
+                                            </div>
+                                            <p class="reviewed-on">@review.ReviewedOn</p>
+                                            <p class="review-description">@review.Description</p>
+                                            
                                         </div>
                                     }
                                 }
@@ -213,40 +245,47 @@ else
                                 {
                                     <p>No barks available for this book.</p>
                                 }
-                            </div>
+                            </div> 
+                        </div>
 
+                        <hr />
 
+                        <div class="spacing">
+                            <p>s</p>
                         </div>
 
 
-                        <h2 class="section-title">SUGGESTED FOR YOU SECTION</h2>
+                        <h2 class="section-title">Suggested For You</h2>
                         <hr />
 
-                       @if (Model.AllBooks != null && Model.AllBooks.Any())
-{
-    <div class="book-container">
-        @foreach (var book in Model.AllBooks.Take(4)) 
-        {
-            <div class="book">
-                <img src="@Url.Content(book.Image)" alt="@book.Name" class="book-images" />
-                <p class="book-title">@book.Name</p>
-                
-            </div>
-        }
-                              
-    </div>
+                        @if (Model.AllBooks != null && Model.AllBooks.Any())
+                        {
+                            <div class="book-container">
+                                @foreach (var book in Model.AllBooks.Take(4))
+                                {
+                                    <div class="book">
+                                        <img src="@Url.Content(book.Image)" alt="@book.Name" class="book-images" />
+                                        <p class="book-title">@book.Name</p>
+
+                                    </div>
+                                }
+
+                            </div>
 
                             <div class="see-more-container">   <button id="seeMoreButton" class="see-more-button">See More</button></div>
-}
-else
-{
-    <p>No books available for suggestions.</p>
-}
+                        }
+                        else
+                        {
+                            <p>No books available for suggestions.</p>
+                        }
 
 
                     </div>
 
                 </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
