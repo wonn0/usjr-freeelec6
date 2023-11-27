@@ -96,17 +96,15 @@ namespace Skooby.WebApp.Controllers
             }
 
             // Fetch the related books by author. This assumes that the BookViewModel has AuthorIds.
+            // Inside the ViewBook method
+            // Inside the ViewBook method
             List<BookViewModel> relatedBooks = new List<BookViewModel>();
             if (bookViewModel.AuthorIds != null && bookViewModel.AuthorIds.Any())
             {
-                int authorId = bookViewModel.AuthorIds.First(); // Take the first author's ID
-                relatedBooks = _bookService.GetBooksByAuthor(authorId); // Assuming GetBooksByAuthor returns List<BookViewModel>
+                int authorId = bookViewModel.AuthorIds.First();
+                relatedBooks = _bookService.GetBooksByAuthor(authorId, id); // 'id' is the current book's ID
             }
-            else
-            {
-                // Log the error if there are no author IDs
-                _logger.LogError("No authors found for book ID {BookId}.", id);
-            }
+
 
             // Log the book name
             _logger.LogInformation("Book name: {BookName}", bookViewModel.Name);
