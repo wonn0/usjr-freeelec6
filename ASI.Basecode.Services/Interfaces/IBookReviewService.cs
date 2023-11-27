@@ -14,5 +14,6 @@ namespace ASI.Basecode.WebApp.Services
         void AddBookReview(BookReviewViewModel model);
         void UpdateBookReview(BookReviewViewModel model);
         void DeleteBookReview(int id);
+
     }
 }

@@ -1,0 +1,4 @@
+2023-11-27 20:46:24.743 +08:00 [INF] hello from account controller
+2023-11-27 23:52:55.728 +08:00 [INF] hello from account controller
+2023-11-27 23:53:20.776 +08:00 [INF] Home page visited at "2023-11-27T23:53:20.7743290+08:00"
+2023-11-27 23:53:26.921 +08:00 [INF] Home page visited at "2023-11-27T23:53:26.9177940+08:00"
