@@ -9,6 +9,7 @@ namespace ASI.Basecode.WebApp.Services
         GenreViewModel GetGenreById(int id);
         void AddGenre(GenreViewModel model);
         void UpdateGenre(GenreViewModel model);
+        IEnumerable<GenreViewModel> SearchGenres(string query);
         void DeleteGenre(int id);
     }
 }
