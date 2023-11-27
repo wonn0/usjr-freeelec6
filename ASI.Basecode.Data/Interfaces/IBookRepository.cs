@@ -6,7 +6,7 @@ namespace Data.Interfaces
     public interface IBookRepository
     {
         IQueryable<Book> GetAllBooks();
-        IQueryable<Book> GetBookByAuthorId(int authorId, int currentBookId);
+        IQueryable<Book> GetBookByAuthorId(int authorId);
         Book GetBookById(int id);
         void AddBook(Book book);
         void UpdateBook(Book book);

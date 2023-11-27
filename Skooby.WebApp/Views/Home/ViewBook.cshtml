@@ -143,29 +143,24 @@
                         </h2>
                         <hr />
 
-                        @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
-                        {
-                            <div class="book-container">
-                                @foreach (var relatedBook in Model.RelatedBooks.Take(4))
-                                {
-                                    <a href="@Url.Action("ViewBook", "Home", new { id = relatedBook.Id })" class="book-link">
-                                        <div class="book">
-                                            <img src="@Url.Content(relatedBook.Image)" alt="@relatedBook.Name"
-                                                class="book-images" />
-                                            <p class="book-title">@relatedBook.Name</p>
-                                        </div>
-                                    </a>
-                                }
-                            </div>
-                            <div class="see-more-container">
-                                <button id="seeMoreButton" class="see-more-button">See More</button>
-                            </div>
-                        }
-                        else
-                        {
-                            <p>No other works by this author found.</p>
-                        }
-
+                      @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
+{
+    <div class="book-container">
+        @foreach (var relatedBook in Model.RelatedBooks.Take(4)) 
+        {
+            <div class="book">
+                <img src="@Url.Content(relatedBook.Image)" alt="@relatedBook.Name" class="book-images" />
+                <p class="book-title">@relatedBook.Name</p>
+            </div>
+        }
+      
+    </div>
+                            <div class="see-more-container">   <button id="seeMoreButton" class="see-more-button">See More</button></div>
+}
+else
+{
+    <p>No other works by this author found.</p>
+}
 
 
                         <div class="book-rating-container">
@@ -227,28 +222,26 @@
                         <h2 class="section-title">SUGGESTED FOR YOU SECTION</h2>
                         <hr />
 
-                        @if (Model.AllBooks != null && Model.AllBooks.Any())
-                        {
-                            <div class="book-container">
-                                @foreach (var book in Model.AllBooks.Take(4))
-                                {
-                                    <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })" class="book-link">
-                                        <div class="book">
-                                            <img src="@Url.Content(book.Image)" alt="@book.Name" class="book-images" />
-                                            <p class="book-title">@book.Name</p>
-                                        </div>
-                                    </a>
-                                }
-                            </div>
-                            <div class="see-more-container">
-                                <button id="seeMoreButton" class="see-more-button">See More</button>
-                            </div>
-                        }
-                        else
-                        {
-                            <p>No books available for suggestions.</p>
-                        }
+                       @if (Model.AllBooks != null && Model.AllBooks.Any())
+{
+    <div class="book-container">
+        @foreach (var book in Model.AllBooks.Take(4)) 
+        {
+            <div class="book">
+                <img src="@Url.Content(book.Image)" alt="@book.Name" class="book-images" />
+                <p class="book-title">@book.Name</p>
+                
+            </div>
+        }
+                              
+    </div>
 
+                            <div class="see-more-container">   <button id="seeMoreButton" class="see-more-button">See More</button></div>
+}
+else
+{
+    <p>No books available for suggestions.</p>
+}
 
 
                     </div>

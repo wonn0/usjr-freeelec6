@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ASI.Basecode.Services.Models;
+﻿using ASI.Basecode.Services.Models;
 using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -21,21 +20,11 @@ namespace ASI.Basecode.WebApp.Controllers
             _logger = logger; // Initialize the logger
         }
 
-        public IActionResult Index(string searchString)
+        public IActionResult Index()
         {
-            IEnumerable<GenreViewModel> genres;
-
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                // Assuming _genreService has a method to search genres by a query
-                genres = _genreService.SearchGenres(searchString);
-            }
-            else
-            {
-                genres = _genreService.GetAllGenres();
-            }
-
-            return View(genres);
+            var genreViewModels = _genreService.GetAllGenres();
+            _logger.LogInformation("Loaded all genres"); // Example log
+            return View(genreViewModels);
         }
 
         public IActionResult Details(int id)

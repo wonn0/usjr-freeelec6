@@ -3,7 +3,6 @@ using ASI.Basecode.WebApp.Services;
 using AutoMapper;
 using Data.Interfaces;
 using Data.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,15 +19,6 @@ namespace ASI.Basecode.Services.Services
             _genreRepository = genreRepository;
             _mapper = mapper;
         }
-        public IEnumerable<GenreViewModel> SearchGenres(string query)
-        {
-            var lowerCaseQuery = query.ToLower();
-            var genres = _genreRepository.GetAllGenres();
-            var filteredGenres = genres.Where(g => g.Name.ToLower().Contains(lowerCaseQuery));
-
-            return _mapper.Map<IEnumerable<GenreViewModel>>(filteredGenres).ToList();
-        }
-
 
         public List<GenreViewModel> GetAllGenres()
         {

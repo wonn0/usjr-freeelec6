@@ -37,12 +37,33 @@ namespace ASI.Basecode.Services.Services
             return _mapper.Map<BookViewModel>(book);
         }
 
-        public List<BookViewModel> GetBooksByAuthor(int authorId, int currentBookId)
+        public List<BookViewModel> GetBooksByAuthor(int authorId)
         {
-            var books = _bookRepository.GetBookByAuthorId(authorId, currentBookId);
-            return _mapper.Map<IEnumerable<BookViewModel>>(books).ToList();
-        }
+            // Query the repository for books by the author ID
+            var books = _bookRepository.GetBookByAuthorId(authorId);
 
+
+            // Select and project the data into the BookViewModel format
+            var bookViewModels = books.Select(book => new BookViewModel
+            {
+                Id = book.Id,
+                Name = book.Name,
+                Description = book.Description,
+                ISBN = book.ISBN,
+                Language = book.Language,
+                PublishedOn = book.PublishedOn,
+                PageCount = book.PageCount,
+                Created = book.Created,
+                Updated = book.Updated,
+                Image = book.Image,
+                AuthorIds = book.AuthorBooks.Select(ab => ab.AuthorId).ToList(),
+                GenreIds = book.BookGenres.Select(bg => bg.GenreId).ToList(),
+                AuthorNames = book.AuthorBooks.Select(ab => ab.Author.FirstName + " " + ab.Author.LastName).ToList(),
+                GenreNames = book.BookGenres.Select(bg => bg.Genre.Name).ToList()
+            }).ToList();
+
+            return bookViewModels;
+        }
 
 
         public void AddBook(BookViewModel model)
