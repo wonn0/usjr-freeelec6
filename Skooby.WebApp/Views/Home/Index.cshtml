@@ -67,6 +67,15 @@
                            aria-label="Search">
                     <button class="btn btn-outline-success search-button" type="submit">Search</button>
                 </form>
+                <div>
+                    <a href="#" class="btn-text">What's New?</a>
+                </div>
+                <div>
+                    <a href="#" class="btn-text">Top Rated</a>
+                </div>
+
+                <hr class="filter-divider"/>
+                <h3 class="filter-genretitle">Genres</h3>
 
                 <div class="filter-category-container">
                     @foreach (var genre in Model.SelectMany(book => book.GenreNames).Distinct())

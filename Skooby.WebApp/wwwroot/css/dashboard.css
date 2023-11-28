@@ -133,7 +133,7 @@ hr {
 }
 
 .sidebar-container {
-    width: 35%;
+    min-width: 35%;
     margin-left: 80px;
 }
 
@@ -260,18 +260,28 @@ hr {
     }
 
 .btn-text {
-    background-color: transparent; /* Set background color to transparent */
-    color: var(--primary-color); /* Set text color to primary color */
-    font-size: 15px;
+    background-color: transparent;
+    color: var(--primary-color);
+    font-size: 20px;
     border: none;
     cursor: pointer;
+    display: block; /* Ensure each link takes the full width */
+    margin: 15px 0px;
 }
 
     .btn-text:hover {
+        text-decoration: none;
+        outline: none;
         border: none;
         background-color: transparent;
         color: var(--secondary-color);
     }
+
+    
+
+    
+
+
 
 .book-rating {
     align-items: center;
