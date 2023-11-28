@@ -10,7 +10,8 @@ namespace ASI.Basecode.WebApp.Services
         void AddBook(BookViewModel model);
         void UpdateBook(BookViewModel model);
         void DeleteBook(int id);
-        List<BookViewModel> GetBooksByAuthor(int authorId);
+        List<BookViewModel> GetBooksByAuthor(int authorId, int currentBookId);
+
     }
 
 }

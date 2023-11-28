@@ -27,7 +27,8 @@
             <div class="col col-left">
                 <div class="search-container">
                     <form class="search-container d-flex" asp-action="Index" method="get">
-                        <input type="text" name="searchString" class=" me-2 search-input form-control" placeholder="Search Genres" />
+                        <input type="text" name="searchString" class=" me-2 search-input form-control"
+                               placeholder="Search Genres" />
                         <button class="btn btn-outline-success search-button" type="submit">Search</button>
 
                     </form>
@@ -51,6 +52,7 @@
                 <th>Rating</th>
                 <th>Book ID</th>
                 <th>Content</th>
+                <th>ReviewedOn</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -64,6 +66,7 @@
                     <td>@review.BookName</td>
                     <td>@review.BookId</td>
                     <td>@review.Rating</td>
+                    <td>@review.ReviewedOn</td>
                     <td>@review.Description</td>
                     <td>
                         <a href="@Url.Action("Edit", "Reviews", new { id = review.Id })" class="btn btn-success">Edit</a>

@@ -99,8 +99,8 @@ namespace Skooby.WebApp.Controllers
             List<BookViewModel> relatedBooks = new List<BookViewModel>();
             if (bookViewModel.AuthorIds != null && bookViewModel.AuthorIds.Any())
             {
-                int authorId = bookViewModel.AuthorIds.First(); // Take the first author's ID
-                relatedBooks = _bookService.GetBooksByAuthor(authorId); // Assuming GetBooksByAuthor returns List<BookViewModel>
+                int authorId = bookViewModel.AuthorIds.First();
+                relatedBooks = _bookService.GetBooksByAuthor(authorId, id); // 'id' is the current book's ID
             }
             else
             {

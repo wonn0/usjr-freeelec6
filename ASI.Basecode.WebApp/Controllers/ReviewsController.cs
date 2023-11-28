@@ -5,6 +5,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ASI.Basecode.WebApp.Controllers
@@ -22,11 +23,20 @@ namespace ASI.Basecode.WebApp.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? searchString)
         {
             var reviewViewModels = _bookReviewService.GetAllBookReviews();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                reviewViewModels = reviewViewModels.Where(r =>
+                (r.ReviewedBy != null && r.ReviewedBy.Contains(searchString, StringComparison.OrdinalIgnoreCase)) ||
+                (r.BookName != null && r.BookName.Contains(searchString, StringComparison.OrdinalIgnoreCase)) ||
+                (r.Description != null && r.Description.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+               ).ToList();
+            }
             return View(reviewViewModels);
         }
+
 
         public IActionResult Details(int id)
         {
