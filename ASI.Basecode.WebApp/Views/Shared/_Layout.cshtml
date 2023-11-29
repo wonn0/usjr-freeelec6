@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/main.css" />
     <link rel="stylesheet" href="~/css/style.css" />
-    <link rel="stylesheet" href="~/css/sidebar.css" />
+    <link rel="stylesheet" href="~/css/sidebar.css" /> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     @RenderSection("Styles", required: false)
 </head>
@@ -25,7 +25,7 @@
             margin-right: auto !important;
             margin-left: auto !important;
         }
-    </style>
+    </style>    
     @Html.Partial("_Header")
     <div class="container test">
         <main role="main">
@@ -48,8 +48,9 @@
                                 <div class="masterlist-title">
                                     <h5>User List</h5>
                                 </div>
-                                <a class="module-item-title" asp-controller="Admin" asp-action="Index"><i
-                                        class="sidenav-icon fa-solid fa-user-group"></i>Users</a>
+                                <a class="module-item-title" asp-controller="Admin" asp-action="Index">
+                                    <i class="sidenav-icon fa-solid fa-user-group"></i>Users
+                                </a>
                             </div>
 
                         }
@@ -57,6 +58,7 @@
                             <div class="masterlist-title">
                                 <h5>Book List</h5>
                             </div>
+                            
                             <a asp-controller="Genre" asp-action="Index"><i
                                     class="sidenav-icon fa-solid fa-masks-theater"></i>Genres</a>
                             <a asp-controller="Book" asp-action="Index"><i class="sidenav-icon fa-solid fa-book"></i>

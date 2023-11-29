@@ -369,10 +369,12 @@
 
     .see-more-button:hover {
         color: #FF7519;
-    } 
+    }
 
 .review-textarea {
-    padding:10px;
+    min-height: 300px !important;
+    border-radius: 20px;
+    padding: 10px;
     width: 100%;
 }
 
@@ -388,6 +390,7 @@
     font-weight:bold;
 
 }
+
 
 @media (max-width: 768px) {
     body {
