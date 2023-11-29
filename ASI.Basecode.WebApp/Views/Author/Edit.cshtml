@@ -2,17 +2,29 @@
 @{
     ViewBag.ShowSideBar = true;
 }
-<h2>Edit Author</h2>
+<h2 class="form-title">Edit Author</h2>
 <form asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
-    <div>
-        <label for="FirstName">First Name</label>
-        <input type="text" asp-for="FirstName" />
+    <div class="form-container container">
+        <div class="row">
+            <div class="col">
+                <label for="FirstName">First Name</label>
+                <input class="form-control" type="text" asp-for="FirstName" />
+            </div>
+            <div class="col">
+                <label for="LastName">Last Name</label>
+                <input class="form-control" type="text" asp-for="LastName" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="col-right col-center">
+                    <a class="btn-back btn-padd" asp-action="Index">Back to List</a>
+                    <input class="btn-padd btn btn-success" type="submit" value="Update" />
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label for="LastName">Last Name</label>
-        <input type="text" asp-for="LastName" />
-    </div>
-    <!-- Other fields -->
-    <input type="submit" value="Update" />
 </form>
+
+

@@ -5,21 +5,46 @@
     ViewData["Title"] = "Genre Details";
 }
 
-<h2>Genre Details</h2>
+<style>
 
-<div>
-    <h4>Genre</h4>
+    img.book-image {
+        max-width: 300px;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .center-content {
+        text-align: center;
+    }
+
+    .title-style{
+        font-weight:bold;
+    }
+</style>
+
+<h2 class="form-title">Genre Details</h2>
+
+<div class="form-container container">
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
+    <div class="row">
+        <div class="col-sm-2 title-style">
             @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
-        </dd>
-    </dl>
+        </div>
+
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            <div class="col-right col-center">
+               
+                <a class="btn-back btn-padd" asp-action="Index">Back to List</a>
+                <a class="btn-padd btn btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+ 

@@ -1,77 +1,122 @@
-﻿@model IEnumerable<ASI.Basecode.Services.Models.BookViewModel>
+@model IEnumerable<ASI.Basecode.Services.Models.BookViewModel>
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Home Page";
 }
 
 @section styles {
+    <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/dashboard.css" />
-}
+} 
+<style>
+    .sidebar-content {
+        height: auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        overflow: auto;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 10%;
+        box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+        -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+        -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    }
+</style>
 
+<div class="background-div">
+    <div class="center-text">
+        Sniffing out great reads with your favorite book review buddy, Skooby.
+    </div>
+</div>
 <section class="skooby-section skooby-dashboard">
+    <h2 class="genre-title">Genres</h2>
     <div class="container-wrapper">
         <div class="content-wrapper">
-            @foreach (var genreGroup in Model.SelectMany(book => book.GenreNames)
-            .Distinct()
-            .Select(genre => new
-            {
-               Genre = genre,
-               Books = Model.Where(book => book.GenreNames.Contains(genre))
-            }))
-            {
-                <div class="book-genre">
-                    <h4>@genreGroup.Genre</h4>
-                    <hr />
-                    <div class="book-wrapper">
-                        @foreach (var book in genreGroup.Books)
-                        {
-                            <div class="book-content">
-                                <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-                                    <div class="book-image-preview">
-                                        <img class="book-image" src="@book.Image ?? " ~/img/book-preview.png""
-                                            alt="Book Cover" />
-                                    </div>
-                                </a>
-                                <div class="book-info-card" id="per-book-info-@book.Id">
-                                    <h5 class="book-title book-text">@book.Name</h5>
-                                    <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) •
-                                        @book.PublishedOn.Year</p>
-                                    <p class="book-description book-text">@book.Description</p>
-                                    <!-- Additional info like rating and reviews could be added here -->
-                                </div>
-                            </div>
-                        }
-
-                    </div>
-                </div>
+            @{
+                var uniqueGenres = Model.SelectMany(book => book.GenreNames).Distinct();
             }
-            <!-- Pagination and other components can be added here -->
+
+            @foreach (var genre in uniqueGenres)
+            {
+                var genreBooks = Model.Where(book => book.GenreNames.Contains(genre)).ToList();
+
+                if (genreBooks.Any())
+                {
+                    <div class="book-genre">
+                        <h4>@genre</h4>
+                        <hr />
+                        <div class="book-wrapper">
+                            @foreach (var book in genreBooks)
+                            {
+                                <div class="book-content">
+                                    <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
+                                        <div class="book-image-preview">
+                                             
+                                            <img class="book-image" src="@book.Image ?? /img/about-us.png" alt="@book.Name" />
+                                            
+                                        </div>
+                                    </a>
+                                    <div class="book-info-card" id="per-book-info-@book.Id">
+
+                                        <h5 class="book-title book-text">@book.Name</h5>
+                                        <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
+                                        <p class="book-description book-text">@book.Description</p>
+                                    </div>
+                                    <h6 class="book-title book-text">@book.Name</h6>
+                                </div>
+                            }
+                        </div>
+                        <div>
+                            <button class="see-more-button">See More...</button>
+                        </div>
+                    </div>
+                }
+            }
         </div>
         <div class="sidebar-container">
-            <!-- Sidebar content here -->
+            <div class="sidebar-content">
+                <h2 class="sidebar-title">Filter</h2>
+                <form class="d-flex filter-searchbar" role="search" method="get">
+                    <input class="form-control me-2 search-input" name="searchTerm" type="search" placeholder="Search"
+                           aria-label="Search">
+                    <button class="btn btn-outline-success search-button" type="submit">Search</button>
+                </form>
+                <div>
+                    <a href="@Url.Action("NewBooks", "Home")" class="btn-text">What's New?</a>
+                </div>
+                <div>
+                    <a href="@Url.Action("TopRatedBooks", "Home")" class="btn-text">Top Rated</a>
+                </div>
+
+                <hr class="filter-divider"/>
+                <h3 class="filter-genretitle">Genres</h3>
+
+                <div class="filter-category-container">
+                    @foreach (var genre in Model.SelectMany(book => book.GenreNames).Distinct())
+                    {
+                        <p class="filter-category-titles">@genre</p>
+                    }
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="sidebar-content">
-        <h2 class="sidebar-title">Filter</h2>
-        <form class="d-flex filter-searchbar" role="search" method="get">
-            <input class="form-control me-2 search-input" name="searchTerm" type="search" placeholder="Search"
-                aria-label="Search">
-            <button class="btn btn-outline-success search-button" type="submit">Search</button>
-        </form>
-
-        <div class="filter-category-container">
-            @foreach (var genre in Model.SelectMany(book => book.GenreNames).Distinct())
-            {
-                <p class="filter-category-titles">@genre</p>
-            }
-        </div>
-
-
-    </div>
+    </div> 
 </section>
-
+ 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+ <script>
+    $(document).ready(function () { 
+        $(".book-content").hover(
+            function () {
+                $(this).find(".book-info-card").show();
+            },
+            function () {
+                $(this).find(".book-info-card").hide();
+            }
+        ); 
+    });
+</script>  
 @* JQuery Script for deletion (calls delete method in controller as http) *@
 <script>
     $(document).ready(function () {
@@ -89,5 +134,5 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>

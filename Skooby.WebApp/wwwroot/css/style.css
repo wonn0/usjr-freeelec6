@@ -53,6 +53,13 @@ header {
     cursor: pointer;
 }
 
+.searchbar-header {
+    padding-right: 50px;
+}
+
+
+
+
 .searchbar,
 .message,
 .logosec {
@@ -500,3 +507,20 @@ nav.navbar.bg-body-tertiary {
         border-color: var(--primary-color) !important;
     }
 
+
+    .hide-navbar{
+        display: none;
+    }
+
+.btn-skooby {
+    /*border-radius: 50px;*/
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+.spacing{
+    margin: 25px;
+}
+.spacing p{
+    font-size:1px;
+}

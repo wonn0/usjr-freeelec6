@@ -1,0 +1,29 @@
+﻿.new-books-section {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+    .new-books-section h1 {
+        padding-top: 84px;
+        color: #331204;
+        font-size: 48px;
+    }
+
+    .new-books-section h2 {
+        padding-top: 12px;
+        color: rgba(128, 128, 128, 0.6);
+        font-size: 32px;
+    }
+
+    .new-books-section h3 {
+        padding-top: 38px;
+        color: #B64110;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .new-books-section hr {
+       width: 740px;
+    }

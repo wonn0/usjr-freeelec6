@@ -1,0 +1,71 @@
+@model ASI.Basecode.Services.Models.BookReviewViewModel
+
+@{
+    ViewBag.ShowSideBar = true;
+    ViewData["Title"] = "Create Review";
+}
+
+<h2 class="form-title">Create Review</h2>
+
+<div class="form-container container">
+    <form asp-action="Create" method="post">
+        <div class="row">
+            <div class="col"> 
+                    <label asp-for="ReviewedBy" class="control-label">Reviewed By</label>
+                    <input asp-for="ReviewedBy" class="form-control" />
+                    <span asp-validation-for="ReviewedBy" class="text-danger"></span>
+            </div>
+                <div class="col"> 
+                        <label asp-for="Email" class="control-label">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    
+                </div>
+            
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">Description</label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="Rating" class="control-label">Rating</label>
+                    <input asp-for="Rating" class="form-control" type="number" min="1" max="5" />
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="BookId" class="control-label">Book ID</label>
+                    <input asp-for="BookId" class="form-control" type="number" />
+                    <span asp-validation-for="BookId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="col-right col-center">
+                    <div class="form-group">
+                        
+                        <a class="btn-back btn-padd" href="@Url.Action("Index", "Reviews")">Back to List</a>
+                        <input type="submit" value="Create" class="btn btn-skooby btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

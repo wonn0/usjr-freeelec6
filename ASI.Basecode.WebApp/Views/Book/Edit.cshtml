@@ -8,8 +8,10 @@
 @using (Html.BeginForm("Edit", "Book", FormMethod.Post))
 {   <input type="hidden" name="Id" value="@Model.Id" />
 
+    <h2 class="form-title">Edit Book</h2>
+
     <div class="form-container container">
-        <h1 class="form-title">Edit Book</h1>
+        
         <div class="row">
             <div class="col">
                 <div class="form-group">

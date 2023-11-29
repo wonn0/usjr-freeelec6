@@ -5,6 +5,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ASI.Basecode.WebApp.Controllers
@@ -22,11 +23,20 @@ namespace ASI.Basecode.WebApp.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? searchString)
         {
             var reviewViewModels = _bookReviewService.GetAllBookReviews();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                reviewViewModels = reviewViewModels.Where(r =>
+                (r.ReviewedBy != null && r.ReviewedBy.Contains(searchString, StringComparison.OrdinalIgnoreCase)) ||
+                (r.BookName != null && r.BookName.Contains(searchString, StringComparison.OrdinalIgnoreCase)) ||
+                (r.Description != null && r.Description.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+               ).ToList();
+            }
             return View(reviewViewModels);
         }
+
 
         public IActionResult Details(int id)
         {
@@ -53,8 +63,16 @@ namespace ASI.Basecode.WebApp.Controllers
             {
                 _bookReviewService.AddBookReview(model);
                 _logger.LogInformation("Review created for book ID {BookId}", model.BookId);
+                foreach (var state in ModelState)
+                {
+                    if (state.Value.Errors.Any())
+                    {
+                        _logger.LogWarning("Validation error in field {FieldName}: {ErrorMessage}", state.Key, state.Value.Errors.First().ErrorMessage);
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
+
             _logger.LogWarning("Invalid model state for creating review.");
             return View(model);
         }

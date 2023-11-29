@@ -34,7 +34,7 @@ namespace ASI.Basecode.Services.Models
         public DateTime ReviewedOn { get; set; }
 
         /// <summary>Rating</summary>
-        [JsonPropertyName("reviewedOn")]
+        [JsonPropertyName("rating")]
         [Required(ErrorMessage = "Rating is required.")]
         public int Rating { get; set; }
 
