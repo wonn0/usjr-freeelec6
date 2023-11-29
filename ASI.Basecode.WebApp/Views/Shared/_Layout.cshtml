@@ -38,8 +38,18 @@
                                 <h5>Home</h5>
                             </div>
 
-                            <a asp-controller="Home" asp-action="Index"><i
-                                    class="sidenav-icon fa-solid fa-gauge"></i>Dashboard</a>
+                            @if (User.IsInRole("SuperAdmin"))
+                            {
+                                <a asp-controller="Admin" asp-action="Dashboard">
+                                    <i class="sidenav-icon fa-solid fa-gauge"></i>Dashboard
+                                </a>
+                            }
+                            else
+                            {
+                                <a asp-controller="Home" asp-action="Index">
+                                    <i class="sidenav-icon fa-solid fa-gauge"></i>Dashboard
+                                </a>
+                            }
                         </div>
 
                         @if (User.IsInRole("SuperAdmin"))
