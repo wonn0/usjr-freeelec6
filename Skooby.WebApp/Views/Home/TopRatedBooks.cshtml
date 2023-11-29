@@ -2,7 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "New Books Page";
+    ViewData["Title"] = "Top Books Page";
 }
 
 @section styles {
@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/newbooks.css" />
 }
- 
+
 <section class="new-books-section new-books-dashboard">
     <div>
-        <h1> Unveiling New Worlds in Every Page</h1>
-        <h2>Read the latest!</h2>
-        <h3>New books</h3>
+        <h1>Top Rated Tales Await</h1>
+        <h2>Read the best of the best!</h2>
+        <h3>Top Rated books</h3>
     </div>
-   
-    
+
+
     <hr />
     <div class="book-wrapper">
         @{
@@ -43,8 +43,8 @@
 </section>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script>
-    $(document).ready(function () { 
+<script>
+    $(document).ready(function () {
         $(".book-content").hover(
             function () {
                 $(this).find(".book-info-card").show();
@@ -52,9 +52,9 @@
             function () {
                 $(this).find(".book-info-card").hide();
             }
-        ); 
+        );
     });
-</script>  
+</script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

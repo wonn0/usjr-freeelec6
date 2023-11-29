@@ -145,6 +145,46 @@ namespace Skooby.WebApp.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult NewBooks()
+        {
+            // Assuming GetAllBooks returns a collection of all books
+            var allBooks = _bookService.GetAllBooks();
+
+            // Order the books by some criteria (e.g., publication date) to get the most recent ones
+            var recentBooks = allBooks.OrderByDescending(book => book.Created).Take(10);
+
+            // Pass the recentBooks to the view (you may need to adjust this based on your view)
+            return View(recentBooks);
+        }
+
+
+
+        [HttpGet]
+        public IActionResult TopRatedBooks()
+        {
+            // Assuming GetAllBooks returns a collection of all books
+            var allBooks = _bookService.GetAllBooks();
+
+            // Join books with their reviews based on BookId
+            var booksWithReviews = allBooks
+                .GroupJoin(
+                    _bookReviewService.GetAllBookReviews(),  // Assuming you have a method to get all book reviews
+                    book => book.Id,
+                    review => review.BookId,
+                    (book, reviews) => new
+                    {
+                        Book = book,
+                        AverageRating = reviews.Any() ? reviews.Average(review => review.Rating) : 0
+                    })
+                .OrderByDescending(result => result.AverageRating)
+                .Take(10)
+                .Select(result => result.Book)
+                .ToList();
+
+            // Pass the top-rated books to the view (you may need to adjust this based on your view)
+            return View(booksWithReviews);
+        }
 
     }
 }
