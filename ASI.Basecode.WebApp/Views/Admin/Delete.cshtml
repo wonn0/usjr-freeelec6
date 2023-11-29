@@ -1,0 +1,12 @@
+@model Microsoft.AspNetCore.Identity.IdentityUser
+@{
+    ViewData["Title"] = "Delete User";
+}
+
+<h3>Are you sure you want to delete @Model.UserName?</h3>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+    <a asp-action="IndexAsync">Cancel</a>
+</form>
