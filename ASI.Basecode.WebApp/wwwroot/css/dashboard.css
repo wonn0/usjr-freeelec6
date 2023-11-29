@@ -82,7 +82,7 @@
 }
 
 .sidebar-content {
-    height: 50vh;
+    height: auto;
     background-color: white;
     padding: 20px;
     border-radius: 10px;

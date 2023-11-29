@@ -137,20 +137,7 @@ hr {
     margin-left: 80px;
 }
 
-.sidebar-content {
-    max-height: 500px;
-    height: 50vh;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    overflow: auto;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 10%;
-    box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
-    -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
-    -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
-} 
+
 .content {
     width: 100%;
     padding: 20px;
