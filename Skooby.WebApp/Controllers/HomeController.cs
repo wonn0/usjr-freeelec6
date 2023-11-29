@@ -139,6 +139,12 @@ namespace Skooby.WebApp.Controllers
             return View(model);
         }
 
-         
+
+        public IActionResult Loading()
+        { 
+            return View();
+        }
+
+
     }
 }
