@@ -2,10 +2,9 @@
 
 
 @{
-    ViewBag.ShowSideBar = true;
-    ViewBag.ShowUserList = true;
     ViewData["Title"] = "Home";
 }
+
 @section styles {
     <link rel="stylesheet" href="~/css/dashboard.css" />
     <link rel="stylesheet" href="~/css/landing.css" />
@@ -15,21 +14,25 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="module-container">
-                <div class="row">
-                    <div class="col">
-                        <h3 class="module-title">User Masterlist</h3>
+            @if (ViewBag.ShowUserList)
+            {
+                <div class="module-container">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="module-title">User Masterlist</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="masterlist-module-title">
-                            <a class="module-item-title" asp-controller="Admin" asp-action="Index"><i
-                                    class="sidenav-icon fa-solid fa-user-group"></i>Users</a>
+                    <div class="row">
+                        <div class="col">
+                            <div class="masterlist-module-title">
+                                <a class="module-item-title" asp-controller="Admin" asp-action="Index">
+                                    <i class="sidenav-icon fa-solid fa-user-group"></i>Users
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
 
         <div class="col">

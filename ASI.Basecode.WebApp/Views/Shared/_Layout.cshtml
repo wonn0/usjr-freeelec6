@@ -33,7 +33,7 @@
                                     class="sidenav-icon fa-solid fa-gauge"></i>Dashboard</a>
                         </div>
 
-                        @if (ViewBag.ShowUserList == true)
+                        @if (User.IsInRole("SuperAdmin"))
                         {
                             <div class="masterlist">
                                 <div class="masterlist-title">

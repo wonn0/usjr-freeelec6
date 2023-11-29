@@ -27,6 +27,9 @@ namespace ASI.Basecode.WebApp.Controllers
 
         public IActionResult Dashboard()
         {
+            var isSuperAdmin = User.IsInRole("SuperAdmin");
+            ViewBag.ShowSideBar = true;
+            ViewBag.ShowUserList = isSuperAdmin;
             return View();
         }
         public async Task<IActionResult> IndexAsync()
