@@ -412,28 +412,42 @@ namespace ASI.Basecode.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
+            _logger.LogInformation("Forgot password.");
             if (ModelState.IsValid)
             {
+                _logger.LogInformation("Model valid.");
                 var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
+                if (user != null && await _userManager.IsEmailConfirmedAsync(user))
+                {
+                    var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                    await _emailSender.SendEmailAsync(model.Email, "Reset Password", $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+                    _logger.LogInformation("Email sent.");
+                    return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                }
+                else
                 {
                     // Don't reveal that the user does not exist or is not confirmed
+                    _logger.LogInformation("Email not sent.");
                     return RedirectToAction(nameof(ForgotPasswordConfirmation));
                 }
-
-                // Generate password reset token
-                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var callbackUrl = Url.Action(nameof(ResetPassword), "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
-
-                // Send email
-                await _emailSender.SendEmailAsync(model.Email, "Reset Password", $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
-
-                return RedirectToAction(nameof(ForgotPasswordConfirmation));
+                _logger.LogInformation("Model notvalid.");
+            }
+            if (!ModelState.IsValid)
+            {
+                foreach (var entry in ModelState)
+                {
+                    foreach (var error in entry.Value.Errors)
+                    {
+                        _logger.LogWarning($"Validation Error for {entry.Key}: {error.ErrorMessage}");
+                    }
+                }
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
 
         [HttpGet]
         [AllowAnonymous]
@@ -478,8 +492,10 @@ namespace ASI.Basecode.WebApp.Controllers
             {
                 ModelState.AddModelError(string.Empty, error.Description);
             }
-            return View();
+            return View(model);
         }
+
+
 
         [HttpGet]
         [AllowAnonymous]

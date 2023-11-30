@@ -6,9 +6,9 @@
 @{
     ViewBag.LoginView = true;
     ViewData["Title"] = "Login Page";
-} 
+}
 
- 
+
 
 <div>
     <div>
@@ -23,25 +23,25 @@
                         <div class="mb-3">
                             <label for="Email" class="form-label">Username</label>
                             <input type="text" id="UserId" class="form-control" asp-for="Email"
-                                   placeholder="Enter username">
+                                placeholder="Enter username">
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
                             <label for="Password" class="form-label">Password</label>
                             <input type="password" id="Password" class="form-control" asp-for="Password"
-                                   placeholder="Enter password">
+                                placeholder="Enter password">
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                         <div class="mb-3 form-link">
                             <a class="redirect-forgot-password text-link" style="color:dimgray;"
-                               asp-controller="Account" asp-action="ForgotPass">Forgot your password?</a>
+                                asp-controller="Account" asp-action="ForgotPassword">Forgot your password?</a>
                         </div>
                         @* <div class="mb-3 form-link">
-                            <span style="color:dimgray;">
-                                No account?
-                                <a class="redirect-sign-up text-link" asp-controller="Account"
-                                   asp-action="Register">Sign up</a>
-                            </span>
+                        <span style="color:dimgray;">
+                        No account?
+                        <a class="redirect-sign-up text-link" asp-controller="Account"
+                        asp-action="Register">Sign up</a>
+                        </span>
                         </div> *@
                         <button type="submit" class="btn btn-primary login-btn">Sign In</button>
 
