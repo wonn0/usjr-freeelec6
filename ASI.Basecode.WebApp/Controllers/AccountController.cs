@@ -18,6 +18,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using SendGrid;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -351,7 +352,7 @@ namespace ASI.Basecode.WebApp.Controllers
                         await _roleManager.CreateAsync(new IdentityRole("Admin"));
                         await _roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
                     }
-                    await _userManager.AddToRoleAsync(identityUser, "Admin"); 
+                    await _userManager.AddToRoleAsync(identityUser, "Admin");
 
                 }
                 else if (!result.Succeeded)
@@ -398,5 +399,75 @@ namespace ASI.Basecode.WebApp.Controllers
             await this._signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgetPassword(ForgetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+                return RedirectToAction(nameof(ForgetPasswordConfirmation));
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var callbackUrl = Url.Action(nameof(ResetPassword), "Account",
+                                 new { userId = user.Id, token = token }, protocol: HttpContext.Request.Scheme);
+
+            await SendEmailAsync(model.Email, "Reset Password",
+                                 $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+
+            return RedirectToAction(nameof(ForgetPasswordConfirmation));
+        }
+
+        private async Task SendEmailAsync(string email, string subject, string message)
+        {
+            var apiKey = _appConfiguration["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"];
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("noreply@example.com", "Your App Name");
+            var to = new EmailAddress(email);
+            var plainTextContent = message;
+            var htmlContent = message;
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPassword(string token, string userId)
+        {
+            var model = new ResetPasswordViewModel { Token = token, UserId = userId };
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            if (user == null)
+                return RedirectToAction(nameof(ResetPasswordConfirmation));
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+            if (result.Succeeded)
+                return RedirectToAction(nameof(ResetPasswordConfirmation));
+
+            foreach (var error in result.Errors)
+                ModelState.AddModelError(string.Empty, error.Description);
+
+            return View(model);
+        }
+
+
     }
 }
