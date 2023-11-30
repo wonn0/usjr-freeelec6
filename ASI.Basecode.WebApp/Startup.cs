@@ -1,4 +1,6 @@
 ﻿using ASI.Basecode.Data;
+using ASI.Basecode.Services.Interfaces;
+using ASI.Basecode.Services.Services;
 using ASI.Basecode.WebApp.Extensions.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +33,8 @@ namespace ASI.Basecode.WebApp
 
             // Add services to the container.
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddTransient<IEmailSender, EmailSender>();
+
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddLogging(x => x.AddConfiguration(Configuration.GetLoggingSection()).AddConsole().AddDebug());
             PathManager.Setup(this.Configuration.GetSetupRootDirectoryPath());

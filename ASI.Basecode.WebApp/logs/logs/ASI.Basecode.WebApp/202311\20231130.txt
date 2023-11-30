@@ -16,3 +16,4 @@
 2023-11-30 21:51:33.448 +08:00 [INF] hello from account controller
 2023-11-30 21:55:11.304 +08:00 [INF] hello from account controller
 2023-11-30 21:56:38.414 +08:00 [INF] hello from account controller
+2023-11-30 22:54:02.564 +08:00 [INF] hello from account controller
