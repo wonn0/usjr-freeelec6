@@ -54,7 +54,7 @@ namespace ASI.Basecode.Services.Services
             if (!_reviewRepository.BookReviewExists(model.Id))
             {
                 var review = _mapper.Map<BookReview>(model);
-
+                review.ReviewedOn = DateTime.Now;
                 _reviewRepository.AddBookReview(review);
             }
             else

@@ -141,7 +141,7 @@ namespace Skooby.WebApp.Controllers
 
 
         public IActionResult Loading()
-        { 
+        {
             return View();
         }
 
@@ -184,6 +184,23 @@ namespace Skooby.WebApp.Controllers
 
             // Pass the top-rated books to the view (you may need to adjust this based on your view)
             return View(booksWithReviews);
+        }
+
+        [HttpPost]
+        public IActionResult AddReview([FromBody] BookReviewViewModel reviewModel)
+        {
+            try
+            {
+                // You might need to set the BookId and other missing fields here
+                _bookReviewService.AddBookReview(reviewModel);
+                return Json(new { success = true, message = "Review added successfully." });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                _logger.LogError(ex, "Error adding review");
+                return Json(new { success = false, message = "Error adding review." });
+            }
         }
 
     }
