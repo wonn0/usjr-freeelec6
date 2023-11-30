@@ -2,8 +2,8 @@
 <style>
     p#textarea-rating-section {
         top: 55em;
-        position: absolute; 
-        opacity:0;
+        position: absolute;
+        opacity: 0;
     }
 
     .review-textarea {
@@ -25,36 +25,37 @@
 }
 @section styles {
     <link rel="stylesheet" href="~/css/viewbook.css" />
-    <link rel="stylesheet" href="~/css/style.css" /> 
+    <link rel="stylesheet" href="~/css/style.css" />
 }
 
 @{
     double averageRating = 0;
     double roundedAverage = 0;
-     
+
     if (Model.Reviews != null && Model.Reviews.Any())
     {
         averageRating = Model.Reviews.Average(r => r.Rating);
         roundedAverage = Math.Ceiling(averageRating);
-    } 
+    }
 }
 
 
-<section class="skooby-section skooby-viewbook">
+<section class="skooby-section skooby-viewbook" data-book-id="@Model.Book.Id">
     <div class="container-wrapper">
         <div class="image-container">
             <div class="image-content">
 
                 <div class="book-image-preview">
                     <img class="book-image image-content-spacing" id="book-image"
-                         src="@Url.Content(Model.Book.Image)" />
-                   
-                    <a class="image-content-spacing btn btn-primary download-btn" href="#textarea-rating-section"><i style="padding-right:10px;" class="fi fi-ss-bone"></i>Rate Me</a>
+                        src="@Url.Content(Model.Book.Image)" />
+
+                    <a class="image-content-spacing btn btn-primary download-btn" href="#textarea-rating-section"><i
+                            style="padding-right:10px;" class="fi fi-ss-bone"></i>Rate Me</a>
                     @* <div class="btn-rate">
-                        <a href="#textarea-container">test</a>
+                    <a href="#textarea-container">test</a>
                     </div> *@
                 </div>
-                 
+
             </div>
         </div>
         <div class="content-wrapper">
@@ -75,7 +76,7 @@
                                     @for (int i = 1; i <= 5; i++)
                                     {
                                         <i class="fi fi-@(i <= roundedAverage ? "ss" : "rr")-bone star-rating-main"
-                                           id="star-@(i)"></i>
+                                            id="star-@(i)"></i>
                                     }
                                 </div>
                                 <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">
@@ -95,8 +96,8 @@
                                 @Model.Book.Description
                             </p>
                             @* <button type="submit" id="show-more-btn"
-                                    class="show-more-content-spacing btn btn-primary show-more-btn">
-                                Show more <i class="fa-solid fa-chevron-down show-more"></i>
+                            class="show-more-content-spacing btn btn-primary show-more-btn">
+                            Show more <i class="fa-solid fa-chevron-down show-more"></i>
                             </button> *@
                         </div>
                         <div class="book-info">
@@ -141,7 +142,7 @@
                             }'S Other Works
                         </h2>
                         <hr />
-                         
+
 
                         @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
                         {
@@ -150,7 +151,8 @@
                                 {
                                     <div class="book">
                                         <a href="@Url.Action("ViewBook", "Home", new { id = relatedBook.Id })">
-                                        <img src="@Url.Content(relatedBook.Image)" alt="@relatedBook.Name" class="book-images" />
+                                            <img src="@Url.Content(relatedBook.Image)" alt="@relatedBook.Name"
+                                                class="book-images" />
                                         </a>
 
                                         <p class="book-title">@relatedBook.Name</p>
@@ -158,7 +160,8 @@
                                 }
 
                             </div>
-                            <div class="see-more-container">   <button id="seeMoreButton" class="see-more-button">See More</button></div>
+                            <div class="see-more-container"> <button id="seeMoreButton" class="see-more-button">See
+                                    More</button></div>
                         }
                         else
                         {
@@ -173,30 +176,30 @@
                             <p>s</p>
                         </div>
 
-                        
+
                         <div class="textarea-container" id="textarea-container">
                             <div class="textarea-wrapper ">
                                 <p id="textarea-rating-section">a</p>
                                 <h4 class=" ">Your Rating</h4>
                                 <div class="stars book-rate-spacing review-padding">
                                     <button class="star-btn" onmouseover="hoverStars(1)" onmouseout="resetStars()"
-                                            onclick="setRating(1)">
+                                        onclick="setRating(1)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star1"></i>
                                     </button>
                                     <button class="star-btn" onmouseover="hoverStars(2)" onmouseout="resetStars()"
-                                            onclick="setRating(2)">
+                                        onclick="setRating(2)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star2"></i>
                                     </button>
                                     <button class="star-btn" onmouseover="hoverStars(3)" onmouseout="resetStars()"
-                                            onclick="setRating(3)">
+                                        onclick="setRating(3)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star3"></i>
                                     </button>
                                     <button class="star-btn" onmouseover="hoverStars(4)" onmouseout="resetStars()"
-                                            onclick="setRating(4)">
+                                        onclick="setRating(4)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star4"></i>
                                     </button>
                                     <button class="star-btn" onmouseover="hoverStars(5)" onmouseout="resetStars()"
-                                            onclick="setRating(5)">
+                                        onclick="setRating(5)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star5"></i>
                                     </button>
                                 </div>
@@ -204,14 +207,14 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                 
+
                                                 <input placeholder="Your Name" class="form-control" />
-                                                <span  class="text-danger"></span>
+                                                <span class="text-danger"></span>
                                             </div>
-                                        </div>      
+                                        </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                 
+
                                                 <input placeholder="Your Email" class="form-control" />
                                                 <span class="text-danger"></span>
                                             </div>
@@ -220,15 +223,20 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <textarea class="form-control review-textarea review-padding" rows="4" cols="50" name="comment" form="usrform" placeholder="What are your thoughts?">
+                                                <textarea class="form-control review-textarea review-padding" rows="4"
+                                                    cols="50" name="comment" form="usrform"
+                                                    placeholder="What are your thoughts?">
 </textarea>
                                             </div>
-                                        </div> 
+                                        </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
-                            <div class="textarea-btn-container"><button type="submit" class="btn-padd btn btn-skooby review-padding">Create</button></div>
+                            <div class="textarea-btn-container"><button type="submit"
+                                    class="btn-padd btn btn-skooby review-padding"
+                                    onclick="submitReview()">Create</button>
+                            </div>
                         </div>
 
 
@@ -246,10 +254,10 @@
                                         @for (int i = 1; i <= 5; i++)
                                         {
                                             <i class="fi fi-@(i <= roundedAverage ? "ss" : "rr")-bone star-rating-secondary element-book-rate"
-                                               id="star-@(i)"></i>
+                                                id="star-@(i)"></i>
                                         }
                                     </div>
-                                    
+
                                     <h6 class="rate-value rr-spacing element-book-rate avg-rating" id="avg-rating">
                                         @averageRating.ToString("0.0")
                                     </h6>
@@ -260,7 +268,7 @@
                                     <div class="reviews-wrapper element-book-rate">
                                         <p class="ebr-styling rr-spacing element-book-rate">•</p>
                                         <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
-                                           id="review-value">@(Model.Reviews.Count)</p>
+                                            id="review-value">@(Model.Reviews.Count)</p>
                                         <p class=" ebr-styling element-book-rate">barks</p>
                                     </div>
 
@@ -280,7 +288,7 @@
                                             </div>
                                             <p class="reviewed-on">@review.ReviewedOn</p>
                                             <p class="review-description">@review.Description</p>
-                                            
+
                                         </div>
                                     }
                                 }
@@ -288,7 +296,7 @@
                                 {
                                     <p class="no-data-text">No barks available for this book.</p>
                                 }
-                            </div> 
+                            </div>
                         </div>
 
                         <hr />
@@ -308,7 +316,7 @@
                                 {
                                     <div class="book">
                                         <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-                                        <img src="@Url.Content(book.Image)" alt="@book.Name" class="book-images" />
+                                            <img src="@Url.Content(book.Image)" alt="@book.Name" class="book-images" />
                                         </a>
                                         <p class="book-title">@book.Name</p>
 
@@ -317,14 +325,15 @@
 
                             </div>
 
-                            <div class="see-more-container">   <button id="seeMoreButton" class="see-more-button">See More</button></div>
+                            <div class="see-more-container"> <button id="seeMoreButton" class="see-more-button">See
+                                    More</button></div>
                         }
                         else
                         {
                             <p>No books available for suggestions.</p>
                         }
 
-                          
+
 
 
                     </div>
@@ -336,44 +345,81 @@
 </section>
 
 
+<!-- Your HTML and Razor code here -->
+
 <script>
-    // show description logic
+    // Global rating variable
+    var currentRating = 0;
+
     document.addEventListener("DOMContentLoaded", function () {
-        const showMoreButton = document.getElementById('show-more-btn');
-        const description = document.getElementById('book-description');
+        // Initialize stars event listeners
+        initializeStarRating();
 
-        showMoreButton.addEventListener('click', function () {
-            description.classList.toggle('expanded-description');
+        // Event listener for the Create button
+        document.querySelector(".textarea-btn-container button").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default form submit action
 
-            if (description.classList.contains('expanded-description')) {
-                showMoreButton.textContent = 'Show less';
-            } else {
-                showMoreButton.textContent = 'Show more';
-            }
         });
     });
 
-
-    // rate this book hover logic
-    document.addEventListener("DOMContentLoaded", function () {
-        const stars = document.querySelectorAll('.star-rating-image');
-
+    function initializeStarRating() {
+        const stars = document.querySelectorAll('.star-btn');
         stars.forEach((star, index) => {
             star.addEventListener('mouseover', function () {
-                for (let i = 0; i <= index; i++) {
-                    stars[i].classList.remove('fi-rr-bone');
-                    stars[i].classList.add('fi-ss-bone');
-                }
+                highlightStars(index + 1);
             });
-
             star.addEventListener('mouseout', function () {
-                for (let i = 0; i < stars.length; i++) {
-                    stars[i].classList.remove('fi-ss-bone');
-                    stars[i].classList.add('fi-rr-bone');
-                }
+                highlightStars(currentRating);
             });
         });
-    });
+    }
 
+    window.setRating = function (rating) {
+        currentRating = rating;
+        highlightStars(rating);
+    }
 
+    function highlightStars(rating) {
+        for (let i = 1; i <= 5; i++) {
+            let star = document.getElementById('star' + i);
+            star.className = i <= rating ? 'fi fi-ss-bone star-rating-image' : 'fi fi-rr-bone star-rating-image';
+        }
+    }
+
+    function submitReview() {
+        var bookId = document.querySelector('.skooby-section.skooby-viewbook').getAttribute('data-book-id');
+        var name = document.querySelector("input[placeholder='Your Name']").value;
+        var email = document.querySelector("input[placeholder='Your Email']").value;
+        var comment = document.querySelector(".review-textarea").value;
+
+        var reviewData = {
+            Rating: currentRating,
+            ReviewedBy: name,
+            Email: email,
+            Description: comment,
+            BookId: bookId
+        };
+
+        console.log("Submitting review:", reviewData); // Log the review data for debugging
+
+        fetch('/Home/AddReview', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(reviewData),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                alert('Review submitted successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Error submitting review');
+            });
+    }
 </script>
