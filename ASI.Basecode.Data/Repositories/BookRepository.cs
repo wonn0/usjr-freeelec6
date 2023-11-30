@@ -21,6 +21,34 @@ namespace ASI.Basecode.Data.Repositories
                            .ThenInclude(bg => bg.Genre);
         }
 
+        public IQueryable<Book> GetNewestBooksPaginated(int pageNo, int pageSize)
+        {
+            int pagesToSkip = (pageNo - 1) * pageSize;
+
+            return this.GetDbSet<Book>()
+                        .Include(b => b.AuthorBooks)
+                           .ThenInclude(ab => ab.Author)
+                       .Include(b => b.BookGenres)
+                           .ThenInclude(bg => bg.Genre)
+                       .OrderByDescending(b => b.PublishedOn)
+                       .Skip(pagesToSkip)
+                       .Take(pageSize);
+        }
+
+        //public IQueryable<Book> GetTopRatedBooksPaginated(int pageNo, int pageSize)
+        //{
+        //    int pagesToSkip = (pageNo - 1) * pageSize;
+
+        //    return this.GetDbSet<Book>()
+        //                .Include(b => b.AuthorBooks)
+        //                   .ThenInclude(ab => ab.Author)
+        //               .Include(b => b.BookGenres)
+        //                   .ThenInclude(bg => bg.Genre)
+        //               .OrderByDescending(b => b.PublishedOn)
+        //               .Skip(pagesToSkip)
+        //               .Take(pageSize);
+        //}
+
         public IQueryable<Book> GetBookByAuthorId(int authorId, int currentBookId)
         {
             return this.GetDbSet<Book>()

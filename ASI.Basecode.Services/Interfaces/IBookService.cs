@@ -6,6 +6,7 @@ namespace ASI.Basecode.WebApp.Services
     public interface IBookService
     {
         List<BookViewModel> GetAllBooks();
+        List<BookViewModel> GetNewestBooksPaginated(int pageIndex, int pageSize);
         BookViewModel GetBookById(int id);
         void AddBook(BookViewModel model);
         void UpdateBook(BookViewModel model);

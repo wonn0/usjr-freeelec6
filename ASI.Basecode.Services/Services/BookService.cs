@@ -29,7 +29,11 @@ namespace ASI.Basecode.Services.Services
             return _mapper.Map<IEnumerable<BookViewModel>>(books).ToList();
         }
 
-
+        public List<BookViewModel> GetNewestBooksPaginated(int pageIndex, int pageSize)
+        {
+            var books = _bookRepository.GetNewestBooksPaginated(pageIndex, pageSize);
+            return _mapper.Map<IEnumerable<BookViewModel>>(books).ToList();
+        }
 
         public BookViewModel GetBookById(int id)
         {
