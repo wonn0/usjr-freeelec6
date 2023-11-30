@@ -31,7 +31,9 @@ namespace ASI.Basecode.Services.Services
 
         public List<BookViewModel> GetNewestBooksPaginated(int pageIndex, int pageSize)
         {
+            // call repository backend method
             var books = _bookRepository.GetNewestBooksPaginated(pageIndex, pageSize);
+            // map datamodel to viewmodel using automapper and return (call this)
             return _mapper.Map<IEnumerable<BookViewModel>>(books).ToList();
         }
 

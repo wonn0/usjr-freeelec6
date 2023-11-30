@@ -23,6 +23,7 @@ namespace ASI.Basecode.Data.Repositories
 
         public IQueryable<Book> GetNewestBooksPaginated(int pageNo, int pageSize)
         {
+            // indicate how many pages to skip
             int pagesToSkip = (pageNo - 1) * pageSize;
 
             return this.GetDbSet<Book>()
@@ -30,7 +31,9 @@ namespace ASI.Basecode.Data.Repositories
                            .ThenInclude(ab => ab.Author)
                        .Include(b => b.BookGenres)
                            .ThenInclude(bg => bg.Genre)
+                       // sort by publish data (newest books, edit to OrderByAscending if other way around)
                        .OrderByDescending(b => b.PublishedOn)
+                       // skip pages by x amount and take y amount per page for pagination
                        .Skip(pagesToSkip)
                        .Take(pageSize);
         }
