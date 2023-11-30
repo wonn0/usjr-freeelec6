@@ -19,6 +19,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using SendGrid;
+using SendGrid.Helpers.Mail;
+
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -30,7 +32,8 @@ namespace ASI.Basecode.WebApp.Controllers
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        [BindProperty]
+        /// 
+
         public InputModel Input { get; set; }
 
         /// <summary>
@@ -185,9 +188,10 @@ namespace ASI.Basecode.WebApp.Controllers
         /// Login Method
         /// </summary>
         /// <returns>Created response view</returns>
-        [HttpGet]
+        [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult> Login(string returnUrl = null)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login([FromForm] InputModel model, string returnUrl = null)
         {
             _logger.LogInformation("hello from account controller");
             if (!string.IsNullOrEmpty(ErrorMessage))
@@ -207,6 +211,15 @@ namespace ASI.Basecode.WebApp.Controllers
             /*TempData["returnUrl"] = System.Net.WebUtility.UrlDecode(HttpContext.Request.Query["ReturnUrl"]);
             this._sessionManager.Clear();
             this._session.SetString("SessionId", System.Guid.NewGuid().ToString());*/
+            return View();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(string returnUrl = null)
+        {
+            _logger.LogInformation("hello from account controller");
+            // Your code to handle the login GET request, usually returning the view
             return View();
         }
 
@@ -410,28 +423,59 @@ namespace ASI.Basecode.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgetPassword(ForgetPasswordViewModel model)
         {
-            if (!ModelState.IsValid)
-                return View(model);
+            if (ModelState.IsValid)
+            {
+                // Find the user by email.
+                var user = await _userManager.FindByEmailAsync(model.Email);
 
-            var user = await _userManager.FindByEmailAsync(model.Email);
-            if (user == null)
+                // If the user is not found, don't reveal that to the user.
+                if (user == null)
+                {
+                    // Optionally log this information.
+                    _logger.LogWarning($"User with email {model.Email} was not found.");
+                    // Redirect to the confirmation view regardless of user existence for security.
+                    return RedirectToAction(nameof(ForgetPasswordConfirmation));
+                }
+
+                // Generate the reset token.
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+                // Generate the callback URL.
+                var callbackUrl = Url.Action(nameof(ResetPassword), "Account",
+                                             new { userId = user.Id, token = token },
+                                             protocol: HttpContext.Request.Scheme);
+
+                // Send the email with the callback URL.
+                await SendEmailAsync(model.Email, "Reset Password",
+                                     $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+
+                // Redirect to the confirmation view.
                 return RedirectToAction(nameof(ForgetPasswordConfirmation));
+            }
 
-            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var callbackUrl = Url.Action(nameof(ResetPassword), "Account",
-                                 new { userId = user.Id, token = token }, protocol: HttpContext.Request.Scheme);
+            // If we get here, something failed, redisplay the form.
+            return View(model);
+        }
 
-            await SendEmailAsync(model.Email, "Reset Password",
-                                 $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
-
-            return RedirectToAction(nameof(ForgetPasswordConfirmation));
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgetPasswordConfirmation()
+        {
+            return View();
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
         }
 
         private async Task SendEmailAsync(string email, string subject, string message)
         {
-            var apiKey = _appConfiguration["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"];
+            var apiKey = _appConfiguration["SendGrid:ApiKey"];
+
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("noreply@example.com", "Your App Name");
+            var from = new EmailAddress("garfield.lim@usjr.edu.ph", "Skooby");
             var to = new EmailAddress(email);
             var plainTextContent = message;
             var htmlContent = message;

@@ -1,8 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 
-public class ForgetPasswordViewModel
+namespace ASI.Basecode.Services.ServiceModels
 {
-    [Required]
-    [EmailAddress]
-    public string Email { get; set; }
+    public class ForgetPasswordViewModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+    }
+
 }
