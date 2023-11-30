@@ -412,6 +412,9 @@ namespace ASI.Basecode.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
+            _logger.LogInformation($"Model type: {model.GetType().Name}");
+            _logger.LogInformation($"Model state: {ModelState}");
+
             _logger.LogInformation("Forgot password.");
             if (ModelState.IsValid)
             {
