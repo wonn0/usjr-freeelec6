@@ -15,7 +15,7 @@ namespace ASI.Basecode.Data.Repositories
 
         public IQueryable<BookReview> GetAllBookReviews()
         {
-            return this.GetDbSet<BookReview>();
+            return this.GetDbSet<BookReview>().Include(br => br.Book);
         }
 
         public BookReview GetBookReviewById(int id)
