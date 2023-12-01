@@ -146,30 +146,54 @@ namespace Skooby.WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult NewBooks()
+        public IActionResult NewBooks(int pageNo )
         {
-            // Assuming GetAllBooks returns a collection of all books
+            var pageSize = 10; // Adjust based on your requirements
             var allBooks = _bookService.GetAllBooks();
 
-            // Order the books by some criteria (e.g., publication date) to get the most recent ones
-            var recentBooks = allBooks.OrderByDescending(book => book.Created).Take(10);
+            // Calculate total pages
+            var totalBooksCount = allBooks.Count;
+            var totalPages = totalBooksCount / pageSize;
 
-            // Pass the recentBooks to the view (you may need to adjust this based on your view)
+            if(totalBooksCount % pageSize > 0)
+            {
+                totalPages += 1;
+            }
+            // Use the service method to get paginated books
+            var recentBooks = _bookService.GetNewestBooksPaginated(pageNo, pageSize);
+
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages = totalPages;
+
             return View(recentBooks);
         }
 
 
 
+
+
+
         [HttpGet]
-        public IActionResult TopRatedBooks()
+        public IActionResult TopRatedBooks(int pageNo)
         {
+            var pageSize = 10;
             // Assuming GetAllBooks returns a collection of all books
             var allBooks = _bookService.GetAllBooks();
 
-            // Join books with their reviews based on BookId
+            // Calculate total pages
+            var totalBooksCount = allBooks.Count;
+            var totalPages = totalBooksCount / pageSize;
+
+            if (totalBooksCount % pageSize > 0)
+            {
+                totalPages += 1;
+            }
+
+
+            
             var booksWithReviews = allBooks
                 .GroupJoin(
-                    _bookReviewService.GetAllBookReviews(),  // Assuming you have a method to get all book reviews
+                    _bookReviewService.GetAllBookReviews(),
                     book => book.Id,
                     review => review.BookId,
                     (book, reviews) => new
@@ -178,13 +202,18 @@ namespace Skooby.WebApp.Controllers
                         AverageRating = reviews.Any() ? reviews.Average(review => review.Rating) : 0
                     })
                 .OrderByDescending(result => result.AverageRating)
-                .Take(10)
+                .Skip((pageNo - 1) * pageSize)
+                .Take(pageSize)
                 .Select(result => result.Book)
                 .ToList();
 
-            // Pass the top-rated books to the view (you may need to adjust this based on your view)
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages =totalPages;
+
+
             return View(booksWithReviews);
         }
+
 
         [HttpPost]
         public IActionResult AddReview([FromBody] BookReviewViewModel reviewModel)

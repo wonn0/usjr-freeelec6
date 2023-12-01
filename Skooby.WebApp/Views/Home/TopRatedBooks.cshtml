@@ -9,8 +9,19 @@
     <link rel="stylesheet" href="~/css/dashboard.css" />
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/newbooks.css" />
+    <link rel="stylesheet" href="~/css/pagination.css" />
 }
 
+<style>
+    .top-books-container {
+        width: 740px;
+        height: 450px;
+    }
+
+    .page-link {
+        padding: 0 !important
+    }
+</style>
 <section class="new-books-section new-books-dashboard">
     <div>
         <h1>Top Rated Tales Await</h1>
@@ -20,25 +31,60 @@
 
 
     <hr />
-    <div class="book-wrapper">
-        @{
-            var recentBooks = Model.Select(book => book);
-        }
-        @foreach (var book in recentBooks)
-        {
-            <div class="book-content">
-                <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-                    <div class="book-image-preview">
-                        <img class="book-image" src="@book.Image ?? " /img/about-us.png"" alt="@book.Name" />
+     <div class="top-books-container" id="book-wrapper">
+        
+        <div class="book-wrapper">
+            @{
+                var recentBooks = Model;
+            }
+            @foreach (var book in recentBooks)
+            {
+                <div class="book-content">
+                    <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
+                        <div class="book-image-preview">
+                            <img class="book-image" src="@book.Image ?? " /img/about-us.png"" alt="@book.Name" />
+                        </div>
+                    </a>
+                    <div class="book-info-card" id="per-book-info-@book.Id">
+                        <h5 class="book-title book-text">@book.Name</h5>
+                        <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
+                        <p class="book-description book-text">@book.Description</p>
                     </div>
-                </a>
-                <div class="book-info-card" id="per-book-info-@book.Id">
-                    <h5 class="book-title book-text">@book.Name</h5>
-                    <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
-                    <p class="book-description book-text">@book.Description</p>
                 </div>
-            </div>
-        }
+            }
+
+        </div>
+   </div>
+    <div class="pagination-container">
+        <!-- Pagination -->
+        <div class="pagination">
+            @if (ViewBag.CurrentPage > 5)
+            {
+                <a href="@Url.Action("TopRatedBooks", "Home", new { pageNo = ViewBag.CurrentPage - 1 })" class="prev-next">&lt;</a>
+            }
+
+            @for (int i = Math.Max(1, ViewBag.CurrentPage - 5); i <= Math.Min(ViewBag.TotalPages, ViewBag.CurrentPage + 5); i++)
+            {
+                if (i == ViewBag.CurrentPage)
+                {
+                    <span class="current-page">@i </span>
+                }
+                else
+                {
+                    <a href="@Url.Action("TopRatedBooks", "Home", new { pageNo = i })" class="page-link">@i</a>
+                }
+            }
+
+            @if (ViewBag.CurrentPage < ViewBag.TotalPages - 5)
+            {
+                <span>...</span>
+            }
+
+            @if (ViewBag.TotalPages > 5 && ViewBag.CurrentPage < ViewBag.TotalPages -  4 )
+            {
+                <a href="@Url.Action("TopRatedBooks", "Home", new { pageNo = ViewBag.CurrentPage + 1 })" class="prev-next">&gt;</a>
+            }
+    </div>
     </div>
 </section>
 
