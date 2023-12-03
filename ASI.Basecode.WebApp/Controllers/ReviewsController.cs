@@ -26,8 +26,8 @@ namespace ASI.Basecode.WebApp.Controllers
         public IActionResult Index(string? searchString)
         {
             var reviewViewModels = _bookReviewService.GetAllBookReviews();
-            _logger.LogInformation(reviewViewModels[0].BookName);
-            _logger.LogInformation(reviewViewModels[0].Description);
+            //_logger.LogInformation(reviewViewModels[0].BookName);
+            //_logger.LogInformation(reviewViewModels[0].Description);
             if (!String.IsNullOrEmpty(searchString))
             {
                 reviewViewModels = reviewViewModels.Where(r =>
