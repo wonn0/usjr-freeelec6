@@ -47,7 +47,7 @@
                         <h4>@genre</h4>
                         <hr />
                         <div class="book-wrapper">
-                            @foreach (var book in genreBooks)
+                            @foreach (var book in genreBooks.Take(4))
                             {
                                 <div class="book-content">
                                     <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
@@ -83,10 +83,10 @@
                     <button class="btn btn-outline-success search-button" type="submit">Search</button>
                 </form>
                 <div>
-                    <a href="@Url.Action("NewBooks", "Home")" class="btn-text">What's New?</a>
+                    <a href="@Url.Action("NewBooks", "Home", new{pageNo = 1})" class="btn-text">What's New?</a>
                 </div>
                 <div>
-                    <a href="@Url.Action("TopRatedBooks", "Home")" class="btn-text">Top Rated</a>
+                    <a href="@Url.Action("TopRatedBooks", "Home",  new{pageNo = 1})" class="btn-text">Top Rated</a>
                 </div>
 
                 <hr class="filter-divider"/>
