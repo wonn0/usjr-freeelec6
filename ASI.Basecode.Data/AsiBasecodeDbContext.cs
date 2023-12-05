@@ -29,6 +29,8 @@ namespace ASI.Basecode.Data
             SaveChanges();
         }
 
+        private readonly Random random = new Random(); // Class level Random instance
+
         public virtual DbSet<RefreshToken> RefreshToken { get; set; }
 
         public virtual DbSet<User> Users { get; set; }
@@ -41,40 +43,6 @@ namespace ASI.Basecode.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<User>(entity =>
-            //{
-            //    entity.HasIndex(e => e.UserId, "UQ__Users__1788CC4D5F4A160F")
-            //        .IsUnique();
-
-            //    entity.Property(e => e.CreatedBy)
-            //        .IsRequired()
-            //        .HasMaxLength(50)
-            //        .IsUnicode(false);
-
-            //    entity.Property(e => e.CreatedTime).HasColumnType("datetime");
-
-            //    entity.Property(e => e.Name)
-            //        .IsRequired()
-            //        .HasMaxLength(50)
-            //        .IsUnicode(false);
-
-            //    entity.Property(e => e.Password)
-            //        .IsRequired()
-            //        .HasMaxLength(50)
-            //        .IsUnicode(false);
-
-            //    entity.Property(e => e.UpdatedBy)
-            //        .IsRequired()
-            //        .HasMaxLength(50)
-            //        .IsUnicode(false);
-
-            //    entity.Property(e => e.UpdatedTime).HasColumnType("datetime");
-
-            //    entity.Property(e => e.UserId)
-            //        .IsRequired()
-            //        .HasMaxLength(50)
-            //        .IsUnicode(false);
-            //});
 
             modelBuilder.Entity<AuthorBook>()
             .HasKey(ab => new { ab.AuthorId, ab.BookId });
@@ -112,13 +80,11 @@ namespace ASI.Basecode.Data
 
         private void SeedDatabase(ModelBuilder modelBuilder)
         {
-            var random = new Random();
             var authors = GenerateRealisticAuthors();
             var genres = GenerateRealisticGenres();
             var books = new List<Book>();
             var authorBooks = new List<AuthorBook>();
             var bookGenres = new List<BookGenre>();
-
             var bookTitles = new List<string>
             {
                 "Whispers of the Forgotten City",
@@ -126,7 +92,7 @@ namespace ASI.Basecode.Data
                 "Echoes in the Starless Sky",
                 "Secrets of the Jade Labyrinth",
                 "The Clockmaker's Illusion",
-                "Shadows over Valoria",                
+                "Shadows over Valoria",
                 "Beneath the Crimson Moon",
                 "The Garden of Timeless Secrets",
                 "Veil of the Northern Lights",
@@ -172,7 +138,19 @@ namespace ASI.Basecode.Data
                 "The Sorceress's Labyrinth",
                 "Legends of the Celestial Atlas"
 };
+            var bookImages = new List<string>
+            {
+                 "https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
+        "https://i0.wp.com/allaboutbookcovers.com/wp-content/uploads/2022/06/CourtOfThorns-copy.jpg?fit=1350%2C2025&ssl=1",
+        "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
+        "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-NlVbe_m7VER_lfAVbKpyo2Shp9Wv6pLMg&usqp=CAU",
+        "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg","https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0"
 
+};
 
             // Generate books
             for (int i = 1; i <= 50; i++)
@@ -186,12 +164,14 @@ namespace ASI.Basecode.Data
                     Language = "English",
                     PublishedOn = DateTime.Now.AddDays(-random.Next(365, 3650)),
                     PageCount = random.Next(100, 500),
+                    Image = bookImages[random.Next(bookImages.Count)],
                     Created = DateTime.Now,
                     Updated = DateTime.Now,
                     AuthorBooks = new List<AuthorBook>(),
                     BookGenres = new List<BookGenre>(),
                     BookReviews = new List<BookReview>()
                 };
+
 
                 books.Add(book);
 
@@ -212,6 +192,7 @@ namespace ASI.Basecode.Data
             modelBuilder.Entity<AuthorBook>().HasData(authorBooks);
             modelBuilder.Entity<BookGenre>().HasData(bookGenres);
         }
+
 
         private List<Author> GenerateRealisticAuthors()
         {
@@ -353,6 +334,7 @@ namespace ASI.Basecode.Data
                 });
             }
         }
+
 
     }
 }
