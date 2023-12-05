@@ -146,7 +146,7 @@ namespace ASI.Basecode.Data
         "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
         "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
-        "https://encrypted-tbn0.gstatic.com/images?qcd =tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-NlVbe_m7VER_lfAVbKpyo2Shp9Wv6pLMg&usqp=CAU",
         "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg","https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0"
 
