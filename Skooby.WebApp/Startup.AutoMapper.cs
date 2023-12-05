@@ -31,12 +31,14 @@ namespace Skooby.WebApp
             public AutoMapperProfileConfiguration()
             {
                 CreateMap<UserViewModel, User>();
-                CreateMap<UserViewModel, User>();
+                // The second CreateMap<UserViewModel, User>(); is redundant and can be removed.
 
                 CreateMap<Book, BookViewModel>()
-                                .ForMember(dest => dest.AuthorIds, opt => opt.MapFrom(src => src.AuthorBooks.Select(ab => ab.AuthorId)))
-                                .ForMember(dest => dest.AuthorNames, opt => opt.MapFrom(src => src.AuthorBooks.Select(ba => ba.Author.FirstName + " " + ba.Author.LastName)))
-                                .ForMember(dest => dest.GenreNames, opt => opt.MapFrom(src => src.BookGenres.Select(bg => bg.Genre.Name)));
+                    .ForMember(dest => dest.AuthorIds, opt => opt.MapFrom(src => src.AuthorBooks.Select(ab => ab.AuthorId)))
+                    .ForMember(dest => dest.AuthorNames, opt => opt.MapFrom(src => src.AuthorBooks
+                        .Where(ab => ab.Author != null)
+                        .Select(ab => ab.Author.FirstName + " " + ab.Author.LastName)))
+                    .ForMember(dest => dest.GenreNames, opt => opt.MapFrom(src => src.BookGenres.Select(bg => bg.Genre.Name)));
                 CreateMap<BookViewModel, Book>();
 
                 //Auto-Mapper configuration for authors
@@ -52,6 +54,7 @@ namespace Skooby.WebApp
                 CreateMap<BookReviewViewModel, BookReview>();
             }
         }
+
     }
 }
 
