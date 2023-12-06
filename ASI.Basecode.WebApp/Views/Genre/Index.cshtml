@@ -27,7 +27,7 @@
                 <div class="search-container">
                     <form class="search-container d-flex" asp-action="Index" method="get">
                         <input type="text" name="searchString" class=" me-2 search-input form-control"
-                               placeholder="Search Genres" />
+                            placeholder="Search Genres" />
                         <button class="btn btn-outline-success search-button" type="submit">Search</button>
 
                     </form>
@@ -56,8 +56,8 @@
                 <tr>
                     <td>@genre.Id</td>
                     <td>@genre.Name</td>
-                    <td> 
-                        <a asp-action="Details" asp-route-id="@genre.Id" class="btn btn-info">Details</a>
+                    <td>
+
                         <a asp-action="Edit" asp-route-id="@genre.Id" class="btn btn-success">Edit</a>
                         <button asp-action="Delete" asp-route-id="@genre.Id" class="btn btn-danger">Delete</button>
                     </td>
@@ -72,17 +72,17 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-    <script>
-        $(".btn-danger").click(function () {
-            if (confirm("Are you sure you want to delete this genre?")) {
-                var id = $(this).attr("asp-route-id");
-                $.post("/Genre/Delete/" + id, function (data) {
-                    window.location.href = '/Genre/Index';
-                }).fail(function () {
-                    alert('Error: Unable to delete.');
-                });
-            }
-        });
-    </script>
+<script>
+    $(".btn-danger").click(function () {
+        if (confirm("Are you sure you want to delete this genre?")) {
+            var id = $(this).attr("asp-route-id");
+            $.post("/Genre/Delete/" + id, function (data) {
+                window.location.href = '/Genre/Index';
+            }).fail(function () {
+                alert('Error: Unable to delete.');
+            });
+        }
+    });
+</script>
 
 }
