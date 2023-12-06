@@ -351,7 +351,7 @@ namespace ASI.Basecode.WebApp.Controllers
                         await _roleManager.CreateAsync(new IdentityRole("Admin"));
                         await _roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
                     }
-                    await _userManager.AddToRoleAsync(identityUser, "Admin"); 
+                    await _userManager.AddToRoleAsync(identityUser, "Admin");
 
                 }
                 else if (!result.Succeeded)
@@ -360,7 +360,7 @@ namespace ASI.Basecode.WebApp.Controllers
                 }
 
 
-                return RedirectToAction("Admin", "Index");
+                return RedirectToAction("Index", "Admin");
             }
             catch (InvalidDataException ex)
             {
