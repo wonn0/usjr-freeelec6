@@ -360,7 +360,7 @@ namespace ASI.Basecode.WebApp.Controllers
                 }
 
 
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Admin", "Index");
             }
             catch (InvalidDataException ex)
             {
