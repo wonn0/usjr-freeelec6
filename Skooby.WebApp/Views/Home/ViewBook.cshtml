@@ -160,8 +160,17 @@
                                 }
 
                             </div>
-                            <div class="see-more-container"> <button id="seeMoreButton" class="see-more-button">See
-                                    More</button></div>
+                            <div class="see-more-container">
+                                @{
+                                    var authorName = Model.Book.AuthorNames;
+                                }
+                                <a href="@Url.Action("AuthorRelatedWorks", "Home", new { author =  authorName})">
+                                    <span id="seeMoreButton" class="see-more-button">
+                                        See
+                                        More
+                                    </span>
+                                </a>
+                            </div>
                         }
                         else
                         {
@@ -325,8 +334,13 @@
 
                             </div>
 
-                            <div class="see-more-container"> <button id="seeMoreButton" class="see-more-button">See
-                                    More</button></div>
+                            <div class="see-more-container">
+                                <a href="@Url.Action("SuggestedForU", "Home")">
+                                    <span id="seeMoreButton" class="see-more-button">
+                                        See More
+                                    </span>
+                                </a>
+                            </div>
                         }
                         else
                         {

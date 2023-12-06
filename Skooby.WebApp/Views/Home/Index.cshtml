@@ -86,7 +86,7 @@
                         @if (genreBooks.Count() > 4)
                         {
                             <div>
-                                <a><p class="see-more-button">See More...</p></a>
+                                <a href="@Url.Action("GenreSeeMore", "Home", new { genre = @genre })"><p class="see-more-button">See More...</p></a>
                             </div>
                         }
                     </div>
@@ -97,7 +97,7 @@
 
                     <a href="#" onclick="showPage('prev')" class="prev-next">&lt;</a>
 
-                    <span id="currentPage" class="">1</span>/<span id="totalPages">1</span>
+                    <span id="currentPage" class="current-page">1</span>/<span id="totalPages">1</span>
 
                     <a href="#" onclick="showPage('next')" class="prev-next">&gt;</a>
                 </div>
@@ -136,7 +136,7 @@
                     @if (remainingGenres.Any())
                     {
                         <div>
-                            <a><p class="filter-category-titles"> ...See More</p></a>
+                            <a href="#"><p class="filter-category-titles">...See More</p></a>
                         </div>
                     }
                 </div>
@@ -144,6 +144,9 @@
         </div>
     </div> 
 </section>
+
+
+
 
 
 <script>
@@ -155,7 +158,7 @@
         var container = document.getElementById('bookListContainer');
         var books = container.getElementsByClassName('book-genre');
 
-        // Hide all genres
+        
         for (var i = 0; i < books.length; i++) {
             books[i].style.display = 'none';
         }
@@ -168,21 +171,21 @@
             currentPage = pageNumber;
         }
 
-        // Calculate the range of genres to display for the selected page
+    
         var startIndex = (currentPage - 1) * booksPerPage;
         var endIndex = startIndex + booksPerPage;
 
-        // Show the selected range of genres
+       
         for (var i = startIndex; i < endIndex && i < books.length; i++) {
             books[i].style.display = 'block';
         }
 
-        // Update the page number display
+    
         document.getElementById('currentPage').innerText = currentPage;
         document.getElementById('totalPages').innerText = Math.ceil(books.length / booksPerPage);
     }
 
-    // Initial display: Show the first page
+    
     showPage(1);
 </script>
 
@@ -193,19 +196,20 @@
         $('.filter-category-titles').click(function () {
             var selectedGenre = $(this).text().trim();
 
-            // Hide all books
             $('.book-genre').hide();
 
-            // Show only books of the selected genre
+          
             $('.book-genre:has(h4:contains("' + selectedGenre + '"))').show();
+
+    
+            $('.pagination-container').hide();
         });
 
-        // Show all books when clicking "See More" in the sidebar
-        $('.filter-category-titles:contains("See More")').click(function () {
-            $('.book-genre').show();
-        });
+      
+       
     });
 </script>
+
  
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
