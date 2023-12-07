@@ -5,7 +5,25 @@
     ViewData["Title"] = "Reviews Management";
 }
 
+@section styles {
+    <link rel="stylesheet" href="~/css/pagination.css" />
+
+}
 <style>
+    .pagination-container {
+        padding-top: 41px;
+        padding-bottom: 40px !important;
+        width: 100%;
+        margin: 0;
+        text-align: center; /* Center the contents horizontally */
+        display: flex; /* Enable flex container */
+        justify-content: center; /* Center the contents horizontally within the flex container */
+        align-items: center; /* Center the contents vertically within the flex container */
+    }
+
+    .page-link {
+        padding: 0 !important
+    }
     .table tbody tr:nth-child(odd) {
         background-color: #f3f3f3;
     }
@@ -77,6 +95,49 @@
             }
         </tbody>
     </table>
+    @if (ViewBag.TotalPages > 1)
+    {
+        <div class="pagination-container">
+            <!-- Pagination -->
+            <div class="pagination">
+                @if (ViewBag.CurrentPage > 5)
+                {
+                    int previousViewLastPage = ((ViewBag.CurrentPage - 1) / 5) * 5;
+
+                    <a href="@Url.Action("Index", "Review", new { pageNo = previousViewLastPage })" class="prev-next">&lt;</a>
+                }
+
+                @{
+                    int startPage = ((ViewBag.CurrentPage - 1) / 5) * 5 + 1;
+                    int endPage = Math.Min(startPage + 4, ViewBag.TotalPages);
+                }
+
+                @for (int i = startPage; i <= endPage; i++)
+                {
+                    if (i == ViewBag.CurrentPage)
+                    {
+                        <span class="current-page">@i</span>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Index", "Review", new { pageNo = i })" class="page-link">@i</a>
+                    }
+                }
+                @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
+                {
+                    <span>...</span>
+                }
+
+                @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
+                {
+
+                    int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : ((ViewBag.CurrentPage - 1) / 5) * 5 + 6;
+
+                    <a href="@Url.Action("Index", "Review", new { pageNo = nextViewFirstPage })" class="prev-next">&gt;</a>
+                }
+            </div>
+        </div>
+    }
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

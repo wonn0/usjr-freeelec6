@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Extensions.Logging;
+using ASI.Basecode.Data.Migrations;
+using System.Drawing.Printing;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -35,16 +37,26 @@ namespace ASI.Basecode.WebApp.Controllers
         //     return View(bookViewModels);
         // }
 
-        public IActionResult Index(string searchQuery)
+        public IActionResult Index(string searchQuery, int pageNo= 1)
         {
+            var pageSize = 5;
             var bookViewModels = _bookService.GetAllBooks();
 
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 bookViewModels = bookViewModels.Where(b => b.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)).ToList();
             }
+            var totalBooks = bookViewModels.Count();
 
-            return View(bookViewModels);
+            var model = bookViewModels.Skip((pageNo - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+            int totalPages = (int)Math.Ceiling((double)totalBooks / pageSize);
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages = totalPages;
+
+            return View(model);
         }
 
 

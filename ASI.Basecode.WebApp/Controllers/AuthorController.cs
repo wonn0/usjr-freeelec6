@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ASI.Basecode.Services.Models;
 using ASI.Basecode.WebApp.Services;
 using AutoMapper;
@@ -20,8 +22,9 @@ namespace ASI.Basecode.WebApp.Controllers
             _logger = logger; // Set the logger
         }
 
-        public IActionResult Index(string searchQuery)
+        public IActionResult Index(string searchQuery, int pageNo = 1 )
         {
+            var pageSize = 10;
             IEnumerable<AuthorViewModel> authors;
 
             if (!string.IsNullOrEmpty(searchQuery))
@@ -34,7 +37,17 @@ namespace ASI.Basecode.WebApp.Controllers
                 authors = _authorService.GetAllAuthors();
             }
 
-            return View(authors);
+            var totalAuthors = authors.Count();
+            var model = authors.Skip((pageNo - 1) * pageSize)
+          .Take(pageSize)
+          .ToList();
+
+            int totalPages = (int)Math.Ceiling((double)totalAuthors / pageSize);
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages = totalPages;
+
+            return View(model);
+
         }
 
 

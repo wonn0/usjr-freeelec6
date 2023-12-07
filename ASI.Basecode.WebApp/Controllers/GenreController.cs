@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ASI.Basecode.Services.Models;
 using ASI.Basecode.WebApp.Services;
 using AutoMapper;
@@ -21,8 +23,9 @@ namespace ASI.Basecode.WebApp.Controllers
             _logger = logger; // Initialize the logger
         }
 
-        public IActionResult Index(string searchString)
+        public IActionResult Index(string searchString, int pageNo = 1)
         {
+            var pageSize = 10;
             IEnumerable<GenreViewModel> genres;
 
             if (!string.IsNullOrEmpty(searchString))
@@ -35,8 +38,19 @@ namespace ASI.Basecode.WebApp.Controllers
                 genres = _genreService.GetAllGenres();
             }
 
-            return View(genres);
+            var totalGenres = genres.Count();
+
+            var model = genres.Skip((pageNo - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            int totalPages = (int)Math.Ceiling((double)totalGenres / pageSize);
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages = totalPages;
+
+            return View(model);
         }
+
 
         public IActionResult Details(int id)
         {

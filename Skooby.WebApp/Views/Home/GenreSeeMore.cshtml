@@ -2,44 +2,47 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "New Books Page";
+    ViewData["Title"] = " Genre Books";
 }
 
 @section styles {
-    
+
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/newbooks.css" />
     <link rel="stylesheet" href="~/css/pagination.css" />
     <link rel="stylesheet" href="~/css/dashboard.css" />
 }
- 
+
 
 <style>
     .new-books-container {
         width: 740px;
         height: 450px;
-    }                            
-   .page-link {
-       padding: 0 !important
-   }
+    }
+
+    .page-link {
+        padding: 0 !important
+    }
 </style>
 
 <section class="new-books-section new-books-dashboard">
+    @{
+        var genre = ViewBag.Genre;
+    }
     <div>
-        <h1>Unveiling New Worlds in Every Page</h1>
-        <h2>Read the latest!</h2>
-        <h3>New books</h3>
+        <h1>@genre</h1>
+        <h3>Results</h3>
     </div>
 
     <hr />
 
     <div class="new-books-container" id="book-wrapper">
-        
+
         <div class="book-wrapper">
             @{
-                var recentBooks = Model;
+                var booksInGenre = Model;
             }
-            @foreach (var book in recentBooks)
+            @foreach (var book in booksInGenre)
             {
                 <div class="book-content">
                     <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
@@ -56,15 +59,15 @@
             }
 
         </div>
-   </div>
+    </div>
     <div class="pagination-container">
-        <!-- Pagination -->
+
         <div class="pagination">
             @if (ViewBag.CurrentPage > 5)
             {
                 int previousViewLastPage = ((ViewBag.CurrentPage - 1) / 5) * 5;
 
-                <a href="@Url.Action("NewBooks", "Home", new { pageNo = previousViewLastPage })" class="prev-next">&lt;</a>
+                <a href="@Url.Action("GenreSeeMore", "Home", new { pageNo = previousViewLastPage })" class="prev-next">&lt;</a>
             }
 
             @{
@@ -80,7 +83,7 @@
                 }
                 else
                 {
-                    <a href="@Url.Action("NewBooks", "Home", new { pageNo = i })" class="page-link">@i</a>
+                    <a href="@Url.Action("GenreSeeMore", "Home", new { pageNo = i })" class="page-link">@i</a>
                 }
             }
             @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
@@ -93,9 +96,9 @@
 
                 int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : ((ViewBag.CurrentPage - 1) / 5) * 5 + 6;
 
-                <a href="@Url.Action("NewBooks", "Home", new { pageNo = nextViewFirstPage })" class="prev-next">&gt;</a>
+                <a href="@Url.Action("GenreSeeMore", "Home", new { pageNo = nextViewFirstPage })" class="prev-next">&gt;</a>
             }
-    </div>
+        </div>
     </div>
 
 
@@ -106,8 +109,8 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script>
-    $(document).ready(function () { 
+<script>
+    $(document).ready(function () {
         $(".book-content").hover(
             function () {
                 $(this).find(".book-info-card").show();
@@ -115,9 +118,9 @@
             function () {
                 $(this).find(".book-info-card").hide();
             }
-        ); 
+        );
     });
-</script>  
+</script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

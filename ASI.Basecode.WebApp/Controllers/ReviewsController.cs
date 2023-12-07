@@ -1,4 +1,5 @@
 #nullable enable
+using ASI.Basecode.Data.Migrations;
 using ASI.Basecode.Services.Models;
 using ASI.Basecode.WebApp.Services;
 using AutoMapper;
@@ -23,8 +24,9 @@ namespace ASI.Basecode.WebApp.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public IActionResult Index(string? searchString)
+        public IActionResult Index(string? searchString, int pageNo = 1)
         {
+            var pageSize = 5;
             var reviewViewModels = _bookReviewService.GetAllBookReviews();
             //_logger.LogInformation(reviewViewModels[0].BookName);
             //_logger.LogInformation(reviewViewModels[0].Description);
@@ -34,9 +36,19 @@ namespace ASI.Basecode.WebApp.Controllers
                 (r.ReviewedBy != null && r.ReviewedBy.Contains(searchString, StringComparison.OrdinalIgnoreCase)) ||
                 (r.BookName != null && r.BookName.Contains(searchString, StringComparison.OrdinalIgnoreCase)) ||
                 (r.Description != null && r.Description.Contains(searchString, StringComparison.OrdinalIgnoreCase))
-               ).ToList();
+                ).ToList();
             }
-            return View(reviewViewModels);
+            var totalNumReviews = reviewViewModels.Count();
+
+            var model = reviewViewModels.Skip((pageNo - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            int totalPages = (int)Math.Ceiling((double)totalNumReviews / pageSize);
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages = totalPages;
+
+            return View(model);
         }
 
 
