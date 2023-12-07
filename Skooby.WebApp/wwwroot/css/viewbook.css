@@ -30,26 +30,47 @@
     display: flex;
 }
 
-.book-content {
+.viewbook-book-content {
+    width: 150px !important;
     text-align: center;
     width: -webkit-fill-available;
+    padding-bottom: 20px;
+    margin: 0 10px;
 }
 
-.book-image {
-    border-radius: 10px;
+.viewbook-book-image-preview {
+    width: 150px;
+    max-height: 200px;
+    margin: 0 auto;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.viewbook-book-image {
+    width: 150px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    display: block;
     object-fit: cover;
-    width: 100%;
+    border-radius: 10px;
 }
 
-.book-genre {
-    margin: 30px 30px;
+.viewbook-suggest-book-image {
+    width: 150px;
+    height: 200px;
+    margin: 0 auto;
+    display: block;
 }
 
-.book-content {  
-    text-align:inherit;
+.viewbook-book-title {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.book-info-card {
+.viewbook-book-info-card {
     display: none;
     width: 300px;
     z-index: 1;
@@ -57,16 +78,39 @@
     color: black;
     border-radius: 10px;
     position: absolute;
-    top: 0;
-    right: -290px;
     height: 194px;
     box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
     -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
     -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    /* Align contents to the left */
+    text-align: left;
+    padding: 10px; /* Add padding for better readability */
 }
 
-.book-image-preview:hover + .book-info-card {
-    display: block;
+    .viewbook-book-info-card h5,
+    .viewbook-book-info-card p {
+        margin: 5px 0; /* Adjust margin for better spacing */
+    }
+
+.viewbook-book-image-preview:hover + .viewbook-book-info-card {
+    display: block !important;
+}
+
+hr {
+    border: none;
+    height: .25px;
+    background-color: var(--primary-color);
+}
+
+
+.book-content {
+    text-align: center;
+    width: -webkit-fill-available;
+}
+
+
+.book-genre {
+    margin: 30px 30px;
 }
 
 .image-content {
@@ -348,6 +392,7 @@
     font-weight: bold;
     width: 100%;
     box-sizing: border-box;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }

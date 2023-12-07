@@ -99,8 +99,16 @@ namespace Skooby.WebApp.Controllers
             List<BookViewModel> relatedBooks = new List<BookViewModel>();
             if (bookViewModel.AuthorIds != null && bookViewModel.AuthorIds.Any())
             {
-                int authorId = bookViewModel.AuthorIds.First();
-                relatedBooks = _bookService.GetBooksByAuthor(authorId, id); // 'id' is the current book's ID
+                var authorIds = bookViewModel.AuthorIds;
+
+                foreach (var authorId in authorIds)
+                {
+                    var booksForAuthor = _bookService.GetAllBooks()
+                        .Where(book => book.AuthorIds.Contains(authorId) && book.Id != id)
+                        .ToList();
+
+                    relatedBooks.AddRange(booksForAuthor);
+                }
             }
             else
             {
@@ -247,33 +255,35 @@ namespace Skooby.WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult AuthorRelatedWorks(string author, int pageNo = 1)
+        public IActionResult AuthorRelatedWorks(List<string> authors, int id, int pageNo = 1)
         {
             var pageSize = 10;
 
             // Assuming GetAllBooks returns a collection of all books
             var allBooks = _bookService.GetAllBooks();
 
-            // Filter books by author
-            var booksByAuthor = allBooks.Where(book => book.AuthorNames.Any(authorName => string.Equals(authorName, author, StringComparison.OrdinalIgnoreCase)));
+            // Filter books by authors
+            var booksByAuthors = allBooks.Where(book => book.AuthorNames.Any(authorName => authors.Contains(authorName, StringComparer.OrdinalIgnoreCase) && book.Id != id));
 
             // Paginate the results
-            var model = booksByAuthor
+            var model = booksByAuthors
                 .Skip((pageNo - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
             // Calculate total pages
-            var totalBooksCount = booksByAuthor.Count();
+            var totalBooksCount = booksByAuthors.Count();
             var totalPages = (int)Math.Ceiling((double)totalBooksCount / pageSize);
 
             // Set ViewBag data for pagination in the view
             ViewBag.CurrentPage = pageNo;
             ViewBag.TotalPages = totalPages;
-            ViewBag.Author = author;
+            ViewBag.Authors = authors;
 
             return View(model);
         }
+
+
 
         [HttpGet]
         public IActionResult SuggestedForU(int pageNo = 1)

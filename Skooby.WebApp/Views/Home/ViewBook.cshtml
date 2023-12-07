@@ -18,6 +18,81 @@
     .no-data-text {
         color: grey;
     }
+
+         .viewbook-book-content {
+             width: 150px !important;
+        text-align: center;
+        width: -webkit-fill-available;
+        padding-bottom: 20px;
+        margin: 0 10px;
+    }
+
+    .viewbook-book-image-preview {
+        width: 150px;
+        max-height: 200px;
+        margin: 0 auto;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+        .viewbook-book-image {
+        width: 150px; /* Set the desired width */
+        height: 200px; /* Set the desired height */
+        display: block;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .viewbook-suggest-book-image {
+        width: 150px;
+        height: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .viewbook-book-title {
+        color: #FF7519;
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+        .viewbook-book-info-card {
+        display: none;
+        width: 300px;
+        z-index: 1;
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        position: absolute;
+        height: 194px;
+        box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+        -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+        -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+
+        /* Align contents to the left */
+        text-align: left;
+        padding: 10px; /* Add padding for better readability */
+    }
+
+    .viewbook-book-info-card h5,
+    .viewbook-book-info-card p {
+        margin: 5px 0; /* Adjust margin for better spacing */
+    }
+
+    .viewbook-book-image-preview:hover + .viewbook-book-info-card {
+        display: block!important;
+    }
+
+    hr {
+        border: none;
+        height: .25px;
+        background-color: var(--primary-color);
+    }
+
+
+
 </style>
 
 @{
@@ -26,6 +101,7 @@
 @section styles {
     <link rel="stylesheet" href="~/css/viewbook.css" />
     <link rel="stylesheet" href="~/css/style.css" />
+
 }
 
 @{
@@ -47,10 +123,11 @@
 
                 <div class="book-image-preview">
                     <img class="book-image image-content-spacing" id="book-image"
-                        src="@Url.Content(Model.Book.Image)" />
+                         src="@Url.Content(Model.Book.Image)" />
 
-                    <a class="image-content-spacing btn btn-primary download-btn" href="#textarea-rating-section"><i
-                            style="padding-right:10px;" class="fi fi-ss-bone"></i>Rate Me</a>
+                    <a class="image-content-spacing btn btn-primary download-btn" href="#textarea-rating-section">
+                        <i style="padding-right:10px;" class="fi fi-ss-bone"></i>Rate Me
+                    </a>
                     @* <div class="btn-rate">
                     <a href="#textarea-container">test</a>
                     </div> *@
@@ -65,18 +142,43 @@
 
                         <h1 id="book-title">@Model.Book.Name</h1>
                         <p class="author-name" id="author-name">
-                            by @foreach (var authorName in Model.Book.AuthorNames)
+                            by
+                            @if (Model.Book.AuthorNames.Count == 1)
                             {
-                                @authorName
+                                @Html.Raw(Model.Book.AuthorNames[0])
+                            }
+                            else if (Model.Book.AuthorNames.Count == 2)
+                            {
+                                @foreach (var authorName in Model.Book.AuthorNames)
+                                {
+                                    @Html.Raw(authorName)
+                                    @if (authorName != Model.Book.AuthorNames.Last())
+                                    {
+                                        <text> and </text>
+                                    }
+                                }
+                            }
+                            else if (Model.Book.AuthorNames.Count > 2)
+                            {
+                                @foreach (var authorName in Model.Book.AuthorNames.Take(2))
+                                {
+                                    @Html.Raw(authorName + ", ")
+                                }
+                                @Html.Raw("and et al.")
                             }
                         </p>
+
+
+
+
+
                         <div class="rate-review-wrapper">
                             <div class="rate-review-wrapper">
                                 <div class="stars info-spacing info-rating-main">
                                     @for (int i = 1; i <= 5; i++)
                                     {
                                         <i class="fi fi-@(i <= roundedAverage ? "ss" : "rr")-bone star-rating-main"
-                                            id="star-@(i)"></i>
+                                           id="star-@(i)"></i>
                                     }
                                 </div>
                                 <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">
@@ -136,45 +238,79 @@
 
 
                         <h2 class="section-title">
-                            @foreach (var authorName in Model.Book.AuthorNames)
+                            @if (Model.Book.AuthorNames.Count == 1)
                             {
-                                @authorName.ToUpperInvariant()
-                            }'S Other Works
+                                @Html.Raw(Model.Book.AuthorNames[0] + "'s Other Works")
+                            }
+                            else if (Model.Book.AuthorNames.Count == 2)
+                            {
+                                @Html.Raw(Model.Book.AuthorNames[0] + " and " + Model.Book.AuthorNames[1] + "'s Other Works")
+                            }
+                            else if (Model.Book.AuthorNames.Count > 2)
+                            {
+                                @Html.Raw(string.Join(", ", Model.Book.AuthorNames.Take(2)) + " and et al. Other Works")
+                            }
                         </h2>
+
+
                         <hr />
 
 
                         @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
                         {
+                            
+                                var relatedBooks = Model.RelatedBooks;
+                            
                             <div class="book-container">
                                 @foreach (var relatedBook in Model.RelatedBooks.Take(4))
                                 {
-                                    <div class="book">
+                                    <div class="viewbook-book-content">
                                         <a href="@Url.Action("ViewBook", "Home", new { id = relatedBook.Id })">
-                                            <img src="@Url.Content(relatedBook.Image)" alt="@relatedBook.Name"
-                                                class="book-images" />
-                                        </a>
+                                            <div class="viewbook-book-image-preview">
 
-                                        <p class="book-title">@relatedBook.Name</p>
+                                                <img class="viewbook-book-image" src="@relatedBook.Image ?? /img/about-us.png" alt="@relatedBook.Name" />
+
+                                            </div>
+                                        </a>
+                                        <div class="viewbook-book-info-card" id="per-book-info-@relatedBook.Id">
+
+                                            <h5 class="viewbook-book-title viewbook-book-text">@relatedBook.Name</h5>
+                                            <p class="viewbook-author-name viewbook-book-text">by @string.Join(", ", relatedBook.AuthorNames) • @relatedBook.PublishedOn.Year</p>
+                                            <p class="viewbook-book-description viewbook-book-text">@relatedBook.Description</p>
+                                        </div>
+                                        <h6 class="viewbook-book-title viewbook-book-text">@relatedBook.Name</h6>
                                     </div>
+
                                 }
 
                             </div>
-                            <div class="see-more-container"> <button id="seeMoreButton" class="see-more-button">See
-                                    More</button></div>
+
+                            @if(relatedBooks.Count() > 4)
+                            {
+                                <div class="see-more-container">
+                                    @{
+                                        var authorName = Model.Book.AuthorNames;
+                                    }
+                                    <a href="@Url.Action("AuthorRelatedWorks", "Home", new { authors =  authorName, id = Model.Book.Id  })">
+                                        <span id="seeMoreButton" class="see-more-button">
+                                            See
+                                            More
+                                        </span>
+                                    </a>
+                                </div>
+                            }
                         }
                         else
                         {
                             <p class="no-data-text">No other works by this author found.</p>
                         }
 
-                        <hr />
-
 
 
                         <div class="spacing">
                             <p>s</p>
                         </div>
+                        <hr />
 
 
                         <div class="textarea-container" id="textarea-container">
@@ -183,23 +319,23 @@
                                 <h4 class=" ">Your Rating</h4>
                                 <div class="stars book-rate-spacing review-padding">
                                     <button class="star-btn" onmouseover="hoverStars(1)" onmouseout="resetStars()"
-                                        onclick="setRating(1)">
+                                            onclick="setRating(1)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star1"></i>
                                     </button>
                                     <button class="star-btn" onmouseover="hoverStars(2)" onmouseout="resetStars()"
-                                        onclick="setRating(2)">
+                                            onclick="setRating(2)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star2"></i>
                                     </button>
                                     <button class="star-btn" onmouseover="hoverStars(3)" onmouseout="resetStars()"
-                                        onclick="setRating(3)">
+                                            onclick="setRating(3)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star3"></i>
                                     </button>
                                     <button class="star-btn" onmouseover="hoverStars(4)" onmouseout="resetStars()"
-                                        onclick="setRating(4)">
+                                            onclick="setRating(4)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star4"></i>
                                     </button>
                                     <button class="star-btn" onmouseover="hoverStars(5)" onmouseout="resetStars()"
-                                        onclick="setRating(5)">
+                                            onclick="setRating(5)">
                                         <i class="fi fi-rr-bone star-rating-image" id="star5"></i>
                                     </button>
                                 </div>
@@ -224,23 +360,21 @@
                                         <div class="col">
                                             <div class="form-group">
                                                 <textarea class="form-control review-textarea review-padding" rows="4"
-                                                    cols="50" name="comment" form="usrform"
-                                                    placeholder="What are your thoughts?">
+                                                          cols="50" name="comment" form="usrform"
+                                                          placeholder="What are your thoughts?">
 </textarea>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="g-recaptcha" data-sitekey="6LdpiSgpAAAAAAo5PPvFZhLTpaC4Qz3nH0fAHLl2"></div>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="textarea-btn-container"><button type="submit"
-                                    class="btn-padd btn btn-skooby review-padding"
-                                    onclick="submitReview()">Create</button>
+                            <div class="textarea-btn-container">
+                                <button type="submit"
+                                        class="btn-padd btn btn-skooby review-padding"
+                                        onclick="submitReview()">
+                                    Create
+                                </button>
                             </div>
                         </div>
 
@@ -259,7 +393,7 @@
                                         @for (int i = 1; i <= 5; i++)
                                         {
                                             <i class="fi fi-@(i <= roundedAverage ? "ss" : "rr")-bone star-rating-secondary element-book-rate"
-                                                id="star-@(i)"></i>
+                                               id="star-@(i)"></i>
                                         }
                                     </div>
 
@@ -273,7 +407,7 @@
                                     <div class="reviews-wrapper element-book-rate">
                                         <p class="ebr-styling rr-spacing element-book-rate">•</p>
                                         <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
-                                            id="review-value">@(Model.Reviews.Count)</p>
+                                           id="review-value">@(Model.Reviews.Count)</p>
                                         <p class=" ebr-styling element-book-rate">barks</p>
                                     </div>
 
@@ -319,19 +453,36 @@
                             <div class="book-container">
                                 @foreach (var book in Model.AllBooks.Take(4))
                                 {
-                                    <div class="book">
+                                    <div class="viewbook-book-content">
                                         <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-                                            <img src="@Url.Content(book.Image)" alt="@book.Name" class="book-images" />
-                                        </a>
-                                        <p class="book-title">@book.Name</p>
+                                            <div class="viewbook-book-image-preview">
 
+                                                <img class="viewbook-book-image" src="@book.Image ?? /img/about-us.png" alt="@book.Name" />
+
+                                            </div>
+                                        </a>
+                                        <div class="viewbook-book-info-card" id="per-book-info-@book.Id">
+
+                                            <h5 class="viewbook-book-title viewbook-book-text">@book.Name</h5>
+                                            <p class="viewbook-author-name viewbook-book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
+                                            <p class="viewbook-book-description viewbook-book-text">@book.Description</p>
+                                        </div>
+                                        <h6 class="viewbook-book-title viewbook-book-text">@book.Name</h6>
                                     </div>
                                 }
 
                             </div>
 
-                            <div class="see-more-container"> <button id="seeMoreButton" class="see-more-button">See
-                                    More</button></div>
+                            @if(Model.AllBooks.Count() > 4)
+                            {
+                                <div class="see-more-container">
+                                    <a href="@Url.Action("SuggestedForU", "Home")">
+                                        <span id="seeMoreButton" class="see-more-button">
+                                            See More
+                                        </span>
+                                    </a>
+                                </div>
+                            }
                         }
                         else
                         {
@@ -351,7 +502,7 @@
 
 
 <!-- Your HTML and Razor code here -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script>
     // Global rating variable
     var currentRating = 0;
@@ -427,4 +578,17 @@
                 alert('Error submitting review');
             });
     }
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".viewbook-book-content").hover(
+            function () {
+                $(this).find(".viewbook-book-info-card").show();
+            },
+            function () {
+                $(this).find(".viewbook-book-info-card").hide();
+            }
+        );
+    });
 </script>

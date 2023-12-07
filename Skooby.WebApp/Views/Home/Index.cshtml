@@ -27,6 +27,15 @@
         -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
     }
 
+     .Seemore {
+    text-align: center;
+}
+
+    a:hover{
+            color: #B64110;
+            text-decoration: none;
+    }
+
 
 
 
@@ -116,33 +125,78 @@
 
                 <hr class="filter-divider" />
                 <h3 class="filter-genretitle">Genres</h3>
+                @{
+                    var allGenres = Model.SelectMany(book => book.GenreNames).Distinct().OrderBy(genre => genre).ToList();
+                    var visibleGenres = allGenres.Take(14).ToList();
+                    var remainingGenres = allGenres.Skip(14).ToList();
+                }
 
-                <div class="filter-category-container">
-                    @{
-                        var allGenres = Model.SelectMany(book => book.GenreNames).Distinct().OrderBy(genre => genre).ToList();
-                        var visibleGenres = allGenres.Take(13).ToList();
-                        var remainingGenres = allGenres.Skip(13).ToList();
-                    }
-
+                <div class="filter-category-container" id="filterCategoryContainer">
+                    
+                    
                     @foreach (var genre in visibleGenres)
                     {
-                        <a href="#" onclick="filterBooks('@genre')"> <p class="filter-category-titles">@genre</p></a>
+                        <a href="#" class="genre-link" data-genre="@genre">
+                            <p class="filter-category-titles">@genre</p>
+                        </a>
                     }
+                   
 
-                    @if (remainingGenres.Any())
-                    {
-                        <div>
-                            <a href="#"><p class="filter-category-titles">...See More</p></a>
-                        </div>
-                    }
                 </div>
+                @if (remainingGenres.Any())
+                {
+
+                  <div class=" Seemore">  <a href="#" id="seeMoreLink">
+                        <p class="filter-category">See More</p>
+                    </a>
+                  </div>
+                }
             </div>
         </div>
     </div>
 </section>
 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Initially hide remaining genres
+        var isSeeMore = true;
+        var remainingGenres = @Json.Serialize(remainingGenres);
 
+        $("#seeMoreLink").click(function (e) {
+            e.preventDefault();
+
+            if (isSeeMore) {
+                showRemainingGenres();
+                $("#seeMoreLink").find(".filter-category").text("See Less");
+            } else {
+                hideRemainingGenres();
+                $("#seeMoreLink").find(".filter-category").text("See More");
+            }
+
+            isSeeMore = !isSeeMore;
+        });
+
+        function showRemainingGenres() {
+            var remainingGenresContainer = $("#filterCategoryContainer");
+
+            for (var i = 0; i < remainingGenres.length; i++) {
+                var genre = remainingGenres[i];
+                var genreLink = $("<a>").attr("href", "#").addClass("genre-link").data("genre", genre);
+                var genreTitle = $("<p>").addClass("filter-category-titles").text(genre);
+                genreLink.append(genreTitle);
+                remainingGenresContainer.append(genreLink);
+            }
+        }
+
+        function hideRemainingGenres() {
+            
+            $(".genre-link").not(":lt(13)").remove();
+        }
+
+    });
+</script>
 
 
 <script>

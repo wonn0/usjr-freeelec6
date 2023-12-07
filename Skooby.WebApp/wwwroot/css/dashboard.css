@@ -103,11 +103,11 @@ body {
 }
 
 .book-title {
-    font-size: 1.2rem; /* Adjust the font size as needed */
-    white-space: nowrap; /* Prevent line breaks */
+    color: #FF7519;
+    font-size: 1.2rem; 
+    white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
-  
 }
 .book-genre {
     margin-top: 30px;
@@ -168,8 +168,13 @@ hr {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-
-.filter-category-titles{
+.filter-category {
+    color: var(--primary-color);
+}
+.filter-category:hover {
+    color: var(--secondary-color);
+}
+.filter-category-titles {
     color:var(--primary-color);
 }
 
