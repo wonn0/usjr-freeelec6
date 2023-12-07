@@ -82,12 +82,10 @@ body {
     max-height: 200px; 
     margin: 0 auto; 
     display: block;
-<<<<<<< Updated upstream
-=======
     justify-content: center;
     align-items: center;
     overflow: hidden;
->>>>>>> Stashed changes
+
 }
 .suggest-book-image{
   
@@ -98,7 +96,7 @@ body {
 }
 .book-image {
     border-radius: 10px;
-    width: 120px; /* This makes the image fill its container */
+    width: 120px; 
     height: 200px !important; /* This ensures the image maintains its aspect ratio */
     display: block;
     object-fit: cover;
@@ -109,7 +107,7 @@ body {
     white-space: nowrap; /* Prevent line breaks */
     overflow: hidden;
     text-overflow: ellipsis;
-    background-color: blue;/* Add ellipsis for long titles */
+  
 }
 .book-genre {
     margin-top: 30px;
