@@ -37,20 +37,25 @@ namespace ASI.Basecode.WebApp.Controllers
         //     return View(bookViewModels);
         // }
 
-        public IActionResult Index(string searchQuery, int pageNo= 1)
+        public IActionResult Index(string searchQuery, int pageNo = 1)
         {
             var pageSize = 5;
             var bookViewModels = _bookService.GetAllBooks();
 
             if (!string.IsNullOrEmpty(searchQuery))
             {
-                bookViewModels = bookViewModels.Where(b => b.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)).ToList();
+                bookViewModels = bookViewModels.Where(b =>
+                    b.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase) ||
+                    b.AuthorNames.Any(a => a.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+                    b.GenreNames.Any(g => g.Contains(searchQuery, StringComparison.OrdinalIgnoreCase))
+                ).ToList();
             }
+
             var totalBooks = bookViewModels.Count();
 
             var model = bookViewModels.Skip((pageNo - 1) * pageSize)
-            .Take(pageSize)
-            .ToList();
+                                      .Take(pageSize)
+                                      .ToList();
 
             int totalPages = (int)Math.Ceiling((double)totalBooks / pageSize);
             ViewBag.CurrentPage = pageNo;
