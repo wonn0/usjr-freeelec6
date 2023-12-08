@@ -43,6 +43,18 @@ header {
     align-items: center;
 }
 
+.books-setion-container{
+    margin-bottom:50px;
+}
+
+.books-section-title {
+    color: var(--secondary-color);
+}
+
+.books-section-subtitle{
+    color: grey;
+}
+
 .logo {
     font-size: 27px;
     font-weight: 600;

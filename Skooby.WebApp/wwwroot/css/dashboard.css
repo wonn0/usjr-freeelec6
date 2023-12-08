@@ -45,9 +45,13 @@ body {
     font-weight: bold;
 }
 
+.skooby-book-section {
+    margin: 100px 0px 70px 0px !important;
+}
+
 
 .container-wrapper {
-    display: flex !important;  
+    display: flex !important;
 }
 
 .content-wrapper {
@@ -95,8 +99,9 @@ body {
     display: block;
 }
 .book-image {
+    background-color: grey; 
     border-radius: 10px;
-    width: 120px; 
+    width: 120px;
     height: 200px !important; /* This ensures the image maintains its aspect ratio */
     display: block;
     object-fit: cover;
@@ -127,18 +132,15 @@ hr {
 }
 
 .book-info-card {
-    display: none; 
+    display: none;
     width: 300px;
     z-index: 1;
     background-color: white;
     color: black;
     border-radius: 10px;
-    position: absolute; 
+    position: absolute;
     height: 194px;
-    box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
-    -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
-    -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
-    
+    box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
 }
 
 .book-image-preview:hover + .book-info-card {
