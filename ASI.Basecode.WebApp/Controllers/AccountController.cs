@@ -113,6 +113,7 @@ namespace ASI.Basecode.WebApp.Controllers
                             IConfiguration configuration,
                             IMapper mapper,
                             IUserService userService,
+                            IEmailService emailService,
                             TokenValidationParametersFactory tokenValidationParametersFactory,
                             TokenProviderOptionsFactory tokenProviderOptionsFactory,
                             RoleManager<IdentityRole> roleManager,
@@ -124,6 +125,7 @@ namespace ASI.Basecode.WebApp.Controllers
             this._tokenValidationParametersFactory = tokenValidationParametersFactory;
             this._appConfiguration = configuration;
             this._userService = userService;
+            this._emailService = emailService;
             this._roleManager = roleManager;
             this._userManager = userManager;
             this._logger = loggerFactory.CreateLogger<AccountController>();
@@ -418,24 +420,25 @@ namespace ASI.Basecode.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
-            _logger.LogInformation("func called");
-            if (ModelState.IsValid)
+            _logger.LogInformation($"func called {model.Email}");
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user != null)
             {
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user != null)
-                {
-                    var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                    var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
-                    await _emailService.SendEmailAsync(model.Email, "Reset Password", $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
-
-                    return RedirectToAction("VerifyCode", "Account");
-                }
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                await _emailService.SendEmailAsync(model.Email, "Reset Password", $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+                _logger.LogInformation("finish");
+                return RedirectToAction("VerifyCode", "Account");
+            }
+            else
+            {
+                _logger.LogInformation("fail");
             }
 
             return RedirectToAction("VerifyCode", "Account");
         }
 
-        [HttpGet]
+    [HttpGet]
         [AllowAnonymous]
         public IActionResult VerifyCode()
         {
