@@ -66,7 +66,7 @@
                                     <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
                                         <div class="book-image-preview">
 
-                                            <img class="book-image" src="@book.Image ?? /img/about-us.png" alt="@book.Name" />
+                                            <img class="book-image" src="@(String.IsNullOrEmpty(book.Image) ? "/img/book-image-filler.png" : book.Image)" alt="@book.Name" />
 
                                         </div>
                                     </a>

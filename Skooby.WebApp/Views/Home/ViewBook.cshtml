@@ -134,7 +134,7 @@
 
                 <div class="book-image-preview">
                     <img class="book-image image-content-spacing" id="book-image"
-                         src="@Url.Content(Model.Book.Image)" />
+                         src="@(String.IsNullOrEmpty(Model.Book.Image) ? "/img/book-image-filler.png" : Model.Book.Image)" />
 
                     <a class="image-content-spacing btn btn-primary download-btn" href="#textarea-rating-section">
                         <i style="padding-right:10px;" class="fi fi-ss-bone"></i>Rate Me
@@ -228,10 +228,7 @@
                                 <div class="info-wrapper">
                                     <p class="info-spacing info-title" id="published-value">Genre: </p>
                                     <p>
-                                        @foreach (var genreName in Model.Book.GenreNames)
-                                        {
-                                            @genreName
-                                        }
+                                        @string.Join(", ", Model.Book.GenreNames)
                                     </p>
                                 </div>
                             </div>
@@ -275,7 +272,7 @@
                                             <a href="@Url.Action("ViewBook", "Home", new { id = relatedBook.Id })">
                                                 <div class="viewbook-book-image-preview">
 
-                                                    <img class="viewbook-book-image" src="@relatedBook.Image ?? /img/about-us.png" alt="@relatedBook.Name" />
+                                                    <img class="viewbook-book-image" src="@(String.IsNullOrEmpty(relatedBook.Image) ? "/img/book-image-filler.png" : relatedBook.Image)" alt="@relatedBook.Name" />
 
                                                 </div>
                                             </a>
@@ -467,7 +464,7 @@
                                             <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
                                                 <div class="viewbook-book-image-preview">
 
-                                                    <img class="viewbook-book-image" src="@book.Image ?? /img/about-us.png" alt="@book.Name" />
+                                                    <img class="viewbook-book-image" src="@(String.IsNullOrEmpty(book.Image) ? "/img/book-image-filler.png" : book.Image)" alt="@book.Name" />
 
                                                 </div>
                                             </a>
