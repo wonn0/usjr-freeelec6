@@ -50,6 +50,14 @@ header {
     color: rgb(47, 141, 70);
 }
 
+.action-buttons {
+    display: flex;
+}
+
+.action-padding{
+    margin-right:5px;
+}
+
 .menuicn {
     cursor: pointer;
 }
