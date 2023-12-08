@@ -1,31 +1,44 @@
 @model Microsoft.AspNetCore.Identity.IdentityUser
 @{
+    ViewBag.ShowSideBar = true;
     ViewData["Title"] = "Edit User";
 }
 
-<h2>Edit User</h2>
+<h2 class="form-title">Edit User</h2>
 
 <form asp-action="Edit">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />
 
-    <div class="form-group">
-        <label asp-for="Email" class="control-label"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
+    <div class="form-container container">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="col-right col-center">
+                    <div class="form-group">
+                        <a class="btn-back btn-padd" asp-action="Index">Back to List</a>
+                        <input class="btn-padd btn btn-success" type="submit" value="Update" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label asp-for="UserName" class="control-label"></label>
-        <input asp-for="UserName" class="form-control" />
-        <span asp-validation-for="UserName" class="text-danger"></span>
-    </div>
-
-    <!-- Add more fields as necessary -->
-
-    <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-primary" />
-    </div>
+     
 </form>
 
-<a asp-action="Index">Back to List</a>
+ 

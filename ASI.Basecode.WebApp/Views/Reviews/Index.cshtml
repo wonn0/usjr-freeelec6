@@ -10,6 +10,13 @@
 
 }
 <style>
+    .review-content {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
     .pagination-container {
         padding-top: 41px;
         padding-bottom: 40px !important;
@@ -35,20 +42,15 @@
 
 <h2 class="table-title">Review Management</h2>
 
-<div class="table-container">
-
-
-    <div class="container table-tools">
-
-        <div class="row">
-
+<div class="table-container"> 
+    <div class="container table-tools"> 
+        <div class="row"> 
             <div class="col col-left">
                 <div class="search-container">
                     <form class="search-container d-flex" asp-action="Index" method="get">
                         <input type="text" name="searchString" class=" me-2 search-input form-control"
                             placeholder="Search Reviews" />
-                        <button class="btn btn-outline-success search-button" type="submit">Search</button>
-
+                        <button class="btn btn-outline-success search-button" type="submit">Search</button> 
                     </form>
                 </div>
             </div>
@@ -59,42 +61,44 @@
         </div>
 
     </div>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Reviewed By</th>
-                <th>Email</th>
-                <th>Book</th>
-                <th>Book ID</th>
-                <th>Rating</th>
-                <th>Reviewed On</th>
-                <th>Content</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var review in Model)
-            {
+     
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@review.Id</td>
-                    <td>@review.ReviewedBy</td>
-                    <td>@review.Email</td>
-                    <td>@review.BookName</td>
-                    <td>@review.BookId</td>
-                    <td>@review.Rating</td>
-                    <td>@review.ReviewedOn</td>
-                    <td>@review.Description</td>
-                    <td>
-                        <a href="@Url.Action("Edit", "Reviews", new { id = review.Id })" class="btn btn-success">Edit</a>
-                        <button data-url="@Url.Action("Delete", "Reviews", new { id = review.Id })" type="button"
-                            class="btn btn-danger">Delete</button>
-                    </td>
+                    <th>ID</th>
+                    <th>Reviewed By</th>
+                    <th>Email</th>
+                    <th>Book</th>
+                    <th>Book ID</th>
+                    <th>Rating</th>
+                    <th>Reviewed On</th>
+                    <th>Content</th>
+                    <th>Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var review in Model)
+                {
+                    <tr>
+                        <td>@review.Id</td>
+                        <td>@review.ReviewedBy</td>
+                        <td>@review.Email</td>
+                        <td>@review.BookName</td>
+                        <td>@review.BookId</td>
+                        <td>@review.Rating</td>
+                        <td>@review.ReviewedOn</td>
+                        <td class="review-content">@review.Description</td>
+                        <td class="action-buttons">
+                        <a href="@Url.Action("Edit", "Reviews", new { id = review.Id })" class="btn action-padding btn-success">Edit</a>
+                            <button data-url="@Url.Action("Delete", "Reviews", new { id = review.Id })" type="button"
+                                class="btn action-padding btn-danger">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table> 
     @if (ViewBag.TotalPages > 1)
     {
         <div class="pagination-container">
