@@ -74,9 +74,11 @@
                     <td>@genre.Id</td>
                     <td>@genre.Name</td>
                     <td>
-
                         <a asp-action="Edit" asp-route-id="@genre.Id" class="btn btn-success">Edit</a>
-                        <button asp-action="Delete" asp-route-id="@genre.Id" class="btn btn-danger">Delete</button>
+                        <form action="@Url.Action("Delete", "Genre")" method="post" style="display: inline;">
+                            <input type="hidden" name="id" value="@genre.Id" />
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
                     </td>
                 </tr>
             }

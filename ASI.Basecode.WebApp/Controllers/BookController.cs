@@ -119,24 +119,29 @@ namespace ASI.Basecode.WebApp.Controllers
                 return NotFound();
             }
 
+            viewModel.AuthorIds ??= new List<int>();
+            viewModel.GenreIds ??= new List<int>();
+
             var authors = _authorService.GetAllAuthors()
                                    .ToList()
                                    .Select(a => new
                                    {
                                        Id = a.Id,
-                                       FullName = a.FirstName + " " + a.LastName
+                                       FullName = a.FirstName + " " + a.LastName,
+                                       //Selected = viewModel.AuthorIds.Contains(a.Id)
                                    })
                                    .ToList();
             var genres = _genreService.GetAllGenres()
                                    .Select(g => new
                                    {
                                        Id = g.Id,
-                                       Name = g.Name
+                                       Name = g.Name,
+                                       //Selected = viewModel.GenreIds.Contains(g.Id),
                                    })
                                    .ToList();
-
-            ViewBag.AuthorList = new SelectList(authors, "Id", "FullName");
-            ViewBag.GenreList = new SelectList(genres, "Id", "Name");
+            _logger.LogInformation($"{authors[0].FullName} + {viewModel.GenreIds[0]}");
+            ViewBag.AuthorList = new SelectList(authors, "Id", "FullName", viewModel.AuthorIds);
+            ViewBag.GenreList = new SelectList(genres, "Id", "Name", viewModel.GenreIds);
 
             return View(viewModel);
         }
