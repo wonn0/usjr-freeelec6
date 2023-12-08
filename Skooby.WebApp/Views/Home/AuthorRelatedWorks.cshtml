@@ -26,14 +26,28 @@
 </style>
 
 <section class="new-books-section new-books-dashboard">
-    @{
-        var author = ViewBag.Author;
+    @{ 
+        var author = ViewBag.Authors as List<string>;
     }
+
     <div>
-        <h1>@author's Related Works</h1>
+        <h1>
+            @if (author != null && author.Count() == 1)
+            {
+                @Html.Raw(author[0] + "'s Related Works")
+            }
+            else if (author != null && author.Count() == 2)
+            {
+                @Html.Raw(author[0] + " and " + author[1] + "'s Related Works")
+            }
+            else if (author != null && author.Count() > 2)
+            {
+                @Html.Raw(string.Join(", ", author.Take(2)) + " and et al. Related Works")
+            }
+        </h1>
         <h3>Results</h3>
     </div>
-
+ 
     <hr />
 
     <div class="new-books-container" id="book-wrapper">
@@ -64,14 +78,14 @@
 
         <div class="pagination">
             @if (ViewBag.CurrentPage > 5)
-            {
-                int previousViewLastPage = (ViewBag.CurrentPage / 5) * 5;
+            { 
+                int previousViewLastPage = ((ViewBag.CurrentPage - 1) / 5) * 5;
 
-                <a href="@Url.Action("AuthorRelatedWorks", "Home", new { pageNo = previousViewLastPage })" class="prev-next">&lt;</a>
+                <a href="@Url.Action("AuthorRelatedWorks", "Home", new { pageNo = previousViewLastPage , authors = author})" class="prev-next">&lt;</a>
             }
 
             @{
-                int startPage = ((ViewBag.CurrentPage - 1) / 5) * 5 + 1;
+                int startPage = ((ViewBag.CurrentPage-1) / 5) * 5 + 1; 
                 int endPage = Math.Min(startPage + 4, ViewBag.TotalPages);
             }
 
@@ -82,8 +96,8 @@
                     <span class="current-page">@i</span>
                 }
                 else
-                {
-                    <a href="@Url.Action("AuthorRelatedWorks", "Home", new { pageNo = i })" class="page-link">@i</a>
+                { 
+                    <a href="@Url.Action("AuthorRelatedWorks", "Home", new { pageNo = i , authors = author})" class="page-link">@i</a> 
                 }
             }
             @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
@@ -93,10 +107,10 @@
 
             @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
             {
+ 
+                int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : ((ViewBag.CurrentPage - 1) / 5) * 5 + 6;
 
-                int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : (ViewBag.CurrentPage / 5) * 5 + 6;
-
-                <a href="@Url.Action("AuthorRelatedWorks", "Home", new { pageNo = nextViewFirstPage })" class="prev-next">&gt;</a>
+                <a href="@Url.Action("AuthorRelatedWorks", "Home", new { pageNo = nextViewFirstPage, authors = author })" class="prev-next">&gt;</a> 
             }
         </div>
     </div>

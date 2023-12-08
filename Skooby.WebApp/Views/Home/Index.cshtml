@@ -2,16 +2,15 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Home Page";
-
-    var currentPage = 1;
+ 
 }
 
 @section styles {
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/dashboard.css" />
 
-    <link rel="stylesheet" href="~/css/pagination.css" />
-} 
+    <link rel="stylesheet" href="~/css/pagination.css" /> 
+}  
 <style>
     .sidebar-content {
         height: auto;
@@ -26,14 +25,16 @@
         -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
         -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
     }
-
  
-    .pagination a.active {
-        background-color: #007BFF; /* Set your desired background color */
-        color: #fff; /* Set your desired text color */
+     .Seemore {
+    text-align: center;
+}
+
+    a:hover{
+            color: #B64110;
+            text-decoration: none;
     }
-
-
+ 
 </style>
 
 <div class="background-div">
@@ -49,8 +50,7 @@
                 var uniqueGenres = Model.SelectMany(book => book.GenreNames)
                 .Distinct()
                 .OrderBy(genre => genre);
-
-               
+ 
             }
 
             @foreach (var genre in uniqueGenres)
@@ -68,9 +68,9 @@
                                 <div class="book-content">
                                     <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
                                         <div class="book-image-preview">
-                                             
+
                                             <img class="book-image" src="@book.Image ?? /img/about-us.png" alt="@book.Name" />
-                                            
+
                                         </div>
                                     </a>
                                     <div class="book-info-card" id="per-book-info-@book.Id">
@@ -118,35 +118,78 @@
                     <a href="@Url.Action("TopRatedBooks", "Home",  new{pageNo = 1})" class="btn-text">Top Rated</a>
                 </div>
 
-                <hr class="filter-divider"/>
+                <hr class="filter-divider" />
                 <h3 class="filter-genretitle">Genres</h3>
-
-                <div class="filter-category-container">
-                    @{
-                        var allGenres = Model.SelectMany(book => book.GenreNames).Distinct().OrderBy(genre => genre).ToList();
-                        var visibleGenres = allGenres.Take(13).ToList();
-                        var remainingGenres = allGenres.Skip(13).ToList();
-                    }
-
+                @{
+                    var allGenres = Model.SelectMany(book => book.GenreNames).Distinct().OrderBy(genre => genre).ToList();
+                    var visibleGenres = allGenres.Take(14).ToList();
+                    var remainingGenres = allGenres.Skip(14).ToList();
+                } 
+                <div class="filter-category-container" id="filterCategoryContainer">
+                    
+                    
                     @foreach (var genre in visibleGenres)
                     {
-                        <a href="#" onclick="filterBooks('@genre')"> <p class="filter-category-titles">@genre</p></a>
+                        <a href="#" class="genre-link" data-genre="@genre">
+                            <p class="filter-category-titles">@genre</p>
+                        </a> 
                     }
+                   
 
-                    @if (remainingGenres.Any())
-                    {
-                        <div>
-                            <a href="#"><p class="filter-category-titles">...See More</p></a>
-                        </div>
-                    }
                 </div>
+                @if (remainingGenres.Any())
+                {
+
+                  <div class=" Seemore">  <a href="#" id="seeMoreLink">
+                        <p class="filter-category">See More</p>
+                    </a>
+                  </div>
+                }
             </div>
         </div>
-    </div> 
+    </div>
 </section>
+ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Initially hide remaining genres
+        var isSeeMore = true;
+        var remainingGenres = @Json.Serialize(remainingGenres);
 
+        $("#seeMoreLink").click(function (e) {
+            e.preventDefault();
 
+            if (isSeeMore) {
+                showRemainingGenres();
+                $("#seeMoreLink").find(".filter-category").text("See Less");
+            } else {
+                hideRemainingGenres();
+                $("#seeMoreLink").find(".filter-category").text("See More");
+            }
 
+            isSeeMore = !isSeeMore;
+        });
+
+        function showRemainingGenres() {
+            var remainingGenresContainer = $("#filterCategoryContainer");
+
+            for (var i = 0; i < remainingGenres.length; i++) {
+                var genre = remainingGenres[i];
+                var genreLink = $("<a>").attr("href", "#").addClass("genre-link").data("genre", genre);
+                var genreTitle = $("<p>").addClass("filter-category-titles").text(genre);
+                genreLink.append(genreTitle);
+                remainingGenresContainer.append(genreLink);
+            }
+        }
+
+        function hideRemainingGenres() {
+            
+            $(".genre-link").not(":lt(13)").remove();
+        }
+
+    });
+</script> 
 
 
 <script>
@@ -158,7 +201,7 @@
         var container = document.getElementById('bookListContainer');
         var books = container.getElementsByClassName('book-genre');
 
-        
+ 
         for (var i = 0; i < books.length; i++) {
             books[i].style.display = 'none';
         }
@@ -170,25 +213,24 @@
         } else {
             currentPage = pageNumber;
         }
-
-    
+ 
         var startIndex = (currentPage - 1) * booksPerPage;
         var endIndex = startIndex + booksPerPage;
 
-       
+ 
         for (var i = startIndex; i < endIndex && i < books.length; i++) {
             books[i].style.display = 'block';
         }
-
-    
+ 
         document.getElementById('currentPage').innerText = currentPage;
         document.getElementById('totalPages').innerText = Math.ceil(books.length / booksPerPage);
     }
 
-    
+ 
+
     showPage(1);
 </script>
-
+ 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -198,23 +240,23 @@
 
             $('.book-genre').hide();
 
-          
+
             $('.book-genre:has(h4:contains("' + selectedGenre + '"))').show();
 
-    
+
             $('.pagination-container').hide();
         });
 
-      
-       
+
+
     });
 </script>
 
- 
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script>
-    $(document).ready(function () { 
+<script>
+    $(document).ready(function () {
         $(".book-content").hover(
             function () {
                 $(this).find(".book-info-card").show();
@@ -222,9 +264,9 @@
             function () {
                 $(this).find(".book-info-card").hide();
             }
-        ); 
+        );
     });
-</script>  
+</script>
 @* JQuery Script for deletion (calls delete method in controller as http) *@
 <script>
     $(document).ready(function () {

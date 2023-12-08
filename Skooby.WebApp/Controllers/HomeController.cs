@@ -99,8 +99,16 @@ namespace Skooby.WebApp.Controllers
             List<BookViewModel> relatedBooks = new List<BookViewModel>();
             if (bookViewModel.AuthorIds != null && bookViewModel.AuthorIds.Any())
             {
-                int authorId = bookViewModel.AuthorIds.First();
-                relatedBooks = _bookService.GetBooksByAuthor(authorId, id); // 'id' is the current book's ID
+                var authorIds = bookViewModel.AuthorIds;
+
+                foreach (var authorId in authorIds)
+                {
+                    var booksForAuthor = _bookService.GetAllBooks()
+                        .Where(book => book.AuthorIds.Contains(authorId) && book.Id != id)
+                        .ToList();
+
+                    relatedBooks.AddRange(booksForAuthor);
+                }
             }
             else
             {
@@ -146,7 +154,7 @@ namespace Skooby.WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult NewBooks(int pageNo )
+        public IActionResult NewBooks(int pageNo)
         {
             var pageSize = 10; // Adjust based on your requirements
             var allBooks = _bookService.GetAllBooks();
@@ -155,7 +163,7 @@ namespace Skooby.WebApp.Controllers
             var totalBooksCount = allBooks.Count;
             var totalPages = totalBooksCount / pageSize;
 
-            if(totalBooksCount % pageSize > 0)
+            if (totalBooksCount % pageSize > 0)
             {
                 totalPages += 1;
             }
@@ -190,7 +198,7 @@ namespace Skooby.WebApp.Controllers
             }
 
 
-            
+
             var booksWithReviews = allBooks
                 .GroupJoin(
                     _bookReviewService.GetAllBookReviews(),
@@ -207,11 +215,12 @@ namespace Skooby.WebApp.Controllers
                 .Select(result => result.Book)
                 .ToList();
 
-            ViewBag.CurrentPage = pageNo;
+            ViewBag.CurrentPage = pageNo; 
             ViewBag.TotalPages =totalPages;
            
             return View(booksWithReviews);
         }
+ 
 
 
         [HttpGet]
@@ -273,6 +282,98 @@ namespace Skooby.WebApp.Controllers
 
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult SuggestedForU(int pageNo = 1)
+        {
+            var pageSize = 10;
+
+            // Assuming GetAllBooks returns a collection of all books
+            var allBooks = _bookService.GetAllBooks();
+
+            // Randomize the order of all books
+            var random = new Random();
+            var randomizedBooks = allBooks.OrderBy(book => random.Next());
+
+            // Paginate the results
+            var model = randomizedBooks
+                .Skip((pageNo - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            // Calculate total pages
+            var totalBooksCount = allBooks.Count();
+            var totalPages = (int)Math.Ceiling((double)totalBooksCount / pageSize);
+
+            // Set ViewBag data for pagination in the view
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages = totalPages;
+
+            return View(model);
+        }
+
+
+        [HttpGet]
+        public IActionResult GenreSeeMore(string genre, int pageNo = 1)
+        {
+            var pageSize = 10;
+
+
+            var allBooks = _bookService.GetAllBooks();
+
+
+            var booksInGenre = allBooks.Where(book => book.GenreNames.Any(genreName => string.Equals(genreName, genre, StringComparison.OrdinalIgnoreCase)));
+
+
+            var model = booksInGenre
+    .Skip((pageNo - 1) * pageSize)
+    .Take(pageSize)
+    .ToList();
+
+
+
+            var totalBooksCount = booksInGenre.Count();
+            var totalPages = (int)Math.Ceiling((double)totalBooksCount / pageSize);
+
+            // Set ViewBag data for pagination in the view
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.Genre = genre;
+
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult AuthorRelatedWorks(List<string> authors, int id, int pageNo = 1)
+        {
+            var pageSize = 10;
+
+            // Assuming GetAllBooks returns a collection of all books
+            var allBooks = _bookService.GetAllBooks();
+
+            // Filter books by authors
+            var booksByAuthors = allBooks.Where(book => book.AuthorNames.Any(authorName => authors.Contains(authorName, StringComparer.OrdinalIgnoreCase) && book.Id != id));
+
+            // Paginate the results
+            var model = booksByAuthors
+                .Skip((pageNo - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            // Calculate total pages
+            var totalBooksCount = booksByAuthors.Count();
+            var totalPages = (int)Math.Ceiling((double)totalBooksCount / pageSize);
+
+            // Set ViewBag data for pagination in the view
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.Authors = authors;
+
+            return View(model);
+        }
+
+
 
         [HttpGet]
         public IActionResult SuggestedForU(int pageNo = 1)

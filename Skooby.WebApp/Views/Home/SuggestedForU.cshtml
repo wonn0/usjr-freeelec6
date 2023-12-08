@@ -24,8 +24,8 @@
 </style>
 <section class="new-books-section new-books-dashboard">
     <div>
-        <h1>Suggested For You</h1>
-        <h2>Read the books that fits your taste!</h2>
+        <h1>Suggested For You</h1> 
+        <h2>Read books that fits your taste!</h2> 
         <h3>Results</h3>
     </div>
 
@@ -59,8 +59,8 @@
         <!-- Pagination -->
         <div class="pagination">
             @if (ViewBag.CurrentPage > 5)
-            {
-                int previousViewLastPage = (ViewBag.CurrentPage / 5) * 5;
+            { 
+                int previousViewLastPage = ((ViewBag.CurrentPage - 1) / 5) * 5; 
 
                 <a href="@Url.Action("SuggestedForU", "Home", new { pageNo = previousViewLastPage })" class="prev-next">&lt;</a>
             }
@@ -88,8 +88,8 @@
 
             @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
             {
-
-                int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : (ViewBag.CurrentPage / 5) * 5 + 6;
+ 
+                int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : ((ViewBag.CurrentPage - 1) / 5) * 5 + 6; 
 
                 <a href="@Url.Action("SuggestedForU", "Home", new { pageNo = nextViewFirstPage })" class="prev-next">&gt;</a>
             }
