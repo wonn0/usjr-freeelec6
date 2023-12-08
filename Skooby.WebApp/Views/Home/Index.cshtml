@@ -101,50 +101,7 @@
             </div>
         </div>
 
-        <div class="sidebar-container">
-            <div class="sidebar-content">
-                <h2 class="sidebar-title">Filter</h2>
-                <form class="d-flex filter-searchbar" role="search" method="get">
-                    <input class="form-control me-2 search-input" name="searchTerm" type="search" placeholder="Search"
-                           aria-label="Search">
-                    <button class="btn btn-outline-success search-button" type="submit">Search</button>
-                </form>
-                <div>
-                    <a href="@Url.Action("NewBooks", "Home", new{pageNo = 1})" class="btn-text">What's New?</a>
-                </div>
-                <div>
-                    <a href="@Url.Action("TopRatedBooks", "Home",  new{pageNo = 1})" class="btn-text">Top Rated</a>
-                </div>
-
-                <hr class="filter-divider" />
-                <h3 class="filter-genretitle">Genres</h3>
-                @{
-                    var allGenres = Model.SelectMany(book => book.GenreNames).Distinct().OrderBy(genre => genre).ToList();
-                    var visibleGenres = allGenres.Take(14).ToList();
-                    var remainingGenres = allGenres.Skip(14).ToList();
-                } 
-                <div class="filter-category-container" id="filterCategoryContainer">
-                    
-                    
-                    @foreach (var genre in visibleGenres)
-                    {
-                        <a href="#" class="genre-link" data-genre="@genre">
-                            <p class="filter-category-titles">@genre</p>
-                        </a> 
-                    }
-                   
-
-                </div>
-                @if (remainingGenres.Any())
-                {
-
-                  <div class=" Seemore">  <a href="#" id="seeMoreLink">
-                        <p class="filter-category">See More</p>
-                    </a>
-                  </div>
-                }
-            </div>
-        </div>
+        z
     </div>
 </section>
  

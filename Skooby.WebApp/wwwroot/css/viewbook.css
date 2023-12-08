@@ -330,6 +330,9 @@ hr {
 }
 
 .review-item {
+    background-color: #f3f3f3;
+    padding: 10px;
+    border-radius: 10px;
     margin: 20px 0px;
 }
 

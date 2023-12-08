@@ -111,8 +111,7 @@
 }
 @section styles {
     <link rel="stylesheet" href="~/css/viewbook.css" />
-    <link rel="stylesheet" href="~/css/style.css" />
-
+    <link rel="stylesheet" href="~/css/style.css" /> 
 }
 
 @{
@@ -138,10 +137,7 @@
 
                     <a class="image-content-spacing btn btn-primary download-btn" href="#textarea-rating-section">
                         <i style="padding-right:10px;" class="fi fi-ss-bone"></i>Rate Me
-                    </a>
-                    @* <div class="btn-rate">
-                    <a href="#textarea-container">test</a>
-                    </div> *@
+                    </a> 
                 </div>
 
             </div>
@@ -431,7 +427,15 @@
                                         <div class="review-item">
                                             <div class="name-rating-container">
                                                 <h6 class="review-name"><strong>Barked by:</strong> @review.ReviewedBy</h6>
-                                                <p class="review-rate"><strong></strong> @review.Rating</p>
+                                                @* <p class="review-rate"><strong></strong> @review.Rating</p> *@
+                                                <p class="review-rate">
+                                                    <strong>
+                                                        @for (int i = 1; i <= 5; i++)
+                                                        {
+                                                            <i class="fi @(i <= review.Rating ? "fi-ss" : "fi-rr")-bone star-rating-secondary element-book-rate"></i>
+                                                        }
+                                                    </strong> @review.Rating
+                                                </p>
                                             </div>
                                             <p class="reviewed-on">@review.ReviewedOn</p>
                                             <p class="review-description">@review.Description</p>

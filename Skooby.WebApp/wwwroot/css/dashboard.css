@@ -107,13 +107,7 @@ body {
     object-fit: cover;
 }
 
-.book-title {
-    color: #FF7519;
-    font-size: 1.2rem; 
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+ 
 .book-genre {
     margin-top: 30px;
     color: var(--secondary-color);
@@ -202,6 +196,11 @@ hr {
 }
 
 .book-title {
+    color: #FF7519;
+    font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     font-size: 14px;
     font-weight: bold;
     width: 100%;
@@ -215,13 +214,13 @@ hr {
     /*word-break: break-all !important;*/
     font-size: 15px;
     width: 100%;
-    padding-bottom: 10px;
+    height: auto;
     /*-webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);*/
 }
 
 .author-name {
     width: 100%;
-    -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);
+    /*-webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);*/
 }
 
 .book-description {

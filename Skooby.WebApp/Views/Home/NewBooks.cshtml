@@ -48,65 +48,76 @@
         <div class="section-wrapper content-wrapper">
             <h4 class="books-section-title">New Books</h4>
             <hr />
-
-    <div class="new-books-container" id="book-wrapper">
         
-        <div class="book-wrapper">
-            @{
-                var recentBooks = Model;
-            }
-            @foreach (var book in recentBooks)
-            {
-                <div class="book-content">
-                    <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-                        <div class="book-image-preview">
-                            <img class="book-image" src="@(String.IsNullOrEmpty(book.Image) ? "/img/book-image-filler.png" : book.Image)" alt="@book.Name" />
+            <div class="new-books-container" id="book-wrapper">
+
+                <div class="book-wrapper">
+                    @{
+                        var recentBooks = Model;
+                    }
+                    @foreach (var book in recentBooks)
+                    {
+                        <div class="book-content">
+                            <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
+                                <div class="book-image-preview">
+                                    <img class="book-image" src="@(String.IsNullOrEmpty(book.Image) ? "/img/book-image-filler.png" : book.Image)" alt="@book.Name" />
+                                </div>
+                            </a>
+
+
                         </div>
                     }
-
                 </div>
-            </div>
-            <div class="pagination-container">
+                
+                
+                <div class="pagination-container">
 
-                <div class="pagination">
-                    @if (ViewBag.CurrentPage > 5)
-                    {
-                        int previousViewLastPage = ((ViewBag.CurrentPage - 1) / 5) * 5;
-
-                        <a href="@Url.Action("NewBooks", "Home", new { pageNo = previousViewLastPage })" class="prev-next">&lt;</a>
-                    }
-
-                    @{
-                        int startPage = ((ViewBag.CurrentPage - 1) / 5) * 5 + 1;
-                        int endPage = Math.Min(startPage + 4, ViewBag.TotalPages);
-                    }
-
-                    @for (int i = startPage; i <= endPage; i++)
-                    {
-                        if (i == ViewBag.CurrentPage)
+                    <div class="pagination">
+                        @if (ViewBag.CurrentPage > 5)
                         {
-                            <span class="current-page">@i</span>
+                            int previousViewLastPage = ((ViewBag.CurrentPage - 1) / 5) * 5;
+
+                            <a href="@Url.Action("NewBooks", "Home", new { pageNo = previousViewLastPage })" class="prev-next">&lt;</a>
                         }
-                        else
+
+                        @{
+                            int startPage = ((ViewBag.CurrentPage - 1) / 5) * 5 + 1;
+                            int endPage = Math.Min(startPage + 4, ViewBag.TotalPages);
+                        }
+
+                        @for (int i = startPage; i <= endPage; i++)
                         {
-                            <a href="@Url.Action("NewBooks", "Home", new { pageNo = i })" class="page-link">@i</a>
+                            if (i == ViewBag.CurrentPage)
+                            {
+                                <span class="current-page">@i</span>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("NewBooks", "Home", new { pageNo = i })" class="page-link">@i</a>
+                            }
                         }
-                    }
-                    @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
-                    {
-                        <span>...</span>
-                    }
+                        @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
+                        {
+                            <span>...</span>
+                        }
 
-                    @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
-                    {
+                        @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
+                        {
 
-                        int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : ((ViewBag.CurrentPage - 1) / 5) * 5 + 6;
+                            int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : ((ViewBag.CurrentPage - 1) / 5) * 5 + 6;
 
-                        <a href="@Url.Action("NewBooks", "Home", new { pageNo = nextViewFirstPage })" class="prev-next">&gt;</a>
-                    }
+                            <a href="@Url.Action("NewBooks", "Home", new { pageNo = nextViewFirstPage })" class="prev-next">&gt;</a>
+                        }
+                    </div>
                 </div>
+
             </div>
+
+        
         </div>
+
+
+
 
         <div class="sidebar-container">
             <div class="sidebar-content">
@@ -153,7 +164,8 @@
                 }
             </div>
         </div>
-    </div>
+    </div> 
+
 </section>
 
   
