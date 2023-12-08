@@ -91,12 +91,23 @@
         background-color: var(--primary-color);
     }
 
+    .book-image { 
+        box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
+        border-radius: 10px;
+        width: -webkit-fill-available !important;
+        height: auto !important;
+    }
 
+
+    .book-content {
+        /*text-align: center;*/
+        width: -webkit-fill-available;
+    }
 
 </style>
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Viewbook";
 }
 @section styles {
     <link rel="stylesheet" href="~/css/viewbook.css" />
@@ -140,180 +151,175 @@
                 <div class="book-content-wrapper">
                     <div class="book-content">
 
-                        <h1 id="book-title">@Model.Book.Name</h1>
-                        <p class="author-name" id="author-name">
-                            by
-                            @if (Model.Book.AuthorNames.Count == 1)
-                            {
-                                @Html.Raw(Model.Book.AuthorNames[0])
-                            }
-                            else if (Model.Book.AuthorNames.Count == 2)
-                            {
-                                @foreach (var authorName in Model.Book.AuthorNames)
+                        <div class="section-wrapper book-info-wrapper">
+                            <h1 id="book-title">@Model.Book.Name</h1>
+                            <p class="author-name" id="author-name">
+                                by
+                                @if (Model.Book.AuthorNames.Count == 1)
                                 {
-                                    @Html.Raw(authorName)
-                                    @if (authorName != Model.Book.AuthorNames.Last())
+                                    @Html.Raw(Model.Book.AuthorNames[0])
+                                }
+                                else if (Model.Book.AuthorNames.Count == 2)
+                                {
+                                    @foreach (var authorName in Model.Book.AuthorNames)
                                     {
-                                        <text> and </text>
+                                        @Html.Raw(authorName)
+                                        @if (authorName != Model.Book.AuthorNames.Last())
+                                        {
+                                            <text> and </text>
+                                        }
                                     }
                                 }
-                            }
-                            else if (Model.Book.AuthorNames.Count > 2)
-                            {
-                                @foreach (var authorName in Model.Book.AuthorNames.Take(2))
+                                else if (Model.Book.AuthorNames.Count > 2)
                                 {
-                                    @Html.Raw(authorName + ", ")
-                                }
-                                @Html.Raw("and et al.")
-                            }
-                        </p>
-
-
-
-
-
-                        <div class="rate-review-wrapper">
-                            <div class="rate-review-wrapper">
-                                <div class="stars info-spacing info-rating-main">
-                                    @for (int i = 1; i <= 5; i++)
+                                    @foreach (var authorName in Model.Book.AuthorNames.Take(2))
                                     {
-                                        <i class="fi fi-@(i <= roundedAverage ? "ss" : "rr")-bone star-rating-main"
-                                           id="star-@(i)"></i>
+                                        @Html.Raw(authorName + ", ")
                                     }
-                                </div>
-                                <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">
-                                    @averageRating.ToString("0.0")
-                                </h4>
-                            </div>
-
-                            <div class="reviews-wrapper">
-                                <p class="reviews-value rr-spacing">@(Model.Reviews.Count)</p>
-                                <p>Barks</p>
-
-                            </div>
-                        </div>
-
-                        <div class="book-description-content">
-                            <p class="book-description" id="book-description">
-                                @Model.Book.Description
+                                    @Html.Raw("and et al.")
+                                }
                             </p>
-                            @* <button type="submit" id="show-more-btn"
-                            class="show-more-content-spacing btn btn-primary show-more-btn">
-                            Show more <i class="fa-solid fa-chevron-down show-more"></i>
-                            </button> *@
-                        </div>
-                        <div class="book-info">
-                            <div class="info-wrapper">
-                                <p class="info-spacing info-title">ISBN: </p>
-                                <p id="isbn-value">@Model.Book.ISBN</p>
-                            </div>
+                             
 
-                            <div class="info-wrapper">
-                                <p class="info-spacing info-title">Language: </p>
-                                <p id="language-value">@Model.Book.Language</p>
-                            </div>
-
-                            <div class="info-wrapper">
-                                <p class="info-spacing info-title" id="pages-value">Pages: @Model.Book.PageCount</p>
-                            </div>
-                            <div class="info-wrapper">
-                                <p class="info-spacing info-title" id="published-value">First published on: </p>
-                                <p>@Model.Book.PublishedOn</p>
-                            </div>
-                            <div class="info-wrapper">
-                                <p class="info-spacing info-title" id="published-value">Genre: </p>
-                                <p>
-                                    @foreach (var genreName in Model.Book.GenreNames)
-                                    {
-                                        @genreName
-                                    }
-                                </p>
-                            </div>
-                        </div>
-
-
-                        <div class="spacing">
-                            <p>s</p>
-                        </div>
-
-
-                        <h2 class="section-title">
-                            @if (Model.Book.AuthorNames.Count == 1)
-                            {
-                                @Html.Raw(Model.Book.AuthorNames[0] + "'s Other Works")
-                            }
-                            else if (Model.Book.AuthorNames.Count == 2)
-                            {
-                                @Html.Raw(Model.Book.AuthorNames[0] + " and " + Model.Book.AuthorNames[1] + "'s Other Works")
-                            }
-                            else if (Model.Book.AuthorNames.Count > 2)
-                            {
-                                @Html.Raw(string.Join(", ", Model.Book.AuthorNames.Take(2)) + " and et al. Other Works")
-                            }
-                        </h2>
-
-
-                        <hr />
-
-
-                        @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
-                        {
-                            
-                                var relatedBooks = Model.RelatedBooks;
-                            
-                            <div class="book-container">
-                                @foreach (var relatedBook in Model.RelatedBooks.Take(4))
-                                {
-                                    <div class="viewbook-book-content">
-                                        <a href="@Url.Action("ViewBook", "Home", new { id = relatedBook.Id })">
-                                            <div class="viewbook-book-image-preview">
-
-                                                <img class="viewbook-book-image" src="@relatedBook.Image ?? /img/about-us.png" alt="@relatedBook.Name" />
-
-                                            </div>
-                                        </a>
-                                        <div class="viewbook-book-info-card" id="per-book-info-@relatedBook.Id">
-
-                                            <h5 class="viewbook-book-title viewbook-book-text">@relatedBook.Name</h5>
-                                            <p class="viewbook-author-name viewbook-book-text">by @string.Join(", ", relatedBook.AuthorNames) • @relatedBook.PublishedOn.Year</p>
-                                            <p class="viewbook-book-description viewbook-book-text">@relatedBook.Description</p>
-                                        </div>
-                                        <h6 class="viewbook-book-title viewbook-book-text">@relatedBook.Name</h6>
+                            <div class="rate-review-wrapper">
+                                <div class="rate-review-wrapper">
+                                    <div class="stars info-spacing info-rating-main">
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            <i class="fi fi-@(i <= roundedAverage ? "ss" : "rr")-bone star-rating-main"
+                                               id="star-@(i)"></i>
+                                        }
                                     </div>
-
-                                }
-
-                            </div> 
-
-                            @if(relatedBooks.Count() > 4)
-                            {
-                                <div class="see-more-container">
-                                    @{
-                                        var authorName = Model.Book.AuthorNames;
-                                    }
-                                    <a href="@Url.Action("AuthorRelatedWorks", "Home", new { authors =  authorName, id = Model.Book.Id  })">
-                                        <span id="seeMoreButton" class="see-more-button">
-                                            See
-                                            More
-                                        </span>
-                                    </a>
+                                    <h4 class="rate-value rr-spacing avg-rating" id="avg-rating">
+                                        @averageRating.ToString("0.0")
+                                    </h4>
                                 </div>
-                            } 
-                        }
-                        else
-                        {
-                            <p class="no-data-text">No other works by this author found.</p>
-                        }
 
+                                <div class="reviews-wrapper">
+                                    <p class="reviews-value rr-spacing">@(Model.Reviews.Count)</p>
+                                    <p>Barks</p>
+
+                                </div>
+                            </div>
+
+                            <div class="book-description-content">
+                                <p class="book-description" id="book-description">
+                                    @Model.Book.Description
+                                </p> 
+                            </div>
+                            <div class="book-info">
+                                <div class="info-wrapper">
+                                    <p class="info-spacing info-title">ISBN: </p>
+                                    <p id="isbn-value">@Model.Book.ISBN</p>
+                                </div>
+
+                                <div class="info-wrapper">
+                                    <p class="info-spacing info-title">Language: </p>
+                                    <p id="language-value">@Model.Book.Language</p>
+                                </div>
+
+                                <div class="info-wrapper">
+                                    <p class="info-spacing info-title" id="pages-value">Pages: @Model.Book.PageCount</p>
+                                </div>
+                                <div class="info-wrapper">
+                                    <p class="info-spacing info-title" id="published-value">First published on: </p>
+                                    <p>@Model.Book.PublishedOn</p>
+                                </div>
+                                <div class="info-wrapper">
+                                    <p class="info-spacing info-title" id="published-value">Genre: </p>
+                                    <p>
+                                        @foreach (var genreName in Model.Book.GenreNames)
+                                        {
+                                            @genreName
+                                        }
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
 
                         <div class="spacing">
                             <p>s</p>
                         </div>
-                        <hr />
 
 
-                        <div class="textarea-container" id="textarea-container">
+                        <div class="section-wrapper">
+
+                            <h2 class="section-title">
+                                @if (Model.Book.AuthorNames.Count == 1)
+                                {
+                                    @Html.Raw(Model.Book.AuthorNames[0] + "'s Other Works")
+                                }
+                                else if (Model.Book.AuthorNames.Count == 2)
+                                {
+                                    @Html.Raw(Model.Book.AuthorNames[0] + " and " + Model.Book.AuthorNames[1] + "'s Other Works")
+                                }
+                                else if (Model.Book.AuthorNames.Count > 2)
+                                {
+                                    @Html.Raw(string.Join(", ", Model.Book.AuthorNames.Take(2)) + " and et al. Other Works")
+                                }
+                            </h2>
+
+                            <hr />
+
+
+                            @if (Model.RelatedBooks != null && Model.RelatedBooks.Any())
+                            {
+
+                                var relatedBooks = Model.RelatedBooks;
+
+                                <div class="book-container">
+                                    @foreach (var relatedBook in Model.RelatedBooks.Take(4))
+                                    {
+                                        <div class="viewbook-book-content">
+                                            <a href="@Url.Action("ViewBook", "Home", new { id = relatedBook.Id })">
+                                                <div class="viewbook-book-image-preview">
+
+                                                    <img class="viewbook-book-image" src="@relatedBook.Image ?? /img/about-us.png" alt="@relatedBook.Name" />
+
+                                                </div>
+                                            </a>
+                                            <div class="viewbook-book-info-card" id="per-book-info-@relatedBook.Id">
+
+                                                <h5 class="viewbook-book-title viewbook-book-text">@relatedBook.Name</h5>
+                                                <p class="viewbook-author-name viewbook-book-text">by @string.Join(", ", relatedBook.AuthorNames) • @relatedBook.PublishedOn.Year</p>
+                                                <p class="viewbook-book-description viewbook-book-text">@relatedBook.Description</p>
+                                            </div>
+                                            <h6 class="viewbook-book-title viewbook-book-text">@relatedBook.Name</h6>
+                                        </div>
+
+                                    }
+
+                                </div>
+
+                                @if (relatedBooks.Count() > 4)
+                                {
+                                    <div class="see-more-container">
+                                        @{
+                                            var authorName = Model.Book.AuthorNames;
+                                        }
+                                        <a href="@Url.Action("AuthorRelatedWorks", "Home", new { authors =  authorName, id = Model.Book.Id  })">
+                                            <span id="seeMoreButton" class="see-more-button">
+                                                See
+                                                More
+                                            </span>
+                                        </a>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p class="no-data-text">No other works by this author found.</p>
+                            }
+                        </div>
+
+
+                        <div class="spacing">
+                            <p>s</p>
+                        </div> 
+
+
+                        <div class="section-wrapper textarea-container" id="textarea-container">
                             <div class="textarea-wrapper ">
                                 <p id="textarea-rating-section">a</p>
                                 <h4 class=" ">Your Rating</h4>
@@ -385,7 +391,7 @@
                         </div>
 
 
-                        <div class="book-rating-container">
+                        <div class="section-wrapper book-rating-container">
                             <div class="book-rating-wrapper">
                                 <h3>Book Ratings</h3>
                                 <div class="rate-review-wrapper element-book-rate">
@@ -409,12 +415,11 @@
                                         <p class="ebr-styling reviews-value rr-spacing element-book-rate review-value"
                                            id="review-value">@(Model.Reviews.Count)</p>
                                         <p class=" ebr-styling element-book-rate">barks</p>
-                                    </div>
-
-
-                                </div>
-                                <hr />
+                                    </div> 
+                                </div> 
                             </div>
+
+
                             <div class="review-item-container">
                                 @if (Model.Reviews != null && Model.Reviews.Any())
                                 {
@@ -437,59 +442,60 @@
                                 }
                             </div>
                         </div>
-
-                        <hr />
+                         
 
                         <div class="spacing">
                             <p>s</p>
                         </div>
 
+                        <div class="section-wrapper">
 
-                        <h2 class="section-title">Suggested For You</h2>
-                        <hr />
+                            <h2 class="section-title">Suggested For You</h2>
+                            <hr />
 
-                        @if (Model.AllBooks != null && Model.AllBooks.Any())
-                        {
-                            <div class="book-container">
-                                @foreach (var book in Model.AllBooks.Take(4))
-                                {
-                                    <div class="viewbook-book-content">
-                                        <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-                                            <div class="viewbook-book-image-preview">
+                            @if (Model.AllBooks != null && Model.AllBooks.Any())
+                            {
+                                <div class="book-container">
+                                    @foreach (var book in Model.AllBooks.Take(4))
+                                    {
+                                        <div class="viewbook-book-content">
+                                            <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
+                                                <div class="viewbook-book-image-preview">
 
-                                                <img class="viewbook-book-image" src="@book.Image ?? /img/about-us.png" alt="@book.Name" />
+                                                    <img class="viewbook-book-image" src="@book.Image ?? /img/about-us.png" alt="@book.Name" />
 
+                                                </div>
+                                            </a>
+                                            <div class="viewbook-book-info-card" id="per-book-info-@book.Id">
+
+                                                <h5 class="viewbook-book-title viewbook-book-text">@book.Name</h5>
+                                                <p class="viewbook-author-name viewbook-book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
+                                                <p class="viewbook-book-description viewbook-book-text">@book.Description</p>
                                             </div>
-                                        </a>
-                                        <div class="viewbook-book-info-card" id="per-book-info-@book.Id">
-
-                                            <h5 class="viewbook-book-title viewbook-book-text">@book.Name</h5>
-                                            <p class="viewbook-author-name viewbook-book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
-                                            <p class="viewbook-book-description viewbook-book-text">@book.Description</p>
+                                            <h6 class="viewbook-book-title viewbook-book-text">@book.Name</h6>
                                         </div>
-                                        <h6 class="viewbook-book-title viewbook-book-text">@book.Name</h6>
+                                    }
+
+                                </div>
+
+                                @if (Model.AllBooks.Count() > 4)
+                                {
+                                    <div class="see-more-container">
+                                        <a href="@Url.Action("SuggestedForU", "Home")">
+                                            <span id="seeMoreButton" class="see-more-button">
+                                                See More
+                                            </span>
+                                        </a>
                                     </div>
                                 }
-
-                            </div>
- 
-                            @if(Model.AllBooks.Count() > 4)
+                            }
+                            else
                             {
-                                <div class="see-more-container">
-                                    <a href="@Url.Action("SuggestedForU", "Home")">
-                                        <span id="seeMoreButton" class="see-more-button">
-                                            See More
-                                        </span>
-                                    </a>
-                                </div>
-                            } 
-                        }
-                        else
-                        {
-                            <p>No books available for suggestions.</p>
-                        }
+                                <p>No books available for suggestions.</p>
+                            }
 
 
+                        </div>
 
 
                     </div>

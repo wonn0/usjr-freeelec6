@@ -30,6 +30,8 @@
     display: flex;
 }
 
+
+
 .viewbook-book-content {
     width: 150px !important;
     text-align: center;
@@ -103,10 +105,6 @@ hr {
 }
 
 
-.book-content {
-    text-align: center;
-    width: -webkit-fill-available;
-}
 
 
 .book-genre {
@@ -145,9 +143,16 @@ hr {
     -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);
 }*/
 
+.section-wrapper {
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 40px;
+    box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
+}
+
 .author-name {
     width: 100%;
-    font-size:xx-large;
+    font-size: xx-large;
     -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);
 }
 
