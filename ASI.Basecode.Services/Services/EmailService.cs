@@ -21,6 +21,7 @@ namespace ASI.Basecode.Services.Services
             _logger = logger;
         }
 
+        //public async Task SendEmailAsync(string email, string subject, string message)
         public async Task SendEmailAsync(string email, string subject, string message)
         {
             try
@@ -33,7 +34,7 @@ namespace ASI.Basecode.Services.Services
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
                 var response = await client.SendEmailAsync(msg);
 
-                _logger.LogInformation("Email sent successfully to {email}", email);
+                _logger.LogInformation($"Email sent successfully to {email} Response: {response.StatusCode}");
             }
             catch (System.Exception ex)
             {

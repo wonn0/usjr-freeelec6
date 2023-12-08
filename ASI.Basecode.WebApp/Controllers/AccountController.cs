@@ -20,6 +20,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -428,21 +429,44 @@ namespace ASI.Basecode.WebApp.Controllers
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
                 await _emailService.SendEmailAsync(model.Email, "Reset Password", $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
                 _logger.LogInformation("finish");
-                return RedirectToAction("VerifyCode", "Account");
             }
             else
             {
                 _logger.LogInformation("fail");
             }
 
-            return RedirectToAction("VerifyCode", "Account");
-        }
-
-    [HttpGet]
-        [AllowAnonymous]
-        public IActionResult VerifyCode()
-        {
             return View();
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPassword(string userId, string code)
+        {
+            var model = new ResetPasswordViewModel
+            {
+                UserId = userId,
+                Code = code
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            _logger.LogInformation($"{model.Code}, {model.UserId}");
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            if (user != null)
+            {
+                var result = await _userManager.ResetPasswordAsync(user, model.Code, model.NewPassword);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+            }
+
+            return RedirectToAction("ResetPassword", "Account");
+        }
+
     }
 }
