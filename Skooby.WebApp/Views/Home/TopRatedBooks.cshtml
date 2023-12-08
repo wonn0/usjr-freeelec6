@@ -47,19 +47,23 @@
             <hr />
             <div class="top-books-container" id="book-wrapper">
 
-    <hr />
-     <div class="top-books-container" id="book-wrapper">
-        
-        <div class="book-wrapper">
-            @{
-                var recentBooks = Model;
-            }
-            @foreach (var book in recentBooks)
-            {
-                <div class="book-content">
-                    <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
-                        <div class="book-image-preview">
-                            <img class="book-image" src="@(String.IsNullOrEmpty(book.Image) ? "/img/book-image-filler.png" : book.Image)" alt="@book.Name" />
+                <div class="book-wrapper">
+                    @{
+                        var recentBooks = Model;
+                    }
+                    @foreach (var book in recentBooks)
+                    {
+                        <div class="book-content">
+                            <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
+                                <div class="book-image-preview">
+                                    <img class="book-image" src="@book.Image ?? " /img/about-us.png"" alt="@book.Name" />
+                                </div>
+                            </a>
+                            <div class="book-info-card" id="per-book-info-@book.Id">
+                                <h5 class="book-title book-text">@book.Name</h5>
+                                <p class="author-name book-text">by @string.Join(", ", book.AuthorNames) • @book.PublishedOn.Year</p>
+                                <p class="book-description book-text">@book.Description</p>
+                            </div>
                         </div>
                     }
 
