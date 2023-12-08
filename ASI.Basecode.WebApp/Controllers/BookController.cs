@@ -119,8 +119,8 @@ namespace ASI.Basecode.WebApp.Controllers
                 return NotFound();
             }
 
-            viewModel.AuthorIds ??= new List<int>();
-            viewModel.GenreIds ??= new List<int>();
+            //viewModel.AuthorIds ??= new List<int>();
+            //viewModel.GenreIds ??= new List<int>();
 
             var authors = _authorService.GetAllAuthors()
                                    .ToList()
@@ -140,8 +140,8 @@ namespace ASI.Basecode.WebApp.Controllers
                                    })
                                    .ToList();
             _logger.LogInformation($"{authors[0].FullName} + {viewModel.GenreIds[0]}");
-            ViewBag.AuthorList = new SelectList(authors, "Id", "FullName", viewModel.AuthorIds);
-            ViewBag.GenreList = new SelectList(genres, "Id", "Name", viewModel.GenreIds);
+            ViewBag.AuthorList = new SelectList(authors, "Id", "FullName");
+            ViewBag.GenreList = new SelectList(genres, "Id", "Name");
 
             return View(viewModel);
         }
