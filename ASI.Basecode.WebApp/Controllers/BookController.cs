@@ -139,7 +139,7 @@ namespace ASI.Basecode.WebApp.Controllers
                                        //Selected = viewModel.GenreIds.Contains(g.Id),
                                    })
                                    .ToList();
-            _logger.LogInformation($"{authors[0].FullName} + {viewModel.GenreIds[0]}");
+            //_logger.LogInformation($"{authors[0].FullName} + {viewModel.GenreIds[0]}");
             ViewBag.AuthorList = new SelectList(authors, "Id", "FullName");
             ViewBag.GenreList = new SelectList(genres, "Id", "Name");
 
