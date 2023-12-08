@@ -370,9 +370,10 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col">
-                                            <div class="g-recaptcha" data-sitekey="6LdpiSgpAAAAAAo5PPvFZhLTpaC4Qz3nH0fAHLl2"></div>
-                                        </div>
+                                        <div id="recaptcha-container" style="display: none;">
+    <div class="g-recaptcha" data-sitekey="6LdpiSgpAAAAAAo5PPvFZhLTpaC4Qz3nH0fAHLl2"></div>
+</div>
+
                                     </div>
                                 </div>
 
@@ -551,20 +552,31 @@
     }
 
     function submitReview() {
-        var bookId = document.querySelector('.skooby-section.skooby-viewbook').getAttribute('data-book-id');
-        var name = document.querySelector("input[placeholder='Your Name']").value;
-        var email = document.querySelector("input[placeholder='Your Email']").value;
-        var comment = document.querySelector(".review-textarea").value;
+    // Show the reCAPTCHA container
+    document.getElementById('recaptcha-container').style.display = 'block';
 
-        var reviewData = {
-            Rating: currentRating,
-            ReviewedBy: name,
-            Email: email,
-            Description: comment,
-            BookId: bookId
-        };
+    var bookId = document.querySelector('.skooby-section.skooby-viewbook').getAttribute('data-book-id');
+    var name = document.querySelector("input[placeholder='Your Name']").value;
+    var email = document.querySelector("input[placeholder='Your Email']").value;
+    var comment = document.querySelector(".review-textarea").value;
 
-        console.log("Submitting review:", reviewData); // Log the review data for debugging
+    // Add a check here to ensure that the reCAPTCHA is solved before submitting
+    var recaptchaResponse = grecaptcha.getResponse();
+    if (recaptchaResponse.length === 0) {
+        // reCAPTCHA not solved, do not proceed with submission
+        alert("Please complete the reCAPTCHA");
+        return;
+    }
+
+    var reviewData = {
+        Rating: currentRating,
+        ReviewedBy: name,
+        Email: email,
+        Description: comment,
+        BookId: bookId
+    };
+
+    console.log("Submitting review:", reviewData); // Log the review data for debugging
 
         fetch('/Home/AddReview', {
             method: 'POST',
