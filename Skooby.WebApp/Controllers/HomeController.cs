@@ -223,36 +223,7 @@ namespace Skooby.WebApp.Controllers
  
 
 
-        [HttpGet]
-        public IActionResult GenreSeeMore(string genre, int pageNo = 1)
-        {
-            var pageSize = 10;
-
-            
-            var allBooks = _bookService.GetAllBooks();
-
-           
-            var booksInGenre = allBooks.Where(book => book.GenreNames.Any(genreName => string.Equals(genreName, genre, StringComparison.OrdinalIgnoreCase)));
-
-
-            var model = booksInGenre
-    .Skip((pageNo - 1) * pageSize)
-    .Take(pageSize)
-    .ToList();
-
-
-
-            var totalBooksCount = booksInGenre.Count();
-            var totalPages = (int)Math.Ceiling((double)totalBooksCount / pageSize);
-
-            // Set ViewBag data for pagination in the view
-            ViewBag.CurrentPage = pageNo;
-            ViewBag.TotalPages = totalPages;
-                 ViewBag.Genre = genre;
-
-
-            return View(model);
-        }
+ 
 
         [HttpGet]
         public IActionResult AuthorRelatedWorks(string author, int pageNo = 1)
@@ -373,36 +344,7 @@ namespace Skooby.WebApp.Controllers
             return View(model);
         }
 
-
-
-        [HttpGet]
-        public IActionResult SuggestedForU(int pageNo = 1)
-        {
-            var pageSize = 10;
-
-            // Assuming GetAllBooks returns a collection of all books
-            var allBooks = _bookService.GetAllBooks();
-
-            // Randomize the order of all books
-            var random = new Random();
-            var randomizedBooks = allBooks.OrderBy(book => random.Next());
-
-            // Paginate the results
-            var model = randomizedBooks
-                .Skip((pageNo - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
-
-            // Calculate total pages
-            var totalBooksCount = allBooks.Count();
-            var totalPages = (int)Math.Ceiling((double)totalBooksCount / pageSize);
-
-            // Set ViewBag data for pagination in the view
-            ViewBag.CurrentPage = pageNo;
-            ViewBag.TotalPages = totalPages;
-
-            return View(model);
-        }
+ 
 
 
         [HttpPost]
