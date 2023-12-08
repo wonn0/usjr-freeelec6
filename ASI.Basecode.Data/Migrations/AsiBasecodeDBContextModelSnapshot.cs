@@ -419,32 +419,27 @@ namespace ASI.Basecode.Data.Migrations
                     b.HasData(
                         new
                         {
-                            AuthorId = 17,
+                            AuthorId = 4,
                             BookId = 1
                         },
                         new
                         {
-                            AuthorId = 46,
+                            AuthorId = 28,
                             BookId = 2
                         },
                         new
                         {
-                            AuthorId = 16,
+                            AuthorId = 39,
                             BookId = 2
                         },
                         new
                         {
-                            AuthorId = 1,
-                            BookId = 2
-                        },
-                        new
-                        {
-                            AuthorId = 46,
+                            AuthorId = 37,
                             BookId = 3
                         },
                         new
                         {
-                            AuthorId = 16,
+                            AuthorId = 8,
                             BookId = 3
                         },
                         new
@@ -454,358 +449,333 @@ namespace ASI.Basecode.Data.Migrations
                         },
                         new
                         {
-                            AuthorId = 7,
+                            AuthorId = 16,
                             BookId = 5
                         },
                         new
                         {
-                            AuthorId = 36,
-                            BookId = 6
-                        },
-                        new
-                        {
-                            AuthorId = 18,
-                            BookId = 6
-                        },
-                        new
-                        {
-                            AuthorId = 22,
-                            BookId = 7
-                        },
-                        new
-                        {
-                            AuthorId = 10,
-                            BookId = 7
-                        },
-                        new
-                        {
-                            AuthorId = 5,
-                            BookId = 7
-                        },
-                        new
-                        {
-                            AuthorId = 44,
-                            BookId = 8
-                        },
-                        new
-                        {
-                            AuthorId = 7,
-                            BookId = 8
-                        },
-                        new
-                        {
-                            AuthorId = 12,
-                            BookId = 9
-                        },
-                        new
-                        {
-                            AuthorId = 38,
-                            BookId = 9
-                        },
-                        new
-                        {
-                            AuthorId = 38,
-                            BookId = 10
-                        },
-                        new
-                        {
-                            AuthorId = 42,
-                            BookId = 10
-                        },
-                        new
-                        {
-                            AuthorId = 7,
-                            BookId = 11
-                        },
-                        new
-                        {
-                            AuthorId = 19,
-                            BookId = 12
-                        },
-                        new
-                        {
-                            AuthorId = 23,
-                            BookId = 12
-                        },
-                        new
-                        {
-                            AuthorId = 12,
-                            BookId = 13
-                        },
-                        new
-                        {
-                            AuthorId = 43,
-                            BookId = 13
-                        },
-                        new
-                        {
-                            AuthorId = 40,
-                            BookId = 14
-                        },
-                        new
-                        {
-                            AuthorId = 13,
-                            BookId = 15
-                        },
-                        new
-                        {
-                            AuthorId = 50,
-                            BookId = 15
-                        },
-                        new
-                        {
-                            AuthorId = 37,
-                            BookId = 16
-                        },
-                        new
-                        {
-                            AuthorId = 42,
-                            BookId = 16
-                        },
-                        new
-                        {
-                            AuthorId = 33,
-                            BookId = 16
-                        },
-                        new
-                        {
                             AuthorId = 46,
-                            BookId = 17
+                            BookId = 6
                         },
                         new
                         {
-                            AuthorId = 4,
-                            BookId = 17
-                        },
-                        new
-                        {
-                            AuthorId = 17,
-                            BookId = 18
-                        },
-                        new
-                        {
-                            AuthorId = 22,
-                            BookId = 19
-                        },
-                        new
-                        {
-                            AuthorId = 15,
-                            BookId = 20
-                        },
-                        new
-                        {
-                            AuthorId = 49,
-                            BookId = 20
-                        },
-                        new
-                        {
-                            AuthorId = 39,
-                            BookId = 21
-                        },
-                        new
-                        {
-                            AuthorId = 11,
-                            BookId = 21
-                        },
-                        new
-                        {
-                            AuthorId = 8,
-                            BookId = 21
-                        },
-                        new
-                        {
-                            AuthorId = 6,
-                            BookId = 22
-                        },
-                        new
-                        {
-                            AuthorId = 31,
-                            BookId = 22
-                        },
-                        new
-                        {
-                            AuthorId = 15,
-                            BookId = 23
-                        },
-                        new
-                        {
-                            AuthorId = 25,
-                            BookId = 23
-                        },
-                        new
-                        {
-                            AuthorId = 1,
-                            BookId = 24
-                        },
-                        new
-                        {
-                            AuthorId = 23,
-                            BookId = 24
-                        },
-                        new
-                        {
-                            AuthorId = 32,
-                            BookId = 25
-                        },
-                        new
-                        {
-                            AuthorId = 20,
-                            BookId = 25
-                        },
-                        new
-                        {
-                            AuthorId = 37,
-                            BookId = 25
-                        },
-                        new
-                        {
-                            AuthorId = 1,
-                            BookId = 26
-                        },
-                        new
-                        {
-                            AuthorId = 50,
-                            BookId = 27
-                        },
-                        new
-                        {
-                            AuthorId = 47,
-                            BookId = 27
-                        },
-                        new
-                        {
-                            AuthorId = 23,
-                            BookId = 27
-                        },
-                        new
-                        {
-                            AuthorId = 4,
-                            BookId = 28
-                        },
-                        new
-                        {
-                            AuthorId = 33,
-                            BookId = 28
-                        },
-                        new
-                        {
-                            AuthorId = 49,
-                            BookId = 28
-                        },
-                        new
-                        {
-                            AuthorId = 33,
-                            BookId = 29
-                        },
-                        new
-                        {
-                            AuthorId = 42,
-                            BookId = 29
+                            AuthorId = 41,
+                            BookId = 7
                         },
                         new
                         {
                             AuthorId = 28,
-                            BookId = 29
-                        },
-                        new
-                        {
-                            AuthorId = 31,
-                            BookId = 30
-                        },
-                        new
-                        {
-                            AuthorId = 30,
-                            BookId = 30
-                        },
-                        new
-                        {
-                            AuthorId = 1,
-                            BookId = 31
-                        },
-                        new
-                        {
-                            AuthorId = 19,
-                            BookId = 31
-                        },
-                        new
-                        {
-                            AuthorId = 36,
-                            BookId = 32
-                        },
-                        new
-                        {
-                            AuthorId = 12,
-                            BookId = 32
-                        },
-                        new
-                        {
-                            AuthorId = 7,
-                            BookId = 33
-                        },
-                        new
-                        {
-                            AuthorId = 37,
-                            BookId = 33
-                        },
-                        new
-                        {
-                            AuthorId = 26,
-                            BookId = 33
-                        },
-                        new
-                        {
-                            AuthorId = 17,
-                            BookId = 34
-                        },
-                        new
-                        {
-                            AuthorId = 4,
-                            BookId = 35
-                        },
-                        new
-                        {
-                            AuthorId = 43,
-                            BookId = 35
-                        },
-                        new
-                        {
-                            AuthorId = 10,
-                            BookId = 35
-                        },
-                        new
-                        {
-                            AuthorId = 20,
-                            BookId = 36
-                        },
-                        new
-                        {
-                            AuthorId = 49,
-                            BookId = 37
-                        },
-                        new
-                        {
-                            AuthorId = 20,
-                            BookId = 37
-                        },
-                        new
-                        {
-                            AuthorId = 30,
-                            BookId = 37
+                            BookId = 8
                         },
                         new
                         {
                             AuthorId = 25,
-                            BookId = 38
+                            BookId = 8
                         },
                         new
                         {
-                            AuthorId = 19,
-                            BookId = 39
+                            AuthorId = 14,
+                            BookId = 8
+                        },
+                        new
+                        {
+                            AuthorId = 36,
+                            BookId = 9
+                        },
+                        new
+                        {
+                            AuthorId = 47,
+                            BookId = 10
+                        },
+                        new
+                        {
+                            AuthorId = 49,
+                            BookId = 10
+                        },
+                        new
+                        {
+                            AuthorId = 27,
+                            BookId = 10
+                        },
+                        new
+                        {
+                            AuthorId = 46,
+                            BookId = 11
+                        },
+                        new
+                        {
+                            AuthorId = 16,
+                            BookId = 11
+                        },
+                        new
+                        {
+                            AuthorId = 18,
+                            BookId = 12
+                        },
+                        new
+                        {
+                            AuthorId = 33,
+                            BookId = 13
+                        },
+                        new
+                        {
+                            AuthorId = 27,
+                            BookId = 13
                         },
                         new
                         {
                             AuthorId = 37,
-                            BookId = 40
+                            BookId = 14
+                        },
+                        new
+                        {
+                            AuthorId = 29,
+                            BookId = 15
+                        },
+                        new
+                        {
+                            AuthorId = 50,
+                            BookId = 15
+                        },
+                        new
+                        {
+                            AuthorId = 14,
+                            BookId = 16
+                        },
+                        new
+                        {
+                            AuthorId = 6,
+                            BookId = 16
+                        },
+                        new
+                        {
+                            AuthorId = 41,
+                            BookId = 16
+                        },
+                        new
+                        {
+                            AuthorId = 31,
+                            BookId = 17
+                        },
+                        new
+                        {
+                            AuthorId = 36,
+                            BookId = 17
+                        },
+                        new
+                        {
+                            AuthorId = 22,
+                            BookId = 18
+                        },
+                        new
+                        {
+                            AuthorId = 25,
+                            BookId = 18
+                        },
+                        new
+                        {
+                            AuthorId = 17,
+                            BookId = 19
+                        },
+                        new
+                        {
+                            AuthorId = 9,
+                            BookId = 19
+                        },
+                        new
+                        {
+                            AuthorId = 35,
+                            BookId = 19
+                        },
+                        new
+                        {
+                            AuthorId = 22,
+                            BookId = 20
+                        },
+                        new
+                        {
+                            AuthorId = 10,
+                            BookId = 20
+                        },
+                        new
+                        {
+                            AuthorId = 13,
+                            BookId = 21
+                        },
+                        new
+                        {
+                            AuthorId = 1,
+                            BookId = 21
+                        },
+                        new
+                        {
+                            AuthorId = 35,
+                            BookId = 22
+                        },
+                        new
+                        {
+                            AuthorId = 26,
+                            BookId = 22
+                        },
+                        new
+                        {
+                            AuthorId = 44,
+                            BookId = 23
+                        },
+                        new
+                        {
+                            AuthorId = 41,
+                            BookId = 24
+                        },
+                        new
+                        {
+                            AuthorId = 7,
+                            BookId = 25
+                        },
+                        new
+                        {
+                            AuthorId = 46,
+                            BookId = 25
+                        },
+                        new
+                        {
+                            AuthorId = 22,
+                            BookId = 26
+                        },
+                        new
+                        {
+                            AuthorId = 23,
+                            BookId = 26
+                        },
+                        new
+                        {
+                            AuthorId = 8,
+                            BookId = 26
+                        },
+                        new
+                        {
+                            AuthorId = 38,
+                            BookId = 27
+                        },
+                        new
+                        {
+                            AuthorId = 22,
+                            BookId = 27
+                        },
+                        new
+                        {
+                            AuthorId = 6,
+                            BookId = 27
+                        },
+                        new
+                        {
+                            AuthorId = 6,
+                            BookId = 28
+                        },
+                        new
+                        {
+                            AuthorId = 28,
+                            BookId = 28
+                        },
+                        new
+                        {
+                            AuthorId = 10,
+                            BookId = 28
+                        },
+                        new
+                        {
+                            AuthorId = 14,
+                            BookId = 29
+                        },
+                        new
+                        {
+                            AuthorId = 1,
+                            BookId = 30
+                        },
+                        new
+                        {
+                            AuthorId = 25,
+                            BookId = 31
+                        },
+                        new
+                        {
+                            AuthorId = 26,
+                            BookId = 32
+                        },
+                        new
+                        {
+                            AuthorId = 9,
+                            BookId = 32
+                        },
+                        new
+                        {
+                            AuthorId = 15,
+                            BookId = 33
+                        },
+                        new
+                        {
+                            AuthorId = 30,
+                            BookId = 33
+                        },
+                        new
+                        {
+                            AuthorId = 27,
+                            BookId = 34
+                        },
+                        new
+                        {
+                            AuthorId = 21,
+                            BookId = 34
+                        },
+                        new
+                        {
+                            AuthorId = 37,
+                            BookId = 35
+                        },
+                        new
+                        {
+                            AuthorId = 6,
+                            BookId = 35
+                        },
+                        new
+                        {
+                            AuthorId = 25,
+                            BookId = 35
+                        },
+                        new
+                        {
+                            AuthorId = 31,
+                            BookId = 36
+                        },
+                        new
+                        {
+                            AuthorId = 34,
+                            BookId = 36
+                        },
+                        new
+                        {
+                            AuthorId = 1,
+                            BookId = 36
+                        },
+                        new
+                        {
+                            AuthorId = 4,
+                            BookId = 37
+                        },
+                        new
+                        {
+                            AuthorId = 19,
+                            BookId = 37
+                        },
+                        new
+                        {
+                            AuthorId = 29,
+                            BookId = 38
+                        },
+                        new
+                        {
+                            AuthorId = 46,
+                            BookId = 39
                         },
                         new
                         {
@@ -814,32 +784,37 @@ namespace ASI.Basecode.Data.Migrations
                         },
                         new
                         {
-                            AuthorId = 45,
+                            AuthorId = 12,
                             BookId = 40
                         },
                         new
                         {
                             AuthorId = 14,
+                            BookId = 40
+                        },
+                        new
+                        {
+                            AuthorId = 30,
                             BookId = 41
                         },
                         new
                         {
-                            AuthorId = 12,
+                            AuthorId = 27,
                             BookId = 41
                         },
                         new
                         {
-                            AuthorId = 48,
-                            BookId = 41
-                        },
-                        new
-                        {
-                            AuthorId = 50,
+                            AuthorId = 47,
                             BookId = 42
                         },
                         new
                         {
-                            AuthorId = 35,
+                            AuthorId = 36,
+                            BookId = 42
+                        },
+                        new
+                        {
+                            AuthorId = 28,
                             BookId = 42
                         },
                         new
@@ -849,32 +824,52 @@ namespace ASI.Basecode.Data.Migrations
                         },
                         new
                         {
-                            AuthorId = 47,
+                            AuthorId = 10,
+                            BookId = 43
+                        },
+                        new
+                        {
+                            AuthorId = 36,
                             BookId = 44
                         },
                         new
                         {
-                            AuthorId = 48,
-                            BookId = 45
+                            AuthorId = 13,
+                            BookId = 44
                         },
                         new
                         {
-                            AuthorId = 24,
-                            BookId = 45
+                            AuthorId = 30,
+                            BookId = 44
                         },
                         new
                         {
-                            AuthorId = 25,
+                            AuthorId = 15,
                             BookId = 45
                         },
                         new
                         {
                             AuthorId = 47,
+                            BookId = 45
+                        },
+                        new
+                        {
+                            AuthorId = 41,
                             BookId = 46
                         },
                         new
                         {
-                            AuthorId = 34,
+                            AuthorId = 11,
+                            BookId = 46
+                        },
+                        new
+                        {
+                            AuthorId = 4,
+                            BookId = 47
+                        },
+                        new
+                        {
+                            AuthorId = 40,
                             BookId = 47
                         },
                         new
@@ -884,37 +879,27 @@ namespace ASI.Basecode.Data.Migrations
                         },
                         new
                         {
-                            AuthorId = 7,
-                            BookId = 48
-                        },
-                        new
-                        {
                             AuthorId = 12,
                             BookId = 48
                         },
                         new
                         {
-                            AuthorId = 27,
-                            BookId = 48
-                        },
-                        new
-                        {
-                            AuthorId = 40,
+                            AuthorId = 5,
                             BookId = 49
                         },
                         new
                         {
-                            AuthorId = 22,
-                            BookId = 49
+                            AuthorId = 9,
+                            BookId = 50
                         },
                         new
                         {
-                            AuthorId = 11,
-                            BookId = 49
+                            AuthorId = 49,
+                            BookId = 50
                         },
                         new
                         {
-                            AuthorId = 50,
+                            AuthorId = 34,
                             BookId = 50
                         });
                 });
@@ -962,652 +947,652 @@ namespace ASI.Basecode.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3500),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(3770),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-9560-4274",
-                            Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
+                            ISBN = "ISBN-6789-7890",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
                             Language = "English",
-                            Name = "The Oracle's Last Prophecy",
-                            PageCount = 204,
-                            PublishedOn = new DateTime(2014, 12, 12, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3485),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3501)
+                            Name = "The Last Voyage of the Star Sailor",
+                            PageCount = 141,
+                            PublishedOn = new DateTime(2020, 4, 1, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(3710),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(3770)
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3691),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(3910),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-4772-7718",
-                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
+                            ISBN = "ISBN-5431-5846",
+                            Image = "https://getcovers.com/wp-content/uploads/2022/01/cover-10-e1642585646366.jpeg",
                             Language = "English",
-                            Name = "Voices from the Hollow Mountains",
-                            PageCount = 264,
-                            PublishedOn = new DateTime(2021, 9, 11, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3688),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3692)
+                            Name = "The Magician's Reflection",
+                            PageCount = 101,
+                            PublishedOn = new DateTime(2019, 3, 17, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(3910),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(3910)
                         },
                         new
                         {
                             Id = 3,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3887),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(3960),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-8282-9716",
-                            Image = "https://i0.wp.com/allaboutbookcovers.com/wp-content/uploads/2022/06/CourtOfThorns-copy.jpg?fit=1350%2C2025&ssl=1",
+                            ISBN = "ISBN-7714-2476",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
                             Language = "English",
-                            Name = "Dance of the Fireflies",
-                            PageCount = 182,
-                            PublishedOn = new DateTime(2020, 3, 26, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3885),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3888)
+                            Name = "The Scribe's Enigma",
+                            PageCount = 490,
+                            PublishedOn = new DateTime(2015, 1, 21, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(3960),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(3960)
                         },
                         new
                         {
                             Id = 4,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3983),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4000),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-1432-2531",
-                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
+                            ISBN = "ISBN-9768-6022",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
                             Language = "English",
-                            Name = "In the Heart of the Storm",
-                            PageCount = 335,
-                            PublishedOn = new DateTime(2020, 2, 24, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3981),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(3984)
+                            Name = "Dance of the Fireflies",
+                            PageCount = 499,
+                            PublishedOn = new DateTime(2019, 12, 5, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4000),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4000)
                         },
                         new
                         {
                             Id = 5,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4058),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4040),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-4169-6240",
+                            ISBN = "ISBN-2702-9206",
                             Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
                             Language = "English",
-                            Name = "Dance of the Fireflies",
-                            PageCount = 460,
-                            PublishedOn = new DateTime(2014, 12, 27, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4055),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4058)
+                            Name = "Lost in the Whispering Forest",
+                            PageCount = 403,
+                            PublishedOn = new DateTime(2014, 12, 17, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4040),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4040)
                         },
                         new
                         {
                             Id = 6,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4246),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4080),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-1057-5939",
-                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
+                            ISBN = "ISBN-1001-9239",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
                             Language = "English",
-                            Name = "The Labyrinth of Lost Souls",
-                            PageCount = 470,
-                            PublishedOn = new DateTime(2016, 5, 17, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4243),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4247)
+                            Name = "The Painter's Paradox",
+                            PageCount = 114,
+                            PublishedOn = new DateTime(2020, 10, 2, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4080),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4080)
                         },
                         new
                         {
                             Id = 7,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4361),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4110),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-6649-5781",
-                            Image = "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
+                            ISBN = "ISBN-8228-3615",
+                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
                             Language = "English",
-                            Name = "The Last Voyage of the Star Sailor",
-                            PageCount = 280,
-                            PublishedOn = new DateTime(2014, 9, 24, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4360),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4362)
+                            Name = "Legends of the Celestial Atlas",
+                            PageCount = 325,
+                            PublishedOn = new DateTime(2022, 6, 11, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4110),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4110)
                         },
                         new
                         {
                             Id = 8,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4485),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4170),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-8107-8427",
-                            Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
+                            ISBN = "ISBN-7234-2964",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjSjNwRh91T9hdJJ2YqZX8ZD3mO30cNsDgWg&usqp=CAU",
                             Language = "English",
-                            Name = "The Oracle's Last Prophecy",
-                            PageCount = 317,
-                            PublishedOn = new DateTime(2015, 10, 23, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4483),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4486)
+                            Name = "The Ivory Tower of Secrets",
+                            PageCount = 217,
+                            PublishedOn = new DateTime(2022, 11, 5, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4170),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4180)
                         },
                         new
                         {
                             Id = 9,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4688),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4230),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-5429-3412",
+                            ISBN = "ISBN-3684-1649",
                             Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
                             Language = "English",
-                            Name = "Echoes in the Starless Sky",
-                            PageCount = 221,
-                            PublishedOn = new DateTime(2021, 6, 26, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4686),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4689)
+                            Name = "The Labyrinth of Lost Souls",
+                            PageCount = 264,
+                            PublishedOn = new DateTime(2017, 8, 22, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4230),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4230)
                         },
                         new
                         {
                             Id = 10,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4796),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4260),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-4080-9738",
-                            Image = "https://i0.wp.com/allaboutbookcovers.com/wp-content/uploads/2022/06/CourtOfThorns-copy.jpg?fit=1350%2C2025&ssl=1",
+                            ISBN = "ISBN-4023-6072",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
                             Language = "English",
-                            Name = "Twilight of the Celestial Court",
-                            PageCount = 271,
-                            PublishedOn = new DateTime(2021, 11, 5, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4794),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4797)
+                            Name = "The Hidden Kingdom Beyond the Mountains",
+                            PageCount = 305,
+                            PublishedOn = new DateTime(2016, 8, 6, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4260),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4260)
                         },
                         new
                         {
                             Id = 11,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4901),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4360),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-3497-7461",
-                            Image = "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
+                            ISBN = "ISBN-4002-3465",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThlIbwUK0HrnP1xp7l7k5qXs2goRkaFH62Zg&usqp=CAU",
                             Language = "English",
-                            Name = "The Architect's Legacy",
-                            PageCount = 317,
-                            PublishedOn = new DateTime(2018, 1, 31, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4899),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(4902)
+                            Name = "The Hidden Kingdom Beyond the Mountains",
+                            PageCount = 352,
+                            PublishedOn = new DateTime(2022, 9, 5, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4350),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4360)
                         },
                         new
                         {
                             Id = 12,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5132),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4400),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-6774-6418",
-                            Image = "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
+                            ISBN = "ISBN-2702-8259",
+                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
                             Language = "English",
-                            Name = "Dance of the Fireflies",
-                            PageCount = 145,
-                            PublishedOn = new DateTime(2015, 11, 30, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5130),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5133)
+                            Name = "Voices from the Hollow Mountains",
+                            PageCount = 310,
+                            PublishedOn = new DateTime(2021, 11, 9, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4400),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4400)
                         },
                         new
                         {
                             Id = 13,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5247),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4430),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-7389-9676",
-                            Image = "https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0",
+                            ISBN = "ISBN-9289-2674",
+                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
                             Language = "English",
-                            Name = "The Magician's Reflection",
-                            PageCount = 210,
-                            PublishedOn = new DateTime(2017, 5, 24, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5245),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5248)
+                            Name = "The Secret of the Astral Plane",
+                            PageCount = 489,
+                            PublishedOn = new DateTime(2016, 5, 16, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4430),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4430)
                         },
                         new
                         {
                             Id = 14,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5426),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4460),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-4498-1250",
+                            ISBN = "ISBN-2404-1624",
                             Image = "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
                             Language = "English",
-                            Name = "Sands of the Forgotten Empire",
-                            PageCount = 496,
-                            PublishedOn = new DateTime(2014, 9, 8, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5424),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5426)
+                            Name = "Abyss of the Starry Depths",
+                            PageCount = 476,
+                            PublishedOn = new DateTime(2022, 3, 25, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4460),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4460)
                         },
                         new
                         {
                             Id = 15,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5508),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4490),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-3100-3622",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-NlVbe_m7VER_lfAVbKpyo2Shp9Wv6pLMg&usqp=CAU",
+                            ISBN = "ISBN-3642-8588",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjSjNwRh91T9hdJJ2YqZX8ZD3mO30cNsDgWg&usqp=CAU",
                             Language = "English",
-                            Name = "The Oracle's Last Prophecy",
-                            PageCount = 460,
-                            PublishedOn = new DateTime(2016, 9, 8, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5506),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5509)
+                            Name = "The Emerald Conundrum",
+                            PageCount = 334,
+                            PublishedOn = new DateTime(2021, 12, 12, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4490),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4490)
                         },
                         new
                         {
                             Id = 16,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5637),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4570),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-9575-2587",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-NlVbe_m7VER_lfAVbKpyo2Shp9Wv6pLMg&usqp=CAU",
+                            ISBN = "ISBN-8765-9619",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
                             Language = "English",
-                            Name = "The Oracle's Last Prophecy",
-                            PageCount = 154,
-                            PublishedOn = new DateTime(2018, 2, 28, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5634),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5638)
+                            Name = "The Heirloom of Forgotten Times",
+                            PageCount = 160,
+                            PublishedOn = new DateTime(2018, 11, 12, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4570),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4570)
                         },
                         new
                         {
                             Id = 17,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5820),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4620),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-2741-5943",
-                            Image = "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
+                            ISBN = "ISBN-4283-6260",
+                            Image = "https://getcovers.com/wp-content/uploads/2022/01/cover-10-e1642585646366.jpeg",
                             Language = "English",
-                            Name = "Veil of the Northern Lights",
-                            PageCount = 486,
-                            PublishedOn = new DateTime(2017, 5, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5818),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5821)
+                            Name = "The Meridian of Fate",
+                            PageCount = 293,
+                            PublishedOn = new DateTime(2020, 4, 6, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4620),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4630)
                         },
                         new
                         {
                             Id = 18,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5920),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4680),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-8970-5603",
-                            Image = "https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0",
+                            ISBN = "ISBN-4121-9565",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
                             Language = "English",
-                            Name = "Whispers from the Other Side",
-                            PageCount = 109,
-                            PublishedOn = new DateTime(2022, 11, 12, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5918),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5921)
+                            Name = "Dreams of the Sunken City",
+                            PageCount = 234,
+                            PublishedOn = new DateTime(2016, 12, 18, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4670),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4680)
                         },
                         new
                         {
                             Id = 19,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5989),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4710),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-9357-8745",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
+                            ISBN = "ISBN-7710-9488",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjSjNwRh91T9hdJJ2YqZX8ZD3mO30cNsDgWg&usqp=CAU",
                             Language = "English",
-                            Name = "The Phoenix's Requiem",
-                            PageCount = 237,
-                            PublishedOn = new DateTime(2017, 10, 26, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5986),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(5989)
+                            Name = "Abyss of the Starry Depths",
+                            PageCount = 233,
+                            PublishedOn = new DateTime(2016, 6, 22, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4710),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4710)
                         },
                         new
                         {
                             Id = 20,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6167),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4770),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-5248-6786",
-                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
+                            ISBN = "ISBN-3981-5883",
+                            Image = "https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg",
                             Language = "English",
-                            Name = "The Architect's Legacy",
-                            PageCount = 230,
-                            PublishedOn = new DateTime(2018, 8, 2, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6165),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6168)
+                            Name = "The Hidden Kingdom Beyond the Mountains",
+                            PageCount = 119,
+                            PublishedOn = new DateTime(2014, 8, 21, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4770),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4770)
                         },
                         new
                         {
                             Id = 21,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6269),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4830),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-9378-3231",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
+                            ISBN = "ISBN-2609-7864",
+                            Image = "https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0",
                             Language = "English",
                             Name = "The Silver Key of Dreams",
-                            PageCount = 234,
-                            PublishedOn = new DateTime(2016, 1, 5, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6268),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6270)
+                            PageCount = 268,
+                            PublishedOn = new DateTime(2017, 5, 22, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4830),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4830)
                         },
                         new
                         {
                             Id = 22,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6402),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4930),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-1500-9177",
-                            Image = "https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0",
+                            ISBN = "ISBN-8368-7668",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
                             Language = "English",
-                            Name = "The Dragon's Heir",
-                            PageCount = 142,
-                            PublishedOn = new DateTime(2014, 10, 28, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6399),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6403)
+                            Name = "Veil of the Northern Lights",
+                            PageCount = 185,
+                            PublishedOn = new DateTime(2018, 8, 24, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4930),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4930)
                         },
                         new
                         {
                             Id = 23,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6578),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4970),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-3367-7965",
-                            Image = "https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0",
+                            ISBN = "ISBN-3511-4184",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
                             Language = "English",
-                            Name = "The Oracle's Last Prophecy",
-                            PageCount = 190,
-                            PublishedOn = new DateTime(2018, 1, 24, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6576),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6579)
+                            Name = "Dance of the Fireflies",
+                            PageCount = 229,
+                            PublishedOn = new DateTime(2016, 11, 6, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4970),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(4980)
                         },
                         new
                         {
                             Id = 24,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6652),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5000),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-1011-1487",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
+                            ISBN = "ISBN-3310-7469",
+                            Image = "https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2017/10/the-50-coolest-book-covers-47.jpg",
                             Language = "English",
-                            Name = "The Forgotten Chronicles",
-                            PageCount = 403,
-                            PublishedOn = new DateTime(2016, 12, 22, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6649),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6653)
+                            Name = "The Garden of Timeless Secrets",
+                            PageCount = 279,
+                            PublishedOn = new DateTime(2021, 1, 13, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5000),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5000)
                         },
                         new
                         {
                             Id = 25,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6769),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5080),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-6400-5778",
-                            Image = "https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg",
+                            ISBN = "ISBN-5850-5401",
+                            Image = "https://i.guim.co.uk/img/media/af1ea48f1eeaab4300691b35f585d326e6ed24bb/0_0_784_1200/master/784.jpg?width=700&quality=85&auto=format&fit=max&s=07b76b55b36cf2f0b56086c33d9e2763",
                             Language = "English",
-                            Name = "Echoes in the Starless Sky",
-                            PageCount = 498,
-                            PublishedOn = new DateTime(2020, 12, 3, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6768),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6770)
+                            Name = "Lost in the Whispering Forest",
+                            PageCount = 309,
+                            PublishedOn = new DateTime(2021, 8, 6, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5080),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5080)
                         },
                         new
                         {
                             Id = 26,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6943),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5130),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-6194-3917",
-                            Image = "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
+                            ISBN = "ISBN-2093-3552",
+                            Image = "https://getcovers.com/wp-content/uploads/2022/01/cover-10-e1642585646366.jpeg",
                             Language = "English",
-                            Name = "Voices from the Hollow Mountains",
-                            PageCount = 189,
-                            PublishedOn = new DateTime(2020, 5, 11, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6941),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(6943)
+                            Name = "Eclipses of the Past",
+                            PageCount = 131,
+                            PublishedOn = new DateTime(2021, 9, 22, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5130),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5130)
                         },
                         new
                         {
                             Id = 27,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7013),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5240),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-7720-5769",
-                            Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
+                            ISBN = "ISBN-7267-9681",
+                            Image = "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
                             Language = "English",
-                            Name = "The Alchemist's Shadow",
-                            PageCount = 388,
-                            PublishedOn = new DateTime(2022, 1, 22, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7011),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7014)
+                            Name = "The Garden of Timeless Secrets",
+                            PageCount = 392,
+                            PublishedOn = new DateTime(2015, 8, 25, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5240),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5240)
                         },
                         new
                         {
                             Id = 28,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7172),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5290),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-1244-6631",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
+                            ISBN = "ISBN-6315-6895",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
                             Language = "English",
-                            Name = "The Magician's Reflection",
-                            PageCount = 175,
-                            PublishedOn = new DateTime(2022, 1, 28, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7170),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7173)
+                            Name = "The Labyrinth of Lost Souls",
+                            PageCount = 302,
+                            PublishedOn = new DateTime(2020, 9, 28, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5280),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5290)
                         },
                         new
                         {
                             Id = 29,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7276),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5320),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-4452-3439",
-                            Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
+                            ISBN = "ISBN-9639-4277",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThlIbwUK0HrnP1xp7l7k5qXs2goRkaFH62Zg&usqp=CAU",
                             Language = "English",
-                            Name = "The Magician's Reflection",
-                            PageCount = 443,
-                            PublishedOn = new DateTime(2019, 7, 29, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7274),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7277)
+                            Name = "Whispers from the Other Side",
+                            PageCount = 408,
+                            PublishedOn = new DateTime(2021, 7, 22, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5320),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5320)
                         },
                         new
                         {
                             Id = 30,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7409),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5360),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-2720-3805",
-                            Image = "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
+                            ISBN = "ISBN-7327-7753",
+                            Image = "https://getcovers.com/wp-content/uploads/2022/01/cover-10-e1642585646366.jpeg",
                             Language = "English",
-                            Name = "The Last Symphony of Autumn",
-                            PageCount = 207,
-                            PublishedOn = new DateTime(2015, 8, 7, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7406),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7410)
+                            Name = "Secrets of the Jade Labyrinth",
+                            PageCount = 298,
+                            PublishedOn = new DateTime(2021, 2, 26, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5360),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5360)
                         },
                         new
                         {
                             Id = 31,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7597),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5390),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-7582-1864",
-                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
+                            ISBN = "ISBN-1235-2218",
+                            Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
                             Language = "English",
-                            Name = "The Architect's Legacy",
-                            PageCount = 298,
-                            PublishedOn = new DateTime(2018, 7, 12, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7595),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7598)
+                            Name = "The Enigma of the Crystal Towers",
+                            PageCount = 110,
+                            PublishedOn = new DateTime(2017, 6, 27, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5390),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5400)
                         },
                         new
                         {
                             Id = 32,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7700),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5430),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-6028-2519",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
+                            ISBN = "ISBN-9740-3252",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThlIbwUK0HrnP1xp7l7k5qXs2goRkaFH62Zg&usqp=CAU",
                             Language = "English",
-                            Name = "Dance of the Fireflies",
-                            PageCount = 141,
-                            PublishedOn = new DateTime(2020, 5, 16, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7698),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7701)
+                            Name = "The Last Voyage of the Star Sailor",
+                            PageCount = 365,
+                            PublishedOn = new DateTime(2021, 3, 24, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5430),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5430)
                         },
                         new
                         {
                             Id = 33,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7800),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5490),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-3077-5626",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
+                            ISBN = "ISBN-6354-7306",
+                            Image = "https://getcovers.com/wp-content/uploads/2022/01/cover-10-e1642585646366.jpeg",
                             Language = "English",
-                            Name = "In the Heart of the Storm",
-                            PageCount = 336,
-                            PublishedOn = new DateTime(2014, 6, 25, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7798),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7801)
+                            Name = "The Secret of the Astral Plane",
+                            PageCount = 253,
+                            PublishedOn = new DateTime(2020, 4, 29, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5490),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5490)
                         },
                         new
                         {
                             Id = 34,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7991),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5530),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-8420-8691",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
+                            ISBN = "ISBN-4438-7572",
+                            Image = "https://i.guim.co.uk/img/media/af1ea48f1eeaab4300691b35f585d326e6ed24bb/0_0_784_1200/master/784.jpg?width=700&quality=85&auto=format&fit=max&s=07b76b55b36cf2f0b56086c33d9e2763",
                             Language = "English",
-                            Name = "Shadows over Valoria",
-                            PageCount = 296,
-                            PublishedOn = new DateTime(2014, 5, 27, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7989),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(7992)
+                            Name = "The Silver Key of Dreams",
+                            PageCount = 456,
+                            PublishedOn = new DateTime(2014, 11, 12, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5530),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5530)
                         },
                         new
                         {
                             Id = 35,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8060),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5570),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-8428-8588",
-                            Image = "https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0",
+                            ISBN = "ISBN-7584-9226",
+                            Image = "https://www.adobe.com/express/create/cover/media_1e2dc95275528ac1678bc1a3f0ea5f348dc813591.jpeg?width=750&format=jpeg&optimize=medium",
                             Language = "English",
-                            Name = "Twilight of the Celestial Court",
-                            PageCount = 259,
-                            PublishedOn = new DateTime(2018, 7, 14, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8058),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8061)
+                            Name = "Chronicles of the Silver Mist",
+                            PageCount = 228,
+                            PublishedOn = new DateTime(2016, 2, 15, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5570),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5570)
                         },
                         new
                         {
                             Id = 36,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8141),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5600),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-8799-5694",
-                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
+                            ISBN = "ISBN-7432-2181",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
                             Language = "English",
-                            Name = "The Ivory Tower of Secrets",
-                            PageCount = 374,
-                            PublishedOn = new DateTime(2018, 9, 30, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8138),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8142)
+                            Name = "The Labyrinth of Lost Souls",
+                            PageCount = 307,
+                            PublishedOn = new DateTime(2017, 6, 27, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5600),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5600)
                         },
                         new
                         {
                             Id = 37,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8287),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5650),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-4204-4420",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
+                            ISBN = "ISBN-8614-8936",
+                            Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
                             Language = "English",
-                            Name = "Beneath the Crimson Moon",
-                            PageCount = 427,
-                            PublishedOn = new DateTime(2020, 2, 2, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8285),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8288)
+                            Name = "Twilight of the Celestial Court",
+                            PageCount = 463,
+                            PublishedOn = new DateTime(2020, 8, 17, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5650),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5650)
                         },
                         new
                         {
                             Id = 38,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8396),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5710),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-2365-3184",
+                            ISBN = "ISBN-5381-9686",
                             Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-NlVbe_m7VER_lfAVbKpyo2Shp9Wv6pLMg&usqp=CAU",
                             Language = "English",
-                            Name = "The Emerald Conundrum",
-                            PageCount = 125,
-                            PublishedOn = new DateTime(2019, 1, 1, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8394),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8397)
+                            Name = "The Alchemist's Shadow",
+                            PageCount = 372,
+                            PublishedOn = new DateTime(2020, 2, 3, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5710),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5710)
                         },
                         new
                         {
                             Id = 39,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8543),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5760),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-6648-3086",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
+                            ISBN = "ISBN-1961-6763",
+                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
                             Language = "English",
-                            Name = "The Magician's Reflection",
-                            PageCount = 228,
-                            PublishedOn = new DateTime(2021, 12, 27, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8541),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8544)
+                            Name = "The Ivory Tower of Secrets",
+                            PageCount = 327,
+                            PublishedOn = new DateTime(2018, 5, 12, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5760),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5760)
                         },
                         new
                         {
                             Id = 40,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8626),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5790),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-8510-9497",
-                            Image = "https://i0.wp.com/allaboutbookcovers.com/wp-content/uploads/2022/06/CourtOfThorns-copy.jpg?fit=1350%2C2025&ssl=1",
+                            ISBN = "ISBN-3762-1268",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
                             Language = "English",
-                            Name = "Secrets of the Jade Labyrinth",
-                            PageCount = 139,
-                            PublishedOn = new DateTime(2022, 6, 24, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8624),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8626)
+                            Name = "Dance of the Fireflies",
+                            PageCount = 458,
+                            PublishedOn = new DateTime(2015, 9, 6, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5780),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5790)
                         },
                         new
                         {
                             Id = 41,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8713),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5830),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-4325-2137",
-                            Image = "https://www.adobe.com/express/create/cover/media_1316972d23c5f2032e101572da69ae4aec3259fed.jpeg?width=400&format=jpeg&optimize=medium",
+                            ISBN = "ISBN-6347-2850",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThlIbwUK0HrnP1xp7l7k5qXs2goRkaFH62Zg&usqp=CAU",
                             Language = "English",
-                            Name = "The Last Voyage of the Star Sailor",
-                            PageCount = 228,
-                            PublishedOn = new DateTime(2015, 10, 17, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8711),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8714)
+                            Name = "Chronicle of the Shattered Lands",
+                            PageCount = 229,
+                            PublishedOn = new DateTime(2019, 11, 10, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5830),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5830)
                         },
                         new
                         {
                             Id = 42,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8911),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5890),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-5653-9034",
-                            Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
+                            ISBN = "ISBN-7428-5408",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
                             Language = "English",
-                            Name = "Voices from the Hollow Mountains",
-                            PageCount = 210,
-                            PublishedOn = new DateTime(2020, 5, 19, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8909),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8912)
+                            Name = "The Dragon's Heir",
+                            PageCount = 314,
+                            PublishedOn = new DateTime(2020, 6, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5880),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5890)
                         },
                         new
                         {
                             Id = 43,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9000),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5930),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-2262-7409",
-                            Image = "https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg",
+                            ISBN = "ISBN-8317-8845",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThlIbwUK0HrnP1xp7l7k5qXs2goRkaFH62Zg&usqp=CAU",
                             Language = "English",
-                            Name = "The Painter's Paradox",
-                            PageCount = 434,
-                            PublishedOn = new DateTime(2017, 1, 12, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(8997),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9001)
+                            Name = "The Emerald Conundrum",
+                            PageCount = 122,
+                            PublishedOn = new DateTime(2017, 7, 28, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5930),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(5930)
                         },
                         new
                         {
                             Id = 44,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9076),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6010),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-3464-2782",
-                            Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
+                            ISBN = "ISBN-6145-3638",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
                             Language = "English",
-                            Name = "The Rose of the Wastelands",
-                            PageCount = 158,
-                            PublishedOn = new DateTime(2020, 3, 21, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9073),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9077)
+                            Name = "The Enigma of the Crystal Towers",
+                            PageCount = 437,
+                            PublishedOn = new DateTime(2019, 9, 21, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6000),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6010)
                         },
                         new
                         {
                             Id = 45,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9216),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6060),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-2455-9279",
-                            Image = "https://i0.wp.com/allaboutbookcovers.com/wp-content/uploads/2022/06/CourtOfThorns-copy.jpg?fit=1350%2C2025&ssl=1",
+                            ISBN = "ISBN-8976-3850",
+                            Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1698210220",
                             Language = "English",
-                            Name = "The Meridian of Fate",
-                            PageCount = 331,
-                            PublishedOn = new DateTime(2022, 10, 4, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9214),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9217)
+                            Name = "Mysteries at the Edge of the Universe",
+                            PageCount = 402,
+                            PublishedOn = new DateTime(2018, 4, 23, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6060),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6060)
                         },
                         new
                         {
                             Id = 46,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9294),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6110),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-6858-7720",
-                            Image = "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg",
+                            ISBN = "ISBN-4328-2076",
+                            Image = "https://i.guim.co.uk/img/media/af1ea48f1eeaab4300691b35f585d326e6ed24bb/0_0_784_1200/master/784.jpg?width=700&quality=85&auto=format&fit=max&s=07b76b55b36cf2f0b56086c33d9e2763",
                             Language = "English",
-                            Name = "Beyond the Shadow Realm",
-                            PageCount = 297,
-                            PublishedOn = new DateTime(2016, 1, 28, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9293),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9295)
+                            Name = "Shadows over Valoria",
+                            PageCount = 451,
+                            PublishedOn = new DateTime(2022, 2, 24, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6100),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6110)
                         },
                         new
                         {
                             Id = 47,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9366),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6160),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-6202-4670",
-                            Image = "https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg",
+                            ISBN = "ISBN-4971-2449",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-NlVbe_m7VER_lfAVbKpyo2Shp9Wv6pLMg&usqp=CAU",
                             Language = "English",
-                            Name = "The Last Symphony of Autumn",
-                            PageCount = 337,
-                            PublishedOn = new DateTime(2021, 8, 11, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9364),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9367)
+                            Name = "Whispers from the Other Side",
+                            PageCount = 370,
+                            PublishedOn = new DateTime(2014, 1, 1, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6160),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6160)
                         },
                         new
                         {
                             Id = 48,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9517),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6210),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-2301-7832",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
+                            ISBN = "ISBN-1438-3387",
+                            Image = "https://www.adobe.com/express/create/cover/media_1e2dc95275528ac1678bc1a3f0ea5f348dc813591.jpeg?width=750&format=jpeg&optimize=medium",
                             Language = "English",
-                            Name = "In the Heart of the Storm",
-                            PageCount = 418,
-                            PublishedOn = new DateTime(2014, 11, 9, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9515),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9518)
+                            Name = "Eclipses of the Past",
+                            PageCount = 368,
+                            PublishedOn = new DateTime(2015, 7, 1, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6200),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6210)
                         },
                         new
                         {
                             Id = 49,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9597),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6230),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-4165-7512",
-                            Image = "https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0",
+                            ISBN = "ISBN-7943-4832",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
                             Language = "English",
-                            Name = "The Alchemist's Shadow",
-                            PageCount = 457,
-                            PublishedOn = new DateTime(2018, 9, 28, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9595),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9598)
+                            Name = "Eclipses of the Past",
+                            PageCount = 437,
+                            PublishedOn = new DateTime(2019, 10, 19, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6230),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6230)
                         },
                         new
                         {
                             Id = 50,
-                            Created = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9706),
+                            Created = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6270),
                             Description = "An engaging and compelling story about...",
-                            ISBN = "ISBN-6921-1170",
-                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCBozk3sxY9-hx2apV246Aop5hzCKe1Yoe2I_bVICUPiXNu5IXSaeKY0rWJt5qOVEYMRo&usqp=CAU",
+                            ISBN = "ISBN-8125-9412",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
                             Language = "English",
-                            Name = "The Sorceress's Labyrinth",
-                            PageCount = 365,
-                            PublishedOn = new DateTime(2016, 9, 20, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9704),
-                            Updated = new DateTime(2023, 12, 6, 1, 24, 37, 431, DateTimeKind.Local).AddTicks(9707)
+                            Name = "The Ivory Tower of Secrets",
+                            PageCount = 319,
+                            PublishedOn = new DateTime(2018, 6, 15, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6270),
+                            Updated = new DateTime(2023, 12, 7, 18, 36, 45, 233, DateTimeKind.Local).AddTicks(6270)
                         });
                 });
 
@@ -1629,102 +1614,87 @@ namespace ASI.Basecode.Data.Migrations
                         new
                         {
                             BookId = 1,
-                            GenreId = 6
+                            GenreId = 4
+                        },
+                        new
+                        {
+                            BookId = 1,
+                            GenreId = 11
                         },
                         new
                         {
                             BookId = 2,
-                            GenreId = 45
-                        },
-                        new
-                        {
-                            BookId = 2,
-                            GenreId = 22
+                            GenreId = 15
                         },
                         new
                         {
                             BookId = 3,
-                            GenreId = 42
+                            GenreId = 6
+                        },
+                        new
+                        {
+                            BookId = 3,
+                            GenreId = 1
                         },
                         new
                         {
                             BookId = 4,
-                            GenreId = 50
-                        },
-                        new
-                        {
-                            BookId = 5,
                             GenreId = 16
                         },
                         new
                         {
                             BookId = 5,
-                            GenreId = 5
+                            GenreId = 23
+                        },
+                        new
+                        {
+                            BookId = 5,
+                            GenreId = 36
                         },
                         new
                         {
                             BookId = 6,
-                            GenreId = 34
-                        },
-                        new
-                        {
-                            BookId = 6,
-                            GenreId = 39
+                            GenreId = 4
                         },
                         new
                         {
                             BookId = 7,
-                            GenreId = 30
-                        },
-                        new
-                        {
-                            BookId = 7,
-                            GenreId = 39
-                        },
-                        new
-                        {
-                            BookId = 8,
                             GenreId = 35
                         },
                         new
                         {
-                            BookId = 9,
-                            GenreId = 6
+                            BookId = 8,
+                            GenreId = 43
+                        },
+                        new
+                        {
+                            BookId = 8,
+                            GenreId = 23
                         },
                         new
                         {
                             BookId = 9,
-                            GenreId = 39
+                            GenreId = 14
                         },
                         new
                         {
                             BookId = 10,
-                            GenreId = 29
+                            GenreId = 34
                         },
                         new
                         {
                             BookId = 11,
-                            GenreId = 10
-                        },
-                        new
-                        {
-                            BookId = 12,
-                            GenreId = 3
-                        },
-                        new
-                        {
-                            BookId = 12,
                             GenreId = 19
                         },
                         new
                         {
-                            BookId = 13,
-                            GenreId = 21
+                            BookId = 12,
+                            GenreId = 12
                         },
                         new
                         {
                             BookId = 13,
-                            GenreId = 19
+                            GenreId = 22
                         },
                         new
                         {
@@ -1733,33 +1703,23 @@ namespace ASI.Basecode.Data.Migrations
                         },
                         new
                         {
-                            BookId = 14,
-                            GenreId = 13
+                            BookId = 15,
+                            GenreId = 24
                         },
                         new
                         {
                             BookId = 15,
-                            GenreId = 13
-                        },
-                        new
-                        {
-                            BookId = 15,
-                            GenreId = 42
+                            GenreId = 9
                         },
                         new
                         {
                             BookId = 16,
-                            GenreId = 6
+                            GenreId = 30
                         },
                         new
                         {
                             BookId = 16,
-                            GenreId = 34
-                        },
-                        new
-                        {
-                            BookId = 17,
-                            GenreId = 41
+                            GenreId = 38
                         },
                         new
                         {
@@ -1768,233 +1728,253 @@ namespace ASI.Basecode.Data.Migrations
                         },
                         new
                         {
+                            BookId = 17,
+                            GenreId = 30
+                        },
+                        new
+                        {
                             BookId = 18,
-                            GenreId = 26
-                        },
-                        new
-                        {
-                            BookId = 19,
-                            GenreId = 43
-                        },
-                        new
-                        {
-                            BookId = 19,
-                            GenreId = 1
-                        },
-                        new
-                        {
-                            BookId = 20,
-                            GenreId = 29
-                        },
-                        new
-                        {
-                            BookId = 21,
-                            GenreId = 50
-                        },
-                        new
-                        {
-                            BookId = 21,
-                            GenreId = 48
-                        },
-                        new
-                        {
-                            BookId = 22,
-                            GenreId = 28
-                        },
-                        new
-                        {
-                            BookId = 23,
-                            GenreId = 39
-                        },
-                        new
-                        {
-                            BookId = 24,
-                            GenreId = 7
-                        },
-                        new
-                        {
-                            BookId = 24,
-                            GenreId = 16
-                        },
-                        new
-                        {
-                            BookId = 25,
-                            GenreId = 9
-                        },
-                        new
-                        {
-                            BookId = 25,
-                            GenreId = 6
-                        },
-                        new
-                        {
-                            BookId = 26,
-                            GenreId = 22
-                        },
-                        new
-                        {
-                            BookId = 27,
-                            GenreId = 24
-                        },
-                        new
-                        {
-                            BookId = 28,
-                            GenreId = 4
-                        },
-                        new
-                        {
-                            BookId = 28,
-                            GenreId = 2
-                        },
-                        new
-                        {
-                            BookId = 29,
-                            GenreId = 21
-                        },
-                        new
-                        {
-                            BookId = 29,
-                            GenreId = 38
-                        },
-                        new
-                        {
-                            BookId = 30,
-                            GenreId = 40
-                        },
-                        new
-                        {
-                            BookId = 31,
-                            GenreId = 5
-                        },
-                        new
-                        {
-                            BookId = 31,
-                            GenreId = 40
-                        },
-                        new
-                        {
-                            BookId = 32,
-                            GenreId = 13
-                        },
-                        new
-                        {
-                            BookId = 32,
-                            GenreId = 25
-                        },
-                        new
-                        {
-                            BookId = 33,
-                            GenreId = 3
-                        },
-                        new
-                        {
-                            BookId = 34,
-                            GenreId = 18
-                        },
-                        new
-                        {
-                            BookId = 35,
-                            GenreId = 17
-                        },
-                        new
-                        {
-                            BookId = 36,
-                            GenreId = 19
-                        },
-                        new
-                        {
-                            BookId = 36,
-                            GenreId = 34
-                        },
-                        new
-                        {
-                            BookId = 37,
-                            GenreId = 21
-                        },
-                        new
-                        {
-                            BookId = 37,
-                            GenreId = 26
-                        },
-                        new
-                        {
-                            BookId = 38,
-                            GenreId = 46
-                        },
-                        new
-                        {
-                            BookId = 38,
-                            GenreId = 33
-                        },
-                        new
-                        {
-                            BookId = 39,
-                            GenreId = 29
-                        },
-                        new
-                        {
-                            BookId = 39,
-                            GenreId = 4
-                        },
-                        new
-                        {
-                            BookId = 40,
-                            GenreId = 23
-                        },
-                        new
-                        {
-                            BookId = 41,
-                            GenreId = 37
-                        },
-                        new
-                        {
-                            BookId = 41,
                             GenreId = 42
                         },
                         new
                         {
-                            BookId = 42,
-                            GenreId = 16
+                            BookId = 19,
+                            GenreId = 14
                         },
                         new
                         {
-                            BookId = 43,
-                            GenreId = 8
+                            BookId = 19,
+                            GenreId = 12
                         },
                         new
                         {
-                            BookId = 43,
-                            GenreId = 25
+                            BookId = 20,
+                            GenreId = 15
                         },
                         new
                         {
-                            BookId = 44,
-                            GenreId = 2
+                            BookId = 20,
+                            GenreId = 7
                         },
                         new
                         {
-                            BookId = 44,
-                            GenreId = 38
+                            BookId = 21,
+                            GenreId = 4
                         },
                         new
                         {
-                            BookId = 45,
-                            GenreId = 43
+                            BookId = 21,
+                            GenreId = 11
                         },
                         new
                         {
-                            BookId = 46,
+                            BookId = 22,
+                            GenreId = 7
+                        },
+                        new
+                        {
+                            BookId = 23,
+                            GenreId = 21
+                        },
+                        new
+                        {
+                            BookId = 24,
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BookId = 24,
+                            GenreId = 46
+                        },
+                        new
+                        {
+                            BookId = 25,
+                            GenreId = 44
+                        },
+                        new
+                        {
+                            BookId = 25,
+                            GenreId = 1
+                        },
+                        new
+                        {
+                            BookId = 26,
+                            GenreId = 19
+                        },
+                        new
+                        {
+                            BookId = 26,
+                            GenreId = 9
+                        },
+                        new
+                        {
+                            BookId = 27,
+                            GenreId = 7
+                        },
+                        new
+                        {
+                            BookId = 28,
+                            GenreId = 41
+                        },
+                        new
+                        {
+                            BookId = 29,
+                            GenreId = 34
+                        },
+                        new
+                        {
+                            BookId = 29,
+                            GenreId = 7
+                        },
+                        new
+                        {
+                            BookId = 30,
+                            GenreId = 46
+                        },
+                        new
+                        {
+                            BookId = 30,
+                            GenreId = 1
+                        },
+                        new
+                        {
+                            BookId = 31,
+                            GenreId = 32
+                        },
+                        new
+                        {
+                            BookId = 31,
+                            GenreId = 19
+                        },
+                        new
+                        {
+                            BookId = 32,
+                            GenreId = 48
+                        },
+                        new
+                        {
+                            BookId = 32,
+                            GenreId = 36
+                        },
+                        new
+                        {
+                            BookId = 33,
+                            GenreId = 5
+                        },
+                        new
+                        {
+                            BookId = 34,
+                            GenreId = 32
+                        },
+                        new
+                        {
+                            BookId = 35,
+                            GenreId = 6
+                        },
+                        new
+                        {
+                            BookId = 35,
+                            GenreId = 48
+                        },
+                        new
+                        {
+                            BookId = 36,
+                            GenreId = 31
+                        },
+                        new
+                        {
+                            BookId = 37,
+                            GenreId = 22
+                        },
+                        new
+                        {
+                            BookId = 37,
                             GenreId = 29
                         },
                         new
                         {
+                            BookId = 38,
+                            GenreId = 16
+                        },
+                        new
+                        {
+                            BookId = 39,
+                            GenreId = 16
+                        },
+                        new
+                        {
+                            BookId = 40,
+                            GenreId = 33
+                        },
+                        new
+                        {
+                            BookId = 41,
+                            GenreId = 44
+                        },
+                        new
+                        {
+                            BookId = 41,
+                            GenreId = 39
+                        },
+                        new
+                        {
+                            BookId = 42,
+                            GenreId = 36
+                        },
+                        new
+                        {
+                            BookId = 43,
+                            GenreId = 43
+                        },
+                        new
+                        {
+                            BookId = 43,
+                            GenreId = 10
+                        },
+                        new
+                        {
+                            BookId = 44,
+                            GenreId = 37
+                        },
+                        new
+                        {
+                            BookId = 44,
+                            GenreId = 50
+                        },
+                        new
+                        {
+                            BookId = 45,
+                            GenreId = 46
+                        },
+                        new
+                        {
+                            BookId = 45,
+                            GenreId = 41
+                        },
+                        new
+                        {
+                            BookId = 46,
+                            GenreId = 24
+                        },
+                        new
+                        {
+                            BookId = 46,
+                            GenreId = 37
+                        },
+                        new
+                        {
                             BookId = 47,
-                            GenreId = 23
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BookId = 47,
+                            GenreId = 42
                         },
                         new
                         {
                             BookId = 48,
-                            GenreId = 22
+                            GenreId = 24
                         },
                         new
                         {
@@ -2004,12 +1984,7 @@ namespace ASI.Basecode.Data.Migrations
                         new
                         {
                             BookId = 50,
-                            GenreId = 39
-                        },
-                        new
-                        {
-                            BookId = 50,
-                            GenreId = 34
+                            GenreId = 13
                         });
                 });
 

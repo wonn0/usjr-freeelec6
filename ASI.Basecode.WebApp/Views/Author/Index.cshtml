@@ -30,9 +30,9 @@
             <div class="col col-left">
                 <div class="search-container">
                     <form class="search-container d-flex" role="search" method="get"
-                          action="@Url.Action("Index", "Author")">
-                        <input class="form-control me-2 search-input" type="search" placeholder="Search"
-                               aria-label="Search" name="searchQuery">
+                        action="@Url.Action("Index", "Author")">
+                        <input class="form-control me-2 search-input" type="search" placeholder="Search Authors"
+                            aria-label="Search" name="searchQuery">
                         <button class="btn btn-outline-success search-button" type="submit">Search</button>
                     </form>
 
@@ -41,7 +41,7 @@
             <div class="col col-right">
                 <a href="@Url.Action("Create", "Author")" class="btn btn-skooby btn-primary">Add New Author</a>
             </div>
-        </div> 
+        </div>
     </div>
 
     <div class="row">
@@ -62,8 +62,9 @@
                             <td>@author.FirstName</td>
                             <td>@author.LastName</td>
                             <td>
-                                <a href="@Url.Action("Details", "Author", new { id = author.Id })" class="btn btn-info btn-primary">Details</a>
-                                <a href="@Url.Action("Edit", "Author", new { id = author.Id })" class="btn btn-success btn-primary">Edit</a>
+
+                                <a href="@Url.Action("Edit", "Author", new { id = author.Id })"
+                                    class="btn btn-success btn-primary">Edit</a>
                                 <form action="@Url.Action("Delete", "Author")" method="post" style="display: inline;">
                                     <input type="hidden" name="id" value="@author.Id" />
                                     <input type="submit" value="Delete" class="btn btn-danger" />
@@ -76,5 +77,3 @@
         </div>
     </div>
 </div>
-
-

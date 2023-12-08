@@ -1,7 +1,7 @@
 @model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
-@{ 
+@{
     ViewBag.ShowSideBar = true;
-    ViewBag.ShowUserList = true; 
+    ViewBag.ShowUserList = true;
     ViewData["Title"] = "User Management";
 }
 @section styles {
@@ -10,12 +10,11 @@
 
 
 <style>
-
-    .user-id{
-        width:25%;
+    .user-id {
+        width: 25%;
         word-break: break-all;
     }
-     
+
     .table tbody tr:nth-child(odd) {
         background-color: #f3f3f3;
     }
@@ -35,9 +34,9 @@
             <div class="col col-left">
                 <div class="search-container">
                     <form class="search-container d-flex" role="search" method="get"
-                          action="@Url.Action("Index", "Author")">
+                        action="@Url.Action("Index", "Author")">
                         <input class="form-control me-2 search-input" type="search" placeholder="Search"
-                               aria-label="Search" name="searchQuery">
+                            aria-label="Search" name="searchQuery">
                         <button class="btn btn-outline-success search-button" type="submit">Search</button>
                     </form>
 
@@ -71,10 +70,10 @@
                             <td>@user.Email</td>
                             <td>@user.UserName</td>
                             <td>
-                                <a asp-action="Details" asp-route-id="@user.Id" class="btn btn-info">Details</a>
                                 <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-success btn-primary">Edit</a>
-
-                                <a asp-action="Delete" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
+                                <form asp-action="Delete" asp-route-id="@user.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this?');">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     }
@@ -83,10 +82,10 @@
         </div>
     </div>
 </div>
- 
+
 
 @section Scripts {
     <script>
         // Add any additional JavaScript here if needed
     </script>
-} 
+}

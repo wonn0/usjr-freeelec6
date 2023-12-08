@@ -101,30 +101,15 @@ namespace ASI.Basecode.WebApp.Controllers
             return await _userManager.FindByIdAsync(id) != null;
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Delete(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var user = await _userManager.FindByIdAsync(id);
-        //    if (user == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(user);
-        //}
-
         // POST: Admin/Delete/{id}
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(string id)
         {
+            _logger.LogInformation("HER");
+            _logger.LogInformation("asd");
             var user = await _userManager.FindByIdAsync(id);
-            _logger.LogInformation($"{user.UserName}");
+            _logger.LogInformation($"User: {user.UserName}");
             try
             { 
                 if (user != null)
