@@ -24,7 +24,7 @@
 <div class="form-container container">
    
     <div class="row">
-        <div class="col center-content"><img src="@Model.Image" alt="Book Cover" class="book-image" /><p>Book Image</p></div>
+        <div class="col center-content"><img src="@(String.IsNullOrEmpty(Model.Image) ? "/img/book-image-filler.png" : Model.Image)" alt="Book Cover" class="book-image" /><p>Book Image</p></div>
         <div class="col">
             <div class="row">
                 <div class="col">
