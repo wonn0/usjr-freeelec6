@@ -69,7 +69,11 @@ namespace Skooby.WebApp.Controllers
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
-                model = allBooks.Where(book => book.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+                model = allBooks.Where(book =>
+                    book.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                    book.AuthorNames.Any(author => author.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)) ||
+                    book.GenreNames.Any(genre => genre.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                );
             }
             else
             {
@@ -215,15 +219,15 @@ namespace Skooby.WebApp.Controllers
                 .Select(result => result.Book)
                 .ToList();
 
-            ViewBag.CurrentPage = pageNo; 
-            ViewBag.TotalPages =totalPages;
-           
+            ViewBag.CurrentPage = pageNo;
+            ViewBag.TotalPages = totalPages;
+
             return View(booksWithReviews);
         }
- 
 
 
- 
+
+
 
         [HttpGet]
         public IActionResult AuthorRelatedWorks(string author, int pageNo = 1)
@@ -344,7 +348,7 @@ namespace Skooby.WebApp.Controllers
             return View(model);
         }
 
- 
+
 
 
         [HttpPost]
