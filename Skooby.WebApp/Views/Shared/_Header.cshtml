@@ -13,10 +13,10 @@
     </div>
 
     <div class="searchbar-header">
-        <form class="d-flex filter-searchbar" role="search" method="get">
-            <input class="form-control me-2 search-input" name="searchTerm" type="search" placeholder="Search"
-                   aria-label="Search">
-            <button class="btn btn-outline-success search-button" type="submit">Search</button>
+        <form class="d-flex filter-searchbar" role="search" method="get" asp-controller="Home" asp-action="Index">
+               <input class="form-control me-2 search-input" name="searchTerm" type="search" placeholder="Search"
+                           aria-label="Search">
+                    <button class="btn btn-outline-success search-button" type="submit">Search</button>
         </form>
     </div>
     
