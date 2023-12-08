@@ -40,6 +40,7 @@ namespace ASI.Basecode.Services.Services
         public BookViewModel GetBookById(int id)
         {
             var book = _bookRepository.GetBookById(id);
+            Console.WriteLine($"Book found: {book.Id}. Author count: {book.AuthorBooks?.Count ?? 0}, Genre count: {book.BookGenres?.Count ?? 0}");
             return _mapper.Map<BookViewModel>(book);
         }
 

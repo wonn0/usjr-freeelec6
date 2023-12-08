@@ -53,6 +53,8 @@ namespace ASI.Basecode.WebApp.Controllers
 
             var totalBooks = bookViewModels.Count();
 
+            _logger.LogInformation($"{bookViewModels[0].Name}");
+
             var model = bookViewModels.Skip((pageNo - 1) * pageSize)
                                       .Take(pageSize)
                                       .ToList();

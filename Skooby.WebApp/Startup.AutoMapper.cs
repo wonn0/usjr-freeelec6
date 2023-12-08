@@ -34,10 +34,15 @@ namespace Skooby.WebApp
                 // The second CreateMap<UserViewModel, User>(); is redundant and can be removed.
 
                 CreateMap<Book, BookViewModel>()
-                    .ForMember(dest => dest.AuthorIds, opt => opt.MapFrom(src => src.AuthorBooks.Select(ab => ab.AuthorId)))
+                    .ForMember(dest => dest.AuthorIds, opt => opt.MapFrom(src => src.AuthorBooks
+                        .Where(ab => ab.Author != null)
+                        .Select(ab => ab.AuthorId)))
                     .ForMember(dest => dest.AuthorNames, opt => opt.MapFrom(src => src.AuthorBooks
                         .Where(ab => ab.Author != null)
                         .Select(ab => ab.Author.FirstName + " " + ab.Author.LastName)))
+                    .ForMember(dest => dest.GenreIds, opt => opt.MapFrom(src => src.BookGenres
+                        .Where(bg => bg.Genre != null)
+                        .Select(bg => bg.GenreId)))
                     .ForMember(dest => dest.GenreNames, opt => opt.MapFrom(src => src.BookGenres.Select(bg => bg.Genre.Name)));
                 CreateMap<BookViewModel, Book>();
 
