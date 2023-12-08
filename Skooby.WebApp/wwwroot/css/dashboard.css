@@ -65,6 +65,7 @@ body {
 .book-wrapper {
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 .book-content {
@@ -81,13 +82,10 @@ body {
     min-width: 150px; 
     max-height: 200px; 
     margin: 0 auto; 
-    display: block;
-<<<<<<< Updated upstream
-=======
+    display: block; 
     justify-content: center;
     align-items: center;
     overflow: hidden;
->>>>>>> Stashed changes
 }
 .suggest-book-image{
   
@@ -98,18 +96,18 @@ body {
 }
 .book-image {
     border-radius: 10px;
-    width: 120px; /* This makes the image fill its container */
+    width: 120px; 
     height: 200px !important; /* This ensures the image maintains its aspect ratio */
     display: block;
     object-fit: cover;
 }
 
 .book-title {
-    font-size: 1.2rem; /* Adjust the font size as needed */
-    white-space: nowrap; /* Prevent line breaks */
+    color: #FF7519;
+    font-size: 1.2rem; 
+    white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
-    background-color: blue;/* Add ellipsis for long titles */
 }
 .book-genre {
     margin-top: 30px;
@@ -140,6 +138,7 @@ hr {
     box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
     -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
     -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
+    
 }
 
 .book-image-preview:hover + .book-info-card {
@@ -170,8 +169,13 @@ hr {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-
-.filter-category-titles{
+.filter-category {
+    color: var(--primary-color);
+}
+.filter-category:hover {
+    color: var(--secondary-color);
+}
+.filter-category-titles {
     color:var(--primary-color);
 }
 
@@ -205,10 +209,11 @@ hr {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    margin: 5px 0px !important;
+    margin: 5px 10px !important;
     /*word-break: break-all !important;*/
     font-size: 15px;
     width: 100%;
+    padding-bottom: 10px;
     /*-webkit-mask-image: linear-gradient(90deg, #000 60%, transparent);*/
 }
 
