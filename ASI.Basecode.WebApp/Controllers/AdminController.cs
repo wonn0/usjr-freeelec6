@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using static ASI.Basecode.Resources.Constants.Constants;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace ASI.Basecode.WebApp.Controllers
 {
@@ -32,12 +34,26 @@ namespace ASI.Basecode.WebApp.Controllers
             //ViewBag.ShowUserList = isSuperAdmin;
             return View();
         }
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> IndexAsync(string searchQuery)
         {
-            var users = await _userManager.Users.ToListAsync();
-            _logger.LogInformation("Loaded all users");
+            IEnumerable<IdentityUser> users;
+
+            if (string.IsNullOrWhiteSpace(searchQuery))
+            {
+                users = await _userManager.Users.ToListAsync();
+                _logger.LogInformation("Loaded all users");
+            }
+            else
+            {
+                users = await _userManager.Users
+                    .Where(u => u.UserName.Contains(searchQuery) || u.Email.Contains(searchQuery))
+                    .ToListAsync();
+                _logger.LogInformation("Loaded users with search query: {SearchQuery}", searchQuery);
+            }
+
             return View(users);
         }
+
 
         public async Task<IActionResult> Edit(string id)
         {
