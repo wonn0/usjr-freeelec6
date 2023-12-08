@@ -64,8 +64,8 @@
 
         <div class="pagination">
             @if (ViewBag.CurrentPage > 5)
-            {
-                int previousViewLastPage = ((ViewBag.CurrentPage - 1) / 5) * 5;
+            { 
+                int previousViewLastPage = ((ViewBag.CurrentPage - 1) / 5) * 5; 
 
                 <a href="@Url.Action("GenreSeeMore", "Home", new { pageNo = previousViewLastPage })" class="prev-next">&lt;</a>
             }
@@ -93,8 +93,8 @@
 
             @if (ViewBag.CurrentPage <= (ViewBag.TotalPages - (ViewBag.TotalPages % 5)) && ViewBag.TotalPages > 5)
             {
-
-                int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : ((ViewBag.CurrentPage - 1) / 5) * 5 + 6;
+ 
+                int nextViewFirstPage = ViewBag.CurrentPage < 6 ? 6 : ((ViewBag.CurrentPage - 1) / 5) * 5 + 6; 
 
                 <a href="@Url.Action("GenreSeeMore", "Home", new { pageNo = nextViewFirstPage })" class="prev-next">&gt;</a>
             }

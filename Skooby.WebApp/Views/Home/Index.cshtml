@@ -2,16 +2,15 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Home Page";
-
-   
+ 
 }
 
 @section styles {
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/dashboard.css" />
 
-    <link rel="stylesheet" href="~/css/pagination.css" />
-}
+    <link rel="stylesheet" href="~/css/pagination.css" /> 
+}  
 <style>
     .sidebar-content {
         height: auto;
@@ -26,7 +25,7 @@
         -webkit-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
         -moz-box-shadow: 2px 1px 8px 0px rgba(0,0,0,0.67);
     }
-
+ 
      .Seemore {
     text-align: center;
 }
@@ -35,10 +34,7 @@
             color: #B64110;
             text-decoration: none;
     }
-
-
-
-
+ 
 </style>
 
 <div class="background-div">
@@ -54,8 +50,7 @@
                 var uniqueGenres = Model.SelectMany(book => book.GenreNames)
                 .Distinct()
                 .OrderBy(genre => genre);
-
-
+ 
             }
 
             @foreach (var genre in uniqueGenres)
@@ -129,8 +124,7 @@
                     var allGenres = Model.SelectMany(book => book.GenreNames).Distinct().OrderBy(genre => genre).ToList();
                     var visibleGenres = allGenres.Take(14).ToList();
                     var remainingGenres = allGenres.Skip(14).ToList();
-                }
-
+                } 
                 <div class="filter-category-container" id="filterCategoryContainer">
                     
                     
@@ -138,7 +132,7 @@
                     {
                         <a href="#" class="genre-link" data-genre="@genre">
                             <p class="filter-category-titles">@genre</p>
-                        </a>
+                        </a> 
                     }
                    
 
@@ -155,8 +149,7 @@
         </div>
     </div>
 </section>
-
-
+ 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -196,7 +189,7 @@
         }
 
     });
-</script>
+</script> 
 
 
 <script>
@@ -208,7 +201,7 @@
         var container = document.getElementById('bookListContainer');
         var books = container.getElementsByClassName('book-genre');
 
-
+ 
         for (var i = 0; i < books.length; i++) {
             books[i].style.display = 'none';
         }
@@ -220,25 +213,24 @@
         } else {
             currentPage = pageNumber;
         }
-
-
+ 
         var startIndex = (currentPage - 1) * booksPerPage;
         var endIndex = startIndex + booksPerPage;
 
-
+ 
         for (var i = startIndex; i < endIndex && i < books.length; i++) {
             books[i].style.display = 'block';
         }
-
-
+ 
         document.getElementById('currentPage').innerText = currentPage;
         document.getElementById('totalPages').innerText = Math.ceil(books.length / booksPerPage);
     }
 
+ 
 
     showPage(1);
 </script>
-
+ 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

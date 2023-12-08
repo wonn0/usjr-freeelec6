@@ -148,8 +148,12 @@ namespace ASI.Basecode.Data
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDQnigiVI5kU-UYO_Ourb8H5uaXUP-FYYZ7SFSqMSPTb3ZcCxg2rBwRqcINTKAp7uVNQ&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?qcd=tbn:ANd9GcRWlgwga9KKQCQo2tPQ1-vkIEdIFX9Dp7OJwg&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-NlVbe_m7VER_lfAVbKpyo2Shp9Wv6pLMg&usqp=CAU",
-        "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg","https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0"
-
+        "https://1stwebdesigner.com/wp-content/uploads/2011/05/the-great-gatsby.jpg","https://compote.slate.com/images/4262aedd-78f0-4669-a1b9-c7d08c67897a.jpeg?crop=693%2C1040%2Cx0%2Cy0","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThlIbwUK0HrnP1xp7l7k5qXs2goRkaFH62Zg&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjSjNwRh91T9hdJJ2YqZX8ZD3mO30cNsDgWg&usqp=CAU",
+        "https://www.adobe.com/express/create/cover/media_1e2dc95275528ac1678bc1a3f0ea5f348dc813591.jpeg?width=750&format=jpeg&optimize=medium",
+        "https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2017/10/the-50-coolest-book-covers-47.jpg",
+        "https://getcovers.com/wp-content/uploads/2022/01/cover-10-e1642585646366.jpeg",
+        "https://i.guim.co.uk/img/media/af1ea48f1eeaab4300691b35f585d326e6ed24bb/0_0_784_1200/master/784.jpg?width=700&quality=85&auto=format&fit=max&s=07b76b55b36cf2f0b56086c33d9e2763"
 };
 
             // Generate books
