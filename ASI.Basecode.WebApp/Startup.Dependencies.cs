@@ -35,6 +35,7 @@ namespace ASI.Basecode.WebApp
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IBookReviewService, BookReviewService>();
+            services.AddScoped<IEmailService, EmailService>();
 
             // Repositories
             services.AddScoped<IUserRepository, UserRepository>();
