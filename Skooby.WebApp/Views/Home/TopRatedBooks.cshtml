@@ -53,7 +53,7 @@
                     }
                     @foreach (var book in recentBooks)
                     {
-                        <div class="book-content">
+                        <div class="book-content" data-genres="@string.Join(", ", book.GenreNames)">
                             <a href="@Url.Action("ViewBook", "Home", new { id = book.Id })">
                                 <div class="book-image-preview">
                                     <img class="book-image" src="@(String.IsNullOrEmpty(book.Image) ? "/img/book-image-filler.png" : book.Image)" alt="@book.Name" />
@@ -175,6 +175,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
 @* JQuery Script for deletion (calls delete method in controller as http) *@
 <script>
     $(document).ready(function () {
@@ -187,6 +188,66 @@
                     alert('Unable to delete.');
                 });
             }
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Initially hide remaining genres
+        var isSeeMore = true;
+        var remainingGenres = @Json.Serialize(remainingGenres);
+
+        $("#seeMoreLink").click(function (e) {
+            e.preventDefault();
+
+            if (isSeeMore) {
+                showRemainingGenres();
+                $("#seeMoreLink").find(".filter-category").text("See Less");
+            } else {
+                hideRemainingGenres();
+                $("#seeMoreLink").find(".filter-category").text("See More");
+            }
+
+            isSeeMore = !isSeeMore;
+        });
+
+        function showRemainingGenres() {
+            var remainingGenresContainer = $("#filterCategoryContainer");
+
+            for (var i = 0; i < remainingGenres.length; i++) {
+                var genre = remainingGenres[i];
+                var genreLink = $("<a>").attr("href", "#").addClass("genre-link").data("genre", genre);
+                var genreTitle = $("<p>").addClass("filter-category-titles").text(genre);
+                genreLink.append(genreTitle);
+                remainingGenresContainer.append(genreLink);
+            }
+        }
+
+        function hideRemainingGenres() {
+
+            $(".genre-link").not(":lt(13)").remove();
+        }
+
+    });
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.filter-category-titles').click(function () {
+            var selectedGenre = $(this).text().trim();
+
+            // Hide all books initially
+            $('.book-content').hide();
+
+            // Filter and show books that match the selected genre
+            $('.book-content').filter(function () {
+                var genres = $(this).data('genres').split(', ');
+                return genres.includes(selectedGenre);
+            }).show();
         });
     });
 </script>
